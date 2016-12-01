@@ -60,6 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientinfoCreator.cs" />
+    <Compile Include="ClientinfoCreator.Designer.cs">
+      <DependentUpon>ClientinfoCreator.cs</DependentUpon>
+    </Compile>
     <Compile Include="CryptoRandom.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="MainForm.cs" />
@@ -70,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ClientinfoCreator.resx">
+      <DependentUpon>ClientinfoCreator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
