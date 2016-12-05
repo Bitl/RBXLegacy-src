@@ -239,7 +239,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
 			NetworkClient:Connect(ServerIP,ServerPort);
 		end);
 		if (not Error) then
-			SetMessage("Error: Connection failed");
+			SetMessage("Failed to connect to the Game.");
 		end
 	end
 	pcall(function() Player:SetUnder13(false) end);

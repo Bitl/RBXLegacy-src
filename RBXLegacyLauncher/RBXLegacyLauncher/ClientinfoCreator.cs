@@ -124,7 +124,7 @@ namespace RBXLegacyLauncher
 					GlobalVars.ClientCreator_LoadsAssetsOnline = bline5;
 					
 					Boolean bline6 = bool.Parse(line6);
-					GlobalVars.ClientCreator_NewMapLoader = bline6;
+					GlobalVars.ClientCreator_ModernClient = bline6;
 						
 					GlobalVars.ClientCreator_SelectedClientDesc = line7;
 					
@@ -133,7 +133,7 @@ namespace RBXLegacyLauncher
 					checkBox3.Checked = GlobalVars.ClientCreator_SupportsLocalPlay;
 					checkBox4.Checked = GlobalVars.ClientCreator_SupportsAppearanceID;
 					checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
-					checkBox6.Checked = GlobalVars.ClientCreator_NewMapLoader;
+					checkBox6.Checked = GlobalVars.ClientCreator_ModernClient;
 					textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
             	}
 			}
@@ -150,7 +150,7 @@ namespace RBXLegacyLauncher
 
             	if (sfd.ShowDialog() == DialogResult.OK)
             	{
-            		string[] lines = { GlobalVars.ClientCreator_UsesPlayerName.ToString(), GlobalVars.ClientCreator_UsesID.ToString(), GlobalVars.ClientCreator_SupportsLocalPlay.ToString(), GlobalVars.ClientCreator_SupportsAppearanceID.ToString(), GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), GlobalVars.ClientCreator_NewMapLoader.ToString(), GlobalVars.ClientCreator_SelectedClientDesc.ToString() };
+            		string[] lines = { GlobalVars.ClientCreator_UsesPlayerName.ToString(), GlobalVars.ClientCreator_UsesID.ToString(), GlobalVars.ClientCreator_SupportsLocalPlay.ToString(), GlobalVars.ClientCreator_SupportsAppearanceID.ToString(), GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), GlobalVars.ClientCreator_ModernClient.ToString(), GlobalVars.ClientCreator_SelectedClientDesc.ToString() };
 					File.WriteAllLines(sfd.FileName, lines);
             	}     
 			}			
@@ -180,14 +180,14 @@ namespace RBXLegacyLauncher
 			GlobalVars.ClientCreator_SupportsLocalPlay = false;
 			GlobalVars.ClientCreator_SupportsAppearanceID = false;
 			GlobalVars.ClientCreator_LoadsAssetsOnline = false;
-			GlobalVars.ClientCreator_NewMapLoader = false;
+			GlobalVars.ClientCreator_ModernClient = false;
 			GlobalVars.ClientCreator_SelectedClientDesc = "";
 			checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 			checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
 			checkBox3.Checked = GlobalVars.ClientCreator_SupportsLocalPlay;
 			checkBox4.Checked = GlobalVars.ClientCreator_SupportsAppearanceID;
 			checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
-			checkBox6.Checked = GlobalVars.ClientCreator_NewMapLoader;
+			checkBox6.Checked = GlobalVars.ClientCreator_ModernClient;
 			textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
 		}
 		
@@ -195,11 +195,11 @@ namespace RBXLegacyLauncher
 		{
 			if (checkBox6.Checked == true)
 			{
-				GlobalVars.ClientCreator_NewMapLoader = true;
+				GlobalVars.ClientCreator_ModernClient = true;
 			}
 			else if (checkBox6.Checked == false)
 			{
-				GlobalVars.ClientCreator_NewMapLoader = false;
+				GlobalVars.ClientCreator_ModernClient = false;
 			}	
 		}
 	}

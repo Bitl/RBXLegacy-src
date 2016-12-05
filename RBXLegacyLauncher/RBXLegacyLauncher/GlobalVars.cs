@@ -24,13 +24,13 @@
 	public static bool SupportsAppearanceID = false;
 	public static string SelectedClientDesc = "";
 	public static bool LoadsAssetsOnline = false;
-	public static bool NewMapLoader = false;
+	public static bool ModernClient = false;
 	//clientinfocreator
 	public static bool ClientCreator_UsesPlayerName = false;
 	public static bool ClientCreator_UsesID = false;
 	public static bool ClientCreator_SupportsLocalPlay = false;
 	public static bool ClientCreator_SupportsAppearanceID = false;
 	public static bool ClientCreator_LoadsAssetsOnline = false;
-	public static bool ClientCreator_NewMapLoader = false;
+	public static bool ClientCreator_ModernClient = false;
 	public static string ClientCreator_SelectedClientDesc = "";
 }

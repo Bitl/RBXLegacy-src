@@ -228,7 +228,11 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
 	pcall(function() Player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
 	pcall(function() Player:SetAccountAge(365) end);
 	Player:SetSuperSafeChat(false);
-	Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..(OutfitID or 0);
+	if (OutfitID) then
+		Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
+	else
+		Player.CharacterAppearance=0;
+	end
 	pcall(function() Player.Name=PlayerName or ""; end);
 	pcall(function() Visit:SetUploadUrl(""); end);
 end
