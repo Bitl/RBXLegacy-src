@@ -70,41 +70,66 @@ namespace RBXLegacyLauncher
 			if (result == DialogResult.Cancel)
 				return;
 			
-			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
+			string luafile = "";
+			if (GlobalVars.ModernClient == true)
+			{
+				luafile = "rbxasset://scripts\\\\CSMPFunctions_Modern.lua";
+			}
+			else if (GlobalVars.ModernClient == false)
+			{
+				luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
+			}
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs())
+			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "'," + GlobalVars.CharacterAppearanceID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player'," + GlobalVars.CharacterAppearanceID + ");" + quote;
 			}
 			//how the fuck does this even happen? oh well.
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "'," + GlobalVars.CharacterAppearanceID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player'," + GlobalVars.CharacterAppearanceID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+			}
+			//how the fuck does this even happen? oh well.
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "');" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player');" + quote;
 			}
 			//how the fuck does this even happen? oh well.
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "');" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player');" + quote;
 			}
@@ -113,7 +138,14 @@ namespace RBXLegacyLauncher
 			{
 				GeneratePlayerID();
 			}
-			Process.Start(rbxexe, args);
+			try
+			{
+				Process.Start(rbxexe, args);
+			}
+			catch (Exception ex)
+			{
+				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			if (GlobalVars.CloseOnLaunch == true)
 			{
 				this.Close();
@@ -126,7 +158,15 @@ namespace RBXLegacyLauncher
 			if (result == DialogResult.Cancel)
 				return;
 			
-			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
+			string luafile = "";
+			if (GlobalVars.ModernClient == true)
+			{
+				luafile = "rbxasset://scripts\\\\CSMPFunctions_Modern.lua";
+			}
+			else if (GlobalVars.ModernClient == false)
+			{
+				luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
+			}
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
@@ -139,7 +179,14 @@ namespace RBXLegacyLauncher
 			{
 				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",false);";
 			}
-			Process.Start(rbxexe, args);
+			try
+			{
+				Process.Start(rbxexe, args);
+			}
+			catch (Exception ex)
+			{
+				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			if (GlobalVars.CloseOnLaunch == true)
 			{
 				this.Close();
@@ -164,8 +211,14 @@ namespace RBXLegacyLauncher
 			{
 				args = quote + mapfile + quote;
 			}
-			
-			Process.Start(rbxexe, args);
+			try
+			{
+				Process.Start(rbxexe, args);
+			}
+			catch (Exception ex)
+			{
+				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			if (GlobalVars.CloseOnLaunch == true)
 			{
 				this.Close();
@@ -196,7 +249,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8;
+			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -208,6 +261,15 @@ namespace RBXLegacyLauncher
     			line6 = reader.ReadLine();
     			line7 = reader.ReadLine();
     			line8 = reader.ReadLine();
+    			line9 = reader.ReadLine();
+    			line10 = reader.ReadLine();
+    			line11 = reader.ReadLine();
+    			line12 = reader.ReadLine();
+    			line13 = reader.ReadLine();
+    			line14 = reader.ReadLine();
+    			line15 = reader.ReadLine();
+    			line16 = reader.ReadLine();
+    			line17 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -230,6 +292,32 @@ namespace RBXLegacyLauncher
 			GlobalVars.UseAppearanceID = bline7;
 			
 			GlobalVars.Map = line8;
+			
+			int iline9 = Convert.ToInt32(line9);
+			GlobalVars.RobloxPort = iline9;
+			
+			bool bline10 = Convert.ToBoolean(line10);
+			GlobalVars.UseCustomAppearanceID = bline10;
+			
+			GlobalVars.Custom_ColorID = line11;
+			
+			int iline12 = Convert.ToInt32(line12);
+			GlobalVars.Custom_ShirtsID = iline12;
+			
+			int iline13 = Convert.ToInt32(line13);
+			GlobalVars.Custom_PantsID = iline13;
+			
+			int iline14 = Convert.ToInt32(line14);
+			GlobalVars.Custom_TShirtsID = iline14;
+			
+			int iline15 = Convert.ToInt32(line15);
+			GlobalVars.Custom_Hat1ID = iline15;
+			
+			int iline16 = Convert.ToInt32(line16);
+			GlobalVars.Custom_Hat2ID = iline16;
+			
+			int iline17 = Convert.ToInt32(line17);
+			GlobalVars.Custom_Hat3ID = iline17;
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -254,12 +342,26 @@ namespace RBXLegacyLauncher
 				textBox3.Enabled = true;
 				checkBox4.Enabled = true;
 				checkBox4.Checked = true;
+				checkBox5.Enabled = false;
 			}
 			else if (GlobalVars.UseAppearanceID == false)
 			{
 				textBox3.Enabled = false;
 				checkBox4.Enabled = false;
 				checkBox4.Checked = false;
+				if (GlobalVars.SupportsCharacterCustomization == true)
+				{
+					checkBox5.Enabled = true;
+				}
+			}
+			
+			if (GlobalVars.UseCustomAppearanceID == false)
+			{
+				checkBox5.Checked = false;
+			}
+			else if (GlobalVars.UseCustomAppearanceID == true)
+			{
+				checkBox5.Checked = true;
 			}
 			
 			if (iline3 == 0)
@@ -269,7 +371,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				label14.Text = Convert.ToString(iline3);
+				textBox5.Text = Convert.ToString(iline3);
 			}
 			
 			textBox2.Text = GlobalVars.PlayerName;
@@ -278,12 +380,13 @@ namespace RBXLegacyLauncher
 			label28.Text = GlobalVars.Map;
 			listBox1.SelectedItem = GlobalVars.Map;
 			textBox3.Text = GlobalVars.CharacterAppearanceID.ToString();
+			textBox4.Text = GlobalVars.RobloxPort.ToString();
 			ReadClientValues(GlobalVars.SelectedClient);
 		}
 		
 		void WriteConfigValues()
 		{
-			string[] lines = { GlobalVars.CloseOnLaunch.ToString(), GlobalVars.BodyColors.ToString(), GlobalVars.UserID.ToString(), GlobalVars.PlayerName.ToString(), GlobalVars.SelectedClient.ToString(), GlobalVars.CharacterAppearanceID.ToString(), GlobalVars.UseAppearanceID.ToString(), GlobalVars.Map.ToString() };
+			string[] lines = { GlobalVars.CloseOnLaunch.ToString(), GlobalVars.BodyColors.ToString(), GlobalVars.UserID.ToString(), GlobalVars.PlayerName.ToString(), GlobalVars.SelectedClient.ToString(), GlobalVars.CharacterAppearanceID.ToString(), GlobalVars.UseAppearanceID.ToString(), GlobalVars.Map.ToString(), GlobalVars.RobloxPort.ToString(), GlobalVars.UseCustomAppearanceID.ToString(), GlobalVars.Custom_ColorID.ToString(), GlobalVars.Custom_ShirtsID.ToString(), GlobalVars.Custom_PantsID.ToString(), GlobalVars.Custom_TShirtsID.ToString(), GlobalVars.Custom_Hat1ID.ToString(), GlobalVars.Custom_Hat2ID.ToString(), GlobalVars.Custom_Hat3ID.ToString()};
 			File.WriteAllLines("config.txt", lines);
 		}
 		
@@ -293,10 +396,11 @@ namespace RBXLegacyLauncher
 			
 			if (!File.Exists(clientpath))
 			{
-				MessageBox.Show("No clientinfo.txt detected with the client you chose. The client cannot be loaded.","RBXLegacy Launcher - Error while loading client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("No clientinfo.txt detected with the client you chose. The client either cannot be loaded, or it is not available.","RBXLegacy Launcher - Error while loading client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				GlobalVars.SelectedClient = "2008";
 			}
 			
-			string line1, line2, line3, line4, line5, line6, line7;
+			string line1, line2, line3, line4, line5, line6, line7, line8;
 
 			using(StreamReader reader = new StreamReader(clientpath)) 
 			{
@@ -307,6 +411,7 @@ namespace RBXLegacyLauncher
     			line5 = reader.ReadLine();
     			line6 = reader.ReadLine();
     			line7 = reader.ReadLine();
+    			line8 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -327,7 +432,10 @@ namespace RBXLegacyLauncher
 			bool bline6 = Convert.ToBoolean(line6);
 			GlobalVars.ModernClient = bline6;
 			
-			GlobalVars.SelectedClientDesc = line7;
+			bool bline7 = Convert.ToBoolean(line7);
+			GlobalVars.SupportsCharacterCustomization = bline7;
+			
+			GlobalVars.SelectedClientDesc = line8;
 			
 			if (GlobalVars.UsesPlayerName == true)
 			{
@@ -340,12 +448,12 @@ namespace RBXLegacyLauncher
 			
 			if (GlobalVars.UsesID == true)
 			{
-				label14.Enabled = true;
+				textBox5.Enabled = true;
 				button4.Enabled = true;
 			}
 			else if (GlobalVars.UsesID == false)
 			{
-				label14.Enabled = false;
+				textBox5.Enabled = false;
 				button4.Enabled = false;
 				checkBox3.Enabled = false;
 				GlobalVars.LocalPlayMode = false;
@@ -364,20 +472,35 @@ namespace RBXLegacyLauncher
 			if (GlobalVars.SupportsAppearanceID == false)
 			{
 				checkBox4.Enabled = false;
+				checkBox4.Checked = false;
 				textBox3.Enabled = false;
+				GlobalVars.UseAppearanceID = false;
 			}
 			else if (GlobalVars.SupportsAppearanceID == true)
 			{
-				checkBox4.Enabled = true;
+				if (GlobalVars.UseCustomAppearanceID == false)
+				{
+					checkBox4.Enabled = true;
+				}
+				
 				if (GlobalVars.UseAppearanceID == false)
 				{
 					textBox3.Enabled = false;
 					checkBox4.Checked = false;
+					if (GlobalVars.SupportsCharacterCustomization == true)
+					{
+						checkBox5.Enabled = true;
+					}
 				}
 				else if (GlobalVars.UseAppearanceID == true)
 				{
 					textBox3.Enabled = true;
 					checkBox4.Checked = true;
+					if (GlobalVars.SupportsCharacterCustomization == true)
+					{
+						checkBox5.Enabled = false;
+						button8.Enabled = false;
+					}
 				}
 			}
 			
@@ -390,7 +513,20 @@ namespace RBXLegacyLauncher
 				label30.Visible = true;
 			}
 			
-			label21.Text = GlobalVars.SelectedClientDesc;
+			if (GlobalVars.SupportsCharacterCustomization == true)
+			{
+				checkBox5.Enabled = true;
+				button8.Enabled = true;
+			}
+			else if (GlobalVars.SupportsCharacterCustomization == false)
+			{
+				checkBox5.Enabled = false;
+				checkBox5.Checked = false;
+				button8.Enabled = false;
+				GlobalVars.UseCustomAppearanceID = false;
+			}
+			
+			textBox6.Text = GlobalVars.SelectedClientDesc;
 			label26.Text = GlobalVars.SelectedClient;
 		}
 		
@@ -433,7 +569,7 @@ namespace RBXLegacyLauncher
 			}
 			//2147483647 is max id.
 			GlobalVars.UserID = randomID;
-			label14.Text = Convert.ToString(GlobalVars.UserID);
+			textBox5.Text = Convert.ToString(GlobalVars.UserID);
 		}
 		
 		void TextBox1TextChanged(object sender, EventArgs e)
@@ -507,7 +643,23 @@ namespace RBXLegacyLauncher
 		
 		void TextBox3TextChanged(object sender, EventArgs e)
 		{
-			GlobalVars.CharacterAppearanceID = Convert.ToInt32(textBox3.Text);
+			int parsedValue;
+			if (int.TryParse(textBox3.Text, out parsedValue))
+			{
+				if (textBox3.Text == "")
+				{
+					GlobalVars.CharacterAppearanceID = 0;
+					textBox3.Text = "0";
+				}
+				else
+				{
+					GlobalVars.CharacterAppearanceID = Convert.ToInt32(textBox3.Text);
+				}
+			}
+			else
+			{
+				textBox3.Text = "0";
+			}
 		}
 		
 		void Button6Click(object sender, EventArgs e)
@@ -518,16 +670,34 @@ namespace RBXLegacyLauncher
 		
 		void CheckBox4CheckedChanged(object sender, EventArgs e)
 		{
-			if (checkBox4.Checked == true)
+			if (GlobalVars.SupportsAppearanceID == true)
 			{
-				GlobalVars.UseAppearanceID = true;
-				textBox3.Enabled = true;
+				if (checkBox4.Checked == true)
+				{
+					GlobalVars.UseAppearanceID = true;
+					textBox3.Enabled = true;
+					GlobalVars.UseCustomAppearanceID = false;
+					if (GlobalVars.SupportsCharacterCustomization == true)
+					{
+						checkBox5.Enabled = false;
+						button8.Enabled = false;
+						if (checkBox5.Checked == true)
+						{
+							GlobalVars.UseCustomAppearanceID = false;
+							checkBox5.Checked = false;
+						}
+					}
+				}
+				else if (checkBox4.Checked == false)
+				{
+					GlobalVars.UseAppearanceID = false;
+					textBox3.Enabled = false;
+					if (GlobalVars.SupportsCharacterCustomization == true)
+					{
+						checkBox5.Enabled = true;
+					}
+				}
 			}
-			else if (checkBox4.Checked == false)
-			{
-				GlobalVars.UseAppearanceID = false;
-				textBox3.Enabled = false;
-			}			
 		}
 		
 		bool IsUsingCharacterOutfitIDs()
@@ -542,6 +712,98 @@ namespace RBXLegacyLauncher
 				return false;
 			
 			return true;
+		}
+		
+		bool IsUsingCustomOutfits()
+		{
+			if (GlobalVars.SupportsCharacterCustomization == false)
+				return false;
+						
+			if (GlobalVars.UseCustomAppearanceID == false)
+				return false;
+			
+			return true;
+		}
+		
+		void Button7Click(object sender, EventArgs e)
+		{
+			WriteConfigValues();
+		}
+		
+		void TextBox4TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox4.Text, out parsedValue))
+			{
+				if (textBox4.Text == "")
+				{
+					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
+					GlobalVars.RobloxPort = GlobalVars.DefaultRobloxPort;
+					textBox4.Text = GlobalVars.DefaultRobloxPort.ToString();
+				}
+				else
+				{
+					GlobalVars.RobloxPort = Convert.ToInt32(textBox4.Text);
+				}
+			}
+			else
+			{
+				textBox4.Text = GlobalVars.DefaultRobloxPort.ToString();
+			}
+		}
+		
+		void TextBox5TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox5.Text, out parsedValue))
+			{
+				if (textBox5.Text == "")
+				{
+					GlobalVars.UserID = 0;
+					textBox5.Text = "0";
+				}
+				else
+				{
+					GlobalVars.UserID = Convert.ToInt32(textBox5.Text);
+				}
+			}
+			else
+			{
+				textBox5.Text = "0";
+			}
+		}
+		
+		void CheckBox5CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox5.Checked == true)
+			{
+				GlobalVars.UseCustomAppearanceID = true;
+				button8.Enabled = true;
+				if (GlobalVars.SupportsAppearanceID == true)
+				{
+					checkBox4.Enabled = false;
+					if (checkBox4.Checked == true)
+					{
+						GlobalVars.UseAppearanceID = false;
+						checkBox4.Checked = false;
+					}
+				}
+			}
+			else if (checkBox5.Checked == false)
+			{
+				GlobalVars.UseCustomAppearanceID = false;
+				button8.Enabled = false;
+				if (GlobalVars.SupportsAppearanceID == true)
+				{
+					checkBox4.Enabled = true;
+				}
+			}
+		}
+		
+		void Button8Click(object sender, EventArgs e)
+		{
+			CharacterCustomization ccustom = new CharacterCustomization();
+			ccustom.Show();
 		}
 	}
 }

@@ -95,7 +95,7 @@ namespace RBXLegacyLauncher
             	ofd.Title = "Load clientinfo.txt";
             	if (ofd.ShowDialog() == DialogResult.OK)
             	{
-					string line1, line2, line3, line4, line5, line6, line7;
+					string line1, line2, line3, line4, line5, line6, line7, line8;
 
 					using(StreamReader reader = new StreamReader(ofd.FileName)) 
 					{
@@ -106,6 +106,7 @@ namespace RBXLegacyLauncher
     					line5 = reader.ReadLine();
     					line6 = reader.ReadLine();
     					line7 = reader.ReadLine();
+    					line8 = reader.ReadLine();
 					}
 					
 					Boolean bline1 = bool.Parse(line1);
@@ -126,7 +127,10 @@ namespace RBXLegacyLauncher
 					Boolean bline6 = bool.Parse(line6);
 					GlobalVars.ClientCreator_ModernClient = bline6;
 						
-					GlobalVars.ClientCreator_SelectedClientDesc = line7;
+					Boolean bline7 = bool.Parse(line7);
+					GlobalVars.ClientCreator_SupportsCharacterCustomization = bline7;
+					
+					GlobalVars.ClientCreator_SelectedClientDesc = line8;
 					
 					checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 					checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
@@ -134,6 +138,7 @@ namespace RBXLegacyLauncher
 					checkBox4.Checked = GlobalVars.ClientCreator_SupportsAppearanceID;
 					checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
 					checkBox6.Checked = GlobalVars.ClientCreator_ModernClient;
+					checkBox7.Checked = GlobalVars.ClientCreator_SupportsCharacterCustomization;
 					textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
             	}
 			}
@@ -150,7 +155,7 @@ namespace RBXLegacyLauncher
 
             	if (sfd.ShowDialog() == DialogResult.OK)
             	{
-            		string[] lines = { GlobalVars.ClientCreator_UsesPlayerName.ToString(), GlobalVars.ClientCreator_UsesID.ToString(), GlobalVars.ClientCreator_SupportsLocalPlay.ToString(), GlobalVars.ClientCreator_SupportsAppearanceID.ToString(), GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), GlobalVars.ClientCreator_ModernClient.ToString(), GlobalVars.ClientCreator_SelectedClientDesc.ToString() };
+            		string[] lines = { GlobalVars.ClientCreator_UsesPlayerName.ToString(), GlobalVars.ClientCreator_UsesID.ToString(), GlobalVars.ClientCreator_SupportsLocalPlay.ToString(), GlobalVars.ClientCreator_SupportsAppearanceID.ToString(), GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), GlobalVars.ClientCreator_ModernClient.ToString(), GlobalVars.ClientCreator_SupportsCharacterCustomization.ToString() ,GlobalVars.ClientCreator_SelectedClientDesc.ToString() };
 					File.WriteAllLines(sfd.FileName, lines);
             	}     
 			}			
@@ -181,6 +186,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.ClientCreator_SupportsAppearanceID = false;
 			GlobalVars.ClientCreator_LoadsAssetsOnline = false;
 			GlobalVars.ClientCreator_ModernClient = false;
+			GlobalVars.ClientCreator_SupportsCharacterCustomization = false;
 			GlobalVars.ClientCreator_SelectedClientDesc = "";
 			checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 			checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
@@ -188,6 +194,7 @@ namespace RBXLegacyLauncher
 			checkBox4.Checked = GlobalVars.ClientCreator_SupportsAppearanceID;
 			checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
 			checkBox6.Checked = GlobalVars.ClientCreator_ModernClient;
+			checkBox7.Checked = GlobalVars.ClientCreator_SupportsCharacterCustomization;
 			textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
 		}
 		
@@ -201,6 +208,18 @@ namespace RBXLegacyLauncher
 			{
 				GlobalVars.ClientCreator_ModernClient = false;
 			}	
+		}
+		
+		void CheckBox7CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox7.Checked == true)
+			{
+				GlobalVars.ClientCreator_SupportsCharacterCustomization = true;
+			}
+			else if (checkBox7.Checked == false)
+			{
+				GlobalVars.ClientCreator_SupportsCharacterCustomization = false;
+			}			
 		}
 	}
 }

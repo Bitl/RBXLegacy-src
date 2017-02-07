@@ -150,7 +150,7 @@ function CSServer(Port,BodyColors)
 	NetworkServer.IncommingConnection:connect(IncommingConnection);
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,PantsID,ShirtID,TShirtID,Hat1ID,Hat2ID,Hat3ID,Ticket)
 	pcall(function() game:SetPlaceID(-1, false) end);
 	pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
 	
@@ -211,8 +211,8 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
 		end
 	end
 
-	local function ConnectionFailed(Peer,Code)
-		SetMessage("Failed to connect to the Game. (ID="..Code..")");
+	local function ConnectionFailed(Peer, Code, why)
+		SetMessage("Failed to connect to the Game. (ID="..Code.." ["..why.."])");
 	end
 
 	pcall(function() settings().Diagnostics:LegacyScriptMode(); end);
@@ -246,7 +246,16 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
 	pcall(function() Player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
 	pcall(function() Player:SetAccountAge(365) end);
 	Player:SetSuperSafeChat(false);
-	Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..(OutfitID or 0);
+	if (OutfitID and OutfitID ~= 0) then
+		Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
+	elseif (ColorHash and ColorHash ~= "") then
+		local aid = "http://www.roblox.com/asset?id="
+		local bcid = "http://assetgame.roblox.com/Asset/BodyColors.ashx?avatarHash="
+		local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version=1;"..aid..Hat2ID.."&version=1;"..aid..Hat3ID.."&version=1;"
+		Player.CharacterAppearance = charapp
+	else
+		Player.CharacterAppearance=0;
+	end
 	pcall(function() Player.Name=PlayerName or ""; end);
 	pcall(function() Visit:SetUploadUrl(""); end);
 end

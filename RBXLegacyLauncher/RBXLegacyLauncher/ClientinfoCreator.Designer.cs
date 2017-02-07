@@ -49,6 +49,7 @@ namespace RBXLegacyLauncher
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.checkBox7 = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// checkBox1
@@ -93,16 +94,16 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(10, 173);
+			this.textBox1.Location = new System.Drawing.Point(8, 191);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(310, 194);
+			this.textBox1.Size = new System.Drawing.Size(310, 211);
 			this.textBox1.TabIndex = 4;
 			this.textBox1.TextChanged += new System.EventHandler(this.TextBox1TextChanged);
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(9, 154);
+			this.label1.Location = new System.Drawing.Point(8, 172);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(100, 16);
 			this.label1.TabIndex = 5;
@@ -118,7 +119,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(165, 402);
+			this.button1.Location = new System.Drawing.Point(162, 437);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(154, 30);
 			this.button1.TabIndex = 7;
@@ -128,7 +129,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(9, 402);
+			this.button2.Location = new System.Drawing.Point(8, 437);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(150, 30);
 			this.button2.TabIndex = 10;
@@ -148,7 +149,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(9, 373);
+			this.button3.Location = new System.Drawing.Point(8, 408);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(308, 23);
 			this.button3.TabIndex = 12;
@@ -166,11 +167,23 @@ namespace RBXLegacyLauncher
 			this.checkBox6.UseVisualStyleBackColor = true;
 			this.checkBox6.CheckedChanged += new System.EventHandler(this.CheckBox6CheckedChanged);
 			// 
+			// checkBox7
+			// 
+			this.checkBox7.Location = new System.Drawing.Point(9, 145);
+			this.checkBox7.Name = "checkBox7";
+			this.checkBox7.Size = new System.Drawing.Size(212, 24);
+			this.checkBox7.TabIndex = 14;
+			this.checkBox7.Text = "This client supports custom characters.";
+			this.checkBox7.UseVisualStyleBackColor = true;
+			this.checkBox7.CheckedChanged += new System.EventHandler(this.CheckBox7CheckedChanged);
+			// 
 			// ClientinfoEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(332, 439);
+			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.ClientSize = new System.Drawing.Size(332, 479);
+			this.Controls.Add(this.checkBox7);
 			this.Controls.Add(this.checkBox6);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.checkBox5);
@@ -191,6 +204,7 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.CheckBox checkBox7;
 		private System.Windows.Forms.CheckBox checkBox6;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.CheckBox checkBox5;

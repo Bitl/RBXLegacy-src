@@ -60,6 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterCustomization.cs" />
+    <Compile Include="CharacterCustomization.Designer.cs">
+      <DependentUpon>CharacterCustomization.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientinfoCreator.cs" />
     <Compile Include="ClientinfoCreator.Designer.cs">
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>
@@ -74,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CharacterCustomization.resx">
+      <DependentUpon>CharacterCustomization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientinfoCreator.resx">
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>
     </EmbeddedResource>

@@ -89,54 +89,68 @@ function PlayerNoobify()
 end
 
 function CSServer(Port,BodyColors)
-	assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.");
-	local NetworkServer=game:GetService("NetworkServer");
-	pcall(NetworkServer.Stop,NetworkServer);
-	NetworkServer:Start(Port);
+	Server = game:GetService("NetworkServer")
+	RunService = game:GetService("RunService")
+	Server:start(Port, 20)
+	RunService:run();
 	game:GetService("Players").PlayerAdded:connect(function(Player)
 		print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
 		Player:LoadCharacter();
-		Player.CharacterAdded:connect(function(char)
-			if (BodyColors == true) then
-				PlayerColorize();
-			else
-				PlayerNoobify();
-			end
-			char['Head'].BrickColor = HeadColor;
-			char['Torso'].BrickColor = TorsoColor;
-			char['Left Arm'].BrickColor = LArmColor;
-			char['Left Leg'].BrickColor = LLegColor;
-			char['Right Arm'].BrickColor = RArmColor;
-			char['Right Leg'].BrickColor = RLegColor;
-		end)
-		Player.Changed:connect(function(Property)
-			if (Property=="Character") and (Player.Character~=nil) then
-				local Character=Player.Character;
-				local Humanoid=Character:FindFirstChild("Humanoid");
-				if (Humanoid~=nil) then
-					Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() end) end)
+		if (BodyColors == true) then
+			PlayerColorize();
+		else
+			PlayerNoobify();
+		end
+		Player.Character['Head'].BrickColor = HeadColor;
+		Player.Character['Torso'].BrickColor = TorsoColor;
+		Player.Character['Left Arm'].BrickColor = LArmColor;
+		Player.Character['Left Leg'].BrickColor = LLegColor;
+		Player.Character['Right Arm'].BrickColor = RArmColor;
+		Player.Character['Right Leg'].BrickColor = RLegColor;
+		while true do 
+			wait(0.001)
+			if (Player.Character ~= nil) then
+				if (Player.Character.Humanoid.Health == 0) then
+					wait(5)
+					Player:LoadCharacter()
+					if (BodyColors == true) then
+						PlayerColorize();
+					else
+						PlayerNoobify();
+					end
+					Player.Character['Head'].BrickColor = HeadColor;
+					Player.Character['Torso'].BrickColor = TorsoColor;
+					Player.Character['Left Arm'].BrickColor = LArmColor;
+					Player.Character['Left Leg'].BrickColor = LLegColor;
+					Player.Character['Right Arm'].BrickColor = RArmColor;
+					Player.Character['Right Leg'].BrickColor = RLegColor;
+				elseif (Player.Character.Parent == nil) then 
+					wait(5)
+					Player:LoadCharacter() -- to make sure nobody is deleted.
+					if (BodyColors == true) then
+						PlayerColorize();
+					else
+						PlayerNoobify();
+					end
+					Player.Character['Head'].BrickColor = HeadColor;
+					Player.Character['Torso'].BrickColor = TorsoColor;
+					Player.Character['Left Arm'].BrickColor = LArmColor;
+					Player.Character['Left Leg'].BrickColor = LLegColor;
+					Player.Character['Right Arm'].BrickColor = RArmColor;
+					Player.Character['Right Leg'].BrickColor = RLegColor;
 				end
 			end
-		end)
+		end
 	end)
 	game:GetService("Players").PlayerRemoving:connect(function(Player)
 		print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' leaving")	
 	end)
 	game:GetService("RunService"):Run();
-	pcall(function() game.Close:connect(function() NetworkServer:Stop(); end) end);
-	-- ChildAdded is being a retard. Sorry for inefficient code.
-	--[[while wait(0.1) do
-		print("OMG",#game.NetworkServer:children())
-		for Index,Child in pairs(NetworkServer:GetChildren()) do
-			if (Child.className == "") then
-				IncommingConnection(nil, Child);
-			end
-		end
-	end]]
-	NetworkServer.IncommingConnection:connect(IncommingConnection);
+	pcall(function() game.Close:connect(function() Server:Stop(); end) end);
+	Server.IncommingConnection:connect(IncommingConnection);
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,PantsID,ShirtID,TShirtID,Hat1ID,Hat2ID,Hat3ID,Ticket)
 	pcall(function() game:SetPlaceID(-1, false) end);
 	pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
 	
@@ -149,92 +163,88 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Ticket)
 			pcall(function() game.CoreGui.RobloxGui.BigPlayerlist:Remove(); end);
 		end);
 	end)
-	game:GetService("RunService"):Run();
-	assert((ServerIP~=nil and ServerPort~=nil),"CSConnect Error: ServerIP and ServerPort must be defined.");
-	local function SetMessage(Message) game:SetMessage(Message); end
-	local Visit,NetworkClient,PlayerSuccess,Player,ConnectionFailedHook=game:GetService("Visit"),game:GetService("NetworkClient");
-
-	local function GetClassCount(Class,Parent)
-		local Objects=Parent:GetChildren();
-		local Number=0;
-		for Index,Object in pairs(Objects) do
-			if (Object.className==Class) then
-				Number=Number+1;
-			end
-			Number=Number+GetClassCount(Class,Object);
+	
+	local suc, err = pcall(function()
+		client = game:GetService("NetworkClient")
+		player = game:GetService("Players"):CreateLocalPlayer(UserID) 
+		player:SetSuperSafeChat(false)
+		pcall(function() player:SetUnder13(false) end);
+		pcall(function() player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
+		pcall(function() player:SetAccountAge(365) end);
+		if (OutfitID and OutfitID ~= 0) then
+			player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
+		elseif (ColorHash and ColorHash ~= "") then
+			local aid = "http://www.roblox.com/asset?id="
+			local bcid = "http://assetgame.roblox.com/Asset/BodyColors.ashx?avatarHash="
+			local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version=1;"..aid..Hat2ID.."&version=1;"..aid..Hat3ID.."&version=1;"
+			player.CharacterAppearance = charapp
+		else
+			player.CharacterAppearance=0;
 		end
-		return Number;
+		pcall(function() player.Name=PlayerName or ""; end);
+		game:GetService("Visit")
+	end)
+	
+	local function dieerror(errmsg)
+		game:SetMessage(errmsg)
+		wait(math.huge)
 	end
 
-	local function RequestCharacter(Replicator)
-		local Connection;
-		Connection=Player.Changed:connect(function(Property)
-			if (Property=="Character") then
-				game:ClearMessage();
-			end
-		end)
-		SetMessage("Requesting character...");
-		Replicator:RequestCharacter();
-		SetMessage("Waiting for character...");
+	if not suc then
+		dieerror(err)
 	end
 
 	local function Disconnection(Peer,LostConnection)
 		SetMessage("You have lost connection to the game");
 	end
-
-	local function ConnectionAccepted(Peer,Replicator)
-		Replicator.Disconnection:connect(Disconnection);
-		local RequestingMarker=true;
-		game:SetMessageBrickCount();
-		local Marker=Replicator:SendMarker();
-		Marker.Received:connect(function()
-			RequestingMarker=false;
-			RequestCharacter(Replicator);
+	
+	local function connected(url, replicator)
+		replicator.Disconnection:connect(Disconnection);
+		local marker = nil
+		local suc, err = pcall(function()
+			game:SetMessageBrickCount()
+			marker = replicator:SendMarker()
 		end)
-		while RequestingMarker do
-			Workspace:ZoomToExtents();
-			wait(0.5);
+		if not suc then
+			dieerror(err)
 		end
+		marker.Received:connect(function()
+			local suc, err = pcall(function()
+				game:ClearMessage()
+			end)
+			if not suc then
+				dieerror(err)
+			end
+		end)
 	end
 
-	local function ConnectionFailed(Peer,Code)
-		SetMessage("Failed to connect to the Game. (ID="..Code..")");
+	local function rejected()
+		dieerror("Failed to connect to the Game. (Connection rejected)")
 	end
 
-	pcall(function() settings().Diagnostics:LegacyScriptMode(); end);
-	pcall(function() game:SetRemoteBuildMode(true); end);
-	SetMessage("Connecting to server...");
-	NetworkClient.ConnectionAccepted:connect(ConnectionAccepted);
-	ConnectionFailedHook=NetworkClient.ConnectionFailed:connect(ConnectionFailed);
-	NetworkClient.ConnectionRejected:connect(function()
-		pcall(function() ConnectionFailedHook:disconnect(); end);
-		SetMessage("Failed to connect to the Game. (Connection rejected)");
+	local function failed(peer, errcode, why)
+		dieerror("Failed to connect to the Game. (ID="..errcode.." ["..why.."])")
+	end
+
+	local suc, err = pcall(function()
+		game:SetMessage("Connecting to server...");
+		client.ConnectionAccepted:connect(connected)
+		client.ConnectionRejected:connect(rejected)
+		client.ConnectionFailed:connect(failed)
+		client:Connect(ServerIP,ServerPort, 0, 20)
 	end)
 
-	pcall(function() NetworkClient.Ticket=Ticket or ""; end) -- 2008 client has no ticket :O
-	Player=game:GetService("Players"):CreateLocalPlayer(UserID);
-	PlayerSuccess=pcall(function() return NetworkClient:Connect(ServerIP,ServerPort) end);
-
-	if (not PlayerSuccess) then
-		SetMessage("Failed to connect to the Game. (Invalid IP Address)");
-		NetworkClient:Disconnect();
+	if not suc then
+		local x = Instance.new("Message")
+		x.Text = err
+		x.Parent = workspace
+		wait(math.huge)
 	end
 
-	if (not Player) then
-		SetMessage("Failed to connect to the Game. (Player not found)");
-		NetworkClient:Disconnect();
+	while true do
+		wait(0.001)
+		replicator:SendMarker()
 	end
-	pcall(function() Player:SetUnder13(false) end);
-	pcall(function() Player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
-	pcall(function() Player:SetAccountAge(365) end);
-	Player:SetSuperSafeChat(false);
-	if (OutfitID) then
-		Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
-	else
-		Player.CharacterAppearance=0;
-	end
-	pcall(function() Player.Name=PlayerName or ""; end);
-	pcall(function() Visit:SetUploadUrl(""); end);
 end
 
 _G.CSServer=CSServer;
