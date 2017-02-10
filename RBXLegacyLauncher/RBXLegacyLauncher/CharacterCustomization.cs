@@ -53,7 +53,6 @@ namespace RBXLegacyLauncher
 				if (textBox2.Text == "")
 				{
 					GlobalVars.Custom_ShirtsID = 0;
-					textBox2.Text = "0";
 				}
 				else
 				{
@@ -62,7 +61,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox2.Text = "0";
+				GlobalVars.Custom_ShirtsID = 0;
 			}
 		}
 		
@@ -74,7 +73,6 @@ namespace RBXLegacyLauncher
 				if (textBox3.Text == "")
 				{
 					GlobalVars.Custom_PantsID = 0;
-					textBox3.Text = "0";
 				}
 				else
 				{
@@ -83,7 +81,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox3.Text = "0";
+				GlobalVars.Custom_PantsID = 0;
 			}
 		}
 		
@@ -95,7 +93,6 @@ namespace RBXLegacyLauncher
 				if (textBox4.Text == "")
 				{
 					GlobalVars.Custom_TShirtsID = 0;
-					textBox4.Text = "0";
 				}
 				else
 				{
@@ -104,7 +101,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox4.Text = "0";
+				GlobalVars.Custom_TShirtsID = 0;
 			}
 		}
 		
@@ -116,7 +113,6 @@ namespace RBXLegacyLauncher
 				if (textBox5.Text == "")
 				{
 					GlobalVars.Custom_Hat1ID = 0;
-					textBox5.Text = "0";
 				}
 				else
 				{
@@ -125,7 +121,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox5.Text = "0";
+				GlobalVars.Custom_Hat1ID = 0;
 			}
 		}
 		
@@ -137,7 +133,6 @@ namespace RBXLegacyLauncher
 				if (textBox6.Text == "")
 				{
 					GlobalVars.Custom_Hat2ID = 0;
-					textBox6.Text = "0";
 				}
 				else
 				{
@@ -146,7 +141,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox6.Text = "0";
+				GlobalVars.Custom_Hat2ID = 0;
 			}
 		}
 		
@@ -158,7 +153,6 @@ namespace RBXLegacyLauncher
 				if (textBox7.Text == "")
 				{
 					GlobalVars.Custom_Hat3ID = 0;
-					textBox7.Text = "0";
 				}
 				else
 				{
@@ -167,7 +161,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox7.Text = "0";
+				GlobalVars.Custom_Hat3ID = 0;
 			}
 		}
 	}

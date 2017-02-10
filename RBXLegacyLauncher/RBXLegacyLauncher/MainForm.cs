@@ -45,6 +45,8 @@ namespace RBXLegacyLauncher
 				}
 				listBox1.SelectedItem = GlobalVars.Map;
 				listBox2.Items.Clear();
+				listBox3.Items.Clear();
+     			listBox4.Items.Clear();
      		}
      		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
      		{
@@ -57,11 +59,24 @@ namespace RBXLegacyLauncher
 				}
 				listBox2.SelectedItem = GlobalVars.SelectedClient;
 				listBox1.Items.Clear();
+				listBox3.Items.Clear();
+     			listBox4.Items.Clear();
+     		}
+     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage6"])//your specific tabname
+     		{
+     			string[] lines_server = File.ReadAllLines("servers.txt");
+				string[] lines_ports = File.ReadAllLines("ports.txt");
+				listBox3.Items.AddRange(lines_server);
+				listBox4.Items.AddRange(lines_ports);
+     			listBox1.Items.Clear();
+     			listBox2.Items.Clear();
      		}
      		else
      		{
      			listBox1.Items.Clear();
      			listBox2.Items.Clear();
+     			listBox3.Items.Clear();
+     			listBox4.Items.Clear();
      		}
 		}
 		void Button1Click(object sender, EventArgs e)
@@ -231,6 +246,14 @@ namespace RBXLegacyLauncher
 			{
 				WriteConfigValues();
 			}
+			if (!File.Exists("servers.txt"))
+			{
+				File.Create("servers.txt").Dispose();
+			}
+			if (!File.Exists("ports.txt"))
+			{
+				File.Create("ports.txt").Dispose();
+			}
 			GlobalVars.ClientDir = Path.Combine(Environment.CurrentDirectory, @"clients");
 			GlobalVars.ClientDir = GlobalVars.ClientDir.Replace(@"\",@"\\");
 			GlobalVars.ScriptsDir = Path.Combine(Environment.CurrentDirectory, @"scripts");
@@ -381,6 +404,8 @@ namespace RBXLegacyLauncher
 			listBox1.SelectedItem = GlobalVars.Map;
 			textBox3.Text = GlobalVars.CharacterAppearanceID.ToString();
 			textBox4.Text = GlobalVars.RobloxPort.ToString();
+			label37.Text = GlobalVars.IP;
+			label38.Text = GlobalVars.RobloxPort.ToString();
 			ReadClientValues(GlobalVars.SelectedClient);
 		}
 		
@@ -388,6 +413,29 @@ namespace RBXLegacyLauncher
 		{
 			string[] lines = { GlobalVars.CloseOnLaunch.ToString(), GlobalVars.BodyColors.ToString(), GlobalVars.UserID.ToString(), GlobalVars.PlayerName.ToString(), GlobalVars.SelectedClient.ToString(), GlobalVars.CharacterAppearanceID.ToString(), GlobalVars.UseAppearanceID.ToString(), GlobalVars.Map.ToString(), GlobalVars.RobloxPort.ToString(), GlobalVars.UseCustomAppearanceID.ToString(), GlobalVars.Custom_ColorID.ToString(), GlobalVars.Custom_ShirtsID.ToString(), GlobalVars.Custom_PantsID.ToString(), GlobalVars.Custom_TShirtsID.ToString(), GlobalVars.Custom_Hat1ID.ToString(), GlobalVars.Custom_Hat2ID.ToString(), GlobalVars.Custom_Hat3ID.ToString()};
 			File.WriteAllLines("config.txt", lines);
+		}
+		
+		void ResetConfigValues()
+		{
+			GlobalVars.CloseOnLaunch = false;
+			GlobalVars.BodyColors = true;
+			GlobalVars.UserID = 0;
+			GlobalVars.PlayerName = "Player";
+			GlobalVars.SelectedClient = "2008";
+			GlobalVars.CharacterAppearanceID = 0;
+			GlobalVars.UseAppearanceID = false;
+			GlobalVars.Map = "Baseplate.rbxl";
+			GlobalVars.RobloxPort = 53640;
+			GlobalVars.UseCustomAppearanceID = false;
+			GlobalVars.Custom_ColorID = "";
+			GlobalVars.Custom_ShirtsID = 0;
+			GlobalVars.Custom_PantsID = 0;
+			GlobalVars.Custom_TShirtsID = 0;
+			GlobalVars.Custom_Hat1ID = 0;
+			GlobalVars.Custom_Hat2ID = 0;
+			GlobalVars.Custom_Hat3ID = 0;
+			WriteConfigValues();
+			ReadConfigValues();
 		}
 		
 		void ReadClientValues(string ClientName)
@@ -577,6 +625,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.IP = textBox1.Text;
 			checkBox3.Enabled = false;
 			GlobalVars.LocalPlayMode = false;
+			label37.Text = GlobalVars.IP;
 		}
 		
 		void ListBox1SelectedIndexChanged(object sender, EventArgs e)
@@ -649,7 +698,6 @@ namespace RBXLegacyLauncher
 				if (textBox3.Text == "")
 				{
 					GlobalVars.CharacterAppearanceID = 0;
-					textBox3.Text = "0";
 				}
 				else
 				{
@@ -658,7 +706,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox3.Text = "0";
+				GlobalVars.CharacterAppearanceID = 0;
 			}
 		}
 		
@@ -739,7 +787,6 @@ namespace RBXLegacyLauncher
 				{
 					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
 					GlobalVars.RobloxPort = GlobalVars.DefaultRobloxPort;
-					textBox4.Text = GlobalVars.DefaultRobloxPort.ToString();
 				}
 				else
 				{
@@ -748,8 +795,10 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox4.Text = GlobalVars.DefaultRobloxPort.ToString();
+				GlobalVars.RobloxPort = GlobalVars.DefaultRobloxPort;
 			}
+			
+			label38.Text = GlobalVars.RobloxPort.ToString();
 		}
 		
 		void TextBox5TextChanged(object sender, EventArgs e)
@@ -760,7 +809,6 @@ namespace RBXLegacyLauncher
 				if (textBox5.Text == "")
 				{
 					GlobalVars.UserID = 0;
-					textBox5.Text = "0";
 				}
 				else
 				{
@@ -769,7 +817,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				textBox5.Text = "0";
+				GlobalVars.UserID = 0;
 			}
 		}
 		
@@ -804,6 +852,37 @@ namespace RBXLegacyLauncher
 		{
 			CharacterCustomization ccustom = new CharacterCustomization();
 			ccustom.Show();
+		}
+		
+		void Button9Click(object sender, EventArgs e)
+		{
+			ResetConfigValues();
+		}
+		
+		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
+		{
+			GlobalVars.IP = listBox3.SelectedItem.ToString();
+			textBox1.Text = GlobalVars.IP;
+			checkBox3.Enabled = false;
+			GlobalVars.LocalPlayMode = false;
+			label37.Text = GlobalVars.IP;
+		}
+		
+		void ListBox4SelectedIndexChanged(object sender, EventArgs e)
+		{
+			GlobalVars.RobloxPort = Convert.ToInt32(listBox4.SelectedItem.ToString());
+			textBox4.Text = GlobalVars.RobloxPort.ToString();
+			label38.Text = GlobalVars.RobloxPort.ToString();
+		}
+		
+		void Button10Click(object sender, EventArgs e)
+		{
+			File.AppendAllText("servers.txt", GlobalVars.IP + Environment.NewLine);
+		}
+		
+		void Button11Click(object sender, EventArgs e)
+		{
+			File.AppendAllText("ports.txt", GlobalVars.RobloxPort + Environment.NewLine);
 		}
 	}
 }

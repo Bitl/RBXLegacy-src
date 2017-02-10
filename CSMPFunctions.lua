@@ -194,12 +194,12 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 		dieerror(err)
 	end
 
-	local function Disconnection(Peer,LostConnection)
-		SetMessage("You have lost connection to the game");
+	local function disconnect(peer,lostconnection)
+		game:SetMessage("You have lost connection to the game")
 	end
 	
 	local function connected(url, replicator)
-		replicator.Disconnection:connect(Disconnection);
+		replicator.Disconnection:connect(disconnect)
 		local marker = nil
 		local suc, err = pcall(function()
 			game:SetMessageBrickCount()
@@ -239,11 +239,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 		x.Text = err
 		x.Parent = workspace
 		wait(math.huge)
-	end
-
-	while true do
-		wait(0.001)
-		replicator:SendMarker()
 	end
 end
 
