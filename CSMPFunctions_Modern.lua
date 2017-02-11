@@ -251,7 +251,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 	elseif (ColorHash and ColorHash ~= "") then
 		local aid = "http://www.roblox.com/asset?id="
 		local bcid = "http://assetgame.roblox.com/Asset/BodyColors.ashx?avatarHash="
-		local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version=1;"..aid..Hat2ID.."&version=1;"..aid..Hat3ID.."&version=1;"
+		local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version="..Hat1Version..";"..aid..Hat2ID.."&version="..Hat2Version..";"..aid..Hat3ID.."&version="..Hat3Version..";"
 		Player.CharacterAppearance = charapp
 	else
 		Player.CharacterAppearance=0;

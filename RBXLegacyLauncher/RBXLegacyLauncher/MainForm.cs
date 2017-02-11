@@ -116,20 +116,20 @@ namespace RBXLegacyLauncher
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
 			//how the fuck does this even happen? oh well.
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorID + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
@@ -272,7 +272,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17;
+			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -293,6 +293,9 @@ namespace RBXLegacyLauncher
     			line15 = reader.ReadLine();
     			line16 = reader.ReadLine();
     			line17 = reader.ReadLine();
+    			line18 = reader.ReadLine();
+    			line19 = reader.ReadLine();
+    			line20 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -322,7 +325,7 @@ namespace RBXLegacyLauncher
 			bool bline10 = Convert.ToBoolean(line10);
 			GlobalVars.UseCustomAppearanceID = bline10;
 			
-			GlobalVars.Custom_ColorID = line11;
+			GlobalVars.Custom_ColorHash = line11;
 			
 			int iline12 = Convert.ToInt32(line12);
 			GlobalVars.Custom_ShirtsID = iline12;
@@ -341,6 +344,15 @@ namespace RBXLegacyLauncher
 			
 			int iline17 = Convert.ToInt32(line17);
 			GlobalVars.Custom_Hat3ID = iline17;
+			
+			int iline18 = Convert.ToInt32(line18);
+			GlobalVars.Custom_Hat1Version = iline18;
+			
+			int iline19 = Convert.ToInt32(line19);
+			GlobalVars.Custom_Hat2Version = iline19;
+			
+			int iline20 = Convert.ToInt32(line20);
+			GlobalVars.Custom_Hat3Version = iline20;
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -411,7 +423,7 @@ namespace RBXLegacyLauncher
 		
 		void WriteConfigValues()
 		{
-			string[] lines = { GlobalVars.CloseOnLaunch.ToString(), GlobalVars.BodyColors.ToString(), GlobalVars.UserID.ToString(), GlobalVars.PlayerName.ToString(), GlobalVars.SelectedClient.ToString(), GlobalVars.CharacterAppearanceID.ToString(), GlobalVars.UseAppearanceID.ToString(), GlobalVars.Map.ToString(), GlobalVars.RobloxPort.ToString(), GlobalVars.UseCustomAppearanceID.ToString(), GlobalVars.Custom_ColorID.ToString(), GlobalVars.Custom_ShirtsID.ToString(), GlobalVars.Custom_PantsID.ToString(), GlobalVars.Custom_TShirtsID.ToString(), GlobalVars.Custom_Hat1ID.ToString(), GlobalVars.Custom_Hat2ID.ToString(), GlobalVars.Custom_Hat3ID.ToString()};
+			string[] lines = { GlobalVars.CloseOnLaunch.ToString(), GlobalVars.BodyColors.ToString(), GlobalVars.UserID.ToString(), GlobalVars.PlayerName.ToString(), GlobalVars.SelectedClient.ToString(), GlobalVars.CharacterAppearanceID.ToString(), GlobalVars.UseAppearanceID.ToString(), GlobalVars.Map.ToString(), GlobalVars.RobloxPort.ToString(), GlobalVars.UseCustomAppearanceID.ToString(), GlobalVars.Custom_ColorHash.ToString(), GlobalVars.Custom_ShirtsID.ToString(), GlobalVars.Custom_PantsID.ToString(), GlobalVars.Custom_TShirtsID.ToString(), GlobalVars.Custom_Hat1ID.ToString(), GlobalVars.Custom_Hat2ID.ToString(), GlobalVars.Custom_Hat3ID.ToString(), GlobalVars.Custom_Hat1Version.ToString(), GlobalVars.Custom_Hat2Version.ToString(), GlobalVars.Custom_Hat3Version.ToString()};
 			File.WriteAllLines("config.txt", lines);
 		}
 		
@@ -427,7 +439,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.Map = "Baseplate.rbxl";
 			GlobalVars.RobloxPort = 53640;
 			GlobalVars.UseCustomAppearanceID = false;
-			GlobalVars.Custom_ColorID = "";
+			GlobalVars.Custom_ColorHash = "";
 			GlobalVars.Custom_ShirtsID = 0;
 			GlobalVars.Custom_PantsID = 0;
 			GlobalVars.Custom_TShirtsID = 0;
@@ -564,7 +576,6 @@ namespace RBXLegacyLauncher
 			if (GlobalVars.SupportsCharacterCustomization == true)
 			{
 				checkBox5.Enabled = true;
-				button8.Enabled = true;
 			}
 			else if (GlobalVars.SupportsCharacterCustomization == false)
 			{
@@ -883,6 +894,60 @@ namespace RBXLegacyLauncher
 		void Button11Click(object sender, EventArgs e)
 		{
 			File.AppendAllText("ports.txt", GlobalVars.RobloxPort + Environment.NewLine);
+		}
+		
+		void Button12Click(object sender, EventArgs e)
+		{
+			if (listBox3.SelectedIndex >= 0)
+			{
+				TextLineRemover.RemoveTextLines(new List<string> { listBox3.SelectedItem.ToString() }, "servers.txt", "servers.tmp");
+				listBox3.Items.Clear();
+				string[] lines_server = File.ReadAllLines("servers.txt");
+				listBox3.Items.AddRange(lines_server);
+			}
+		}
+		
+		void Button13Click(object sender, EventArgs e)
+		{
+			if (listBox4.SelectedIndex >= 0)
+			{
+				TextLineRemover.RemoveTextLines(new List<string> { listBox4.SelectedItem.ToString() }, "ports.txt", "ports.tmp");
+				listBox4.Items.Clear();
+				string[] lines_ports = File.ReadAllLines("ports.txt");
+				listBox4.Items.AddRange(lines_ports);
+			}
+		}
+		
+		void Button14Click(object sender, EventArgs e)
+		{
+			File.Create("servers.txt").Dispose();
+			listBox3.Items.Clear();
+			string[] lines_server = File.ReadAllLines("servers.txt");
+			listBox3.Items.AddRange(lines_server);
+		}
+		
+		void Button15Click(object sender, EventArgs e)
+		{
+			File.Create("ports.txt").Dispose();
+			listBox4.Items.Clear();
+			string[] lines_ports = File.ReadAllLines("ports.txt");
+			listBox4.Items.AddRange(lines_ports);
+		}
+		
+		void Button16Click(object sender, EventArgs e)
+		{
+			File.AppendAllText("servers.txt", GlobalVars.IP + Environment.NewLine);
+			listBox3.Items.Clear();
+			string[] lines_server = File.ReadAllLines("servers.txt");
+			listBox3.Items.AddRange(lines_server);			
+		}
+		
+		void Button17Click(object sender, EventArgs e)
+		{
+			File.AppendAllText("ports.txt", GlobalVars.RobloxPort + Environment.NewLine);
+			listBox4.Items.Clear();
+			string[] lines_ports = File.ReadAllLines("ports.txt");
+			listBox4.Items.AddRange(lines_ports);
 		}
 	}
 }

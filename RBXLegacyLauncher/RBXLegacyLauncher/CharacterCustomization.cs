@@ -31,18 +31,21 @@ namespace RBXLegacyLauncher
 		
 		void CharacterCustomizationLoad(object sender, EventArgs e)
 		{
-			textBox1.Text = GlobalVars.Custom_ColorID;
+			textBox1.Text = GlobalVars.Custom_ColorHash;
 			textBox2.Text = GlobalVars.Custom_ShirtsID.ToString();
 			textBox3.Text = GlobalVars.Custom_PantsID.ToString();
 			textBox4.Text = GlobalVars.Custom_TShirtsID.ToString();
 			textBox5.Text = GlobalVars.Custom_Hat1ID.ToString();
 			textBox6.Text = GlobalVars.Custom_Hat2ID.ToString();
 			textBox7.Text = GlobalVars.Custom_Hat3ID.ToString();
+			textBox8.Text = GlobalVars.Custom_Hat1Version.ToString();
+			textBox9.Text = GlobalVars.Custom_Hat2Version.ToString();
+			textBox10.Text = GlobalVars.Custom_Hat3Version.ToString();
 		}
 		
 		void TextBox1TextChanged(object sender, EventArgs e)
 		{
-			GlobalVars.Custom_ColorID = textBox1.Text;
+			GlobalVars.Custom_ColorHash = textBox1.Text;
 		}
 		
 		void TextBox2TextChanged(object sender, EventArgs e)
@@ -128,7 +131,7 @@ namespace RBXLegacyLauncher
 		void TextBox6TextChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
-			if (int.TryParse(textBox7.Text, out parsedValue))
+			if (int.TryParse(textBox6.Text, out parsedValue))
 			{
 				if (textBox6.Text == "")
 				{
@@ -148,7 +151,7 @@ namespace RBXLegacyLauncher
 		void TextBox7TextChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
-			if (int.TryParse(textBox3.Text, out parsedValue))
+			if (int.TryParse(textBox7.Text, out parsedValue))
 			{
 				if (textBox7.Text == "")
 				{
@@ -162,6 +165,66 @@ namespace RBXLegacyLauncher
 			else
 			{
 				GlobalVars.Custom_Hat3ID = 0;
+			}
+		}
+		
+		void TextBox8TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox8.Text, out parsedValue))
+			{
+				if (textBox8.Text == "")
+				{
+					GlobalVars.Custom_Hat1Version = 1;
+				}
+				else
+				{
+					GlobalVars.Custom_Hat1Version = Convert.ToInt32(textBox8.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.Custom_Hat1Version = 1;
+			}
+		}
+		
+		void TextBox9TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox9.Text, out parsedValue))
+			{
+				if (textBox9.Text == "")
+				{
+					GlobalVars.Custom_Hat2Version = 1;
+				}
+				else
+				{
+					GlobalVars.Custom_Hat2Version = Convert.ToInt32(textBox9.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.Custom_Hat2Version = 1;
+			}
+		}
+		
+		void TextBox10TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox10.Text, out parsedValue))
+			{
+				if (textBox10.Text == "")
+				{
+					GlobalVars.Custom_Hat3Version = 1;
+				}
+				else
+				{
+					GlobalVars.Custom_Hat3Version = Convert.ToInt32(textBox10.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.Custom_Hat3Version = 1;
 			}
 		}
 	}

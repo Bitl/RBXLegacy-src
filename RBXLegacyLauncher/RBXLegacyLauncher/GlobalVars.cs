@@ -38,11 +38,14 @@
 	public static string ClientCreator_SelectedClientDesc = "";
 	public static bool ClientCreator_SupportsCharacterCustomization = false;
 	//charcustom
-	public static string Custom_ColorID = "";
+	public static string Custom_ColorHash = "";
 	public static int Custom_PantsID = 0;
 	public static int Custom_ShirtsID = 0;
 	public static int Custom_TShirtsID = 0;
 	public static int Custom_Hat1ID = 0;
 	public static int Custom_Hat2ID = 0;
 	public static int Custom_Hat3ID = 0;
+	public static int Custom_Hat1Version = 1;
+	public static int Custom_Hat2Version = 1;
+	public static int Custom_Hat3Version = 1;
 }

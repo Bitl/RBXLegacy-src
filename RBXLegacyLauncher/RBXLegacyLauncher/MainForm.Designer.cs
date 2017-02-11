@@ -78,6 +78,16 @@ namespace RBXLegacyLauncher
 			this.label29 = new System.Windows.Forms.Label();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.tabPage6 = new System.Windows.Forms.TabPage();
+			this.button17 = new System.Windows.Forms.Button();
+			this.button16 = new System.Windows.Forms.Button();
+			this.button15 = new System.Windows.Forms.Button();
+			this.button14 = new System.Windows.Forms.Button();
+			this.button13 = new System.Windows.Forms.Button();
+			this.button12 = new System.Windows.Forms.Button();
+			this.label38 = new System.Windows.Forms.Label();
+			this.label39 = new System.Windows.Forms.Label();
+			this.label37 = new System.Windows.Forms.Label();
+			this.label36 = new System.Windows.Forms.Label();
 			this.listBox4 = new System.Windows.Forms.ListBox();
 			this.listBox3 = new System.Windows.Forms.ListBox();
 			this.label21 = new System.Windows.Forms.Label();
@@ -106,10 +116,6 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label36 = new System.Windows.Forms.Label();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label38 = new System.Windows.Forms.Label();
-			this.label39 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -577,6 +583,12 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage6
 			// 
+			this.tabPage6.Controls.Add(this.button17);
+			this.tabPage6.Controls.Add(this.button16);
+			this.tabPage6.Controls.Add(this.button15);
+			this.tabPage6.Controls.Add(this.button14);
+			this.tabPage6.Controls.Add(this.button13);
+			this.tabPage6.Controls.Add(this.button12);
 			this.tabPage6.Controls.Add(this.label38);
 			this.tabPage6.Controls.Add(this.label39);
 			this.tabPage6.Controls.Add(this.label37);
@@ -593,12 +605,102 @@ namespace RBXLegacyLauncher
 			this.tabPage6.Text = "SAVED";
 			this.tabPage6.UseVisualStyleBackColor = true;
 			// 
+			// button17
+			// 
+			this.button17.Location = new System.Drawing.Point(213, 223);
+			this.button17.Name = "button17";
+			this.button17.Size = new System.Drawing.Size(54, 23);
+			this.button17.TabIndex = 13;
+			this.button17.Text = "Add";
+			this.button17.UseVisualStyleBackColor = true;
+			this.button17.Click += new System.EventHandler(this.Button17Click);
+			// 
+			// button16
+			// 
+			this.button16.Location = new System.Drawing.Point(3, 223);
+			this.button16.Name = "button16";
+			this.button16.Size = new System.Drawing.Size(60, 23);
+			this.button16.TabIndex = 12;
+			this.button16.Text = "Add";
+			this.button16.UseVisualStyleBackColor = true;
+			this.button16.Click += new System.EventHandler(this.Button16Click);
+			// 
+			// button15
+			// 
+			this.button15.Location = new System.Drawing.Point(339, 223);
+			this.button15.Name = "button15";
+			this.button15.Size = new System.Drawing.Size(60, 23);
+			this.button15.TabIndex = 11;
+			this.button15.Text = "Reset";
+			this.button15.UseVisualStyleBackColor = true;
+			this.button15.Click += new System.EventHandler(this.Button15Click);
+			// 
+			// button14
+			// 
+			this.button14.Location = new System.Drawing.Point(137, 223);
+			this.button14.Name = "button14";
+			this.button14.Size = new System.Drawing.Size(55, 23);
+			this.button14.TabIndex = 10;
+			this.button14.Text = "Reset";
+			this.button14.UseVisualStyleBackColor = true;
+			this.button14.Click += new System.EventHandler(this.Button14Click);
+			// 
+			// button13
+			// 
+			this.button13.Location = new System.Drawing.Point(273, 223);
+			this.button13.Name = "button13";
+			this.button13.Size = new System.Drawing.Size(60, 23);
+			this.button13.TabIndex = 9;
+			this.button13.Text = "Remove";
+			this.button13.UseVisualStyleBackColor = true;
+			this.button13.Click += new System.EventHandler(this.Button13Click);
+			// 
+			// button12
+			// 
+			this.button12.Location = new System.Drawing.Point(69, 223);
+			this.button12.Name = "button12";
+			this.button12.Size = new System.Drawing.Size(62, 23);
+			this.button12.TabIndex = 8;
+			this.button12.Text = "Remove";
+			this.button12.UseVisualStyleBackColor = true;
+			this.button12.Click += new System.EventHandler(this.Button12Click);
+			// 
+			// label38
+			// 
+			this.label38.Location = new System.Drawing.Point(213, 261);
+			this.label38.Name = "label38";
+			this.label38.Size = new System.Drawing.Size(120, 20);
+			this.label38.TabIndex = 7;
+			// 
+			// label39
+			// 
+			this.label39.Location = new System.Drawing.Point(213, 249);
+			this.label39.Name = "label39";
+			this.label39.Size = new System.Drawing.Size(149, 12);
+			this.label39.TabIndex = 6;
+			this.label39.Text = "CURRENT SERVER PORT:";
+			// 
+			// label37
+			// 
+			this.label37.Location = new System.Drawing.Point(6, 261);
+			this.label37.Name = "label37";
+			this.label37.Size = new System.Drawing.Size(120, 20);
+			this.label37.TabIndex = 5;
+			// 
+			// label36
+			// 
+			this.label36.Location = new System.Drawing.Point(6, 249);
+			this.label36.Name = "label36";
+			this.label36.Size = new System.Drawing.Size(136, 12);
+			this.label36.TabIndex = 4;
+			this.label36.Text = "CURRENT SERVER IP:";
+			// 
 			// listBox4
 			// 
 			this.listBox4.FormattingEnabled = true;
 			this.listBox4.Location = new System.Drawing.Point(213, 21);
 			this.listBox4.Name = "listBox4";
-			this.listBox4.Size = new System.Drawing.Size(186, 225);
+			this.listBox4.Size = new System.Drawing.Size(186, 199);
 			this.listBox4.TabIndex = 3;
 			this.listBox4.SelectedIndexChanged += new System.EventHandler(this.ListBox4SelectedIndexChanged);
 			// 
@@ -607,7 +709,7 @@ namespace RBXLegacyLauncher
 			this.listBox3.FormattingEnabled = true;
 			this.listBox3.Location = new System.Drawing.Point(6, 21);
 			this.listBox3.Name = "listBox3";
-			this.listBox3.Size = new System.Drawing.Size(186, 225);
+			this.listBox3.Size = new System.Drawing.Size(186, 199);
 			this.listBox3.TabIndex = 2;
 			this.listBox3.SelectedIndexChanged += new System.EventHandler(this.ListBox3SelectedIndexChanged);
 			// 
@@ -860,36 +962,6 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// label36
-			// 
-			this.label36.Location = new System.Drawing.Point(6, 249);
-			this.label36.Name = "label36";
-			this.label36.Size = new System.Drawing.Size(136, 12);
-			this.label36.TabIndex = 4;
-			this.label36.Text = "CURRENT SERVER IP:";
-			// 
-			// label37
-			// 
-			this.label37.Location = new System.Drawing.Point(6, 261);
-			this.label37.Name = "label37";
-			this.label37.Size = new System.Drawing.Size(120, 20);
-			this.label37.TabIndex = 5;
-			// 
-			// label38
-			// 
-			this.label38.Location = new System.Drawing.Point(213, 261);
-			this.label38.Name = "label38";
-			this.label38.Size = new System.Drawing.Size(120, 20);
-			this.label38.TabIndex = 7;
-			// 
-			// label39
-			// 
-			this.label39.Location = new System.Drawing.Point(213, 249);
-			this.label39.Name = "label39";
-			this.label39.Size = new System.Drawing.Size(149, 12);
-			this.label39.TabIndex = 6;
-			this.label39.Text = "CURRENT SERVER PORT:";
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -936,6 +1008,12 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button16;
+		private System.Windows.Forms.Button button17;
+		private System.Windows.Forms.Button button12;
+		private System.Windows.Forms.Button button13;
+		private System.Windows.Forms.Button button14;
+		private System.Windows.Forms.Button button15;
 		private System.Windows.Forms.Label label36;
 		private System.Windows.Forms.Label label37;
 		private System.Windows.Forms.Label label39;

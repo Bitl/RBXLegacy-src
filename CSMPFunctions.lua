@@ -150,7 +150,7 @@ function CSServer(Port,BodyColors)
 	Server.IncommingConnection:connect(IncommingConnection);
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,PantsID,ShirtID,TShirtID,Hat1ID,Hat2ID,Hat3ID,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,PantsID,ShirtID,TShirtID,Hat1ID,Hat2ID,Hat3ID,Hat1Version,Hat2Version,Hat3Version,Ticket)
 	pcall(function() game:SetPlaceID(-1, false) end);
 	pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
 	
@@ -176,7 +176,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 		elseif (ColorHash and ColorHash ~= "") then
 			local aid = "http://www.roblox.com/asset?id="
 			local bcid = "http://assetgame.roblox.com/Asset/BodyColors.ashx?avatarHash="
-			local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version=1;"..aid..Hat2ID.."&version=1;"..aid..Hat3ID.."&version=1;"
+			local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version="..Hat1Version..";"..aid..Hat2ID.."&version="..Hat2Version..";"..aid..Hat3ID.."&version="..Hat3Version..";"
 			player.CharacterAppearance = charapp
 		else
 			player.CharacterAppearance=0;
