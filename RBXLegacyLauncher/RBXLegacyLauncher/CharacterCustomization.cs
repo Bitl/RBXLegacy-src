@@ -9,6 +9,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RBXLegacyLauncher
 {
@@ -41,6 +42,15 @@ namespace RBXLegacyLauncher
 			textBox8.Text = GlobalVars.Custom_Hat1Version.ToString();
 			textBox9.Text = GlobalVars.Custom_Hat2Version.ToString();
 			textBox10.Text = GlobalVars.Custom_Hat3Version.ToString();
+			
+			if (GlobalVars.CustomMode == 0)
+			{
+				tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+			}
+			else if (GlobalVars.CustomMode == 1)
+			{
+				tabControl1.SelectedTab = tabControl1.TabPages["tabPage2"];
+			}
 		}
 		
 		void TextBox1TextChanged(object sender, EventArgs e)
@@ -226,6 +236,76 @@ namespace RBXLegacyLauncher
 			{
 				GlobalVars.Custom_Hat3Version = 1;
 			}
+		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			CharacterColors ccol = new CharacterColors();
+			ccol.Show();	
+		}
+		
+		void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+     		if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
+     		{
+        		string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
+        		if (Directory.Exists(hatdir))
+        		{
+        			DirectoryInfo dinfo = new DirectoryInfo(hatdir);
+					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+					foreach( FileInfo file in Files )
+					{
+   						listBox1.Items.Add(file.Name);
+   						listBox2.Items.Add(file.Name);
+   						listBox3.Items.Add(file.Name);
+					}
+					listBox1.SelectedIndex = GlobalVars.Custom_Hat1ID_Offline-1;
+					listBox2.SelectedIndex = GlobalVars.Custom_Hat2ID_Offline-1;
+					listBox3.SelectedIndex = GlobalVars.Custom_Hat3ID_Offline-1;
+					GlobalVars.CustomMode = 1;
+        		}
+        		else
+        		{
+        			GlobalVars.CustomMode = 0;
+        			listBox1.Items.Add("Offline character customization is not supported");
+        			listBox1.Items.Add("on this client.");
+        			button1.Enabled = false;       		
+        		}
+     		}
+     		else
+     		{
+     			GlobalVars.CustomMode = 0;
+     			listBox1.Items.Clear();
+     			listBox2.Items.Clear();
+     			listBox3.Items.Clear();
+     		}
+		}
+		
+		void ListBox1SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
+        	if (Directory.Exists(hatdir))
+        	{
+        		GlobalVars.Custom_Hat1ID_Offline = listBox1.SelectedIndex+1;
+        	}
+		}
+		
+		void ListBox2SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
+        	if (Directory.Exists(hatdir))
+        	{
+        		GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedIndex+1;
+        	}
+		}
+		
+		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
+        	if (Directory.Exists(hatdir))
+        	{
+        		GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedIndex+1;
+        	}
 		}
 	}
 }

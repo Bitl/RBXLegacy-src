@@ -116,6 +116,7 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.button18 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -257,6 +258,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.button18);
 			this.tabPage2.Controls.Add(this.label32);
 			this.tabPage2.Controls.Add(this.label20);
 			this.tabPage2.Controls.Add(this.label19);
@@ -306,9 +308,9 @@ namespace RBXLegacyLauncher
 			// 
 			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.button2.Location = new System.Drawing.Point(105, 229);
+			this.button2.Location = new System.Drawing.Point(66, 230);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(191, 51);
+			this.button2.Size = new System.Drawing.Size(126, 51);
 			this.button2.TabIndex = 2;
 			this.button2.Text = "START SERVER";
 			this.button2.UseVisualStyleBackColor = true;
@@ -603,6 +605,7 @@ namespace RBXLegacyLauncher
 			this.tabPage6.Size = new System.Drawing.Size(405, 284);
 			this.tabPage6.TabIndex = 6;
 			this.tabPage6.Text = "SAVED";
+			this.tabPage6.ToolTipText = "Lists all your saved servers and ports";
 			this.tabPage6.UseVisualStyleBackColor = true;
 			// 
 			// button17
@@ -962,6 +965,16 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// button18
+			// 
+			this.button18.Location = new System.Drawing.Point(201, 230);
+			this.button18.Name = "button18";
+			this.button18.Size = new System.Drawing.Size(126, 51);
+			this.button18.TabIndex = 20;
+			this.button18.Text = "START SERVER IN NOGRAPHICS MODE";
+			this.button18.UseVisualStyleBackColor = true;
+			this.button18.Click += new System.EventHandler(this.Button18Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1008,6 +1021,7 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button18;
 		private System.Windows.Forms.Button button16;
 		private System.Windows.Forms.Button button17;
 		private System.Windows.Forms.Button button12;

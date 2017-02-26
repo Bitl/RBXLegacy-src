@@ -19,7 +19,7 @@
 	public static bool UseAppearanceID = false;
 	public static bool UseCustomAppearanceID = false;
 	//client shit
-	public static string SelectedClient = "2008";
+	public static string SelectedClient = "Mid-2008";
 	public static bool UsesPlayerName = false;
 	public static bool UsesID = true;
 	public static bool SupportsLocalPlay = true;
@@ -48,4 +48,9 @@
 	public static int Custom_Hat1Version = 1;
 	public static int Custom_Hat2Version = 1;
 	public static int Custom_Hat3Version = 1;
+	//charcustom offline
+	public static int CustomMode = 0;
+	public static int Custom_Hat1ID_Offline = 6;
+	public static int Custom_Hat2ID_Offline = 6;
+	public static int Custom_Hat3ID_Offline = 6;
 }

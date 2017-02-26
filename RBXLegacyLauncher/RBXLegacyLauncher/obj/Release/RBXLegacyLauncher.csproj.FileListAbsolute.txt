@@ -6,3 +6,4 @@ C:\Users\BITL\Documents\GitHub\RBXLegacy-src\RBXLegacyLauncher\RBXLegacyLauncher
 C:\Users\BITL\Documents\GitHub\RBXLegacy-src\RBXLegacyLauncher\RBXLegacyLauncher\bin\Release\RBXLegacyLauncher.exe.config
 C:\Users\BITL\Documents\GitHub\RBXLegacy-src\RBXLegacyLauncher\RBXLegacyLauncher\bin\Release\RBXLegacyLauncher.exe
 C:\Users\BITL\Documents\GitHub\RBXLegacy-src\RBXLegacyLauncher\RBXLegacyLauncher\obj\Release\RBXLegacyLauncher.exe
+C:\Users\BITL\Documents\GitHub\RBXLegacy-src\RBXLegacyLauncher\RBXLegacyLauncher\obj\Release\RBXLegacyLauncher.CharacterColors.resources

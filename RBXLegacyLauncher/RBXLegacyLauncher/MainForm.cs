@@ -114,22 +114,39 @@ namespace RBXLegacyLauncher
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player'," + GlobalVars.CharacterAppearanceID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && !IsInOfflineMode())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && !IsInOfflineMode())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
 			//how the fuck does this even happen? oh well.
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && !IsInOfflineMode())
 			{
 				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && !IsInOfflineMode())
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0," + GlobalVars.Custom_Hat1ID_Offline + "," + GlobalVars.Custom_Hat2ID_Offline + "," + GlobalVars.Custom_Hat3ID_Offline + ");" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && IsInOfflineMode())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect2(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0," + GlobalVars.Custom_Hat1ID_Offline + "," + GlobalVars.Custom_Hat2ID_Offline + "," + GlobalVars.Custom_Hat3ID_Offline + ");" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && IsInOfflineMode())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect2(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0," + GlobalVars.Custom_Hat1ID_Offline + "," + GlobalVars.Custom_Hat2ID_Offline + "," + GlobalVars.Custom_Hat3ID_Offline + ");" + quote;
+			}
+			//how the fuck does this even happen? oh well.
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && IsInOfflineMode())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect2(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0," + GlobalVars.Custom_Hat1ID_Offline + "," + GlobalVars.Custom_Hat2ID_Offline + "," + GlobalVars.Custom_Hat3ID_Offline + ");" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits() && IsInOfflineMode())
+			{
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect2(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + GlobalVars.Custom_ColorHash + "'," + GlobalVars.Custom_PantsID + "," + GlobalVars.Custom_ShirtsID + "," + GlobalVars.Custom_TShirtsID + "," + GlobalVars.Custom_Hat1ID + "," + GlobalVars.Custom_Hat2ID + "," + GlobalVars.Custom_Hat3ID + "," + GlobalVars.Custom_Hat1Version + "," + GlobalVars.Custom_Hat2Version + "," + GlobalVars.Custom_Hat3Version + ");" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
 			{
@@ -188,11 +205,11 @@ namespace RBXLegacyLauncher
 			string args = "";
 			if (GlobalVars.BodyColors == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",true);";
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",true); " + quote;
 			}
 			else if (GlobalVars.BodyColors == false)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",false);";
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",false);" + quote;
 			}
 			try
 			{
@@ -272,7 +289,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20;
+			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -296,6 +313,10 @@ namespace RBXLegacyLauncher
     			line18 = reader.ReadLine();
     			line19 = reader.ReadLine();
     			line20 = reader.ReadLine();
+    			line21 = reader.ReadLine();
+    			line22 = reader.ReadLine();
+    			line23 = reader.ReadLine();
+    			line24 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -353,6 +374,18 @@ namespace RBXLegacyLauncher
 			
 			int iline20 = Convert.ToInt32(line20);
 			GlobalVars.Custom_Hat3Version = iline20;
+			
+			int iline21 = Convert.ToInt32(line21);
+			GlobalVars.CustomMode = iline21;
+			
+			int iline22 = Convert.ToInt32(line22);
+			GlobalVars.Custom_Hat1ID_Offline = iline22;
+			
+			int iline23 = Convert.ToInt32(line23);
+			GlobalVars.Custom_Hat2ID_Offline = iline23;
+			
+			int iline24 = Convert.ToInt32(line24);
+			GlobalVars.Custom_Hat3ID_Offline = iline24;
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -423,7 +456,32 @@ namespace RBXLegacyLauncher
 		
 		void WriteConfigValues()
 		{
-			string[] lines = { GlobalVars.CloseOnLaunch.ToString(), GlobalVars.BodyColors.ToString(), GlobalVars.UserID.ToString(), GlobalVars.PlayerName.ToString(), GlobalVars.SelectedClient.ToString(), GlobalVars.CharacterAppearanceID.ToString(), GlobalVars.UseAppearanceID.ToString(), GlobalVars.Map.ToString(), GlobalVars.RobloxPort.ToString(), GlobalVars.UseCustomAppearanceID.ToString(), GlobalVars.Custom_ColorHash.ToString(), GlobalVars.Custom_ShirtsID.ToString(), GlobalVars.Custom_PantsID.ToString(), GlobalVars.Custom_TShirtsID.ToString(), GlobalVars.Custom_Hat1ID.ToString(), GlobalVars.Custom_Hat2ID.ToString(), GlobalVars.Custom_Hat3ID.ToString(), GlobalVars.Custom_Hat1Version.ToString(), GlobalVars.Custom_Hat2Version.ToString(), GlobalVars.Custom_Hat3Version.ToString()};
+			string[] lines = { 
+				GlobalVars.CloseOnLaunch.ToString(), 
+				GlobalVars.BodyColors.ToString(), 
+				GlobalVars.UserID.ToString(), 
+				GlobalVars.PlayerName.ToString(), 
+				GlobalVars.SelectedClient.ToString(), 
+				GlobalVars.CharacterAppearanceID.ToString(), 
+				GlobalVars.UseAppearanceID.ToString(), 
+				GlobalVars.Map.ToString(), 
+				GlobalVars.RobloxPort.ToString(), 
+				GlobalVars.UseCustomAppearanceID.ToString(), 
+				GlobalVars.Custom_ColorHash.ToString(), 
+				GlobalVars.Custom_ShirtsID.ToString(), 
+				GlobalVars.Custom_PantsID.ToString(), 
+				GlobalVars.Custom_TShirtsID.ToString(), 
+				GlobalVars.Custom_Hat1ID.ToString(), 
+				GlobalVars.Custom_Hat2ID.ToString(), 
+				GlobalVars.Custom_Hat3ID.ToString(), 
+				GlobalVars.Custom_Hat1Version.ToString(), 
+				GlobalVars.Custom_Hat2Version.ToString(), 
+				GlobalVars.Custom_Hat3Version.ToString(),
+				GlobalVars.CustomMode.ToString(),
+				GlobalVars.Custom_Hat1ID_Offline.ToString(),
+				GlobalVars.Custom_Hat2ID_Offline.ToString(),
+				GlobalVars.Custom_Hat3ID_Offline.ToString(),
+			};
 			File.WriteAllLines("config.txt", lines);
 		}
 		
@@ -446,6 +504,10 @@ namespace RBXLegacyLauncher
 			GlobalVars.Custom_Hat1ID = 0;
 			GlobalVars.Custom_Hat2ID = 0;
 			GlobalVars.Custom_Hat3ID = 0;
+			GlobalVars.CustomMode = 0;
+			GlobalVars.Custom_Hat1ID_Offline = 1;
+			GlobalVars.Custom_Hat2ID_Offline = 1;
+			GlobalVars.Custom_Hat3ID_Offline = 1;
 			WriteConfigValues();
 			ReadConfigValues();
 		}
@@ -784,6 +846,14 @@ namespace RBXLegacyLauncher
 			return true;
 		}
 		
+		bool IsInOfflineMode()
+		{
+			if(GlobalVars.CustomMode == 1)
+				return true;
+			
+			return false;
+		}
+		
 		void Button7Click(object sender, EventArgs e)
 		{
 			WriteConfigValues();
@@ -948,6 +1018,47 @@ namespace RBXLegacyLauncher
 			listBox4.Items.Clear();
 			string[] lines_ports = File.ReadAllLines("ports.txt");
 			listBox4.Items.AddRange(lines_ports);
+		}
+		
+		void Button18Click(object sender, EventArgs e)
+		{
+			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before you start a server!","RBXLegacy Launcher - Start Server", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+			if (result == DialogResult.Cancel)
+				return;
+			
+			string luafile = "";
+			if (GlobalVars.ModernClient == true)
+			{
+				luafile = "rbxasset://scripts\\\\CSMPFunctions_Modern.lua";
+			}
+			else if (GlobalVars.ModernClient == false)
+			{
+				luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
+			}
+			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+			string quote = "\"";
+			string args = "";
+			if (GlobalVars.BodyColors == true)
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",true); " + quote + " -no3d";
+			}
+			else if (GlobalVars.BodyColors == false)
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",false);" + quote + " -no3d";
+			}
+			try
+			{
+				Process.Start(rbxexe, args);
+			}
+			catch (Exception ex)
+			{
+				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			if (GlobalVars.CloseOnLaunch == true)
+			{
+				this.Close();
+			}						
 		}
 	}
 }
