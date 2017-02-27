@@ -246,104 +246,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 	end
 end
 
-function GetHatID(Hat1ID,Hat2ID,Hat3ID)
-	if (Hat1ID == 1) then
-		Hat1 = "rbxasset://charcustom/hats/BlueBaseballCap.rbxm"
-	elseif (Hat1ID == 2) then
-		Hat1 = "rbxasset://charcustom/hats/DominoCrown.rbxm"
-	elseif (Hat1ID == 3) then
-		Hat1 = "rbxasset://charcustom/hats/fedora.rbxm"
-	elseif (Hat1ID == 4) then
-		Hat1 = "rbxasset://charcustom/hats/GreenTopHat.rbxm"
-	elseif (Hat1ID == 5) then
-		Hat1 = "rbxasset://charcustom/hats/headphones.rbxm"
-	elseif (Hat1ID == 6) then
-		Hat1 = "rbxasset://charcustom/hats/NoHat.rbxm"
-	elseif (Hat1ID == 7) then
-		Hat1 = "rbxasset://charcustom/hats/PirateHat.rbxm"
-	elseif (Hat1ID == 8) then
-		Hat1 = "rbxasset://charcustom/hats/PoliceCap.rbxm"
-	elseif (Hat1ID == 9) then
-		Hat1 = "rbxasset://charcustom/hats/PurpleTopHat.rbxm"
-	elseif (Hat1ID == 10) then
-		Hat1 = "rbxasset://charcustom/hats/RedBaseballCap.rbxm"
-	elseif (Hat1ID == 11) then
-		Hat1 = "rbxasset://charcustom/hats/RedTopHat.rbxm"
-	elseif (Hat1ID == 12) then
-		Hat1 = "rbxasset://charcustom/hats/shades.rbxm"
-	elseif (Hat1ID == 13) then
-		Hat1 = "rbxasset://charcustom/hats/ShadowNinjaMask.rbxm"
-	elseif (Hat1ID == 14) then
-		Hat1 = "rbxasset://charcustom/hats/sombrero.rbxm"
-	elseif (Hat1ID == 15) then
-		Hat1 = "rbxasset://charcustom/hats/VikingHelm.rbxm"
-	end
-	
-	if (Hat2ID == 1) then
-		Hat2 = "rbxasset://charcustom/hats/BlueBaseballCap.rbxm"
-	elseif (Hat2ID == 2) then
-		Hat2 = "rbxasset://charcustom/hats/DominoCrown.rbxm"
-	elseif (Hat2ID == 3) then
-		Hat2 = "rbxasset://charcustom/hats/fedora.rbxm"
-	elseif (Hat2ID == 4) then
-		Hat2 = "rbxasset://charcustom/hats/GreenTopHat.rbxm"
-	elseif (Hat2ID == 5) then
-		Hat2 = "rbxasset://charcustom/hats/headphones.rbxm"
-	elseif (Hat2ID == 6) then
-		Hat2 = "rbxasset://charcustom/hats/NoHat.rbxm"
-	elseif (Hat2ID == 7) then
-		Hat2 = "rbxasset://charcustom/hats/PirateHat.rbxm"
-	elseif (Hat2ID == 8) then
-		Hat2 = "rbxasset://charcustom/hats/PoliceCap.rbxm"
-	elseif (Hat2ID == 9) then
-		Hat2 = "rbxasset://charcustom/hats/PurpleTopHat.rbxm"
-	elseif (Hat2ID == 10) then
-		Hat2 = "rbxasset://charcustom/hats/RedBaseballCap.rbxm"
-	elseif (Hat2ID == 11) then
-		Hat2 = "rbxasset://charcustom/hats/RedTopHat.rbxm"
-	elseif (Hat2ID == 12) then
-		Hat2 = "rbxasset://charcustom/hats/shades.rbxm"
-	elseif (Hat2ID == 13) then
-		Hat2 = "rbxasset://charcustom/hats/ShadowNinjaMask.rbxm"
-	elseif (Hat2ID == 14) then
-		Hat2 = "rbxasset://charcustom/hats/sombrero.rbxm"
-	elseif (Hat2ID == 15) then
-		Hat2 = "rbxasset://charcustom/hats/VikingHelm.rbxm"
-	end
-	
-	if (Hat3ID == 1) then
-		Hat3 = "rbxasset://charcustom/hats/BlueBaseballCap.rbxm"
-	elseif (Hat3ID == 2) then
-		Hat3 = "rbxasset://charcustom/hats/DominoCrown.rbxm"
-	elseif (Hat3ID == 3) then
-		Hat3 = "rbxasset://charcustom/hats/fedora.rbxm"
-	elseif (Hat3ID == 4) then
-		Hat3 = "rbxasset://charcustom/hats/GreenTopHat.rbxm"
-	elseif (Hat3ID == 5) then
-		Hat3 = "rbxasset://charcustom/hats/headphones.rbxm"
-	elseif (Hat3ID == 6) then
-		Hat3 = "rbxasset://charcustom/hats/NoHat.rbxm"
-	elseif (Hat3ID == 7) then
-		Hat3 = "rbxasset://charcustom/hats/PirateHat.rbxm"
-	elseif (Hat3ID == 8) then
-		Hat3 = "rbxasset://charcustom/hats/PoliceCap.rbxm"
-	elseif (Hat3ID == 9) then
-		Hat3 = "rbxasset://charcustom/hats/PurpleTopHat.rbxm"
-	elseif (Hat3ID == 10) then
-		Hat3 = "rbxasset://charcustom/hats/RedBaseballCap.rbxm"
-	elseif (Hat3ID == 11) then
-		Hat3 = "rbxasset://charcustom/hats/RedTopHat.rbxm"
-	elseif (Hat3ID == 12) then
-		Hat3 = "rbxasset://charcustom/hats/shades.rbxm"
-	elseif (Hat3ID == 13) then
-		Hat3 = "rbxasset://charcustom/hats/ShadowNinjaMask.rbxm"
-	elseif (Hat3ID == 14) then
-		Hat3 = "rbxasset://charcustom/hats/sombrero.rbxm"
-	elseif (Hat3ID == 15) then
-		Hat3 = "rbxasset://charcustom/hats/VikingHelm.rbxm"
-	end
-end
-
 --same function but with our new localized customization system!
 function CSConnect2(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,Hat3ID,Ticket)
 	pcall(function() game:SetPlaceID(-1, false) end);
@@ -369,7 +271,9 @@ function CSConnect2(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID
 		if (OutfitID and OutfitID ~= 0) then
 			player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
 		elseif (Hat1ID and Hat1ID ~= 0) then
-			GetHatID(Hat1ID,Hat2ID,Hat3ID)
+			Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
+			Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
+			Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
 			local charapp = "rbxasset://charcustom/CharacterColors.rbxm;"..Hat1..";"..Hat2..";"..Hat3
 			player.CharacterAppearance = charapp
 		else

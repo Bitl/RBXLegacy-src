@@ -155,7 +155,16 @@ namespace RBXLegacyLauncher
 
             	if (sfd.ShowDialog() == DialogResult.OK)
             	{
-            		string[] lines = { GlobalVars.ClientCreator_UsesPlayerName.ToString(), GlobalVars.ClientCreator_UsesID.ToString(), GlobalVars.ClientCreator_SupportsLocalPlay.ToString(), GlobalVars.ClientCreator_SupportsAppearanceID.ToString(), GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), GlobalVars.ClientCreator_ModernClient.ToString(), GlobalVars.ClientCreator_SupportsCharacterCustomization.ToString() ,GlobalVars.ClientCreator_SelectedClientDesc.ToString() };
+            		string[] lines = { 
+            			GlobalVars.ClientCreator_UsesPlayerName.ToString(), 
+            			GlobalVars.ClientCreator_UsesID.ToString(), 
+            			GlobalVars.ClientCreator_SupportsLocalPlay.ToString(), 
+            			GlobalVars.ClientCreator_SupportsAppearanceID.ToString(), 
+            			GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), 
+            			GlobalVars.ClientCreator_ModernClient.ToString(), 
+            			GlobalVars.ClientCreator_SupportsCharacterCustomization.ToString(),
+            			GlobalVars.ClientCreator_SelectedClientDesc.ToString() 
+            		};
 					File.WriteAllLines(sfd.FileName, lines);
             	}     
 			}			

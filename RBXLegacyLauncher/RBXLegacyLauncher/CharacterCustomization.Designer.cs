@@ -63,15 +63,15 @@ namespace RBXLegacyLauncher
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
-			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.listBox2 = new System.Windows.Forms.ListBox();
-			this.listBox3 = new System.Windows.Forms.ListBox();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label16 = new System.Windows.Forms.Label();
-			this.label17 = new System.Windows.Forms.Label();
-			this.label18 = new System.Windows.Forms.Label();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.label18 = new System.Windows.Forms.Label();
+			this.label17 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
+			this.listBox3 = new System.Windows.Forms.ListBox();
+			this.listBox2 = new System.Windows.Forms.ListBox();
+			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.button1 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -322,7 +322,7 @@ namespace RBXLegacyLauncher
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage1.Size = new System.Drawing.Size(255, 341);
 			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "Online Editor";
+			this.tabPage1.Text = "Custom Outfit (Online)";
 			this.tabPage1.ToolTipText = "Requires Internet Connection";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
@@ -342,75 +342,6 @@ namespace RBXLegacyLauncher
 			this.label2.Size = new System.Drawing.Size(228, 2);
 			this.label2.TabIndex = 28;
 			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(6, 6);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(243, 40);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Edit Character Colors";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
-			// 
-			// listBox1
-			// 
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(6, 85);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(243, 69);
-			this.listBox1.TabIndex = 1;
-			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1SelectedIndexChanged);
-			// 
-			// listBox2
-			// 
-			this.listBox2.FormattingEnabled = true;
-			this.listBox2.Location = new System.Drawing.Point(6, 173);
-			this.listBox2.Name = "listBox2";
-			this.listBox2.Size = new System.Drawing.Size(243, 69);
-			this.listBox2.TabIndex = 2;
-			this.listBox2.SelectedIndexChanged += new System.EventHandler(this.ListBox2SelectedIndexChanged);
-			// 
-			// listBox3
-			// 
-			this.listBox3.FormattingEnabled = true;
-			this.listBox3.Location = new System.Drawing.Point(6, 266);
-			this.listBox3.Name = "listBox3";
-			this.listBox3.Size = new System.Drawing.Size(243, 69);
-			this.listBox3.TabIndex = 3;
-			this.listBox3.SelectedIndexChanged += new System.EventHandler(this.ListBox3SelectedIndexChanged);
-			// 
-			// label12
-			// 
-			this.label12.Location = new System.Drawing.Point(108, 69);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(35, 13);
-			this.label12.TabIndex = 4;
-			this.label12.Text = "Hat 1";
-			// 
-			// label16
-			// 
-			this.label16.Location = new System.Drawing.Point(108, 157);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(35, 13);
-			this.label16.TabIndex = 5;
-			this.label16.Text = "Hat 2";
-			// 
-			// label17
-			// 
-			this.label17.Location = new System.Drawing.Point(108, 245);
-			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(35, 18);
-			this.label17.TabIndex = 6;
-			this.label17.Text = "Hat 3";
-			// 
-			// label18
-			// 
-			this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label18.Location = new System.Drawing.Point(6, 58);
-			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(243, 2);
-			this.label18.TabIndex = 7;
-			// 
 			// tabPage2
 			// 
 			this.tabPage2.Controls.Add(this.label18);
@@ -426,8 +357,77 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage2.Size = new System.Drawing.Size(255, 341);
 			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Offline Editor";
+			this.tabPage2.Text = "Custom Outfit (Local)";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// label18
+			// 
+			this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label18.Location = new System.Drawing.Point(6, 58);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(243, 2);
+			this.label18.TabIndex = 7;
+			// 
+			// label17
+			// 
+			this.label17.Location = new System.Drawing.Point(108, 245);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(35, 18);
+			this.label17.TabIndex = 6;
+			this.label17.Text = "Hat 3";
+			// 
+			// label16
+			// 
+			this.label16.Location = new System.Drawing.Point(108, 157);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(35, 13);
+			this.label16.TabIndex = 5;
+			this.label16.Text = "Hat 2";
+			// 
+			// label12
+			// 
+			this.label12.Location = new System.Drawing.Point(108, 69);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(35, 13);
+			this.label12.TabIndex = 4;
+			this.label12.Text = "Hat 1";
+			// 
+			// listBox3
+			// 
+			this.listBox3.FormattingEnabled = true;
+			this.listBox3.Location = new System.Drawing.Point(6, 266);
+			this.listBox3.Name = "listBox3";
+			this.listBox3.Size = new System.Drawing.Size(243, 69);
+			this.listBox3.TabIndex = 3;
+			this.listBox3.SelectedIndexChanged += new System.EventHandler(this.ListBox3SelectedIndexChanged);
+			// 
+			// listBox2
+			// 
+			this.listBox2.FormattingEnabled = true;
+			this.listBox2.Location = new System.Drawing.Point(6, 173);
+			this.listBox2.Name = "listBox2";
+			this.listBox2.Size = new System.Drawing.Size(243, 69);
+			this.listBox2.TabIndex = 2;
+			this.listBox2.SelectedIndexChanged += new System.EventHandler(this.ListBox2SelectedIndexChanged);
+			// 
+			// listBox1
+			// 
+			this.listBox1.FormattingEnabled = true;
+			this.listBox1.Location = new System.Drawing.Point(6, 85);
+			this.listBox1.Name = "listBox1";
+			this.listBox1.Size = new System.Drawing.Size(243, 69);
+			this.listBox1.TabIndex = 1;
+			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1SelectedIndexChanged);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(6, 6);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(243, 40);
+			this.button1.TabIndex = 0;
+			this.button1.Text = "Edit Character Colors";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// CharacterCustomization
 			// 

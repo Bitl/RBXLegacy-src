@@ -50,7 +50,7 @@
 	public static int Custom_Hat3Version = 1;
 	//charcustom offline
 	public static int CustomMode = 0;
-	public static int Custom_Hat1ID_Offline = 6;
-	public static int Custom_Hat2ID_Offline = 6;
-	public static int Custom_Hat3ID_Offline = 6;
+	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
+	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";
+	public static string Custom_Hat3ID_Offline = "NoHat.rbxm";
 }

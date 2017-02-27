@@ -259,9 +259,9 @@ namespace RBXLegacyLauncher
    						listBox2.Items.Add(file.Name);
    						listBox3.Items.Add(file.Name);
 					}
-					listBox1.SelectedIndex = GlobalVars.Custom_Hat1ID_Offline-1;
-					listBox2.SelectedIndex = GlobalVars.Custom_Hat2ID_Offline-1;
-					listBox3.SelectedIndex = GlobalVars.Custom_Hat3ID_Offline-1;
+					listBox1.SelectedItem = GlobalVars.Custom_Hat1ID_Offline;
+					listBox2.SelectedItem = GlobalVars.Custom_Hat2ID_Offline;
+					listBox3.SelectedItem = GlobalVars.Custom_Hat3ID_Offline;
 					GlobalVars.CustomMode = 1;
         		}
         		else
@@ -286,7 +286,7 @@ namespace RBXLegacyLauncher
 			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
         	if (Directory.Exists(hatdir))
         	{
-        		GlobalVars.Custom_Hat1ID_Offline = listBox1.SelectedIndex+1;
+        		GlobalVars.Custom_Hat1ID_Offline = listBox1.SelectedItem.ToString();;
         	}
 		}
 		
@@ -295,7 +295,7 @@ namespace RBXLegacyLauncher
 			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
         	if (Directory.Exists(hatdir))
         	{
-        		GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedIndex+1;
+        		GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedItem.ToString();;
         	}
 		}
 		
@@ -304,7 +304,7 @@ namespace RBXLegacyLauncher
 			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
         	if (Directory.Exists(hatdir))
         	{
-        		GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedIndex+1;
+        		GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedItem.ToString();;
         	}
 		}
 	}
