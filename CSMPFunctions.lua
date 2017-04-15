@@ -2,9 +2,15 @@ rbxversion = version();
 print("ROBLOX Client version '" .. rbxversion .. "' loaded.");
 if (rbxversion ~= "0, 3, 809, 0") then
 	settings().Rendering.FrameRateManager = 2;
+	settings().Network.DataSendRate = 1000000;
+	settings().Network.PhysicsSendRate = 1000000;
+	settings().Network.ReceiveRate = 1000000;
 else
 	settings().Rendering.frameRateManager = 2;
 	settings().Rendering.graphicsMode = 2;
+	settings().Network.MaxSendBuffer = 1000000;
+	settings().Network.PhysicsReplicationUpdateRate = 1000000;
+	settings().Network.SendRate = 1000000;
 end
 
 HeadColor=BrickColor.DarkGray();
