@@ -1,9 +1,10 @@
 rbxversion = version();
 print("ROBLOX Client version '" .. rbxversion .. "' loaded.");
-settings().Rendering.FrameRateManager = 2;
-settings().Network.DataSendRate = 30;
-settings().Network.PhysicsSendRate = 20;
-settings().Network.ReceiveRate = 60;
+settings().Rendering.frameRateManager = 2;
+settings().Rendering.graphicsMode = 2;
+settings().Network.MaxSendBuffer = 1000000;
+settings().Network.PhysicsReplicationUpdateRate = 1000000;
+settings().Network.SendRate = 1000000;
 
 HeadColor=BrickColor.DarkGray();
 TorsoColor=BrickColor.DarkGray();
