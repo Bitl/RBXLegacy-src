@@ -18,7 +18,12 @@ elseif (rbxlegacyversion == "beta") then -- late 2008-early 2009
 	settings().Rendering.FrameRateManager = 2;
 	settings().Network.SendRate = 30;
 	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "gamma") then -- late 2009-mid 2010
+elseif (rbxlegacyversion == "pre-gamma") then -- late 2009-early 2010
+	settings().Rendering.FrameRateManager = 2;
+	settings().Network.DataSendRate = 30;
+	settings().Network.PhysicsSendRate = 20;
+	settings().Network.ReceiveRate = 60;
+elseif (rbxlegacyversion == "gamma") then -- mid 2010
 	settings().Rendering.FrameRateManager = 2;
 	settings().Network.DataSendRate = 30;
 	settings().Network.PhysicsSendRate = 20;
@@ -187,11 +192,14 @@ function CSServer(Port,BodyColors)
 		pcall(function() game.Close:connect(function() NetworkServer:Stop(); end) end);
 		NetworkServer.IncommingConnection:connect(IncommingConnection);
 	else
-			Server = game:GetService("NetworkServer")
-			RunService = game:GetService("RunService")
-			Server:start(Port, 20)
-			RunService:run();
-			game:GetService("Players").PlayerAdded:connect(function(Player)
+		Server = game:GetService("NetworkServer")
+		RunService = game:GetService("RunService")
+		Server:start(Port, 20)
+		RunService:run();
+		if (rbxlegacyversion == "gamma") then
+			game.Workspace:InsertContent("rbxasset://Fonts//Health2010.rbxm");
+		end
+		game:GetService("Players").PlayerAdded:connect(function(Player)
 			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
 			Player:LoadCharacter();
 			if (BodyColors == true) then
@@ -205,41 +213,42 @@ function CSServer(Port,BodyColors)
 			Player.Character['Left Leg'].BrickColor = LLegColor;
 			Player.Character['Right Arm'].BrickColor = RArmColor;
 			Player.Character['Right Leg'].BrickColor = RLegColor;
-			while true do 
-				wait(0.001)
-				if (Player.Character ~= nil) then
-					if (Player.Character.Humanoid.Health == 0) then
-						wait(5)
-						Player:LoadCharacter()
-						if (BodyColors == true) then
-							PlayerColorize();
-						else
-							PlayerNoobify();
+			
+				while true do 
+					wait(0.001)
+					if (Player.Character ~= nil) then
+						if (Player.Character.Humanoid.Health == 0) then
+							wait(5)
+							Player:LoadCharacter()
+							if (BodyColors == true) then
+								PlayerColorize();
+							else
+								PlayerNoobify();
+							end
+							Player.Character['Head'].BrickColor = HeadColor;
+							Player.Character['Torso'].BrickColor = TorsoColor;
+							Player.Character['Left Arm'].BrickColor = LArmColor;
+							Player.Character['Left Leg'].BrickColor = LLegColor;
+							Player.Character['Right Arm'].BrickColor = RArmColor;
+							Player.Character['Right Leg'].BrickColor = RLegColor;
+						elseif (Player.Character.Parent == nil) then 
+							wait(5)
+							Player:LoadCharacter() -- to make sure nobody is deleted.
+							if (BodyColors == true) then
+								PlayerColorize();
+							else
+								PlayerNoobify();
+							end
+							Player.Character['Head'].BrickColor = HeadColor;
+							Player.Character['Torso'].BrickColor = TorsoColor;
+							Player.Character['Left Arm'].BrickColor = LArmColor;
+							Player.Character['Left Leg'].BrickColor = LLegColor;
+							Player.Character['Right Arm'].BrickColor = RArmColor;
+							Player.Character['Right Leg'].BrickColor = RLegColor;
 						end
-						Player.Character['Head'].BrickColor = HeadColor;
-						Player.Character['Torso'].BrickColor = TorsoColor;
-						Player.Character['Left Arm'].BrickColor = LArmColor;
-						Player.Character['Left Leg'].BrickColor = LLegColor;
-						Player.Character['Right Arm'].BrickColor = RArmColor;
-						Player.Character['Right Leg'].BrickColor = RLegColor;
-					elseif (Player.Character.Parent == nil) then 
-						wait(5)
-						Player:LoadCharacter() -- to make sure nobody is deleted.
-						if (BodyColors == true) then
-							PlayerColorize();
-						else
-							PlayerNoobify();
-						end
-						Player.Character['Head'].BrickColor = HeadColor;
-						Player.Character['Torso'].BrickColor = TorsoColor;
-						Player.Character['Left Arm'].BrickColor = LArmColor;
-						Player.Character['Left Leg'].BrickColor = LLegColor;
-						Player.Character['Right Arm'].BrickColor = RArmColor;
-						Player.Character['Right Leg'].BrickColor = RLegColor;
 					end
 				end
-			end
-		end)
+			end)
 		game:GetService("Players").PlayerRemoving:connect(function(Player)
 			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' leaving")	
 		end)
@@ -358,6 +367,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 		end
 		pcall(function() Player.Name=PlayerName or ""; end);
 		pcall(function() Visit:SetUploadUrl(""); end);
+		game:GetService("Visit");
 	else
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
@@ -390,6 +400,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 				player.CharacterAppearance=0;
 			end
 			pcall(function() player.Name=PlayerName or ""; end);
+			game:GetService("Visit");
 		end)
 	
 		local function dieerror(errmsg)
@@ -568,6 +579,7 @@ function CSConnect2(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID
 		end
 		pcall(function() Player.Name=PlayerName or ""; end);
 		pcall(function() Visit:SetUploadUrl(""); end);
+		game:GetService("Visit");
 	else
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
@@ -601,6 +613,7 @@ function CSConnect2(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID
 				player.CharacterAppearance=0;
 			end
 			pcall(function() player.Name=PlayerName or ""; end);
+			game:GetService("Visit");
 		end)
 	
 		local function dieerror(errmsg)
