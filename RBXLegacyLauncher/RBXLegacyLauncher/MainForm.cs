@@ -85,15 +85,7 @@ namespace RBXLegacyLauncher
 			if (result == DialogResult.Cancel)
 				return;
 			
-			string luafile = "";
-			if (GlobalVars.ModernClient == true)
-			{
-				luafile = "rbxasset://scripts\\\\CSMPFunctions_Modern.lua";
-			}
-			else if (GlobalVars.ModernClient == false)
-			{
-				luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
-			}
+			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
@@ -190,15 +182,7 @@ namespace RBXLegacyLauncher
 			if (result == DialogResult.Cancel)
 				return;
 			
-			string luafile = "";
-			if (GlobalVars.ModernClient == true)
-			{
-				luafile = "rbxasset://scripts\\\\CSMPFunctions_Modern.lua";
-			}
-			else if (GlobalVars.ModernClient == false)
-			{
-				luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
-			}
+			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
@@ -1025,15 +1009,7 @@ namespace RBXLegacyLauncher
 			if (result == DialogResult.Cancel)
 				return;
 			
-			string luafile = "";
-			if (GlobalVars.ModernClient == true)
-			{
-				luafile = "rbxasset://scripts\\\\CSMPFunctions_Modern.lua";
-			}
-			else if (GlobalVars.ModernClient == false)
-			{
-				luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
-			}
+			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
