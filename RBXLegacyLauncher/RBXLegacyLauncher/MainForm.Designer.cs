@@ -48,6 +48,7 @@ namespace RBXLegacyLauncher
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.button18 = new System.Windows.Forms.Button();
 			this.label32 = new System.Windows.Forms.Label();
 			this.label20 = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
@@ -116,7 +117,7 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.button18 = new System.Windows.Forms.Button();
+			this.button19 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -162,6 +163,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.button19);
 			this.tabPage1.Controls.Add(this.button10);
 			this.tabPage1.Controls.Add(this.label17);
 			this.tabPage1.Controls.Add(this.label16);
@@ -225,9 +227,9 @@ namespace RBXLegacyLauncher
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(95, 213);
+			this.button1.Location = new System.Drawing.Point(111, 210);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(214, 68);
+			this.button1.Size = new System.Drawing.Size(85, 68);
 			this.button1.TabIndex = 3;
 			this.button1.Text = "JOIN SERVER";
 			this.button1.UseVisualStyleBackColor = true;
@@ -273,6 +275,16 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Text = "START SERVER";
 			this.tabPage2.ToolTipText = "Start a server for other players to play";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// button18
+			// 
+			this.button18.Location = new System.Drawing.Point(201, 230);
+			this.button18.Name = "button18";
+			this.button18.Size = new System.Drawing.Size(126, 51);
+			this.button18.TabIndex = 20;
+			this.button18.Text = "START SERVER IN NOGRAPHICS MODE";
+			this.button18.UseVisualStyleBackColor = true;
+			this.button18.Click += new System.EventHandler(this.Button18Click);
 			// 
 			// label32
 			// 
@@ -965,15 +977,15 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// button18
+			// button19
 			// 
-			this.button18.Location = new System.Drawing.Point(201, 230);
-			this.button18.Name = "button18";
-			this.button18.Size = new System.Drawing.Size(126, 51);
-			this.button18.TabIndex = 20;
-			this.button18.Text = "START SERVER IN NOGRAPHICS MODE";
-			this.button18.UseVisualStyleBackColor = true;
-			this.button18.Click += new System.EventHandler(this.Button18Click);
+			this.button19.Location = new System.Drawing.Point(212, 210);
+			this.button19.Name = "button19";
+			this.button19.Size = new System.Drawing.Size(85, 68);
+			this.button19.TabIndex = 16;
+			this.button19.Text = "PLAY SOLO";
+			this.button19.UseVisualStyleBackColor = true;
+			this.button19.Click += new System.EventHandler(this.Button19Click);
 			// 
 			// MainForm
 			// 
@@ -1021,6 +1033,7 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button19;
 		private System.Windows.Forms.Button button18;
 		private System.Windows.Forms.Button button16;
 		private System.Windows.Forms.Button button17;
