@@ -917,10 +917,10 @@ namespace RBXLegacyLauncher
 		
 		void Button19Click(object sender, EventArgs e)
 		{
-			int timerset = 2000;
+			int timerset = 3000;
 			int msgdivide = timerset / 1000;
 			
-			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before starting a solo game!"+ Environment.NewLine + Environment.NewLine +"Note: The launcher will start up a server and then launch the client "+ msgdivide +" seconds after.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before starting a solo game!"+ Environment.NewLine + Environment.NewLine +"Note: The launcher will start up a server and then launch the client "+ msgdivide +" seconds after. If the health bar does not appear, just reset your character. If your character does not move or your character lags after the client window is loaded, just open the server window then minimize it.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 			if (result == DialogResult.Cancel)
 				return;
 			
