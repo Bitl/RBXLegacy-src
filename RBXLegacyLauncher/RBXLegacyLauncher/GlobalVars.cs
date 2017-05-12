@@ -19,7 +19,7 @@
 	public static bool UseAppearanceID = false;
 	public static bool UseCustomAppearanceID = false;
 	//client shit
-	public static string SelectedClient = "Mid-2008";
+	public static string SelectedClient = "";
 	public static bool UsesPlayerName = false;
 	public static bool UsesID = true;
 	public static bool SupportsLocalPlay = true;

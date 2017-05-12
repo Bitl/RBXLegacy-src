@@ -28,6 +28,11 @@ elseif (rbxlegacyversion == "gamma") then -- mid 2010
 	settings().Network.DataSendRate = 30;
 	settings().Network.PhysicsSendRate = 20;
 	settings().Network.ReceiveRate = 60;
+elseif (rbxlegacyversion == "delta-gamma") then -- october 2010
+	settings().Rendering.FrameRateManager = 2;
+	settings().Network.DataSendRate = 30;
+	settings().Network.PhysicsSendRate = 20;
+	settings().Network.ReceiveRate = 60;
 elseif (rbxlegacyversion == "delta") then -- late 2010-early 2011.
 	settings().Rendering.FrameRateManager = 2;
 	
@@ -189,6 +194,44 @@ function CSServer(Port,BodyColors)
 			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' leaving")	
 		end)
 		game:GetService("RunService"):Run();
+		pcall(function() game.Close:connect(function() NetworkServer:Stop(); end) end);
+		NetworkServer.IncommingConnection:connect(IncommingConnection);
+	elseif (rbxlegacyversion == "delta-gamma") then
+		assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.");
+		local NetworkServer=game:GetService("NetworkServer");
+		pcall(NetworkServer.Stop,NetworkServer);
+		NetworkServer:Start(Port);
+		game:GetService("Players").PlayerAdded:connect(function(Player)
+			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
+			Player:LoadCharacter();
+			Player.CharacterAdded:connect(function(char)
+				if (BodyColors == true) then
+					PlayerColorize();
+				else
+					PlayerNoobify();
+				end
+				char['Head'].BrickColor = HeadColor;
+				char['Torso'].BrickColor = TorsoColor;
+				char['Left Arm'].BrickColor = LArmColor;
+				char['Left Leg'].BrickColor = LLegColor;
+				char['Right Arm'].BrickColor = RArmColor;
+				char['Right Leg'].BrickColor = RLegColor;
+			end)
+			Player.Changed:connect(function(Property)
+				if (Property=="Character") and (Player.Character~=nil) then
+					local Character=Player.Character;
+					local Humanoid=Character:FindFirstChild("Humanoid");
+					if (Humanoid~=nil) then
+						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() end) end)
+					end
+				end
+			end)
+		end)
+		game:GetService("Players").PlayerRemoving:connect(function(Player)
+			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' leaving")	
+		end)
+		game:GetService("RunService"):Run();
+		game.Workspace:InsertContent("rbxasset://Fonts//Health2010.rbxm");
 		pcall(function() game.Close:connect(function() NetworkServer:Stop(); end) end);
 		NetworkServer.IncommingConnection:connect(IncommingConnection);
 	else
@@ -368,6 +411,118 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 		pcall(function() Player.Name=PlayerName or ""; end);
 		pcall(function() Visit:SetUploadUrl(""); end);
 		game:GetService("Visit");
+	elseif (rbxlegacyversion == "delta-gamma") then
+		pcall(function() game:SetPlaceID(-1, false) end);
+		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
+	
+		pcall(function()
+			game:GetService("GuiService").Changed:connect(function()
+				pcall(function() game:GetService("GuiService").ShowLegacyPlayerList=true; end);
+				pcall(function() game.CoreGui.RobloxGui.PlayerListScript:Remove(); end);
+				pcall(function() game.CoreGui.RobloxGui.PlayerListTopRightFrame:Remove(); end);
+				pcall(function() game.CoreGui.RobloxGui.BigPlayerListWindowImposter:Remove(); end);
+				pcall(function() game.CoreGui.RobloxGui.BigPlayerlist:Remove(); end);
+			end);
+		end)
+		game:GetService("RunService"):Run();
+		assert((ServerIP~=nil and ServerPort~=nil),"CSConnect Error: ServerIP and ServerPort must be defined.");
+		local function SetMessage(Message) game:SetMessage(Message); end
+		local Visit,NetworkClient,PlayerSuccess,Player,ConnectionFailedHook=game:GetService("Visit"),game:GetService("NetworkClient");
+
+		local function GetClassCount(Class,Parent)
+			local Objects=Parent:GetChildren();
+			local Number=0;
+			for Index,Object in pairs(Objects) do
+				if (Object.className==Class) then
+					Number=Number+1;
+				end
+				Number=Number+GetClassCount(Class,Object);
+			end
+			return Number;
+		end
+
+		local function RequestCharacter(Replicator)
+			local Connection;
+			Connection=Player.Changed:connect(function(Property)
+				if (Property=="Character") then
+					game:ClearMessage();
+				end
+			end)
+			SetMessage("Requesting character...");
+			Replicator:RequestCharacter();
+			SetMessage("Waiting for character...");
+		end
+
+		local function Disconnection(Peer,LostConnection)
+			SetMessage("You have lost connection to the game");
+		end
+
+		local function ConnectionAccepted(Peer,Replicator)
+			Replicator.Disconnection:connect(Disconnection);
+			local RequestingMarker=true;
+			game:SetMessageBrickCount();
+			local Marker=Replicator:SendMarker();
+			Marker.Received:connect(function()
+				RequestingMarker=false;
+				RequestCharacter(Replicator);
+			end)
+			while RequestingMarker do
+				Workspace:ZoomToExtents();
+				wait(0.5);
+			end
+		end
+
+		local function ConnectionFailed(Peer, Code, why)
+			SetMessage("Failed to connect to the Game. (ID="..Code.." ["..why.."])");
+		end
+
+		pcall(function() settings().Diagnostics:LegacyScriptMode(); end);
+		pcall(function() game:SetRemoteBuildMode(true); end);
+		SetMessage("Connecting to server...");
+		NetworkClient.ConnectionAccepted:connect(ConnectionAccepted);
+		ConnectionFailedHook=NetworkClient.ConnectionFailed:connect(ConnectionFailed);
+		NetworkClient.ConnectionRejected:connect(function()
+			pcall(function() ConnectionFailedHook:disconnect(); end);
+			SetMessage("Failed to connect to the Game. (Connection rejected)");
+		end)
+
+		pcall(function() NetworkClient.Ticket=Ticket or ""; end) -- 2008 client has no ticket :O
+		PlayerSuccess,Player=pcall(function() return NetworkClient:PlayerConnect(UserID,ServerIP,ServerPort) end);
+
+		if (not PlayerSuccess) then
+			SetMessage("Failed to connect to the Game. (Invalid IP Address)");
+			NetworkClient:Disconnect();
+		end
+
+		if (not PlayerSuccess) then
+			local Error,Message=pcall(function()
+				Player=game:GetService("Players"):CreateLocalPlayer(UserID);
+				NetworkClient:Connect(ServerIP,ServerPort);
+			end);
+			if (not Error) then
+				SetMessage("Failed to connect to the Game.");
+			end
+		end
+		pcall(function() Player:SetUnder13(false) end);
+		pcall(function() Player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
+		pcall(function() Player:SetAccountAge(365) end);
+		Player:SetSuperSafeChat(false);
+		if (OutfitID and OutfitID ~= 0) then
+			Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
+		elseif (ColorHash and ColorHash ~= "") then
+			local aid = "http://www.roblox.com/asset?id="
+			local bcid = "http://assetgame.roblox.com/Asset/BodyColors.ashx?avatarHash="
+			local charapp = bcid..ColorHash..";"..aid..PantsID..";"..aid..ShirtID..";"..aid..TShirtID..";"..aid..Hat1ID.."&version="..Hat1Version..";"..aid..Hat2ID.."&version="..Hat2Version..";"..aid..Hat3ID.."&version="..Hat3Version..";"
+			Player.CharacterAppearance = charapp
+		else
+			Player.CharacterAppearance=0;
+		end
+		pcall(function() Player.Name=PlayerName or ""; end);
+		pcall(function() Visit:SetUploadUrl(""); end);
+		game:GetService("Visit");
+		game.GuiRoot.MainMenu.Tools:Remove()
+		game.GuiRoot.MainMenu.Insert:Remove()
+		game.GuiRoot.RightPalette.ReportAbuse:Remove()
 	else
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
@@ -457,6 +612,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,ColorHash,Pant
 				game.GuiRoot.MainMenu["Tools"]:Remove()
 				game.GuiRoot.MainMenu["Insert"]:Remove()
 			end
+			game.GuiRoot.RightPalette.ReportAbuse:Remove()
 		end)
 
 		if not suc then
@@ -580,6 +736,119 @@ function CSConnect2(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID
 		pcall(function() Player.Name=PlayerName or ""; end);
 		pcall(function() Visit:SetUploadUrl(""); end);
 		game:GetService("Visit");
+	elseif (rbxlegacyversion == "delta-gamma") then
+		pcall(function() game:SetPlaceID(-1, false) end);
+		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
+	
+		pcall(function()
+			game:GetService("GuiService").Changed:connect(function()
+				pcall(function() game:GetService("GuiService").ShowLegacyPlayerList=true; end);
+				pcall(function() game.CoreGui.RobloxGui.PlayerListScript:Remove(); end);
+				pcall(function() game.CoreGui.RobloxGui.PlayerListTopRightFrame:Remove(); end);
+				pcall(function() game.CoreGui.RobloxGui.BigPlayerListWindowImposter:Remove(); end);
+				pcall(function() game.CoreGui.RobloxGui.BigPlayerlist:Remove(); end);
+			end);
+		end)
+		game:GetService("RunService"):Run();
+		assert((ServerIP~=nil and ServerPort~=nil),"CSConnect Error: ServerIP and ServerPort must be defined.");
+		local function SetMessage(Message) game:SetMessage(Message); end
+		local Visit,NetworkClient,PlayerSuccess,Player,ConnectionFailedHook=game:GetService("Visit"),game:GetService("NetworkClient");
+
+		local function GetClassCount(Class,Parent)
+			local Objects=Parent:GetChildren();
+			local Number=0;
+			for Index,Object in pairs(Objects) do
+				if (Object.className==Class) then
+					Number=Number+1;
+				end
+				Number=Number+GetClassCount(Class,Object);
+			end
+			return Number;
+		end
+
+		local function RequestCharacter(Replicator)
+			local Connection;
+			Connection=Player.Changed:connect(function(Property)
+				if (Property=="Character") then
+					game:ClearMessage();
+				end
+			end)
+			SetMessage("Requesting character...");
+			Replicator:RequestCharacter();
+			SetMessage("Waiting for character...");
+		end
+
+		local function Disconnection(Peer,LostConnection)
+			SetMessage("You have lost connection to the game");
+		end
+
+		local function ConnectionAccepted(Peer,Replicator)
+			Replicator.Disconnection:connect(Disconnection);
+			local RequestingMarker=true;
+			game:SetMessageBrickCount();
+			local Marker=Replicator:SendMarker();
+			Marker.Received:connect(function()
+				RequestingMarker=false;
+				RequestCharacter(Replicator);
+			end)
+			while RequestingMarker do
+				Workspace:ZoomToExtents();
+				wait(0.5);
+			end
+		end
+
+		local function ConnectionFailed(Peer, Code, why)
+			SetMessage("Failed to connect to the Game. (ID="..Code.." ["..why.."])");
+		end
+
+		pcall(function() settings().Diagnostics:LegacyScriptMode(); end);
+		pcall(function() game:SetRemoteBuildMode(true); end);
+		SetMessage("Connecting to server...");
+		NetworkClient.ConnectionAccepted:connect(ConnectionAccepted);
+		ConnectionFailedHook=NetworkClient.ConnectionFailed:connect(ConnectionFailed);
+		NetworkClient.ConnectionRejected:connect(function()
+			pcall(function() ConnectionFailedHook:disconnect(); end);
+			SetMessage("Failed to connect to the Game. (Connection rejected)");
+		end)
+
+		pcall(function() NetworkClient.Ticket=Ticket or ""; end) -- 2008 client has no ticket :O
+		PlayerSuccess,Player=pcall(function() return NetworkClient:PlayerConnect(UserID,ServerIP,ServerPort) end);
+
+		if (not PlayerSuccess) then
+			SetMessage("Failed to connect to the Game. (Invalid IP Address)");
+			NetworkClient:Disconnect();
+		end
+
+		if (not PlayerSuccess) then
+			local Error,Message=pcall(function()
+				Player=game:GetService("Players"):CreateLocalPlayer(UserID);
+				NetworkClient:Connect(ServerIP,ServerPort);
+			end);
+			if (not Error) then
+				SetMessage("Failed to connect to the Game.");
+			end
+		end
+		pcall(function() Player:SetUnder13(false) end);
+		pcall(function() Player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
+		pcall(function() Player:SetAccountAge(365) end);
+		Player:SetSuperSafeChat(false);
+		if (OutfitID and OutfitID ~= 0) then
+			Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
+		elseif (Hat1ID and Hat1ID ~= 0) then
+			Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
+			Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
+			Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
+			local charapp = "rbxasset://charcustom/CharacterColors.rbxm;"..Hat1..";"..Hat2..";"..Hat3
+			player.CharacterAppearance = charapp
+		else
+			Player.CharacterAppearance=0;
+		end
+		pcall(function() Player.Name=PlayerName or ""; end);
+		pcall(function() Visit:SetUploadUrl(""); end);
+		game:GetService("Visit");
+		game.GuiRoot.MainMenu.Tools:Remove()
+		game.GuiRoot.MainMenu.Insert:Remove()
+		game.GuiRoot.RightPalette.ReportAbuse:Remove()
 	else
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
@@ -670,6 +939,7 @@ function CSConnect2(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID
 				game.GuiRoot.MainMenu["Tools"]:Remove()
 				game.GuiRoot.MainMenu["Insert"]:Remove()
 			end
+			game.GuiRoot.RightPalette.ReportAbuse:Remove()
 		end)
 
 		if not suc then
