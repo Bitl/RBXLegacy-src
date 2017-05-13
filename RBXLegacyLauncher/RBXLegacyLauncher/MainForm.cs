@@ -916,7 +916,7 @@ namespace RBXLegacyLauncher
 		void StartClient()
 		{
 			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_Client.exe";
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
 			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
@@ -1005,7 +1005,7 @@ namespace RBXLegacyLauncher
 		void StartClientSolo()
 		{
 			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_Client.exe";
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
 			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
@@ -1095,7 +1095,7 @@ namespace RBXLegacyLauncher
 		{
 			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_Server.exe";
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
 			
@@ -1121,7 +1121,7 @@ namespace RBXLegacyLauncher
 		{
 			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_Server.exe";
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
 			if (GlobalVars.BodyColors == true)
@@ -1144,7 +1144,7 @@ namespace RBXLegacyLauncher
 		
 		void StartStudio()
 		{
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_Studio.exe";
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
 			string quote = "\"";
 			string args = "";
@@ -1169,7 +1169,7 @@ namespace RBXLegacyLauncher
 		void PlaySolo(int timerset)
 		{
 			StartServerNo3D();
-			if (Process.GetProcessesByName("RobloxApp_Server").Length > 0)
+			if (Process.GetProcessesByName("RobloxApp").Length > 0)
 			{
 				System.Threading.Timer timer = null; 
     			timer = new System.Threading.Timer((obj) =>

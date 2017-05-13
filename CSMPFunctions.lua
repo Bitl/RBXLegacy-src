@@ -1,6 +1,6 @@
 rbxversion = version();
 print("ROBLOX Client version '" .. rbxversion .. "' loaded.");
---set this to pre-alpha, alpha, beta, gamma, or delta.
+--set this to pre-alpha, alpha, beta, pre-gamma, gamma, delta-gamma or delta.
 rbxlegacyversion = ""
 if (rbxlegacyversion == "pre-alpha") then --mid-2008 and below. currently for the modified clients.
 	settings().Rendering.frameRateManager = 2;

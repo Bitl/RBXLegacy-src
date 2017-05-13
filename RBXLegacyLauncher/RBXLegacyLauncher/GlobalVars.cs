@@ -18,6 +18,7 @@
 	public static int CharacterAppearanceID = 0;
 	public static bool UseAppearanceID = false;
 	public static bool UseCustomAppearanceID = false;
+	public static bool CineMode = false;
 	//client shit
 	public static string SelectedClient = "";
 	public static bool UsesPlayerName = false;

@@ -40,6 +40,7 @@ namespace RBXLegacyLauncher
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.button19 = new System.Windows.Forms.Button();
 			this.button10 = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@ namespace RBXLegacyLauncher
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.label18 = new System.Windows.Forms.Label();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
+			this.label40 = new System.Windows.Forms.Label();
 			this.button11 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
@@ -117,7 +119,6 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.button19 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -180,6 +181,16 @@ namespace RBXLegacyLauncher
 			this.tabPage1.Text = "JOIN SERVER";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// button19
+			// 
+			this.button19.Location = new System.Drawing.Point(212, 210);
+			this.button19.Name = "button19";
+			this.button19.Size = new System.Drawing.Size(85, 68);
+			this.button19.TabIndex = 16;
+			this.button19.Text = "PLAY SOLO";
+			this.button19.UseVisualStyleBackColor = true;
+			this.button19.Click += new System.EventHandler(this.Button19Click);
 			// 
 			// button10
 			// 
@@ -409,6 +420,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage5
 			// 
+			this.tabPage5.Controls.Add(this.label40);
 			this.tabPage5.Controls.Add(this.button11);
 			this.tabPage5.Controls.Add(this.button9);
 			this.tabPage5.Controls.Add(this.checkBox5);
@@ -435,6 +447,14 @@ namespace RBXLegacyLauncher
 			this.tabPage5.ToolTipText = "Configure specific aspects of your server, launcher, and player appearance";
 			this.tabPage5.UseVisualStyleBackColor = true;
 			// 
+			// label40
+			// 
+			this.label40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label40.Location = new System.Drawing.Point(12, 231);
+			this.label40.Name = "label40";
+			this.label40.Size = new System.Drawing.Size(378, 2);
+			this.label40.TabIndex = 39;
+			// 
 			// button11
 			// 
 			this.button11.Location = new System.Drawing.Point(95, 170);
@@ -447,7 +467,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button9
 			// 
-			this.button9.Location = new System.Drawing.Point(201, 236);
+			this.button9.Location = new System.Drawing.Point(209, 236);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(81, 42);
 			this.button9.TabIndex = 37;
@@ -977,16 +997,6 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// button19
-			// 
-			this.button19.Location = new System.Drawing.Point(212, 210);
-			this.button19.Name = "button19";
-			this.button19.Size = new System.Drawing.Size(85, 68);
-			this.button19.TabIndex = 16;
-			this.button19.Text = "PLAY SOLO";
-			this.button19.UseVisualStyleBackColor = true;
-			this.button19.Click += new System.EventHandler(this.Button19Click);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1033,6 +1043,7 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label40;
 		private System.Windows.Forms.Button button19;
 		private System.Windows.Forms.Button button18;
 		private System.Windows.Forms.Button button16;
