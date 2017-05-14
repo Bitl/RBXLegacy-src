@@ -4,6 +4,7 @@
     public static string ScriptsDir = "";
     public static string MapsDir = "";
     public static string IP = "localhost";
+    public static string Version = "";
 	//server settings.
 	public static bool BodyColors = true;
 	public static string Map = "Baseplate.rbxl";
@@ -18,7 +19,6 @@
 	public static int CharacterAppearanceID = 0;
 	public static bool UseAppearanceID = false;
 	public static bool UseCustomAppearanceID = false;
-	public static bool CineMode = false;
 	//client shit
 	public static string SelectedClient = "";
 	public static bool UsesPlayerName = false;

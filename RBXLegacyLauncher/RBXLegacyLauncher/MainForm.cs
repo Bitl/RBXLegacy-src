@@ -147,6 +147,7 @@ namespace RBXLegacyLauncher
     		string[] lines = File.ReadAllLines("info.txt"); //File is in System.IO
 			string version = lines[0];
     		label11.Text = version;
+    		GlobalVars.Version = version;
     		ReadConfigValues();
 		}
 		
@@ -1179,6 +1180,12 @@ namespace RBXLegacyLauncher
                     	}, 
                 	null, timerset, System.Threading.Timeout.Infinite);
 			}
+		}
+		
+		void Button20Click(object sender, EventArgs e)
+		{
+			ServerInfo infopanel = new ServerInfo();
+			infopanel.Show();
 		}
 	}
 }
