@@ -3,6 +3,7 @@
     public static string ClientDir = "";
     public static string ScriptsDir = "";
     public static string MapsDir = "";
+    public static string CustomPlayerDir = "";
     public static string IP = "localhost";
     public static string Version = "";
 	//server settings.
@@ -39,19 +40,13 @@
 	public static string ClientCreator_SelectedClientDesc = "";
 	public static bool ClientCreator_SupportsCharacterCustomization = false;
 	//charcustom
-	public static string Custom_ColorHash = "";
-	public static int Custom_PantsID = 0;
-	public static int Custom_ShirtsID = 0;
-	public static int Custom_TShirtsID = 0;
-	public static int Custom_Hat1ID = 0;
-	public static int Custom_Hat2ID = 0;
-	public static int Custom_Hat3ID = 0;
-	public static int Custom_Hat1Version = 1;
-	public static int Custom_Hat2Version = 1;
-	public static int Custom_Hat3Version = 1;
-	//charcustom offline
-	public static int CustomMode = 0;
 	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat3ID_Offline = "NoHat.rbxm";
+	public static int HeadColorID = 24;
+	public static int TorsoColorID = 23;
+	public static int LeftArmColorID = 24;
+	public static int RightArmColorID = 24;
+	public static int LeftLegColorID = 119;
+	public static int RightLegColorID = 119;
 }

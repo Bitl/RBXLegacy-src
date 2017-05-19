@@ -83,10 +83,10 @@ namespace RBXLegacyLauncher
 			{
 				WriteColorConfigValues();
 			}
-			if (!File.Exists(GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\CharacterColors.rbxm"))
-			{
-				WriteColorModel();
-			}
+			//if (!File.Exists(GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\CharacterColors.rbxm"))
+			//{
+				//WriteColorModel();
+			//}
 			label2.Text = SelectedPart;
 			button1.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
 			button2.BackColor = ConvertStringtoColor("Color [A=255, R=13, G=105, B=172]");
@@ -179,31 +179,37 @@ namespace RBXLegacyLauncher
 			if (SelectedPart == "Head")
 			{
 				HeadColor = ColorID;
+				GlobalVars.HeadColorID = 24;
 				button1.BackColor = ButtonColor;
 			}
 			else if (SelectedPart == "Torso")
 			{
 				TorsoColor = ColorID;
+				GlobalVars.TorsoColorID = 23;
 				button2.BackColor = ButtonColor;
 			}
 			else if (SelectedPart == "Right Arm")
 			{
 				RArmColor = ColorID;
+				GlobalVars.RightArmColorID = 24;
 				button3.BackColor = ButtonColor;
 			}
 			else if (SelectedPart == "Left Arm")
 			{
 				LArmColor = ColorID;
+				GlobalVars.LeftArmColorID = 24;
 				button4.BackColor = ButtonColor;
 			}
 			else if (SelectedPart == "Right Leg")
 			{
 				RLegColor = ColorID;
+				GlobalVars.RightLegColorID = 119;
 				button5.BackColor = ButtonColor;
 			}
 			else if (SelectedPart == "Left Leg")
 			{
 				LLegColor = ColorID;
+				GlobalVars.LeftLegColorID = 119;
 				button6.BackColor = ButtonColor;
 			}
 		}
@@ -434,7 +440,7 @@ namespace RBXLegacyLauncher
 		
 		void Button39Click(object sender, EventArgs e)
 		{
-			WriteColorModel();
+			//WriteColorModel();
             WriteColorConfigValues();
             MessageBox.Show("Colors Saved!");			
 		}
@@ -513,7 +519,7 @@ namespace RBXLegacyLauncher
 			button4.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
 			button5.BackColor = ConvertStringtoColor("Color [A=255, R=164, G=189, B=71]");
 			button6.BackColor = ConvertStringtoColor("Color [A=255, R=164, G=189, B=71]");
-			WriteColorModel();
+			//WriteColorModel();
             WriteColorConfigValues();
             MessageBox.Show("Colors Reset!");	
 		}
