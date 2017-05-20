@@ -588,6 +588,7 @@ namespace RBXLegacyLauncher
 			this.checkBox2.TabIndex = 26;
 			this.checkBox2.Text = "Random Body Color Patterns";
 			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2CheckedChanged);
 			// 
 			// checkBox4
 			// 
