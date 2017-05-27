@@ -1,5 +1,3 @@
-rbxversion = version();
-print("ROBLOX Client version '" .. rbxversion .. "' loaded.");
 --set this to pre-alpha, alpha, beta, pre-gamma, gamma, delta-gamma or delta.
 rbxlegacyversion = ""
 if (rbxlegacyversion == "pre-alpha") then --mid-2008 and below. currently for the modified clients.
@@ -52,6 +50,9 @@ elseif (rbxlegacyversion == "delta") then -- late 2010-early 2011.
 	end))
 end
 
+rbxversion = version();
+print("ROBLOX Client version '" .. rbxversion .. "' loaded.");
+
 HeadColor=BrickColor.DarkGray();
 TorsoColor=BrickColor.DarkGray();
 LArmColor=BrickColor.DarkGray();
@@ -59,9 +60,9 @@ LLegColor=BrickColor.DarkGray();
 RArmColor=BrickColor.DarkGray();
 RLegColor=BrickColor.DarkGray();
 --localized hats.
-Hat1 = "fedora.rbxm"
-Hat2 = "fedora.rbxm"
-Hat3 = "fedora.rbxm"
+Hat1 = "NoHat.rbxm";
+Hat2 = "NoHat.rbxm";
+Hat3 = "NoHat.rbxm";
 
 function PlayerColorize()
 	if (rbxlegacyversion == "pre-alpha") then
@@ -404,7 +405,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 			Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
 			Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
 			Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-			local charapp = "rbxasset://charcustom/CharacterColors.rbxm;"..Hat1..";"..Hat2..";"..Hat3
+			local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 			player.CharacterAppearance = charapp
 		else
 			Player.CharacterAppearance=0;
@@ -514,7 +515,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 			Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
 			Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
 			Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-			local charapp = "rbxasset://charcustom/CharacterColors.rbxm;"..Hat1..";"..Hat2..";"..Hat3
+			local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 			player.CharacterAppearance = charapp
 		else
 			Player.CharacterAppearance=0;
@@ -524,7 +525,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 		game:GetService("Visit");
 		game.GuiRoot.MainMenu.Tools:Remove()
 		game.GuiRoot.MainMenu.Insert:Remove()
-		game.GuiRoot.RightPalette.ReportAbuse:Remove()
 	else
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
@@ -552,7 +552,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 				Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
 				Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
 				Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-				local charapp = "rbxasset://charcustom/CharacterColors.rbxm;"..Hat1..";"..Hat2..";"..Hat3
+				local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 				player.CharacterAppearance = charapp
 			else
 				player.CharacterAppearance=0;
@@ -615,7 +615,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 				game.GuiRoot.MainMenu["Tools"]:Remove()
 				game.GuiRoot.MainMenu["Insert"]:Remove()
 			end
-			game.GuiRoot.RightPalette.ReportAbuse:Remove()
 		end)
 
 		if not suc then
@@ -654,11 +653,12 @@ function CSSolo(UserID,PlayerName,BodyColors,OutfitID,Hat1ID,Hat2ID,Hat3ID,HeadC
 		Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
 		Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
 		Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-		local charapp = "rbxasset://charcustom/CharacterColors.rbxm;"..Hat1..";"..Hat2..";"..Hat3
+		local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 		plr.CharacterAppearance = charapp
 	else
 		plr.CharacterAppearance=0;
 	end
+	
 	game:GetService("Visit");
 	while true do wait()
 		if (plr.Character.Humanoid.Health == 0) then

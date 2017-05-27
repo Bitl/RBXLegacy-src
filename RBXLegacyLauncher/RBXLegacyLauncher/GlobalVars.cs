@@ -30,6 +30,7 @@
 	public static bool LoadsAssetsOnline = false;
 	public static bool ModernClient = false;
 	public static bool SupportsCharacterCustomization = false;
+	public static bool AdminMode = false;
 	//clientinfocreator
 	public static bool ClientCreator_UsesPlayerName = false;
 	public static bool ClientCreator_UsesID = false;

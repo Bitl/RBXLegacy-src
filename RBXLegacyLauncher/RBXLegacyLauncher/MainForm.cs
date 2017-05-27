@@ -124,19 +124,25 @@ namespace RBXLegacyLauncher
 		
 		void MainFormLoad(object sender, EventArgs e)
 		{
+			string[] lines = File.ReadAllLines("info.txt"); //File is in System.IO
+			string version = lines[0];
 			string[] defaultclient = File.ReadAllLines("info.txt");
     		string defcl = defaultclient[1];
     		GlobalVars.SelectedClient = defcl;
+    		ConsolePrint("RBXLegacy Launcher version " + version + " loaded. Initializing config.", 4);
 			if (!File.Exists("config.txt"))
 			{
+				ConsolePrint("WARNING 1 - config.txt not found. Creating one with default values.", 5);
 				WriteConfigValues();
 			}
 			if (!File.Exists("servers.txt"))
 			{
+				ConsolePrint("WARNING 2 - servers.txt not found. Creating empty file.", 5);
 				File.Create("servers.txt").Dispose();
 			}
 			if (!File.Exists("ports.txt"))
 			{
+				ConsolePrint("WARNING 2 - servers.txt not found. Creating empty file.", 5);
 				File.Create("ports.txt").Dispose();
 			}
 			GlobalVars.ClientDir = Path.Combine(Environment.CurrentDirectory, @"clients");
@@ -151,8 +157,6 @@ namespace RBXLegacyLauncher
 			label8.Text = Application.ProductVersion;
 			GlobalVars.IP = "localhost";
     		GlobalVars.Map = "Baseplate.rbxl";
-    		string[] lines = File.ReadAllLines("info.txt"); //File is in System.IO
-			string version = lines[0];
     		label11.Text = version;
     		GlobalVars.Version = version;
     		ReadConfigValues();
@@ -293,6 +297,7 @@ namespace RBXLegacyLauncher
 			textBox4.Text = GlobalVars.RobloxPort.ToString();
 			label37.Text = GlobalVars.IP;
 			label38.Text = GlobalVars.RobloxPort.ToString();
+			ConsolePrint("Config loaded.", 3);
 			ReadClientValues(GlobalVars.SelectedClient);
 		}
 		
@@ -320,6 +325,7 @@ namespace RBXLegacyLauncher
 				GlobalVars.RightLegColorID.ToString(),
 			};
 			File.WriteAllLines("config.txt", lines);
+			ConsolePrint("Config Saved.", 3);
 		}
 		
 		void ResetConfigValues()
@@ -343,6 +349,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.RightArmColorID = 24;
 			GlobalVars.LeftLegColorID = 119;
 			GlobalVars.RightLegColorID = 119;
+			ConsolePrint("All config settings reset. Reloading config.", 4);
 			WriteConfigValues();
 			ReadConfigValues();
 		}
@@ -353,6 +360,7 @@ namespace RBXLegacyLauncher
 			
 			if (!File.Exists(clientpath))
 			{
+				ConsolePrint("ERROR 1 - No clientinfo.txt detected with the client you chose. The client either cannot be loaded, or it is not available.", 2);
 				MessageBox.Show("No clientinfo.txt detected with the client you chose. The client either cannot be loaded, or it is not available.","RBXLegacy Launcher - Error while loading client", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				GlobalVars.SelectedClient = "2008";
 			}
@@ -484,6 +492,7 @@ namespace RBXLegacyLauncher
 			
 			textBox6.Text = GlobalVars.SelectedClientDesc;
 			label26.Text = GlobalVars.SelectedClient;
+			ConsolePrint("Client '" + GlobalVars.SelectedClient + "' successfully loaded.", 3);
 		}
 		
 		void GeneratePlayerID()
@@ -604,7 +613,7 @@ namespace RBXLegacyLauncher
 			int parsedValue;
 			if (int.TryParse(textBox3.Text, out parsedValue))
 			{
-				if (textBox3.Text == "")
+				if (textBox3.Text.Equals(""))
 				{
 					GlobalVars.CharacterAppearanceID = 0;
 				}
@@ -693,7 +702,7 @@ namespace RBXLegacyLauncher
 			int parsedValue;
 			if (int.TryParse(textBox4.Text, out parsedValue))
 			{
-				if (textBox4.Text == "")
+				if (textBox4.Text.Equals(""))
 				{
 					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
 					GlobalVars.RobloxPort = GlobalVars.DefaultRobloxPort;
@@ -716,7 +725,7 @@ namespace RBXLegacyLauncher
 			int parsedValue;
 			if (int.TryParse(textBox5.Text, out parsedValue))
 			{
-				if (textBox5.Text == "")
+				if (textBox5.Text.Equals(""))
 				{
 					GlobalVars.UserID = 0;
 				}
@@ -866,10 +875,7 @@ namespace RBXLegacyLauncher
 		
 		void Button19Click(object sender, EventArgs e)
 		{
-			int timerset = 3000;
-			int msgdivide = timerset / 1000;
-			
-			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before starting a solo game!"+ Environment.NewLine + Environment.NewLine +"Note: The launcher will start up a server and then launch the client "+ msgdivide +" seconds after. If the health bar does not appear, just reset your character. If your character does not move or your character lags after the client window is loaded, just open the server window then minimize it.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before starting a solo game!","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 			if (result == DialogResult.Cancel)
 				return;
 			
@@ -880,6 +886,26 @@ namespace RBXLegacyLauncher
 				this.Close();
 			}
 		}
+		
+		void Button20Click(object sender, EventArgs e)
+		{
+			ServerInfo infopanel = new ServerInfo();
+			infopanel.Show();
+		}
+		
+		void richTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Command proxy
+            
+            int totalLines = richTextBox1.Lines.Length;
+			string lastLine = richTextBox1.Lines[totalLines - 1];
+            
+            if (e.KeyCode == Keys.Enter)
+            {
+            	richTextBox1.AppendText(Environment.NewLine);
+            	ConsoleProcessCommands(lastLine);
+            }
+        }
 		
 		void StartClient()
 		{
@@ -940,10 +966,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
+				ConsolePrint("Client Loaded.", 4, false);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1061,13 +1089,14 @@ namespace RBXLegacyLauncher
 				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',false);" + quote;
 			}
 			}
-			
 			try
 			{
+				ConsolePrint("Play Solo Loaded.", 4, false);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1090,10 +1119,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
+				ConsolePrint("Server Loaded.", 4, false);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1115,10 +1146,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
+				ConsolePrint("Server Loaded in No3d.", 4, false);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1139,18 +1172,130 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
+				ConsolePrint("Studio Loaded.", 4, false);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		
-		void Button20Click(object sender, EventArgs e)
+		void ConsolePrint(string text, int type, bool newline = true)
 		{
-			ServerInfo infopanel = new ServerInfo();
-			infopanel.Show();
+			richTextBox1.AppendText("[" + DateTime.Now.ToShortTimeString() + "]", Color.White);
+			richTextBox1.AppendText(" - ", Color.White);
+			if (type == 1)
+			{
+				richTextBox1.AppendText(text, Color.White);
+			}
+			else if (type == 2)
+			{
+				richTextBox1.AppendText(text, Color.Red);
+			}
+			else if (type == 3)
+			{
+				richTextBox1.AppendText(text, Color.Lime);
+			}
+			else if (type == 4)
+			{
+				richTextBox1.AppendText(text, Color.Aqua);
+			}
+			else if (type == 5)
+			{
+				richTextBox1.AppendText(text, Color.Yellow);
+			}
+			
+			if (newline == true)
+			{
+				richTextBox1.AppendText(Environment.NewLine);
+			}
+		}
+		
+		void ConsoleProcessCommands(string command)
+		{
+			if (command.Equals("rbxlegacy server"))
+			{
+				StartServer();
+			}
+			else if (command.Equals("rbxlegacy server no3d"))
+			{
+				StartServerNo3D();
+			}
+			else if (command.Equals("rbxlegacy client"))
+			{
+				StartClient();
+			}
+			else if (command.Equals("rbxlegacy client solo"))
+			{
+				StartSolo();
+			}
+			else if (command.Equals("rbxlegacy studio"))
+			{
+				StartStudio();
+			}
+			else if (command.Equals("rbxlegacy config save"))
+			{
+				WriteConfigValues();
+			}
+			else if (command.Equals("rbxlegacy config load"))
+			{
+				ReadConfigValues();
+			}
+			else if (command.Equals("rbxlegacy config reset"))
+			{
+				ResetConfigValues();
+			}
+			else if (command.Equals("rbxlegacy help"))
+			{
+				ConsoleRBXLegacyHelp(false);
+			}
+			else if (command.Equals("rbxlegacy"))
+			{
+				ConsoleRBXLegacyHelp(false);
+			}
+			else if (command.Equals("rbxlegacy config"))
+			{
+				ConsoleRBXLegacyHelp(true);
+			}
+			else if (command.Equals("rbxlegacy kanrisha"))
+			{
+				GlobalVars.AdminMode = true;
+				ConsolePrint("ADMIN MODE ENABLED.", 4);
+				ConsolePrint("YOU ARE GOD.", 2, false);
+			}
+			else
+			{
+				ConsolePrint("ERROR 3 - Command is either not registered or valid", 2, false);
+			}
+			
+		}
+		
+		void ConsoleRBXLegacyHelp(bool config)
+		{
+			if (config == true)
+			{
+				ConsolePrint("rbxlegacy config", 1);
+				ConsolePrint("-------------------------", 1);
+				ConsolePrint("= save | Saves the config file", 1);
+				ConsolePrint("= load | Reloads the config file", 1);
+				ConsolePrint("= reset | Resets the config file", 1, false);
+			}
+			else
+			{
+				ConsolePrint("rbxlegacy", 1);
+				ConsolePrint("---------", 1);
+				ConsolePrint("= client | Loads client with launcher settings", 1);
+				ConsolePrint("== solo | Loads client in Play Solo mode with launcher settings", 1);
+				ConsolePrint("= server | Loads server with launcher settings", 1);
+				ConsolePrint("== no3d | Loads server in NoGraphics mode with launcher settings", 1);
+				ConsolePrint("= studio | Loads Roblox Studio with launcher settings", 1);
+				ConsolePrint("= config", 1);
+				ConsolePrint("== save | Saves the config file", 1);
+				ConsolePrint("== load | Reloads the config file", 1);
+				ConsolePrint("== reset | Resets the config file", 1, false);
+			}
 		}
 	}
 }

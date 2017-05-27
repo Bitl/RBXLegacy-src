@@ -48,15 +48,15 @@ namespace RBXLegacyLauncher
 			// 
 			// label17
 			// 
-			this.label17.Location = new System.Drawing.Point(111, 245);
+			this.label17.Location = new System.Drawing.Point(115, 245);
 			this.label17.Name = "label17";
-			this.label17.Size = new System.Drawing.Size(35, 18);
+			this.label17.Size = new System.Drawing.Size(35, 14);
 			this.label17.TabIndex = 37;
 			this.label17.Text = "Hat 3";
 			// 
 			// label16
 			// 
-			this.label16.Location = new System.Drawing.Point(111, 157);
+			this.label16.Location = new System.Drawing.Point(115, 157);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(35, 13);
 			this.label16.TabIndex = 36;
@@ -64,7 +64,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label12
 			// 
-			this.label12.Location = new System.Drawing.Point(111, 69);
+			this.label12.Location = new System.Drawing.Point(115, 69);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(35, 13);
 			this.label12.TabIndex = 35;
@@ -73,7 +73,7 @@ namespace RBXLegacyLauncher
 			// listBox3
 			// 
 			this.listBox3.FormattingEnabled = true;
-			this.listBox3.Location = new System.Drawing.Point(9, 266);
+			this.listBox3.Location = new System.Drawing.Point(9, 262);
 			this.listBox3.Name = "listBox3";
 			this.listBox3.Size = new System.Drawing.Size(243, 69);
 			this.listBox3.TabIndex = 34;
@@ -112,7 +112,7 @@ namespace RBXLegacyLauncher
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(259, 344);
+			this.ClientSize = new System.Drawing.Size(259, 339);
 			this.Controls.Add(this.label17);
 			this.Controls.Add(this.label16);
 			this.Controls.Add(this.label12);

@@ -176,41 +176,32 @@ namespace RBXLegacyLauncher
 		
 		void ChangeColorOfPart(int ColorID, Color ButtonColor)
 		{
-			if (SelectedPart == "Head")
+			if (SelectedPart == "Head" || SelectedPart == "Right Arm" || SelectedPart == "Left Arm")
 			{
 				HeadColor = ColorID;
-				GlobalVars.HeadColorID = 24;
+				GlobalVars.HeadColorID = ColorID;
 				button1.BackColor = ButtonColor;
+				RArmColor = ColorID;
+				GlobalVars.RightArmColorID = ColorID;
+				button3.BackColor = ButtonColor;
+				LArmColor = ColorID;
+				GlobalVars.LeftArmColorID = ColorID;
+				button4.BackColor = ButtonColor;
+			}
+			else if (SelectedPart == "Right Leg" || SelectedPart == "Left Leg")
+			{
+				RLegColor = ColorID;
+				GlobalVars.RightLegColorID = ColorID;
+				button5.BackColor = ButtonColor;
+				LLegColor = ColorID;
+				GlobalVars.LeftLegColorID = ColorID;
+				button6.BackColor = ButtonColor;
 			}
 			else if (SelectedPart == "Torso")
 			{
 				TorsoColor = ColorID;
-				GlobalVars.TorsoColorID = 23;
+				GlobalVars.TorsoColorID = ColorID;
 				button2.BackColor = ButtonColor;
-			}
-			else if (SelectedPart == "Right Arm")
-			{
-				RArmColor = ColorID;
-				GlobalVars.RightArmColorID = 24;
-				button3.BackColor = ButtonColor;
-			}
-			else if (SelectedPart == "Left Arm")
-			{
-				LArmColor = ColorID;
-				GlobalVars.LeftArmColorID = 24;
-				button4.BackColor = ButtonColor;
-			}
-			else if (SelectedPart == "Right Leg")
-			{
-				RLegColor = ColorID;
-				GlobalVars.RightLegColorID = 119;
-				button5.BackColor = ButtonColor;
-			}
-			else if (SelectedPart == "Left Leg")
-			{
-				LLegColor = ColorID;
-				GlobalVars.LeftLegColorID = 119;
-				button6.BackColor = ButtonColor;
 			}
 		}
 		

@@ -7,7 +7,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>RBXLegacyLauncher</RootNamespace>
     <AssemblyName>RBXLegacyLauncher</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -45,19 +45,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterColors.cs" />
@@ -73,6 +64,7 @@
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>
     </Compile>
     <Compile Include="CryptoRandom.cs" />
+    <Compile Include="RichTextBoxExtensions.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="ServerInfo.Designer.cs">
       <DependentUpon>ServerInfo.cs</DependentUpon>

@@ -62,6 +62,21 @@ namespace RBXLegacyLauncher
 			this.label30 = new System.Windows.Forms.Label();
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.label18 = new System.Windows.Forms.Label();
+			this.tabPage6 = new System.Windows.Forms.TabPage();
+			this.button17 = new System.Windows.Forms.Button();
+			this.button16 = new System.Windows.Forms.Button();
+			this.button15 = new System.Windows.Forms.Button();
+			this.button14 = new System.Windows.Forms.Button();
+			this.button13 = new System.Windows.Forms.Button();
+			this.button12 = new System.Windows.Forms.Button();
+			this.label38 = new System.Windows.Forms.Label();
+			this.label39 = new System.Windows.Forms.Label();
+			this.label37 = new System.Windows.Forms.Label();
+			this.label36 = new System.Windows.Forms.Label();
+			this.listBox4 = new System.Windows.Forms.ListBox();
+			this.listBox3 = new System.Windows.Forms.ListBox();
+			this.label21 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
 			this.label40 = new System.Windows.Forms.Label();
 			this.button11 = new System.Windows.Forms.Button();
@@ -81,21 +96,8 @@ namespace RBXLegacyLauncher
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.label29 = new System.Windows.Forms.Label();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.tabPage6 = new System.Windows.Forms.TabPage();
-			this.button17 = new System.Windows.Forms.Button();
-			this.button16 = new System.Windows.Forms.Button();
-			this.button15 = new System.Windows.Forms.Button();
-			this.button14 = new System.Windows.Forms.Button();
-			this.button13 = new System.Windows.Forms.Button();
-			this.button12 = new System.Windows.Forms.Button();
-			this.label38 = new System.Windows.Forms.Label();
-			this.label39 = new System.Windows.Forms.Label();
-			this.label37 = new System.Windows.Forms.Label();
-			this.label36 = new System.Windows.Forms.Label();
-			this.listBox4 = new System.Windows.Forms.ListBox();
-			this.listBox3 = new System.Windows.Forms.ListBox();
-			this.label21 = new System.Windows.Forms.Label();
-			this.label14 = new System.Windows.Forms.Label();
+			this.tabPage7 = new System.Windows.Forms.TabPage();
+			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -125,8 +127,9 @@ namespace RBXLegacyLauncher
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			this.tabPage3.SuspendLayout();
-			this.tabPage5.SuspendLayout();
 			this.tabPage6.SuspendLayout();
+			this.tabPage5.SuspendLayout();
+			this.tabPage7.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -150,8 +153,9 @@ namespace RBXLegacyLauncher
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
 			this.tabControl1.Controls.Add(this.tabPage3);
-			this.tabControl1.Controls.Add(this.tabPage5);
 			this.tabControl1.Controls.Add(this.tabPage6);
+			this.tabControl1.Controls.Add(this.tabPage5);
+			this.tabControl1.Controls.Add(this.tabPage7);
 			this.tabControl1.Controls.Add(this.tabPage4);
 			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabControl1.Location = new System.Drawing.Point(12, 137);
@@ -179,7 +183,7 @@ namespace RBXLegacyLauncher
 			this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.tabPage1.Size = new System.Drawing.Size(405, 284);
 			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "JOIN SERVER";
+			this.tabPage1.Text = "JOIN";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
@@ -285,7 +289,7 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage2.Size = new System.Drawing.Size(405, 284);
 			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "START SERVER";
+			this.tabPage2.Text = "HOST";
 			this.tabPage2.ToolTipText = "Start a server for other players to play";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
@@ -429,6 +433,155 @@ namespace RBXLegacyLauncher
 			this.label18.Size = new System.Drawing.Size(127, 15);
 			this.label18.TabIndex = 0;
 			this.label18.Text = "CLIENT INFORMATION:";
+			// 
+			// tabPage6
+			// 
+			this.tabPage6.Controls.Add(this.button17);
+			this.tabPage6.Controls.Add(this.button16);
+			this.tabPage6.Controls.Add(this.button15);
+			this.tabPage6.Controls.Add(this.button14);
+			this.tabPage6.Controls.Add(this.button13);
+			this.tabPage6.Controls.Add(this.button12);
+			this.tabPage6.Controls.Add(this.label38);
+			this.tabPage6.Controls.Add(this.label39);
+			this.tabPage6.Controls.Add(this.label37);
+			this.tabPage6.Controls.Add(this.label36);
+			this.tabPage6.Controls.Add(this.listBox4);
+			this.tabPage6.Controls.Add(this.listBox3);
+			this.tabPage6.Controls.Add(this.label21);
+			this.tabPage6.Controls.Add(this.label14);
+			this.tabPage6.Location = new System.Drawing.Point(4, 22);
+			this.tabPage6.Name = "tabPage6";
+			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage6.Size = new System.Drawing.Size(405, 284);
+			this.tabPage6.TabIndex = 6;
+			this.tabPage6.Text = "SAVED";
+			this.tabPage6.ToolTipText = "Lists all your saved servers and ports";
+			this.tabPage6.UseVisualStyleBackColor = true;
+			// 
+			// button17
+			// 
+			this.button17.Location = new System.Drawing.Point(213, 223);
+			this.button17.Name = "button17";
+			this.button17.Size = new System.Drawing.Size(54, 23);
+			this.button17.TabIndex = 13;
+			this.button17.Text = "Add";
+			this.button17.UseVisualStyleBackColor = true;
+			this.button17.Click += new System.EventHandler(this.Button17Click);
+			// 
+			// button16
+			// 
+			this.button16.Location = new System.Drawing.Point(3, 223);
+			this.button16.Name = "button16";
+			this.button16.Size = new System.Drawing.Size(60, 23);
+			this.button16.TabIndex = 12;
+			this.button16.Text = "Add";
+			this.button16.UseVisualStyleBackColor = true;
+			this.button16.Click += new System.EventHandler(this.Button16Click);
+			// 
+			// button15
+			// 
+			this.button15.Location = new System.Drawing.Point(339, 223);
+			this.button15.Name = "button15";
+			this.button15.Size = new System.Drawing.Size(60, 23);
+			this.button15.TabIndex = 11;
+			this.button15.Text = "Reset";
+			this.button15.UseVisualStyleBackColor = true;
+			this.button15.Click += new System.EventHandler(this.Button15Click);
+			// 
+			// button14
+			// 
+			this.button14.Location = new System.Drawing.Point(137, 223);
+			this.button14.Name = "button14";
+			this.button14.Size = new System.Drawing.Size(55, 23);
+			this.button14.TabIndex = 10;
+			this.button14.Text = "Reset";
+			this.button14.UseVisualStyleBackColor = true;
+			this.button14.Click += new System.EventHandler(this.Button14Click);
+			// 
+			// button13
+			// 
+			this.button13.Location = new System.Drawing.Point(273, 223);
+			this.button13.Name = "button13";
+			this.button13.Size = new System.Drawing.Size(60, 23);
+			this.button13.TabIndex = 9;
+			this.button13.Text = "Remove";
+			this.button13.UseVisualStyleBackColor = true;
+			this.button13.Click += new System.EventHandler(this.Button13Click);
+			// 
+			// button12
+			// 
+			this.button12.Location = new System.Drawing.Point(69, 223);
+			this.button12.Name = "button12";
+			this.button12.Size = new System.Drawing.Size(62, 23);
+			this.button12.TabIndex = 8;
+			this.button12.Text = "Remove";
+			this.button12.UseVisualStyleBackColor = true;
+			this.button12.Click += new System.EventHandler(this.Button12Click);
+			// 
+			// label38
+			// 
+			this.label38.Location = new System.Drawing.Point(213, 261);
+			this.label38.Name = "label38";
+			this.label38.Size = new System.Drawing.Size(120, 20);
+			this.label38.TabIndex = 7;
+			// 
+			// label39
+			// 
+			this.label39.Location = new System.Drawing.Point(213, 249);
+			this.label39.Name = "label39";
+			this.label39.Size = new System.Drawing.Size(149, 12);
+			this.label39.TabIndex = 6;
+			this.label39.Text = "CURRENT SERVER PORT:";
+			// 
+			// label37
+			// 
+			this.label37.Location = new System.Drawing.Point(6, 261);
+			this.label37.Name = "label37";
+			this.label37.Size = new System.Drawing.Size(120, 20);
+			this.label37.TabIndex = 5;
+			// 
+			// label36
+			// 
+			this.label36.Location = new System.Drawing.Point(6, 249);
+			this.label36.Name = "label36";
+			this.label36.Size = new System.Drawing.Size(136, 12);
+			this.label36.TabIndex = 4;
+			this.label36.Text = "CURRENT SERVER IP:";
+			// 
+			// listBox4
+			// 
+			this.listBox4.FormattingEnabled = true;
+			this.listBox4.Location = new System.Drawing.Point(213, 21);
+			this.listBox4.Name = "listBox4";
+			this.listBox4.Size = new System.Drawing.Size(186, 199);
+			this.listBox4.TabIndex = 3;
+			this.listBox4.SelectedIndexChanged += new System.EventHandler(this.ListBox4SelectedIndexChanged);
+			// 
+			// listBox3
+			// 
+			this.listBox3.FormattingEnabled = true;
+			this.listBox3.Location = new System.Drawing.Point(6, 21);
+			this.listBox3.Name = "listBox3";
+			this.listBox3.Size = new System.Drawing.Size(186, 199);
+			this.listBox3.TabIndex = 2;
+			this.listBox3.SelectedIndexChanged += new System.EventHandler(this.ListBox3SelectedIndexChanged);
+			// 
+			// label21
+			// 
+			this.label21.Location = new System.Drawing.Point(282, 3);
+			this.label21.Name = "label21";
+			this.label21.Size = new System.Drawing.Size(59, 15);
+			this.label21.TabIndex = 1;
+			this.label21.Text = "PORTS";
+			// 
+			// label14
+			// 
+			this.label14.Location = new System.Drawing.Point(67, 3);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(59, 15);
+			this.label14.TabIndex = 0;
+			this.label14.Text = "SERVERS";
 			// 
 			// tabPage5
 			// 
@@ -628,154 +781,28 @@ namespace RBXLegacyLauncher
 			this.checkBox3.UseVisualStyleBackColor = true;
 			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3CheckedChanged);
 			// 
-			// tabPage6
+			// tabPage7
 			// 
-			this.tabPage6.Controls.Add(this.button17);
-			this.tabPage6.Controls.Add(this.button16);
-			this.tabPage6.Controls.Add(this.button15);
-			this.tabPage6.Controls.Add(this.button14);
-			this.tabPage6.Controls.Add(this.button13);
-			this.tabPage6.Controls.Add(this.button12);
-			this.tabPage6.Controls.Add(this.label38);
-			this.tabPage6.Controls.Add(this.label39);
-			this.tabPage6.Controls.Add(this.label37);
-			this.tabPage6.Controls.Add(this.label36);
-			this.tabPage6.Controls.Add(this.listBox4);
-			this.tabPage6.Controls.Add(this.listBox3);
-			this.tabPage6.Controls.Add(this.label21);
-			this.tabPage6.Controls.Add(this.label14);
-			this.tabPage6.Location = new System.Drawing.Point(4, 22);
-			this.tabPage6.Name = "tabPage6";
-			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage6.Size = new System.Drawing.Size(405, 284);
-			this.tabPage6.TabIndex = 6;
-			this.tabPage6.Text = "SAVED";
-			this.tabPage6.ToolTipText = "Lists all your saved servers and ports";
-			this.tabPage6.UseVisualStyleBackColor = true;
+			this.tabPage7.BackColor = System.Drawing.SystemColors.ControlText;
+			this.tabPage7.Controls.Add(this.richTextBox1);
+			this.tabPage7.Location = new System.Drawing.Point(4, 22);
+			this.tabPage7.Name = "tabPage7";
+			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage7.Size = new System.Drawing.Size(405, 284);
+			this.tabPage7.TabIndex = 7;
+			this.tabPage7.Text = "DEV CONSOLE";
 			// 
-			// button17
+			// richTextBox1
 			// 
-			this.button17.Location = new System.Drawing.Point(213, 223);
-			this.button17.Name = "button17";
-			this.button17.Size = new System.Drawing.Size(54, 23);
-			this.button17.TabIndex = 13;
-			this.button17.Text = "Add";
-			this.button17.UseVisualStyleBackColor = true;
-			this.button17.Click += new System.EventHandler(this.Button17Click);
-			// 
-			// button16
-			// 
-			this.button16.Location = new System.Drawing.Point(3, 223);
-			this.button16.Name = "button16";
-			this.button16.Size = new System.Drawing.Size(60, 23);
-			this.button16.TabIndex = 12;
-			this.button16.Text = "Add";
-			this.button16.UseVisualStyleBackColor = true;
-			this.button16.Click += new System.EventHandler(this.Button16Click);
-			// 
-			// button15
-			// 
-			this.button15.Location = new System.Drawing.Point(339, 223);
-			this.button15.Name = "button15";
-			this.button15.Size = new System.Drawing.Size(60, 23);
-			this.button15.TabIndex = 11;
-			this.button15.Text = "Reset";
-			this.button15.UseVisualStyleBackColor = true;
-			this.button15.Click += new System.EventHandler(this.Button15Click);
-			// 
-			// button14
-			// 
-			this.button14.Location = new System.Drawing.Point(137, 223);
-			this.button14.Name = "button14";
-			this.button14.Size = new System.Drawing.Size(55, 23);
-			this.button14.TabIndex = 10;
-			this.button14.Text = "Reset";
-			this.button14.UseVisualStyleBackColor = true;
-			this.button14.Click += new System.EventHandler(this.Button14Click);
-			// 
-			// button13
-			// 
-			this.button13.Location = new System.Drawing.Point(273, 223);
-			this.button13.Name = "button13";
-			this.button13.Size = new System.Drawing.Size(60, 23);
-			this.button13.TabIndex = 9;
-			this.button13.Text = "Remove";
-			this.button13.UseVisualStyleBackColor = true;
-			this.button13.Click += new System.EventHandler(this.Button13Click);
-			// 
-			// button12
-			// 
-			this.button12.Location = new System.Drawing.Point(69, 223);
-			this.button12.Name = "button12";
-			this.button12.Size = new System.Drawing.Size(62, 23);
-			this.button12.TabIndex = 8;
-			this.button12.Text = "Remove";
-			this.button12.UseVisualStyleBackColor = true;
-			this.button12.Click += new System.EventHandler(this.Button12Click);
-			// 
-			// label38
-			// 
-			this.label38.Location = new System.Drawing.Point(213, 261);
-			this.label38.Name = "label38";
-			this.label38.Size = new System.Drawing.Size(120, 20);
-			this.label38.TabIndex = 7;
-			// 
-			// label39
-			// 
-			this.label39.Location = new System.Drawing.Point(213, 249);
-			this.label39.Name = "label39";
-			this.label39.Size = new System.Drawing.Size(149, 12);
-			this.label39.TabIndex = 6;
-			this.label39.Text = "CURRENT SERVER PORT:";
-			// 
-			// label37
-			// 
-			this.label37.Location = new System.Drawing.Point(6, 261);
-			this.label37.Name = "label37";
-			this.label37.Size = new System.Drawing.Size(120, 20);
-			this.label37.TabIndex = 5;
-			// 
-			// label36
-			// 
-			this.label36.Location = new System.Drawing.Point(6, 249);
-			this.label36.Name = "label36";
-			this.label36.Size = new System.Drawing.Size(136, 12);
-			this.label36.TabIndex = 4;
-			this.label36.Text = "CURRENT SERVER IP:";
-			// 
-			// listBox4
-			// 
-			this.listBox4.FormattingEnabled = true;
-			this.listBox4.Location = new System.Drawing.Point(213, 21);
-			this.listBox4.Name = "listBox4";
-			this.listBox4.Size = new System.Drawing.Size(186, 199);
-			this.listBox4.TabIndex = 3;
-			this.listBox4.SelectedIndexChanged += new System.EventHandler(this.ListBox4SelectedIndexChanged);
-			// 
-			// listBox3
-			// 
-			this.listBox3.FormattingEnabled = true;
-			this.listBox3.Location = new System.Drawing.Point(6, 21);
-			this.listBox3.Name = "listBox3";
-			this.listBox3.Size = new System.Drawing.Size(186, 199);
-			this.listBox3.TabIndex = 2;
-			this.listBox3.SelectedIndexChanged += new System.EventHandler(this.ListBox3SelectedIndexChanged);
-			// 
-			// label21
-			// 
-			this.label21.Location = new System.Drawing.Point(282, 3);
-			this.label21.Name = "label21";
-			this.label21.Size = new System.Drawing.Size(59, 15);
-			this.label21.TabIndex = 1;
-			this.label21.Text = "PORTS";
-			// 
-			// label14
-			// 
-			this.label14.Location = new System.Drawing.Point(67, 3);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(59, 15);
-			this.label14.TabIndex = 0;
-			this.label14.Text = "SERVERS";
+			this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlText;
+			this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.richTextBox1.ForeColor = System.Drawing.Color.White;
+			this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+			this.richTextBox1.Name = "richTextBox1";
+			this.richTextBox1.Size = new System.Drawing.Size(399, 278);
+			this.richTextBox1.TabIndex = 2;
+			this.richTextBox1.Text = "";
+			this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
 			// 
 			// tabPage4
 			// 
@@ -1049,13 +1076,16 @@ namespace RBXLegacyLauncher
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage3.PerformLayout();
+			this.tabPage6.ResumeLayout(false);
 			this.tabPage5.ResumeLayout(false);
 			this.tabPage5.PerformLayout();
-			this.tabPage6.ResumeLayout(false);
+			this.tabPage7.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.RichTextBox richTextBox1;
+		private System.Windows.Forms.TabPage tabPage7;
 		private System.Windows.Forms.Button button20;
 		private System.Windows.Forms.Label label40;
 		private System.Windows.Forms.Button button19;

@@ -32,6 +32,9 @@ namespace RBXLegacyLauncher
 		
 		void CharacterCustomizationLoad(object sender, EventArgs e)
 		{
+			listBox1.Items.Clear();
+			listBox2.Items.Clear();
+			listBox3.Items.Clear();
 			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
         	if (Directory.Exists(hatdir))
         	{
@@ -39,7 +42,17 @@ namespace RBXLegacyLauncher
 				FileInfo[] Files = dinfo.GetFiles("*.rbxm");
 				foreach( FileInfo file in Files )
 				{
-   					listBox1.Items.Add(file.Name);
+					if (file.Name.Equals(String.Empty))
+					{
+   						continue;
+					}
+					
+					if (file.Name.Equals("TeapotTurret.rbxm") && GlobalVars.AdminMode != true)
+					{
+   						continue;
+					}
+					
+					listBox1.Items.Add(file.Name);
    					listBox2.Items.Add(file.Name);
    					listBox3.Items.Add(file.Name);
 				}
@@ -49,24 +62,21 @@ namespace RBXLegacyLauncher
 				listBox1.Enabled = true;
         		listBox2.Enabled = true;
         		listBox3.Enabled = true;
-        		button1.Enabled = true;
         	}
         	else
         	{
-        		listBox1.Items.Add("Offline character customization is not supported");
+        		listBox1.Items.Add("Hats are not supported");
         		listBox1.Items.Add("on this client.");
         		listBox1.Enabled = false;
         		listBox2.Enabled = false;
-        		listBox3.Enabled = false;
-        		button1.Enabled = false;       		
+        		listBox3.Enabled = false;      		
         	}
 		}
 		
 		void Button1Click(object sender, EventArgs e)
 		{
-			//CharacterColors ccol = new CharacterColors();
-			//ccol.Show();
-			MessageBox.Show("Coming Soon.");			
+			CharacterColors ccol = new CharacterColors();
+			ccol.Show();			
 		}
 		
 		void ListBox1SelectedIndexChanged(object sender, EventArgs e)
