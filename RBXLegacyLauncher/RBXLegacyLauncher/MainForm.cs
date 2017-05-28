@@ -716,7 +716,6 @@ namespace RBXLegacyLauncher
 			{
 				GlobalVars.RobloxPort = GlobalVars.DefaultRobloxPort;
 			}
-			
 			label38.Text = GlobalVars.RobloxPort.ToString();
 		}
 		
@@ -898,12 +897,15 @@ namespace RBXLegacyLauncher
             //Command proxy
             
             int totalLines = richTextBox1.Lines.Length;
-			string lastLine = richTextBox1.Lines[totalLines - 1];
-            
-            if (e.KeyCode == Keys.Enter)
+            if (totalLines > 0)
             {
-            	richTextBox1.AppendText(Environment.NewLine);
-            	ConsoleProcessCommands(lastLine);
+				string lastLine = richTextBox1.Lines[totalLines - 1];
+            
+            	if (e.KeyCode == Keys.Enter)
+            	{
+            		richTextBox1.AppendText(Environment.NewLine);
+            		ConsoleProcessCommands(lastLine);
+            	}
             }
         }
 		
@@ -966,12 +968,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
-				ConsolePrint("Client Loaded.", 4, false);
+				ConsolePrint("Client Loaded.", 4);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
-				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1091,12 +1093,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
-				ConsolePrint("Play Solo Loaded.", 4, false);
+				ConsolePrint("Play Solo Loaded.", 4);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
-				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1119,12 +1121,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
-				ConsolePrint("Server Loaded.", 4, false);
+				ConsolePrint("Server Loaded.", 4);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
-				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1146,12 +1148,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
-				ConsolePrint("Server Loaded in No3d.", 4, false);
+				ConsolePrint("Server Loaded in No3d.", 4);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
-				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -1172,12 +1174,12 @@ namespace RBXLegacyLauncher
 			}
 			try
 			{
-				ConsolePrint("Studio Loaded.", 4, false);
+				ConsolePrint("Studio Loaded.", 4);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
-				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2, false);
+				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
