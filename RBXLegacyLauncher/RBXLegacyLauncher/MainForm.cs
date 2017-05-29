@@ -164,7 +164,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19;
+			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -187,6 +187,12 @@ namespace RBXLegacyLauncher
     			line17 = reader.ReadLine();
     			line18 = reader.ReadLine();
     			line19 = reader.ReadLine();
+    			line20 = reader.ReadLine();
+				line21 = reader.ReadLine();
+				line22 = reader.ReadLine();
+				line23 = reader.ReadLine();
+				line24 = reader.ReadLine();
+				line25 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -232,6 +238,13 @@ namespace RBXLegacyLauncher
 			GlobalVars.LeftLegColorID = iline18;
 			int iline19 = Convert.ToInt32(line19);
 			GlobalVars.RightLegColorID = iline19;
+			
+			GlobalVars.ColorMenu_HeadColor = line20;
+			GlobalVars.ColorMenu_TorsoColor = line21;
+			GlobalVars.ColorMenu_LeftArmColor = line22;
+			GlobalVars.ColorMenu_RightArmColor = line23;
+			GlobalVars.ColorMenu_LeftLegColor = line24;
+			GlobalVars.ColorMenu_RightLegColor = line25;
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -323,6 +336,12 @@ namespace RBXLegacyLauncher
 				GlobalVars.RightArmColorID.ToString(),
 				GlobalVars.LeftLegColorID.ToString(),
 				GlobalVars.RightLegColorID.ToString(),
+				GlobalVars.ColorMenu_HeadColor.ToString(),
+				GlobalVars.ColorMenu_TorsoColor.ToString(),
+				GlobalVars.ColorMenu_LeftArmColor.ToString(),
+				GlobalVars.ColorMenu_RightArmColor.ToString(),
+				GlobalVars.ColorMenu_LeftLegColor.ToString(),
+				GlobalVars.ColorMenu_RightLegColor.ToString(),
 			};
 			File.WriteAllLines("config.txt", lines);
 			ConsolePrint("Config Saved.", 3);
@@ -349,6 +368,12 @@ namespace RBXLegacyLauncher
 			GlobalVars.RightArmColorID = 24;
 			GlobalVars.LeftLegColorID = 119;
 			GlobalVars.RightLegColorID = 119;
+			GlobalVars.ColorMenu_HeadColor = "Color [A=255, R=245, G=205, B=47]";
+			GlobalVars.ColorMenu_TorsoColor = "Color [A=255, R=13, G=105, B=172]";
+			GlobalVars.ColorMenu_LeftArmColor = "Color [A=255, R=245, G=205, B=47]";
+			GlobalVars.ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
+			GlobalVars.ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
+			GlobalVars.ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
 			ConsolePrint("All config settings reset. Reloading config.", 4);
 			WriteConfigValues();
 			ReadConfigValues();

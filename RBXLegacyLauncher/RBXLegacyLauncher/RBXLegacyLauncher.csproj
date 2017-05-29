@@ -59,6 +59,10 @@
     <Compile Include="CharacterCustomization.Designer.cs">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </Compile>
+    <Compile Include="CharacterCustomization_HatMenu.cs" />
+    <Compile Include="CharacterCustomization_HatMenu.Designer.cs">
+      <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientinfoCreator.cs" />
     <Compile Include="ClientinfoCreator.Designer.cs">
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharacterCustomization_HatMenu.resx">
+      <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientinfoCreator.resx">
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>

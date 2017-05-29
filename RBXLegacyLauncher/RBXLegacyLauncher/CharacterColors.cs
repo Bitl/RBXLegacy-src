@@ -21,12 +21,6 @@ namespace RBXLegacyLauncher
 	/// </summary>
 	public partial class CharacterColors : Form
 	{
-		public static int HeadColor = 24;
-		public static int TorsoColor = 23;
-		public static int LArmColor = 24;
-		public static int RArmColor = 24;
-		public static int LLegColor = 119;
-		public static int RLegColor = 119;
 		public static string SelectedPart = "Head";
 		
 		public CharacterColors()
@@ -79,87 +73,13 @@ namespace RBXLegacyLauncher
 		
 		void CharacterColorsLoad(object sender, EventArgs e)
 		{
-			if (!File.Exists("playercolors.txt"))
-			{
-				WriteColorConfigValues();
-			}
-			//if (!File.Exists(GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\CharacterColors.rbxm"))
-			//{
-				//WriteColorModel();
-			//}
 			label2.Text = SelectedPart;
-			button1.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
-			button2.BackColor = ConvertStringtoColor("Color [A=255, R=13, G=105, B=172]");
-			button3.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
-			button4.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
-			button5.BackColor = ConvertStringtoColor("Color [A=255, R=164, G=189, B=71]");
-			button6.BackColor = ConvertStringtoColor("Color [A=255, R=164, G=189, B=71]");
-			ReadColorConfigValues();
-		}
-		
-		void ReadColorConfigValues()
-		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12;
-
-			using(StreamReader reader = new StreamReader("playercolors.txt")) 
-			{
-    			line1 = reader.ReadLine();
-    			line2 = reader.ReadLine();
-    			line3 = reader.ReadLine();
-    			line4 = reader.ReadLine();
-    			line5 = reader.ReadLine();
-    			line6 = reader.ReadLine();
-    			line7 = reader.ReadLine();
-    			line8 = reader.ReadLine();
-    			line9 = reader.ReadLine();
-    			line10 = reader.ReadLine();
-    			line11 = reader.ReadLine();
-    			line12 = reader.ReadLine();
-			}
-			
-			int iline1 = Convert.ToInt32(line1);
-			HeadColor = iline1;
-			
-			int iline2 = Convert.ToInt32(line2);
-			TorsoColor = iline2;
-			
-			int iline3 = Convert.ToInt32(line3);
-			LArmColor = iline3;
-			
-			int iline4 = Convert.ToInt32(line4);
-			RArmColor = iline4;
-			
-			int iline5 = Convert.ToInt32(line5);
-			LLegColor = iline5;
-			
-			int iline6 = Convert.ToInt32(line6);
-			RLegColor = iline6;
-			
-			button1.BackColor = ConvertStringtoColor(line7);
-			button2.BackColor = ConvertStringtoColor(line8);
-			button3.BackColor = ConvertStringtoColor(line9);
-			button4.BackColor = ConvertStringtoColor(line10);
-			button5.BackColor = ConvertStringtoColor(line11);
-			button6.BackColor = ConvertStringtoColor(line12);
-		}
-		
-		void WriteColorConfigValues()
-		{
-			string[] lines = { 
-				HeadColor.ToString(), 
-				TorsoColor.ToString(), 
-				LArmColor.ToString(), 
-				RArmColor.ToString(), 
-				LLegColor.ToString(), 
-				RLegColor.ToString(), 
-				button1.BackColor.ToString(), 
-				button2.BackColor.ToString(),
-				button3.BackColor.ToString(),
-				button4.BackColor.ToString(),
-				button5.BackColor.ToString(),
-				button6.BackColor.ToString(),
-			};
-			File.WriteAllLines("playercolors.txt", lines);
+			button1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
+			button2.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
+			button3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
+			button4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
+			button5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
+			button6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
 		}
 		
 		Color ConvertStringtoColor(string CString)
@@ -176,32 +96,41 @@ namespace RBXLegacyLauncher
 		
 		void ChangeColorOfPart(int ColorID, Color ButtonColor)
 		{
-			if (SelectedPart == "Head" || SelectedPart == "Right Arm" || SelectedPart == "Left Arm")
+			if (SelectedPart == "Head")
 			{
-				HeadColor = ColorID;
 				GlobalVars.HeadColorID = ColorID;
-				button1.BackColor = ButtonColor;
-				RArmColor = ColorID;
-				GlobalVars.RightArmColorID = ColorID;
-				button3.BackColor = ButtonColor;
-				LArmColor = ColorID;
-				GlobalVars.LeftArmColorID = ColorID;
-				button4.BackColor = ButtonColor;
-			}
-			else if (SelectedPart == "Right Leg" || SelectedPart == "Left Leg")
-			{
-				RLegColor = ColorID;
-				GlobalVars.RightLegColorID = ColorID;
-				button5.BackColor = ButtonColor;
-				LLegColor = ColorID;
-				GlobalVars.LeftLegColorID = ColorID;
-				button6.BackColor = ButtonColor;
+				GlobalVars.ColorMenu_HeadColor = ButtonColor.ToString();
+				button1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
 			}
 			else if (SelectedPart == "Torso")
 			{
-				TorsoColor = ColorID;
 				GlobalVars.TorsoColorID = ColorID;
-				button2.BackColor = ButtonColor;
+				GlobalVars.ColorMenu_TorsoColor = ButtonColor.ToString();
+				button2.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
+			}
+			else if (SelectedPart == "Right Arm")
+			{
+				GlobalVars.RightArmColorID = ColorID;
+				GlobalVars.ColorMenu_RightArmColor = ButtonColor.ToString();
+				button3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
+			}
+			else if (SelectedPart == "Left Arm")
+			{
+				GlobalVars.LeftArmColorID = ColorID;
+				GlobalVars.ColorMenu_LeftArmColor = ButtonColor.ToString();
+				button4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
+			}
+			else if (SelectedPart == "Right Leg")
+			{
+				GlobalVars.RightLegColorID = ColorID;
+				GlobalVars.ColorMenu_RightLegColor = ButtonColor.ToString();
+				button5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
+			}
+			else if (SelectedPart == "Left Leg")
+			{
+				GlobalVars.LeftLegColorID = ColorID;
+				GlobalVars.ColorMenu_LeftLegColor = ButtonColor.ToString();
+				button6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
 			}
 		}
 		
@@ -431,87 +360,29 @@ namespace RBXLegacyLauncher
 		
 		void Button39Click(object sender, EventArgs e)
 		{
-			//WriteColorModel();
-            WriteColorConfigValues();
-            MessageBox.Show("Colors Saved!");			
+            MessageBox.Show("remove this");			
 		}
-		
-		void WriteColorModel()
-        {
-            string filename = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\CharacterColors.rbxm";
-			XmlTextWriter writer = new XmlTextWriter(filename, System.Text.Encoding.UTF8);
-            writer.Formatting = Formatting.Indented;
-            writer.Indentation = 3;
-            writer.WriteStartDocument(true);
-            writer.WriteStartElement("roblox");
-            writer.WriteAttributeString("xmlns:xmime", "http://www.w3.org/2005/05/xmlmime");
-            writer.WriteAttributeString("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            writer.WriteAttributeString("xsi:noNamespaceSchemaLocation", "http://www.roblox.com/roblox.xsd");
-            writer.WriteAttributeString("version", "4");
-            writer.WriteStartElement("External");
-            writer.WriteString("null");
-            writer.WriteEndElement();
-            writer.WriteStartElement("External");
-            writer.WriteString("nil");
-            writer.WriteEndElement();
-            writer.WriteStartElement("Item");
-            writer.WriteAttributeString("class", "BodyColors");
-            writer.WriteStartElement("Properties");
-            writer.WriteStartElement("int");
-            writer.WriteAttributeString("name", "HeadColor");
-            writer.WriteString(HeadColor.ToString());
-            writer.WriteEndElement();
-            writer.WriteStartElement("int");
-            writer.WriteAttributeString("name", "LeftArmColor");
-            writer.WriteString(LArmColor.ToString());
-            writer.WriteEndElement();
-            writer.WriteStartElement("int");
-            writer.WriteAttributeString("name", "LeftLegColor");
-            writer.WriteString(LLegColor.ToString());
-            writer.WriteEndElement();
-            writer.WriteStartElement("string");
-            writer.WriteAttributeString("name", "Name");
-            writer.WriteString("Body Colors");
-            writer.WriteEndElement();
-            writer.WriteStartElement("int");
-            writer.WriteAttributeString("name", "RightArmColor");
-            writer.WriteString(RArmColor.ToString());
-            writer.WriteEndElement();
-            writer.WriteStartElement("int");
-            writer.WriteAttributeString("name", "RightLegColor");
-            writer.WriteString(RLegColor.ToString());
-            writer.WriteEndElement();
-            writer.WriteStartElement("int");
-            writer.WriteAttributeString("name", "TorsoColor");
-            writer.WriteString(TorsoColor.ToString());
-            writer.WriteEndElement();
-            writer.WriteStartElement("bool");
-            writer.WriteAttributeString("name", "archivable");
-            writer.WriteString("true");
-            writer.WriteEndElement();
-            writer.WriteEndElement();
-            writer.WriteEndElement();
-            writer.WriteEndElement();
-            writer.WriteEndDocument();
-            writer.Close();
-        }
 		
 		void Button40Click(object sender, EventArgs e)
 		{
-			HeadColor = 24;
-			TorsoColor = 23;
-			LArmColor = 24;
-			RArmColor = 24;
-			LLegColor = 119;
-			RLegColor = 119;
-			button1.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
-			button2.BackColor = ConvertStringtoColor("Color [A=255, R=13, G=105, B=172]");
-			button3.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
-			button4.BackColor = ConvertStringtoColor("Color [A=255, R=245, G=205, B=47]");
-			button5.BackColor = ConvertStringtoColor("Color [A=255, R=164, G=189, B=71]");
-			button6.BackColor = ConvertStringtoColor("Color [A=255, R=164, G=189, B=71]");
-			//WriteColorModel();
-            WriteColorConfigValues();
+			GlobalVars.HeadColorID = 24;
+			GlobalVars.TorsoColorID = 23;
+			GlobalVars.LeftArmColorID = 24;
+			GlobalVars.RightArmColorID = 24;
+			GlobalVars.LeftLegColorID = 119;
+			GlobalVars.RightLegColorID = 119;
+			GlobalVars.ColorMenu_HeadColor = "Color [A=255, R=245, G=205, B=47]";
+			GlobalVars.ColorMenu_TorsoColor = "Color [A=255, R=13, G=105, B=172]";
+			GlobalVars.ColorMenu_LeftArmColor = "Color [A=255, R=245, G=205, B=47]";
+			GlobalVars.ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
+			GlobalVars.ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
+			GlobalVars.ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
+			button1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
+			button2.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
+			button3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
+			button4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
+			button5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
+			button6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
             MessageBox.Show("Colors Reset!");	
 		}
 	}

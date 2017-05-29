@@ -50,4 +50,11 @@
 	public static int RightArmColorID = 24;
 	public static int LeftLegColorID = 119;
 	public static int RightLegColorID = 119;
+	//color menu.
+	public static string ColorMenu_HeadColor = "Color [A=255, R=245, G=205, B=47]";
+	public static string ColorMenu_TorsoColor = "Color [A=255, R=13, G=105, B=172]";
+	public static string ColorMenu_LeftArmColor = "Color [A=255, R=245, G=205, B=47]";
+	public static string ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
+	public static string ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
+	public static string ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
 }

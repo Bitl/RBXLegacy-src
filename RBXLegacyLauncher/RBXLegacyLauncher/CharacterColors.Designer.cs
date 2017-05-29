@@ -78,7 +78,6 @@ namespace RBXLegacyLauncher
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.button40 = new System.Windows.Forms.Button();
-			this.button39 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -480,28 +479,17 @@ namespace RBXLegacyLauncher
 			// 
 			this.button40.Location = new System.Drawing.Point(170, 159);
 			this.button40.Name = "button40";
-			this.button40.Size = new System.Drawing.Size(255, 22);
+			this.button40.Size = new System.Drawing.Size(265, 51);
 			this.button40.TabIndex = 41;
 			this.button40.Text = "Reset Colors";
 			this.button40.UseVisualStyleBackColor = true;
 			this.button40.Click += new System.EventHandler(this.Button40Click);
-			// 
-			// button39
-			// 
-			this.button39.Location = new System.Drawing.Point(170, 187);
-			this.button39.Name = "button39";
-			this.button39.Size = new System.Drawing.Size(255, 23);
-			this.button39.TabIndex = 42;
-			this.button39.Text = "Save Colors";
-			this.button39.UseVisualStyleBackColor = true;
-			this.button39.Click += new System.EventHandler(this.Button39Click);
 			// 
 			// CharacterColors
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(437, 222);
-			this.Controls.Add(this.button39);
 			this.Controls.Add(this.button40);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -551,7 +539,6 @@ namespace RBXLegacyLauncher
 			this.Load += new System.EventHandler(this.CharacterColorsLoad);
 			this.ResumeLayout(false);
 		}
-		private System.Windows.Forms.Button button39;
 		private System.Windows.Forms.Button button40;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;

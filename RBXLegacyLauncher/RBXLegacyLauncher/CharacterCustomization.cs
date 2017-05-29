@@ -32,44 +32,14 @@ namespace RBXLegacyLauncher
 		
 		void CharacterCustomizationLoad(object sender, EventArgs e)
 		{
-			listBox1.Items.Clear();
-			listBox2.Items.Clear();
-			listBox3.Items.Clear();
-			string hatdir = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\content\\charcustom\\hats";
+			string hatdir = Environment.CurrentDirectory + @"\\charcustom\\hats";
         	if (Directory.Exists(hatdir))
         	{
-        		DirectoryInfo dinfo = new DirectoryInfo(hatdir);
-				FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-				foreach( FileInfo file in Files )
-				{
-					if (file.Name.Equals(String.Empty))
-					{
-   						continue;
-					}
-					
-					if (file.Name.Equals("TeapotTurret.rbxm") && GlobalVars.AdminMode != true)
-					{
-   						continue;
-					}
-					
-					listBox1.Items.Add(file.Name);
-   					listBox2.Items.Add(file.Name);
-   					listBox3.Items.Add(file.Name);
-				}
-				listBox1.SelectedItem = GlobalVars.Custom_Hat1ID_Offline;
-				listBox2.SelectedItem = GlobalVars.Custom_Hat2ID_Offline;
-				listBox3.SelectedItem = GlobalVars.Custom_Hat3ID_Offline;
-				listBox1.Enabled = true;
-        		listBox2.Enabled = true;
-        		listBox3.Enabled = true;
+        		button2.Enabled = true;
         	}
         	else
         	{
-        		listBox1.Items.Add("Hats are not supported");
-        		listBox1.Items.Add("on this client.");
-        		listBox1.Enabled = false;
-        		listBox2.Enabled = false;
-        		listBox3.Enabled = false;      		
+        		button2.Enabled = false;
         	}
 		}
 		
@@ -79,19 +49,10 @@ namespace RBXLegacyLauncher
 			ccol.Show();			
 		}
 		
-		void ListBox1SelectedIndexChanged(object sender, EventArgs e)
+		void Button2Click(object sender, EventArgs e)
 		{
-        	GlobalVars.Custom_Hat1ID_Offline = listBox1.SelectedItem.ToString();
-		}
-		
-		void ListBox2SelectedIndexChanged(object sender, EventArgs e)
-		{
-        	GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedItem.ToString();
-		}
-		
-		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
-		{
-        	GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedItem.ToString();
+			CharacterCustomization_HatMenu chats = new CharacterCustomization_HatMenu();
+			chats.Show();
 		}
 	}
 }

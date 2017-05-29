@@ -94,7 +94,7 @@
 			</Properties>
 			<Item class="SpecialMesh" referent="RBX2">
 				<Properties>
-					<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/ono.mesh</url></Content>
+					<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/ono.mesh</url></Content>
 					<token name="MeshType">5</token>
 					<string name="Name">Mesh</string>
 					<Vector3 name="Scale">
@@ -102,7 +102,7 @@
 						<Y>1</Y>
 						<Z>1</Z>
 					</Vector3>
-					<Content name="TextureId"><url>rbxasset://charcustom/hats/textures/ono.png</url></Content>
+					<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/ono.png</url></Content>
 					<Vector3 name="VertexColor">
 						<X>1</X>
 						<Y>1</Y>

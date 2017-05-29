@@ -39,7 +39,7 @@
 					<R22>0</R22>
 				</CoordinateFrame>
 				<string name="Name">GravityHammer</string>
-				<Content name="TextureId"><url>rbxasset://charcustom/hats/textures/gravityhammericon.png</url></Content>
+				<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/gravityhammericon.png</url></Content>
 				<bool name="archivable">true</bool>
 			</Properties>
 			<Item class="Part" referent="RBX4">
@@ -115,7 +115,7 @@
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX5">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/gravityhammer.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/gravityhammer.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -123,7 +123,7 @@
 							<Y>0.0500000007</Y>
 							<Z>0.0500000007</Z>
 						</Vector3>
-						<Content name="TextureId"><url>rbxasset://charcustom/hats/textures/gravityhammer.png</url></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/gravityhammer.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -138,7 +138,7 @@
 						<string name="Name">Sound</string>
 						<int name="PlayCount">2</int>
 						<bool name="PlayOnRemove">false</bool>
-						<Content name="SoundId"><url>rbxasset://charcustom/hats/sounds/gravityhammerswing.mp3</url></Content>
+						<Content name="SoundId"><url>rbxasset://../../../charcustom/hats/sounds/gravityhammerswing.mp3</url></Content>
 						<float name="Volume">1</float>
 						<bool name="archivable">true</bool>
 					</Properties>
@@ -1079,7 +1079,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX13">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1170,7 +1170,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX15">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1261,7 +1261,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX17">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1352,7 +1352,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX19">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1443,7 +1443,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX21">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1534,7 +1534,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX23">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1625,7 +1625,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX25">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1716,7 +1716,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX27">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1807,7 +1807,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX29">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -1898,7 +1898,7 @@ end
 				</Properties>
 				<Item class="SpecialMesh" referent="RBX31">
 					<Properties>
-						<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
 						<string name="Name">Mesh</string>
 						<Vector3 name="Scale">
@@ -2507,7 +2507,7 @@ front.Propulsion.TargetOffset = dest</string>
 			</Properties>
 			<Item class="SpecialMesh" referent="RBX46">
 				<Properties>
-					<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/teapot.mesh</url></Content>
+					<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 					<token name="MeshType">5</token>
 					<string name="Name">Mesh</string>
 					<Vector3 name="Scale">
@@ -2772,7 +2772,7 @@ shaft:remove()
 			</Properties>
 			<Item class="SpecialMesh" referent="RBX51">
 				<Properties>
-					<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/Satellite.mesh</url></Content>
+					<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/Satellite.mesh</url></Content>
 					<token name="MeshType">5</token>
 					<string name="Name">Mesh</string>
 					<Vector3 name="Scale">
@@ -2780,7 +2780,7 @@ shaft:remove()
 						<Y>0.25</Y>
 						<Z>0.25</Z>
 					</Vector3>
-					<Content name="TextureId"><url>rbxasset://charcustom/hats/textures/Satellite.png</url></Content>
+					<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/Satellite.png</url></Content>
 					<Vector3 name="VertexColor">
 						<X>1</X>
 						<Y>1</Y>
@@ -2847,7 +2847,7 @@ shaft:remove()
 					<string name="Name">Sound</string>
 					<int name="PlayCount">2</int>
 					<bool name="PlayOnRemove">false</bool>
-					<Content name="SoundId"><url>rbxasset://charcustom/hats/sounds/Activation.wav</url></Content>
+					<Content name="SoundId"><url>rbxasset://../../../charcustom/hats/sounds/Activation.wav</url></Content>
 					<float name="Volume">1</float>
 					<bool name="archivable">true</bool>
 				</Properties>
@@ -3270,7 +3270,7 @@ bin.Selected:connect(onSelected)</string>
 						<string name="Name">Sound</string>
 						<int name="PlayCount">-1</int>
 						<bool name="PlayOnRemove">false</bool>
-						<Content name="SoundId"><url>rbxasset://charcustom/hats/sounds/hurray.wav</url></Content>
+						<Content name="SoundId"><url>rbxasset://../../../charcustom/hats/sounds/hurray.wav</url></Content>
 						<float name="Volume">0.300000012</float>
 						<bool name="archivable">true</bool>
 					</Properties>
@@ -3372,7 +3372,7 @@ bin.Selected:connect(onSelected)
 						<string name="Name">Sound</string>
 						<int name="PlayCount">-1</int>
 						<bool name="PlayOnRemove">false</bool>
-						<Content name="SoundId"><url>rbxasset://charcustom/hats/sounds/Katon.mp3</url></Content>
+						<Content name="SoundId"><url>rbxasset://../../../charcustom/hats/sounds/Katon.mp3</url></Content>
 						<float name="Volume">0.200000003</float>
 						<bool name="archivable">true</bool>
 					</Properties>
@@ -3391,7 +3391,7 @@ bin.Selected:connect(onSelected)
 						<string name="Name">Sound</string>
 						<int name="PlayCount">-1</int>
 						<bool name="PlayOnRemove">false</bool>
-						<Content name="SoundId"><url>rbxasset://charcustom/hats/sounds/hurray.wav</url></Content>
+						<Content name="SoundId"><url>rbxasset://../../../charcustom/hats/sounds/hurray.wav</url></Content>
 						<float name="Volume">0.300000012</float>
 						<bool name="archivable">true</bool>
 					</Properties>
@@ -10597,7 +10597,7 @@ bin.Selected:connect(onSelected)
 						<string name="Name">Sound</string>
 						<int name="PlayCount">-1</int>
 						<bool name="PlayOnRemove">false</bool>
-						<Content name="SoundId"><url>rbxasset://charcustom/hats/sounds/hurray.wav</url></Content>
+						<Content name="SoundId"><url>rbxasset://../../../charcustom/hats/sounds/hurray.wav</url></Content>
 						<float name="Volume">0.300000012</float>
 						<bool name="archivable">true</bool>
 					</Properties>

@@ -97,7 +97,7 @@
 				<Properties>
 					<token name="LODX">2</token>
 					<token name="LODY">2</token>
-					<Content name="MeshId"><url>rbxasset://charcustom/hats/fonts/LeafHelm.mesh</url></Content>
+					<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/LeafHelm.mesh</url></Content>
 					<token name="MeshType">5</token>
 					<string name="Name">Mesh</string>
 					<Vector3 name="Offset">
@@ -110,7 +110,7 @@
 						<Y>0.899999976</Y>
 						<Z>0.899999976</Z>
 					</Vector3>
-					<Content name="TextureId"><url>rbxasset://charcustom/hats/textures/LeafHelm.png</url></Content>
+					<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/LeafHelm.png</url></Content>
 					<Vector3 name="VertexColor">
 						<X>1</X>
 						<Y>1</Y>

@@ -402,10 +402,10 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 		if (OutfitID and OutfitID ~= 0) then
 			Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
 		elseif (Hat1ID and Hat1ID ~= 0) then
-			Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
-			Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
-			Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-			local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
+			Hat1 = "rbxasset://../../../charcustom/hats/"..Hat1ID
+			Hat2 = "rbxasset://../../../charcustom/hats/"..Hat2ID
+			Hat3 = "rbxasset://../../../charcustom/hats/"..Hat3ID
+			local charapp = "rbxasset://../../../charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 			player.CharacterAppearance = charapp
 		else
 			Player.CharacterAppearance=0;
@@ -512,10 +512,10 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 		if (OutfitID and OutfitID ~= 0) then
 			Player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
 		elseif (Hat1ID and Hat1ID ~= 0) then
-			Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
-			Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
-			Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-			local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
+			Hat1 = "rbxasset://../../../charcustom/hats/"..Hat1ID
+			Hat2 = "rbxasset://../../../charcustom/hats/"..Hat2ID
+			Hat3 = "rbxasset://../../../charcustom/hats/"..Hat3ID
+			local charapp = "rbxasset://../../../charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 			player.CharacterAppearance = charapp
 		else
 			Player.CharacterAppearance=0;
@@ -549,10 +549,10 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,OutfitID,Hat1ID,Hat2ID,
 			if (OutfitID and OutfitID ~= 0) then
 				player.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
 			elseif (Hat1ID and Hat1ID ~= 0) then
-				Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
-				Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
-				Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-				local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
+				Hat1 = "rbxasset://../../../charcustom/hats/"..Hat1ID
+				Hat2 = "rbxasset://../../../charcustom/hats/"..Hat2ID
+				Hat3 = "rbxasset://../../../charcustom/hats/"..Hat3ID
+				local charapp = "rbxasset://../../../charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 				player.CharacterAppearance = charapp
 			else
 				player.CharacterAppearance=0;
@@ -650,10 +650,10 @@ function CSSolo(UserID,PlayerName,BodyColors,OutfitID,Hat1ID,Hat2ID,Hat3ID,HeadC
 	if (OutfitID and OutfitID ~= 0) then
 		plr.CharacterAppearance="http://www.roblox.com/Asset/CharacterFetch.ashx?userId="..OutfitID;
 	elseif (Hat1ID and Hat1ID ~= 0) then
-		Hat1 = "rbxasset://charcustom/hats/"..Hat1ID
-		Hat2 = "rbxasset://charcustom/hats/"..Hat2ID
-		Hat3 = "rbxasset://charcustom/hats/"..Hat3ID
-		local charapp = "rbxasset://charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
+		Hat1 = "rbxasset://../../../charcustom/hats/"..Hat1ID
+		Hat2 = "rbxasset://../../../charcustom/hats/"..Hat2ID
+		Hat3 = "rbxasset://../../../charcustom/hats/"..Hat3ID
+		local charapp = "rbxasset://../../../charcustom/bodycolors/"..HeadColorID.."-"..TorsoColorID.."-"..LeftArmColorID.."-"..RightArmColorID.."-"..LeftLegColorID.."-"..RightLegColorID..".rbxm;"..Hat1..";"..Hat2..";"..Hat3
 		plr.CharacterAppearance = charapp
 	else
 		plr.CharacterAppearance=0;
