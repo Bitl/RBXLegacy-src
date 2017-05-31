@@ -130,6 +130,14 @@ namespace RBXLegacyLauncher
     		string defcl = defaultclient[1];
     		GlobalVars.SelectedClient = defcl;
     		ConsolePrint("RBXLegacy Launcher version " + version + " loaded. Initializing config.", 4);
+    		if (File.Exists("changelog.txt"))
+			{
+    			richTextBox2.Text = File.ReadAllText("changelog.txt");
+    		}
+    		else
+    		{
+    			ConsolePrint("ERROR 4 - changelog.txt not found.", 2);
+    		}
 			if (!File.Exists("config.txt"))
 			{
 				ConsolePrint("WARNING 1 - config.txt not found. Creating one with default values.", 5);
@@ -142,7 +150,7 @@ namespace RBXLegacyLauncher
 			}
 			if (!File.Exists("ports.txt"))
 			{
-				ConsolePrint("WARNING 2 - servers.txt not found. Creating empty file.", 5);
+				ConsolePrint("WARNING 3 - ports.txt not found. Creating empty file.", 5);
 				File.Create("ports.txt").Dispose();
 			}
 			GlobalVars.ClientDir = Path.Combine(Environment.CurrentDirectory, @"clients");
@@ -164,7 +172,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22, line23, line24, line25;
+			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -188,63 +196,52 @@ namespace RBXLegacyLauncher
     			line18 = reader.ReadLine();
     			line19 = reader.ReadLine();
     			line20 = reader.ReadLine();
-				line21 = reader.ReadLine();
-				line22 = reader.ReadLine();
-				line23 = reader.ReadLine();
-				line24 = reader.ReadLine();
-				line25 = reader.ReadLine();
+    			line21 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
 			GlobalVars.CloseOnLaunch = bline1;
 			
-			bool bline2 = Convert.ToBoolean(line2);
-			GlobalVars.BodyColors = bline2;
+			int iline2 = Convert.ToInt32(line2);
+			GlobalVars.UserID = iline2;
 			
-			int iline3 = Convert.ToInt32(line3);
-			GlobalVars.UserID = iline3;
+			GlobalVars.PlayerName = line3;
 			
-			GlobalVars.PlayerName = line4;
+			GlobalVars.SelectedClient = line4;
 			
-			GlobalVars.SelectedClient = line5;
+			GlobalVars.Map = line5;
 			
 			int iline6 = Convert.ToInt32(line6);
-			GlobalVars.CharacterAppearanceID = iline6;
+			GlobalVars.RobloxPort = iline6;
 			
-			bool bline7 = Convert.ToBoolean(line7);
-			GlobalVars.UseAppearanceID = bline7;
+			GlobalVars.Custom_Hat1ID_Offline = line7;
+			GlobalVars.Custom_Hat2ID_Offline = line8;
+			GlobalVars.Custom_Hat3ID_Offline = line9;
 			
-			GlobalVars.Map = line8;
+			int iline10 = Convert.ToInt32(line10);
+			GlobalVars.HeadColorID = iline10;
 			
-			int iline9 = Convert.ToInt32(line9);
-			GlobalVars.RobloxPort = iline9;
+			int iline11 = Convert.ToInt32(line11);
+			GlobalVars.TorsoColorID = iline11;
 			
-			bool bline10 = Convert.ToBoolean(line10);
-			GlobalVars.UseCustomAppearanceID = bline10;
+			int iline12 = Convert.ToInt32(line12);
+			GlobalVars.LeftArmColorID = iline12;
 			
-			GlobalVars.Custom_Hat1ID_Offline = line11;
-			GlobalVars.Custom_Hat2ID_Offline = line12;
-			GlobalVars.Custom_Hat3ID_Offline = line13;
+			int iline13 = Convert.ToInt32(line13);
+			GlobalVars.RightArmColorID = iline13;
 			
 			int iline14 = Convert.ToInt32(line14);
-			GlobalVars.HeadColorID = iline14;
-			int iline15 = Convert.ToInt32(line15);
-			GlobalVars.TorsoColorID = iline15;
-			int iline16 = Convert.ToInt32(line16);
-			GlobalVars.LeftArmColorID = iline16;
-			int iline17 = Convert.ToInt32(line17);
-			GlobalVars.RightArmColorID = iline17;
-			int iline18 = Convert.ToInt32(line18);
-			GlobalVars.LeftLegColorID = iline18;
-			int iline19 = Convert.ToInt32(line19);
-			GlobalVars.RightLegColorID = iline19;
+			GlobalVars.LeftLegColorID = iline14;
 			
-			GlobalVars.ColorMenu_HeadColor = line20;
-			GlobalVars.ColorMenu_TorsoColor = line21;
-			GlobalVars.ColorMenu_LeftArmColor = line22;
-			GlobalVars.ColorMenu_RightArmColor = line23;
-			GlobalVars.ColorMenu_LeftLegColor = line24;
-			GlobalVars.ColorMenu_RightLegColor = line25;
+			int iline15 = Convert.ToInt32(line15);
+			GlobalVars.RightLegColorID = iline15;
+			
+			GlobalVars.ColorMenu_HeadColor = line16;
+			GlobalVars.ColorMenu_TorsoColor = line17;
+			GlobalVars.ColorMenu_LeftArmColor = line18;
+			GlobalVars.ColorMenu_RightArmColor = line19;
+			GlobalVars.ColorMenu_LeftLegColor = line20;
+			GlobalVars.ColorMenu_RightLegColor = line21;
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -255,50 +252,14 @@ namespace RBXLegacyLauncher
 				checkBox1.Checked = false;
 			}
 			
-			if (GlobalVars.BodyColors == true)
-			{
-				checkBox2.Checked = true;
-			}
-			else if (GlobalVars.BodyColors == false)
-			{
-				checkBox2.Checked = false;
-			}
-			
-			if (GlobalVars.UseAppearanceID == true)
-			{
-				textBox3.Enabled = true;
-				checkBox4.Enabled = true;
-				checkBox4.Checked = true;
-				checkBox5.Enabled = false;
-			}
-			else if (GlobalVars.UseAppearanceID == false)
-			{
-				textBox3.Enabled = false;
-				checkBox4.Enabled = false;
-				checkBox4.Checked = false;
-				if (GlobalVars.SupportsCharacterCustomization == true)
-				{
-					checkBox5.Enabled = true;
-				}
-			}
-			
-			if (GlobalVars.UseCustomAppearanceID == false)
-			{
-				checkBox5.Checked = false;
-			}
-			else if (GlobalVars.UseCustomAppearanceID == true)
-			{
-				checkBox5.Checked = true;
-			}
-			
-			if (iline3 == 0)
+			if (iline2 == 0)
 			{
 				GeneratePlayerID();
 				WriteConfigValues();
 			}
 			else
 			{
-				textBox5.Text = Convert.ToString(iline3);
+				textBox5.Text = Convert.ToString(iline2);
 			}
 			
 			textBox2.Text = GlobalVars.PlayerName;
@@ -306,7 +267,6 @@ namespace RBXLegacyLauncher
 			label26.Text = GlobalVars.SelectedClient;
 			label28.Text = GlobalVars.Map;
 			listBox1.SelectedItem = GlobalVars.Map;
-			textBox3.Text = GlobalVars.CharacterAppearanceID.ToString();
 			textBox4.Text = GlobalVars.RobloxPort.ToString();
 			label37.Text = GlobalVars.IP;
 			label38.Text = GlobalVars.RobloxPort.ToString();
@@ -318,15 +278,11 @@ namespace RBXLegacyLauncher
 		{
 			string[] lines = { 
 				GlobalVars.CloseOnLaunch.ToString(), 
-				GlobalVars.BodyColors.ToString(), 
 				GlobalVars.UserID.ToString(), 
 				GlobalVars.PlayerName.ToString(), 
 				GlobalVars.SelectedClient.ToString(), 
-				GlobalVars.CharacterAppearanceID.ToString(), 
-				GlobalVars.UseAppearanceID.ToString(), 
 				GlobalVars.Map.ToString(), 
 				GlobalVars.RobloxPort.ToString(), 
-				GlobalVars.UseCustomAppearanceID.ToString(), 
 				GlobalVars.Custom_Hat1ID_Offline.ToString(),
 				GlobalVars.Custom_Hat2ID_Offline.ToString(),
 				GlobalVars.Custom_Hat3ID_Offline.ToString(),
@@ -350,15 +306,11 @@ namespace RBXLegacyLauncher
 		void ResetConfigValues()
 		{
 			GlobalVars.CloseOnLaunch = false;
-			GlobalVars.BodyColors = true;
 			GlobalVars.UserID = 0;
 			GlobalVars.PlayerName = "Player";
 			GlobalVars.SelectedClient = "Mid-2008";
-			GlobalVars.CharacterAppearanceID = 0;
-			GlobalVars.UseAppearanceID = false;
 			GlobalVars.Map = "Baseplate.rbxl";
 			GlobalVars.RobloxPort = 53640;
-			GlobalVars.UseCustomAppearanceID = false;
 			GlobalVars.Custom_Hat1ID_Offline = "NoHat.rbxm";
 			GlobalVars.Custom_Hat2ID_Offline = "NoHat.rbxm";
 			GlobalVars.Custom_Hat3ID_Offline = "NoHat.rbxm";
@@ -390,7 +342,7 @@ namespace RBXLegacyLauncher
 				GlobalVars.SelectedClient = "2008";
 			}
 			
-			string line1, line2, line3, line4, line5, line6, line7, line8;
+			string line1, line2, line3, line4;
 
 			using(StreamReader reader = new StreamReader(clientpath)) 
 			{
@@ -398,10 +350,6 @@ namespace RBXLegacyLauncher
     			line2 = reader.ReadLine();
     			line3 = reader.ReadLine();
     			line4 = reader.ReadLine();
-    			line5 = reader.ReadLine();
-    			line6 = reader.ReadLine();
-    			line7 = reader.ReadLine();
-    			line8 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -411,21 +359,9 @@ namespace RBXLegacyLauncher
 			GlobalVars.UsesID = bline2;
 			
 			bool bline3 = Convert.ToBoolean(line3);
-			GlobalVars.SupportsLocalPlay = bline3;
+			GlobalVars.LoadsAssetsOnline = bline3;
 			
-			bool bline4 = Convert.ToBoolean(line4);
-			GlobalVars.SupportsAppearanceID = bline4;
-			
-			bool bline5 = Convert.ToBoolean(line5);
-			GlobalVars.LoadsAssetsOnline = bline5;
-			
-			bool bline6 = Convert.ToBoolean(line6);
-			GlobalVars.ModernClient = bline6;
-			
-			bool bline7 = Convert.ToBoolean(line7);
-			GlobalVars.SupportsCharacterCustomization = bline7;
-			
-			GlobalVars.SelectedClientDesc = line8;
+			GlobalVars.SelectedClientDesc = line4;
 			
 			if (GlobalVars.UsesPlayerName == true)
 			{
@@ -440,6 +376,10 @@ namespace RBXLegacyLauncher
 			{
 				textBox5.Enabled = true;
 				button4.Enabled = true;
+				if (GlobalVars.IP.Equals("localhost"))
+				{
+					checkBox3.Enabled = true;
+				}
 			}
 			else if (GlobalVars.UsesID == false)
 			{
@@ -449,51 +389,6 @@ namespace RBXLegacyLauncher
 				GlobalVars.LocalPlayMode = false;
 			}
 			
-			if (GlobalVars.SupportsLocalPlay == false)
-			{
-				checkBox3.Enabled = false;
-				GlobalVars.LocalPlayMode = false;
-			}
-			else if (GlobalVars.SupportsLocalPlay == true)
-			{
-				checkBox3.Enabled = true;
-			}
-			
-			if (GlobalVars.SupportsAppearanceID == false)
-			{
-				checkBox4.Enabled = false;
-				checkBox4.Checked = false;
-				textBox3.Enabled = false;
-				GlobalVars.UseAppearanceID = false;
-			}
-			else if (GlobalVars.SupportsAppearanceID == true)
-			{
-				if (GlobalVars.UseCustomAppearanceID == false)
-				{
-					checkBox4.Enabled = true;
-				}
-				
-				if (GlobalVars.UseAppearanceID == false)
-				{
-					textBox3.Enabled = false;
-					checkBox4.Checked = false;
-					if (GlobalVars.SupportsCharacterCustomization == true)
-					{
-						checkBox5.Enabled = true;
-					}
-				}
-				else if (GlobalVars.UseAppearanceID == true)
-				{
-					textBox3.Enabled = true;
-					checkBox4.Checked = true;
-					if (GlobalVars.SupportsCharacterCustomization == true)
-					{
-						checkBox5.Enabled = false;
-						button8.Enabled = false;
-					}
-				}
-			}
-			
 			if (GlobalVars.LoadsAssetsOnline == false)
 			{
 				label30.Visible = false;
@@ -501,18 +396,6 @@ namespace RBXLegacyLauncher
 			else if (GlobalVars.LoadsAssetsOnline == true)
 			{
 				label30.Visible = true;
-			}
-			
-			if (GlobalVars.SupportsCharacterCustomization == true)
-			{
-				checkBox5.Enabled = true;
-			}
-			else if (GlobalVars.SupportsCharacterCustomization == false)
-			{
-				checkBox5.Enabled = false;
-				checkBox5.Checked = false;
-				button8.Enabled = false;
-				GlobalVars.UseCustomAppearanceID = false;
 			}
 			
 			textBox6.Text = GlobalVars.SelectedClientDesc;
@@ -587,17 +470,6 @@ namespace RBXLegacyLauncher
 				GlobalVars.CloseOnLaunch = false;
 			}
 		}
-		void CheckBox2CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox2.Checked == true)
-			{
-				GlobalVars.BodyColors = true;
-			}
-			else if (checkBox2.Checked == false)
-			{
-				GlobalVars.BodyColors = false;
-			}
-		}
 		
 		void Button4Click(object sender, EventArgs e)
 		{
@@ -633,87 +505,10 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
-		void TextBox3TextChanged(object sender, EventArgs e)
-		{
-			int parsedValue;
-			if (int.TryParse(textBox3.Text, out parsedValue))
-			{
-				if (textBox3.Text.Equals(""))
-				{
-					GlobalVars.CharacterAppearanceID = 0;
-				}
-				else
-				{
-					GlobalVars.CharacterAppearanceID = Convert.ToInt32(textBox3.Text);
-				}
-			}
-			else
-			{
-				GlobalVars.CharacterAppearanceID = 0;
-			}
-		}
-		
 		void Button6Click(object sender, EventArgs e)
 		{
 			ClientinfoEditor cie = new ClientinfoEditor();
 			cie.Show();
-		}
-		
-		void CheckBox4CheckedChanged(object sender, EventArgs e)
-		{
-			if (GlobalVars.SupportsAppearanceID == true)
-			{
-				if (checkBox4.Checked == true)
-				{
-					GlobalVars.UseAppearanceID = true;
-					textBox3.Enabled = true;
-					GlobalVars.UseCustomAppearanceID = false;
-					if (GlobalVars.SupportsCharacterCustomization == true)
-					{
-						checkBox5.Enabled = false;
-						button8.Enabled = false;
-						if (checkBox5.Checked == true)
-						{
-							GlobalVars.UseCustomAppearanceID = false;
-							checkBox5.Checked = false;
-						}
-					}
-				}
-				else if (checkBox4.Checked == false)
-				{
-					GlobalVars.UseAppearanceID = false;
-					textBox3.Enabled = false;
-					if (GlobalVars.SupportsCharacterCustomization == true)
-					{
-						checkBox5.Enabled = true;
-					}
-				}
-			}
-		}
-		
-		bool IsUsingCharacterOutfitIDs()
-		{
-			if (GlobalVars.SupportsAppearanceID == false && GlobalVars.UseAppearanceID == false)
-				return false;
-			
-			if (GlobalVars.SupportsAppearanceID == false)
-				return false;
-			
-			if (GlobalVars.UseAppearanceID == false)
-				return false;
-			
-			return true;
-		}
-		
-		bool IsUsingCustomOutfits()
-		{
-			if (GlobalVars.SupportsCharacterCustomization == false)
-				return false;
-						
-			if (GlobalVars.UseCustomAppearanceID == false)
-				return false;
-			
-			return true;
 		}
 		
 		void Button7Click(object sender, EventArgs e)
@@ -761,33 +556,6 @@ namespace RBXLegacyLauncher
 			else
 			{
 				GlobalVars.UserID = 0;
-			}
-		}
-		
-		void CheckBox5CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox5.Checked == true)
-			{
-				GlobalVars.UseCustomAppearanceID = true;
-				button8.Enabled = true;
-				if (GlobalVars.SupportsAppearanceID == true)
-				{
-					checkBox4.Enabled = false;
-					if (checkBox4.Checked == true)
-					{
-						GlobalVars.UseAppearanceID = false;
-						checkBox4.Checked = false;
-					}
-				}
-			}
-			else if (checkBox5.Checked == false)
-			{
-				GlobalVars.UseCustomAppearanceID = false;
-				button8.Enabled = false;
-				if (GlobalVars.SupportsAppearanceID == true)
-				{
-					checkBox4.Enabled = true;
-				}
 			}
 		}
 		
@@ -943,53 +711,21 @@ namespace RBXLegacyLauncher
 			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
 			string HatIDOffline2 = GlobalVars.Custom_Hat2ID_Offline;
 			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
-			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "'," + GlobalVars.CharacterAppearanceID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player'," + GlobalVars.CharacterAppearanceID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "'," + GlobalVars.CharacterAppearanceID + ");" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false)
 			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player'," + GlobalVars.CharacterAppearanceID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "',0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player',0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "');" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(" + GlobalVars.UserID + ",'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player');" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "');" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player');" + quote;
+				args = "-script " + quote + "dofile('" + luafile + "'); _G.CSConnect(0,'" + GlobalVars.IP + "'," + GlobalVars.RobloxPort + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
 			try
 			{
@@ -1013,108 +749,21 @@ namespace RBXLegacyLauncher
 			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
 			string HatIDOffline2 = GlobalVars.Custom_Hat2ID_Offline;
 			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
-			
-			if (GlobalVars.BodyColors == true)
+			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
 			{
-			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "',true," + GlobalVars.CharacterAppearanceID + ");" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player',true," + GlobalVars.CharacterAppearanceID + ");" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "',true," + GlobalVars.CharacterAppearanceID + ");" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false )
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',true," + GlobalVars.CharacterAppearanceID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "',true,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player',true,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "',true,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',true,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "',true);" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player',true);" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "',true);" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',true);" + quote;
-			}
-			}
-			else if (GlobalVars.BodyColors == false)
-			{
-			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "',false," + GlobalVars.CharacterAppearanceID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player',false," + GlobalVars.CharacterAppearanceID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "',false," + GlobalVars.CharacterAppearanceID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',false," + GlobalVars.CharacterAppearanceID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "',false,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player',false,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "',false,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',false,0,'" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "',false);" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player',false);" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "',false);" + quote;
-			}
-			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false && !IsUsingCharacterOutfitIDs() && !IsUsingCustomOutfits())
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player',false);" + quote;
-			}
+				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSSolo(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ");" + quote;
 			}
 			try
 			{
@@ -1135,15 +784,7 @@ namespace RBXLegacyLauncher
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			
-			if (GlobalVars.BodyColors == true)
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",true); " + quote;
-			}
-			else if (GlobalVars.BodyColors == false)
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",false);" + quote;
-			}
+			args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + "); " + quote;
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
@@ -1163,14 +804,7 @@ namespace RBXLegacyLauncher
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			if (GlobalVars.BodyColors == true)
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",true); " + quote + " -no3d";
-			}
-			else if (GlobalVars.BodyColors == false)
-			{
-				args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + ",false);" + quote + " -no3d";
-			}
+			args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + "); " + quote + " -no3d";
 			try
 			{
 				ConsolePrint("Server Loaded in No3d.", 4);
@@ -1185,18 +819,12 @@ namespace RBXLegacyLauncher
 		
 		void StartStudio()
 		{
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
+			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			if (GlobalVars.ModernClient == true)
-			{
-				args = quote + mapfile + "\" -script \"" + @"loadstring('\108\111\99\97\108\32\67\111\114\101\71\117\105\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\67\111\114\101\71\117\105\34\41\59\10\119\104\105\108\101\32\110\111\116\32\67\111\114\101\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\82\111\98\108\111\120\71\117\105\34\41\32\100\111\10\9\67\111\114\101\71\117\105\46\67\104\105\108\100\65\100\100\101\100\58\119\97\105\116\40\41\59\10\101\110\100\10\108\111\99\97\108\32\82\111\98\108\111\120\71\117\105\32\61\32\67\111\114\101\71\117\105\46\82\111\98\108\111\120\71\117\105\59\10\108\111\99\97\108\32\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\84\111\112\76\101\102\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\66\117\105\108\100\84\111\111\108\115\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\117\105\108\100\84\111\111\108\115\34\41\10\102\117\110\99\116\105\111\110\32\109\97\107\101\89\82\101\108\97\116\105\118\101\40\41\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\10\105\102\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\116\104\101\110\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\32\101\110\100\10\105\102\32\66\117\105\108\100\84\111\111\108\115\32\116\104\101\110\32\66\117\105\108\100\84\111\111\108\115\46\70\114\97\109\101\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\32\101\110\100\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\48\44\48\44\49\44\45\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\88\44\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\101\110\100\10\102\117\110\99\116\105\111\110\32\109\97\107\101\88\82\101\108\97\116\105\118\101\40\41\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\105\102\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\116\104\101\110\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\32\101\110\100\10\105\102\32\66\117\105\108\100\84\111\111\108\115\32\116\104\101\110\32\66\117\105\108\100\84\111\111\108\115\46\70\114\97\109\101\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\32\101\110\100\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\48\44\48\44\49\44\45\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\88\44\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\101\110\100\10\108\111\99\97\108\32\102\117\110\99\116\105\111\110\32\114\101\115\105\122\101\40\41\10\105\102\32\82\111\98\108\111\120\71\117\105\46\65\98\115\111\108\117\116\101\83\105\122\101\46\120\32\62\32\82\111\98\108\111\120\71\117\105\46\65\98\115\111\108\117\116\101\83\105\122\101\46\121\32\116\104\101\110\10\109\97\107\101\89\82\101\108\97\116\105\118\101\40\41\10\101\108\115\101\10\109\97\107\101\88\82\101\108\97\116\105\118\101\40\41\10\101\110\100\10\101\110\100\10\82\111\98\108\111\120\71\117\105\46\67\104\97\110\103\101\100\58\99\111\110\110\101\99\116\40\102\117\110\99\116\105\111\110\40\112\114\111\112\101\114\116\121\41\10\105\102\32\112\114\111\112\101\114\116\121\32\61\61\32\34\65\98\115\111\108\117\116\101\83\105\122\101\34\32\116\104\101\110\10\119\97\105\116\40\41\10\114\101\115\105\122\101\40\41\10\101\110\100\10\101\110\100\41\10\119\97\105\116\40\41\10\114\101\115\105\122\101\40\41\10')()";
-			}
-			else if (GlobalVars.ModernClient == false)
-			{
-				args = quote + mapfile + quote;
-			}
+			args = quote + mapfile + "\" -script \"dofile('" + luafile + "');" + quote;
 			try
 			{
 				ConsolePrint("Studio Loaded.", 4);
@@ -1286,12 +914,6 @@ namespace RBXLegacyLauncher
 			{
 				ConsoleRBXLegacyHelp(true);
 			}
-			else if (command.Equals("rbxlegacy kanrisha"))
-			{
-				GlobalVars.AdminMode = true;
-				ConsolePrint("ADMIN MODE ENABLED.", 4);
-				ConsolePrint("YOU ARE GOD.", 2, false);
-			}
 			else
 			{
 				ConsolePrint("ERROR 3 - Command is either not registered or valid", 2, false);
@@ -1314,14 +936,14 @@ namespace RBXLegacyLauncher
 				ConsolePrint("rbxlegacy", 1);
 				ConsolePrint("---------", 1);
 				ConsolePrint("= client | Loads client with launcher settings", 1);
-				ConsolePrint("== solo | Loads client in Play Solo mode with launcher settings", 1);
+				ConsolePrint("-- solo | Loads client in Play Solo mode with launcher settings", 1);
 				ConsolePrint("= server | Loads server with launcher settings", 1);
-				ConsolePrint("== no3d | Loads server in NoGraphics mode with launcher settings", 1);
+				ConsolePrint("-- no3d | Loads server in NoGraphics mode with launcher settings", 1);
 				ConsolePrint("= studio | Loads Roblox Studio with launcher settings", 1);
 				ConsolePrint("= config", 1);
-				ConsolePrint("== save | Saves the config file", 1);
-				ConsolePrint("== load | Reloads the config file", 1);
-				ConsolePrint("== reset | Resets the config file", 1, false);
+				ConsolePrint("-- save | Saves the config file", 1);
+				ConsolePrint("-- load | Reloads the config file", 1);
+				ConsolePrint("-- reset | Resets the config file", 1, false);
 			}
 		}
 	}

@@ -14,9 +14,32 @@ namespace BodyColorGen
 {
 	class Program
 	{
-		public static void Main(string[] args)
+		public static int Main(string[] args)
 		{
 			Console.Title = "RBXLegacy - Body Color Generator";
+			
+			// Test if input arguments were supplied:
+        	if (args.Length == 0)
+        	{
+            	Console.WriteLine("Usage: BodyColorGen <number>");
+            	Console.WriteLine("Number Values:");
+            	Console.WriteLine("0 = All possible combos");
+            	Console.WriteLine("1 = 2006 style patterns");
+            	Console.WriteLine("2 = Shirt and Pants");
+            	return 1;
+        	}
+        	
+        	int num;
+        	bool test = int.TryParse(args[0], out num);
+        	if (test == false)
+        	{
+            	Console.WriteLine("Usage: BodyColorGen <number>");
+            	Console.WriteLine("Number Values:");
+            	Console.WriteLine("0 = All possible combos");
+            	Console.WriteLine("1 = 2006 style patterns");
+            	Console.WriteLine("2 = Shirt and Pants");
+            	return 1;
+        	}
 			
 			int[] colorArray = new int[32] {1,208,194,199,26,21,24,226,23,107,102,11,45,135,106,105,141,28,37,119,29,151,38,192,104,9,101,5,153,217,18,125};
 			int HeadColor,TorsoColor,LArmColor,RArmColor,LLegColor,RLegColor;
@@ -24,15 +47,39 @@ namespace BodyColorGen
 			while (true)
 			{
 				Random rand = new Random();
-				FleshColor = rand.Next(colorArray.Length);
-				ShirtColor = rand.Next(colorArray.Length);
-				PantsColor = rand.Next(colorArray.Length);
-				HeadColor = colorArray[FleshColor];
-				TorsoColor = colorArray[ShirtColor];
-				LArmColor = colorArray[FleshColor];
-				RArmColor = colorArray[FleshColor];
-				LLegColor = colorArray[PantsColor];
-				RLegColor = colorArray[PantsColor];
+				if (num == 1)
+				{
+					FleshColor = rand.Next(colorArray.Length);
+					ShirtColor = rand.Next(colorArray.Length);
+					PantsColor = rand.Next(colorArray.Length);
+					HeadColor = colorArray[FleshColor];
+					TorsoColor = colorArray[ShirtColor];
+					LArmColor = colorArray[FleshColor];
+					RArmColor = colorArray[FleshColor];
+					LLegColor = colorArray[PantsColor];
+					RLegColor = colorArray[PantsColor];
+				}
+				else if (num == 2)
+				{
+					FleshColor = rand.Next(colorArray.Length);
+					ShirtColor = rand.Next(colorArray.Length);
+					PantsColor = rand.Next(colorArray.Length);
+					HeadColor = colorArray[FleshColor];
+					TorsoColor = colorArray[ShirtColor];
+					LArmColor = colorArray[ShirtColor];
+					RArmColor = colorArray[ShirtColor];
+					LLegColor = colorArray[PantsColor];
+					RLegColor = colorArray[PantsColor];
+				}
+				else
+				{
+					HeadColor = colorArray[rand.Next(colorArray.Length)];
+					TorsoColor = colorArray[rand.Next(colorArray.Length)];
+					LArmColor = colorArray[rand.Next(colorArray.Length)];
+					RArmColor = colorArray[rand.Next(colorArray.Length)];
+					LLegColor = colorArray[rand.Next(colorArray.Length)];
+					RLegColor = colorArray[rand.Next(colorArray.Length)];
+				}
 				string dirname = "bodycolors/";
 				if(!Directory.Exists(dirname))
 				{

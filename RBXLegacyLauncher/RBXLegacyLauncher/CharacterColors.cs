@@ -22,6 +22,7 @@ namespace RBXLegacyLauncher
 	public partial class CharacterColors : Form
 	{
 		public static string SelectedPart = "Head";
+		public string[,] ColorArray;
 		
 		public CharacterColors()
 		{
@@ -29,6 +30,41 @@ namespace RBXLegacyLauncher
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+			
+			ColorArray = new string[32, 2] {
+			{ "1", button7.BackColor.ToString() }, 
+			{ "208", button8.BackColor.ToString() },
+			{ "194", button9.BackColor.ToString() }, 
+			{ "199", button10.BackColor.ToString() },
+			{ "26", button14.BackColor.ToString() },
+			{ "21", button13.BackColor.ToString() },
+			{ "24", button12.BackColor.ToString() },
+			{ "226", button11.BackColor.ToString() },
+			{ "23", button18.BackColor.ToString() },
+			{ "107", button17.BackColor.ToString() },
+			{ "102", button16.BackColor.ToString() },
+			{ "11", button15.BackColor.ToString() },
+			{ "45", button22.BackColor.ToString() },
+			{ "135", button21.BackColor.ToString() },
+			{ "106", button20.BackColor.ToString() },
+			{ "105", button19.BackColor.ToString() },
+			{ "141", button26.BackColor.ToString() },
+			{ "28", button25.BackColor.ToString() },
+			{ "37", button24.BackColor.ToString() },
+			{ "119", button23.BackColor.ToString() },
+			{ "29", button30.BackColor.ToString() },
+			{ "151", button29.BackColor.ToString() },
+			{ "38", button28.BackColor.ToString() },
+			{ "192", button27.BackColor.ToString() },
+			{ "104", button34.BackColor.ToString() },
+			{ "9", button33.BackColor.ToString() },
+			{ "101", button32.BackColor.ToString() },
+			{ "5", button31.BackColor.ToString() },
+			{ "153", button38.BackColor.ToString() },
+			{ "217", button37.BackColor.ToString() },
+			{ "18", button36.BackColor.ToString() },
+			{ "125", button35.BackColor.ToString() }
+			};
 			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
@@ -360,7 +396,49 @@ namespace RBXLegacyLauncher
 		
 		void Button39Click(object sender, EventArgs e)
 		{
-            MessageBox.Show("remove this");			
+            Random rand = new Random();
+			int RandomColor;
+			
+			for (int i=1; i <= 6; i++)
+			{
+				RandomColor = rand.Next(ColorArray.GetLength(0));
+				if (i == 1)
+				{
+					GlobalVars.HeadColorID = Convert.ToInt32(ColorArray[RandomColor, 0]);
+					GlobalVars.ColorMenu_HeadColor = ColorArray[RandomColor, 1];
+					button1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
+				}
+				else if (i == 2)
+				{
+					GlobalVars.TorsoColorID = Convert.ToInt32(ColorArray[RandomColor, 0]);
+					GlobalVars.ColorMenu_TorsoColor = ColorArray[RandomColor, 1];
+					button2.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
+				}
+				else if (i == 3)
+				{
+					GlobalVars.RightArmColorID = Convert.ToInt32(ColorArray[RandomColor, 0]);
+					GlobalVars.ColorMenu_RightArmColor = ColorArray[RandomColor, 1];
+					button3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
+				}
+				else if (i == 4)
+				{
+					GlobalVars.LeftArmColorID = Convert.ToInt32(ColorArray[RandomColor, 0]);
+					GlobalVars.ColorMenu_LeftArmColor = ColorArray[RandomColor, 1];
+					button4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
+				}
+				else if (i == 5)
+				{
+					GlobalVars.RightLegColorID = Convert.ToInt32(ColorArray[RandomColor, 0]);
+					GlobalVars.ColorMenu_RightLegColor = ColorArray[RandomColor, 1];
+					button5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
+				}
+				else if (i == 6)
+				{
+					GlobalVars.LeftLegColorID = Convert.ToInt32(ColorArray[RandomColor, 0]);
+					GlobalVars.ColorMenu_LeftLegColor = ColorArray[RandomColor, 1];
+					button6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
+				}
+			}
 		}
 		
 		void Button40Click(object sender, EventArgs e)

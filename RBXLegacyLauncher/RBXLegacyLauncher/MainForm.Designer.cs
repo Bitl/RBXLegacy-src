@@ -81,7 +81,6 @@ namespace RBXLegacyLauncher
 			this.label40 = new System.Windows.Forms.Label();
 			this.button11 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
-			this.checkBox5 = new System.Windows.Forms.CheckBox();
 			this.button8 = new System.Windows.Forms.Button();
 			this.button7 = new System.Windows.Forms.Button();
 			this.label35 = new System.Windows.Forms.Label();
@@ -91,13 +90,11 @@ namespace RBXLegacyLauncher
 			this.label33 = new System.Windows.Forms.Label();
 			this.label31 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.label29 = new System.Windows.Forms.Label();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.tabPage7 = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+			this.tabPage8 = new System.Windows.Forms.TabPage();
+			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -130,6 +127,7 @@ namespace RBXLegacyLauncher
 			this.tabPage6.SuspendLayout();
 			this.tabPage5.SuspendLayout();
 			this.tabPage7.SuspendLayout();
+			this.tabPage8.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -156,6 +154,7 @@ namespace RBXLegacyLauncher
 			this.tabControl1.Controls.Add(this.tabPage6);
 			this.tabControl1.Controls.Add(this.tabPage5);
 			this.tabControl1.Controls.Add(this.tabPage7);
+			this.tabControl1.Controls.Add(this.tabPage8);
 			this.tabControl1.Controls.Add(this.tabPage4);
 			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabControl1.Location = new System.Drawing.Point(12, 137);
@@ -588,7 +587,6 @@ namespace RBXLegacyLauncher
 			this.tabPage5.Controls.Add(this.label40);
 			this.tabPage5.Controls.Add(this.button11);
 			this.tabPage5.Controls.Add(this.button9);
-			this.tabPage5.Controls.Add(this.checkBox5);
 			this.tabPage5.Controls.Add(this.button8);
 			this.tabPage5.Controls.Add(this.button7);
 			this.tabPage5.Controls.Add(this.label35);
@@ -598,10 +596,6 @@ namespace RBXLegacyLauncher
 			this.tabPage5.Controls.Add(this.label33);
 			this.tabPage5.Controls.Add(this.label31);
 			this.tabPage5.Controls.Add(this.label2);
-			this.tabPage5.Controls.Add(this.checkBox2);
-			this.tabPage5.Controls.Add(this.checkBox4);
-			this.tabPage5.Controls.Add(this.textBox3);
-			this.tabPage5.Controls.Add(this.label29);
 			this.tabPage5.Controls.Add(this.checkBox3);
 			this.tabPage5.Location = new System.Drawing.Point(4, 22);
 			this.tabPage5.Name = "tabPage5";
@@ -622,9 +616,9 @@ namespace RBXLegacyLauncher
 			// 
 			// button11
 			// 
-			this.button11.Location = new System.Drawing.Point(95, 170);
+			this.button11.Location = new System.Drawing.Point(95, 160);
 			this.button11.Name = "button11";
-			this.button11.Size = new System.Drawing.Size(212, 21);
+			this.button11.Size = new System.Drawing.Size(212, 20);
 			this.button11.TabIndex = 38;
 			this.button11.Text = "SAVE PORT TO SAVED PORTS LIST";
 			this.button11.UseVisualStyleBackColor = true;
@@ -640,24 +634,13 @@ namespace RBXLegacyLauncher
 			this.button9.UseVisualStyleBackColor = true;
 			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
-			// checkBox5
-			// 
-			this.checkBox5.Location = new System.Drawing.Point(241, 18);
-			this.checkBox5.Name = "checkBox5";
-			this.checkBox5.Size = new System.Drawing.Size(149, 24);
-			this.checkBox5.TabIndex = 36;
-			this.checkBox5.Text = "Use Custom Outfits";
-			this.checkBox5.UseVisualStyleBackColor = true;
-			this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckBox5CheckedChanged);
-			// 
 			// button8
 			// 
-			this.button8.Enabled = false;
-			this.button8.Location = new System.Drawing.Point(241, 42);
+			this.button8.Location = new System.Drawing.Point(96, 19);
 			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(149, 42);
+			this.button8.Size = new System.Drawing.Size(212, 52);
 			this.button8.TabIndex = 35;
-			this.button8.Text = "Customize Character (Advanced)";
+			this.button8.Text = "Customize Character";
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
@@ -674,7 +657,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label35
 			// 
-			this.label35.Location = new System.Drawing.Point(84, 126);
+			this.label35.Location = new System.Drawing.Point(83, 115);
 			this.label35.Name = "label35";
 			this.label35.Size = new System.Drawing.Size(234, 16);
 			this.label35.TabIndex = 33;
@@ -683,7 +666,7 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(96, 145);
+			this.textBox4.Location = new System.Drawing.Point(97, 134);
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(211, 20);
 			this.textBox4.TabIndex = 32;
@@ -725,51 +708,11 @@ namespace RBXLegacyLauncher
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(96, 5);
+			this.label2.Location = new System.Drawing.Point(95, 3);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(222, 13);
 			this.label2.TabIndex = 27;
 			this.label2.Text = "PLAYER OPTIONS AND CUSTOMIZATION";
-			// 
-			// checkBox2
-			// 
-			this.checkBox2.Checked = true;
-			this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox2.Location = new System.Drawing.Point(114, 106);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(176, 17);
-			this.checkBox2.TabIndex = 26;
-			this.checkBox2.Text = "Random Body Color Patterns";
-			this.checkBox2.UseVisualStyleBackColor = true;
-			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2CheckedChanged);
-			// 
-			// checkBox4
-			// 
-			this.checkBox4.Location = new System.Drawing.Point(32, 21);
-			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(147, 18);
-			this.checkBox4.TabIndex = 25;
-			this.checkBox4.Text = "Use Character Outfit IDs";
-			this.checkBox4.UseVisualStyleBackColor = true;
-			this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox4CheckedChanged);
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(32, 64);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(147, 20);
-			this.textBox3.TabIndex = 24;
-			this.textBox3.Text = "0";
-			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.textBox3.TextChanged += new System.EventHandler(this.TextBox3TextChanged);
-			// 
-			// label29
-			// 
-			this.label29.Location = new System.Drawing.Point(14, 42);
-			this.label29.Name = "label29";
-			this.label29.Size = new System.Drawing.Size(201, 19);
-			this.label29.TabIndex = 23;
-			this.label29.Text = "Character ID (Optional, used for outfits)";
 			// 
 			// checkBox3
 			// 
@@ -790,7 +733,7 @@ namespace RBXLegacyLauncher
 			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage7.Size = new System.Drawing.Size(405, 284);
 			this.tabPage7.TabIndex = 7;
-			this.tabPage7.Text = "DEV CONSOLE";
+			this.tabPage7.Text = "CMD";
 			// 
 			// richTextBox1
 			// 
@@ -803,6 +746,27 @@ namespace RBXLegacyLauncher
 			this.richTextBox1.TabIndex = 2;
 			this.richTextBox1.Text = "";
 			this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
+			// 
+			// tabPage8
+			// 
+			this.tabPage8.Controls.Add(this.richTextBox2);
+			this.tabPage8.Location = new System.Drawing.Point(4, 22);
+			this.tabPage8.Name = "tabPage8";
+			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage8.Size = new System.Drawing.Size(405, 284);
+			this.tabPage8.TabIndex = 8;
+			this.tabPage8.Text = "CHANGES";
+			this.tabPage8.UseVisualStyleBackColor = true;
+			// 
+			// richTextBox2
+			// 
+			this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.richTextBox2.Location = new System.Drawing.Point(6, 6);
+			this.richTextBox2.Name = "richTextBox2";
+			this.richTextBox2.ReadOnly = true;
+			this.richTextBox2.Size = new System.Drawing.Size(393, 272);
+			this.richTextBox2.TabIndex = 2;
+			this.richTextBox2.Text = "";
 			// 
 			// tabPage4
 			// 
@@ -1080,10 +1044,13 @@ namespace RBXLegacyLauncher
 			this.tabPage5.ResumeLayout(false);
 			this.tabPage5.PerformLayout();
 			this.tabPage7.ResumeLayout(false);
+			this.tabPage8.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.RichTextBox richTextBox2;
+		private System.Windows.Forms.TabPage tabPage8;
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.TabPage tabPage7;
 		private System.Windows.Forms.Button button20;
@@ -1110,7 +1077,6 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.Button button9;
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.Button button8;
-		private System.Windows.Forms.CheckBox checkBox5;
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label31;
@@ -1122,10 +1088,7 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.TabPage tabPage5;
 		private System.Windows.Forms.Label label32;
 		private System.Windows.Forms.Label label30;
-		private System.Windows.Forms.CheckBox checkBox4;
 		private System.Windows.Forms.Button button6;
-		private System.Windows.Forms.Label label29;
-		private System.Windows.Forms.TextBox textBox3;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.CheckBox checkBox3;
@@ -1143,7 +1106,6 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.CheckBox checkBox2;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.Label label16;

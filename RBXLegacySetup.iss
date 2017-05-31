@@ -25,17 +25,19 @@ SolidCompression=yes
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
+Name: "desktopicon"; Description: "Create a icon on your Desktop"; GroupDescription: "Icons"
+Name: "quicklaunchicon"; Description: "Create a icon on your Quick Start Menu"; GroupDescription: "Icons"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
 Source: "RBXLegacy\RBXLegacyLauncher.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\RBXLegacyLauncher.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "RBXLegacy\README.TXT"; DestDir: "{app}"; Flags: ignoreversion isreadme
+Source: "RBXLegacy\README.TXT"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy\changelog.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\info.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\clients\*"; DestDir: "{app}\clients"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\maps\*"; DestDir: "{app}\maps"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\models\*"; DestDir: "{app}\models"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "RBXLegacy\charcustom\*"; DestDir: "{app}\models"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\RBXLegacy"; Filename: "{app}\RBXLegacyLauncher.exe"
@@ -44,4 +46,6 @@ Name: "{commondesktop}\RBXLegacy"; Filename: "{app}\RBXLegacyLauncher.exe"; Task
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\RBXLegacy"; Filename: "{app}\RBXLegacyLauncher.exe"; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\RBXLegacyLauncher.exe"; Flags: nowait postinstall skipifsilent; Description: "{cm:LaunchProgram,RBXLegacy}"
+Filename: "{app}\RBXLegacyLauncher.exe"; Description: "Play RBXLegacy"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\README.TXT"; Description: "View the README file"; Flags: postinstall shellexec skipifsilent unchecked
+Filename: "{app}\changelog.txt"; Description: "View the changelog"; Flags: postinstall shellexec skipifsilent unchecked
