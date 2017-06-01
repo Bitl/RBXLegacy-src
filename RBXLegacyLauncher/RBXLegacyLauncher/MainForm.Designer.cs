@@ -746,6 +746,7 @@ namespace RBXLegacyLauncher
 			this.richTextBox1.TabIndex = 2;
 			this.richTextBox1.Text = "";
 			this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
+			this.richTextBox1.AllowDrop = false;
 			// 
 			// tabPage8
 			// 

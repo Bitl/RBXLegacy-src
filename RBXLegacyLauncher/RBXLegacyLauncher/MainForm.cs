@@ -878,11 +878,19 @@ namespace RBXLegacyLauncher
 			{
 				StartServerNo3D();
 			}
+			else if (command.Equals("rbxlegacy no3d"))
+			{
+				StartServerNo3D();
+			}
 			else if (command.Equals("rbxlegacy client"))
 			{
 				StartClient();
 			}
 			else if (command.Equals("rbxlegacy client solo"))
+			{
+				StartSolo();
+			}
+			else if (command.Equals("rbxlegacy solo"))
 			{
 				StartSolo();
 			}
@@ -904,15 +912,23 @@ namespace RBXLegacyLauncher
 			}
 			else if (command.Equals("rbxlegacy help"))
 			{
-				ConsoleRBXLegacyHelp(false);
+				ConsoleRBXLegacyHelp(0);
 			}
 			else if (command.Equals("rbxlegacy"))
 			{
-				ConsoleRBXLegacyHelp(false);
+				ConsoleRBXLegacyHelp(0);
 			}
 			else if (command.Equals("rbxlegacy config"))
 			{
-				ConsoleRBXLegacyHelp(true);
+				ConsoleRBXLegacyHelp(1);
+			}
+			else if (command.Equals("config"))
+			{
+				ConsoleRBXLegacyHelp(1);
+			}
+			else if (command.Equals("help"))
+			{
+				ConsoleRBXLegacyHelp(0);
 			}
 			else
 			{
@@ -921,29 +937,29 @@ namespace RBXLegacyLauncher
 			
 		}
 		
-		void ConsoleRBXLegacyHelp(bool config)
+		void ConsoleRBXLegacyHelp(int page)
 		{
-			if (config == true)
+			if (page == 1)
 			{
-				ConsolePrint("rbxlegacy config", 1);
+				ConsolePrint("rbxlegacy config", 2);
 				ConsolePrint("-------------------------", 1);
-				ConsolePrint("= save | Saves the config file", 1);
-				ConsolePrint("= load | Reloads the config file", 1);
-				ConsolePrint("= reset | Resets the config file", 1, false);
+				ConsolePrint("= save | Saves the config file", 3);
+				ConsolePrint("= load | Reloads the config file", 3);
+				ConsolePrint("= reset | Resets the config file", 3, false);
 			}
 			else
 			{
-				ConsolePrint("rbxlegacy", 1);
+				ConsolePrint("rbxlegacy", 2);
 				ConsolePrint("---------", 1);
-				ConsolePrint("= client | Loads client with launcher settings", 1);
-				ConsolePrint("-- solo | Loads client in Play Solo mode with launcher settings", 1);
-				ConsolePrint("= server | Loads server with launcher settings", 1);
-				ConsolePrint("-- no3d | Loads server in NoGraphics mode with launcher settings", 1);
-				ConsolePrint("= studio | Loads Roblox Studio with launcher settings", 1);
-				ConsolePrint("= config", 1);
-				ConsolePrint("-- save | Saves the config file", 1);
-				ConsolePrint("-- load | Reloads the config file", 1);
-				ConsolePrint("-- reset | Resets the config file", 1, false);
+				ConsolePrint("= client | Loads client with launcher settings", 3);
+				ConsolePrint("-- solo | Loads client in Play Solo mode with launcher settings", 4);
+				ConsolePrint("= server | Loads server with launcher settings", 3);
+				ConsolePrint("-- no3d | Loads server in NoGraphics mode with launcher settings", 4);
+				ConsolePrint("= studio | Loads Roblox Studio with launcher settings", 3);
+				ConsolePrint("= config", 3);
+				ConsolePrint("-- save | Saves the config file", 4);
+				ConsolePrint("-- load | Reloads the config file", 4);
+				ConsolePrint("-- reset | Resets the config file", 4, false);
 			}
 		}
 	}

@@ -209,6 +209,8 @@ function CSServer(Port)
 		game:GetService("RunService"):Run();
 		if (rbxlegacyversion == "delta-gamma") then
 			game.Workspace:InsertContent("rbxasset://Fonts//Health2010.rbxm");
+		elseif (rbxlegacyversion == "delta") then
+			game.Workspace:InsertContent("rbxasset://Fonts//Health2011.rbxm");
 		end
 		pcall(function() game.Close:connect(function() NetworkServer:Stop(); end) end);
 		NetworkServer.IncommingConnection:connect(IncommingConnection);
@@ -447,6 +449,8 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	game:GetService("RunService"):run();
 	if (rbxlegacyversion == "gamma" or rbxlegacyversion == "delta-gamma") then
 		game.Workspace:InsertContent("rbxasset://Fonts//Health2010.rbxm");
+	elseif (rbxlegacyversion == "delta") then
+		game.Workspace:InsertContent("rbxasset://Fonts//Health2011.rbxm");
 	end
 	plr.Name = PlayerName;
 	plr:LoadCharacter();

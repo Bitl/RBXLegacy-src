@@ -10,7 +10,7 @@
 script:remove();</ProtectedString>
 			<bool name="archivable">true</bool>
 		</Properties>
-		<Item class="ScreenGui" referent="RBX1">
+		<Item class="GuiMain" referent="RBX1">
 			<Properties>
 				<string name="Name">HealthGUI</string>
 				<bool name="archivable">true</bool>
@@ -18,22 +18,22 @@ script:remove();</ProtectedString>
 			<Item class="Frame" referent="RBX2">
 				<Properties>
 					<bool name="Active">false</bool>
-					<Color3 name="BackgroundColor3">4294901760</Color3>
-					<float name="BackgroundTransparency">0</float>
+					<Color3 name="BackgroundColor3">4285215356</Color3>
+					<float name="BackgroundTransparency">1</float>
 					<Color3 name="BorderColor3">4279970357</Color3>
-					<int name="BorderSizePixel">0</int>
-					<string name="Name">Background</string>
+					<int name="BorderSizePixel">1</int>
+					<string name="Name">Tray</string>
 					<UDim2 name="Position">
-						<XS>1</XS>
-						<XO>-50</XO>
-						<YS>0.5</YS>
-						<YO>-75</YO>
+						<XS>0.949999988</XS>
+						<XO>0</XO>
+						<YS>0.380000025</YS>
+						<YO>0</YO>
 					</UDim2>
 					<UDim2 name="Size">
-						<XS>0</XS>
-						<XO>8</XO>
-						<YS>0</YS>
-						<YO>150</YO>
+						<XS>0.0450000018</XS>
+						<XO>0</XO>
+						<YS>0.340000004</YS>
+						<YO>0</YO>
 					</UDim2>
 					<token name="SizeConstraint">0</token>
 					<bool name="Visible">true</bool>
@@ -43,26 +43,26 @@ script:remove();</ProtectedString>
 				<Item class="Frame" referent="RBX3">
 					<Properties>
 						<bool name="Active">false</bool>
-						<Color3 name="BackgroundColor3">4278255360</Color3>
+						<Color3 name="BackgroundColor3">4286892054</Color3>
 						<float name="BackgroundTransparency">0</float>
-						<Color3 name="BorderColor3">4279970357</Color3>
+						<Color3 name="BorderColor3">4278190080</Color3>
 						<int name="BorderSizePixel">0</int>
 						<string name="Name">HealthBar</string>
 						<UDim2 name="Position">
-							<XS>0</XS>
+							<XS>0.420000017</XS>
 							<XO>0</XO>
 							<YS>0</YS>
 							<YO>0</YO>
 						</UDim2>
 						<UDim2 name="Size">
-							<XS>0</XS>
-							<XO>8</XO>
-							<YS>0</YS>
-							<YO>150</YO>
+							<XS>0.159999996</XS>
+							<XO>0</XO>
+							<YS>0.800000012</YS>
+							<YO>0</YO>
 						</UDim2>
 						<token name="SizeConstraint">0</token>
 						<bool name="Visible">true</bool>
-						<int name="ZIndex">1</int>
+						<int name="ZIndex">2</int>
 						<bool name="archivable">true</bool>
 					</Properties>
 					<Item class="Script" referent="RBX4">
@@ -73,86 +73,62 @@ script:remove();</ProtectedString>
 							<ProtectedString name="Source">h = script.Parent.Parent.Parent.Parent.Parent.Character.Humanoid
 
 h.Changed:connect(function()
-	script.Parent.Size = UDim2.new(0,8,0,(h.Health*1.5))
-	script.Parent.Position = UDim2.new(0,0,0,((100-h.Health)*1.5))
+	script.Parent.Size = UDim2.new(0.2, 0, 0.8 * (h.Health / h.MaxHealth), 0) 
+	script.Parent.Position = UDim2.new(0.4, 0, 0.8 * (1-  (h.Health / h.MaxHealth)) , 0) 
 end)
-</ProtectedString>
-							<bool name="archivable">true</bool>
-						</Properties>
-					</Item>
-					<Item class="LocalScript" referent="RBX5">
-						<Properties>
-							<bool name="Disabled">false</bool>
-							<Content name="LinkedSource"><null></null></Content>
-							<string name="Name">Resize</string>
-							<ProtectedString name="Source">local tray = script.Parent.tray
-local screen = script.Parent
-
-function makeYRelative()
-	tray.SizeConstraint = 2
-end
-
-function makeXRelative()
-	tray.SizeConstraint = 1
-end
-
-
-if screen.AbsoluteSize.x &gt; screen.AbsoluteSize.y then
-		makeYRelative()
-	else
-		makeXRelative()
-end
-
-function recenter()
-	tray.Position = UDim2.new(0,screen.AbsoluteSize.X/2 - tray.AbsoluteSize.X/2,tray.Position.Y.Scale,tray.Position.Y.Offset)
-end
-
-recenter()
-screen.Changed:connect(function(property)
-
-	if property == &quot;AbsoluteSize&quot; then
-		if screen.AbsoluteSize.x &gt; screen.AbsoluteSize.y then
-			makeYRelative()
-		else
-			makeXRelative()
-		end
-		recenter()
-	end
-
-end)
-
 </ProtectedString>
 							<bool name="archivable">true</bool>
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="TextLabel" referent="RBX6">
+				<Item class="Frame" referent="RBX5">
 					<Properties>
 						<bool name="Active">false</bool>
-						<Color3 name="BackgroundColor3">4279069106</Color3>
+						<Color3 name="BackgroundColor3">4289733411</Color3>
 						<float name="BackgroundTransparency">0</float>
-						<Color3 name="BorderColor3">4279970357</Color3>
-						<int name="BorderSizePixel">1</int>
-						<string name="Name">Label</string>
+						<Color3 name="BorderColor3">4278190080</Color3>
+						<int name="BorderSizePixel">0</int>
+						<string name="Name">HealthBarBacking</string>
 						<UDim2 name="Position">
-							<XS>0</XS>
-							<XO>3</XO>
-							<YS>1</YS>
-							<YO>10</YO>
-						</UDim2>
-						<UDim2 name="Size">
-							<XS>0</XS>
+							<XS>0.419999987</XS>
 							<XO>0</XO>
 							<YS>0</YS>
 							<YO>0</YO>
 						</UDim2>
+						<UDim2 name="Size">
+							<XS>0.159999996</XS>
+							<XO>0</XO>
+							<YS>0.800000012</YS>
+							<YO>0</YO>
+						</UDim2>
 						<token name="SizeConstraint">0</token>
-						<string name="Text">Health</string>
-						<Color3 name="TextColor3">4278190335</Color3>
-						<float name="TextTransparency">0</float>
-						<bool name="TextWrap">false</bool>
-						<token name="TextXAlignment">2</token>
-						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="ImageLabel" referent="RBX6">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Color3 name="BackgroundColor3">4294967295</Color3>
+						<float name="BackgroundTransparency">1</float>
+						<Color3 name="BorderColor3">4279970357</Color3>
+						<int name="BorderSizePixel">1</int>
+						<Content name="Image"><url>rbxasset://textures/health.png</url></Content>
+						<string name="Name">ImageLabel</string>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0.800000012</YS>
+							<YO>3</YO>
+						</UDim2>
+						<UDim2 name="Size">
+							<XS>1</XS>
+							<XO>0</XO>
+							<YS>0.25</YS>
+							<YO>0</YO>
+						</UDim2>
+						<token name="SizeConstraint">1</token>
 						<bool name="Visible">true</bool>
 						<int name="ZIndex">1</int>
 						<bool name="archivable">true</bool>
