@@ -1,33 +1,82 @@
---set this to pre-alpha, pre-alpha-ext, alpha, beta, pre-gamma, gamma, delta-gamma, delta or omega.
+-- VERSION CODENAME DOCUMENTATION
+-- pre-alpha
+-- - Mid-2008 or lower.
+-- - Support for "fake" 2006/2007 clients, or the real things.
+-- - Uses Legacy joinscript.
+-- - Does not support hats or any other form of customization besides body colors.
+-- pre-alpha-ext
+-- - Mid-2008 or lower.
+-- - Support for "fake" 2006/2007 clients, or the real things.
+-- - Uses Legacy joinscript.
+-- - Supports most kinds of customization.
+-- alpha
+-- - Mid-2008 or lower.
+-- - Uses Legacy joinscript.
+-- - Supports most kinds of customization.
+-- beta
+-- - Late-2008-Early 2009.
+-- - Uses Legacy joinscript.
+-- - Supports most kinds of customization.
+-- pre-gamma
+-- - Late-2009-Early 2010.
+-- - Uses Legacy joinscript.
+-- - Supports most kinds of customization.
+-- delta-pre-gamma
+-- - Late-2009-Early 2010.
+-- - Uses RBXPri joinscript.
+-- - Supports most kinds of customization.
+-- gamma
+-- - Mid-2010-November 2010.
+-- - Uses Legacy joinscript.
+-- - Supports most kinds of customization.
+-- delta-gamma
+-- - Mid-2010-November 2010.
+-- - Uses RBXPri joinscript.
+-- - Supports most kinds of customization.
+-- delta
+-- - December-2010-Early 2011.
+-- - Uses RBXPri joinscript.
+-- - Supports the more modern 2011 user interface.
+-- - Supports most kinds of customization.
+-- omega
+-- - Mid-2011-???.
+-- - Uses RBXPri joinscript.
+-- - Meant for more modern clients which don't use early 2011's UI.
+-- - Supports most kinds of customization.
 rbxlegacyversion = ""
-if (rbxlegacyversion == "pre-alpha") then --mid-2008 and below. currently for the modified clients.
+if (rbxlegacyversion == "pre-alpha") then
 	settings().Rendering.frameRateManager = 2;
 	settings().Rendering.graphicsMode = 2;
 	settings().Network.MaxSendBuffer = 1000000;
 	settings().Network.PhysicsReplicationUpdateRate = 1000000;
 	settings().Network.SendRate = 1000000;
-elseif (rbxlegacyversion == "pre-alpha-ext") then --mid-2008 and below. currently for the modified clients. use if needing to use extended customization.
+elseif (rbxlegacyversion == "pre-alpha-ext") then
 	settings().Rendering.frameRateManager = 2;
 	settings().Rendering.graphicsMode = 2;
 	settings().Network.MaxSendBuffer = 1000000;
 	settings().Network.PhysicsReplicationUpdateRate = 1000000;
 	settings().Network.SendRate = 1000000;
-elseif (rbxlegacyversion == "alpha") then --mid-2008 and below
+elseif (rbxlegacyversion == "alpha") then
 	settings().Rendering.frameRateManager = 2;
 	settings().Rendering.graphicsMode = 2;
 	settings().Network.MaxSendBuffer = 1000000;
 	settings().Network.PhysicsReplicationUpdateRate = 1000000;
 	settings().Network.SendRate = 1000000;
-elseif (rbxlegacyversion == "beta") then -- late 2008-early 2009
+elseif (rbxlegacyversion == "beta") then
 	settings().Rendering.FrameRateManager = 2;
 	settings().Network.SendRate = 30;
 	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "pre-gamma") then -- late 2009-early 2010
+elseif (rbxlegacyversion == "pre-gamma") then
 	settings().Rendering.FrameRateManager = 2;
 	settings().Network.DataSendRate = 30;
 	settings().Network.PhysicsSendRate = 20;
 	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "gamma") then -- mid 2010
+elseif (rbxlegacyversion == "delta-pre-gamma") then
+	settings().Rendering.FrameRateManager = 2;
+	settings().Network.DataSendRate = 30;
+	settings().Network.PhysicsSendRate = 20;
+	settings().Network.ReceiveRate = 60;
+elseif (rbxlegacyversion == "gamma") then
 	settings().Rendering.FrameRateManager = 2;
 	settings().Network.DataSendRate = 30;
 	settings().Network.PhysicsSendRate = 20;
@@ -100,7 +149,6 @@ end
 function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID)
 	local newCharApp = Instance.new("IntValue",Player);
 	newCharApp.Name = "Appearance";
-	--TODO - work on parse
 	--BODY COLORS
 	for i=1,6,1 do
 		local BodyColor = Instance.new("BrickColorValue",newCharApp);
@@ -110,38 +158,43 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 			else
 				BodyColor.Value = BrickColor.new(1);
 			end
+			BodyColor.Name = "HeadColor";
 		elseif (i == 2) then
 			if (TorsoColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(TorsoColorID);
 			else
 				BodyColor.Value = BrickColor.new(1);
 			end
+			BodyColor.Name = "TorsoColor";
 		elseif (i == 3) then
 			if (LeftArmColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(LeftArmColorID);
 			else
 				BodyColor.Value = BrickColor.new(1);
 			end
+			BodyColor.Name = "LeftArmColor";
 		elseif (i == 4) then
 			if (RightArmColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(RightArmColorID);
 			else
 				BodyColor.Value = BrickColor.new(1);
 			end
+			BodyColor.Name = "RightArmColor";
 		elseif (i == 5) then
 			if (LeftLegColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(LeftLegColorID);
 			else
 				BodyColor.Value = BrickColor.new(1);
 			end
+			BodyColor.Name = "LeftLegColor";
 		elseif (i == 6) then
 			if (RightLegColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(RightLegColorID);
 			else
 				BodyColor.Value = BrickColor.new(1);
 			end
+			BodyColor.Name = "RightLegColor";
 		end
-		BodyColor.Name = "BodyColor";
 		local indexValue = Instance.new("NumberValue");
 		indexValue.Name = "ColorIndex";
 		indexValue.Parent = BodyColor;
@@ -157,23 +210,28 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		if (i == 1) then
 			if (RightLegColorID ~= nil) then
 				newHat.Value = Hat1ID;
+				newHat.Name = Hat1ID;
 			else
 				newHat.Value = "NoHat.rbxm";
+				newHat.Name = "NoHat.rbxm";
 			end
 		elseif (i == 2) then
 			if (RightLegColorID ~= nil) then
 				newHat.Value = Hat2ID;
+				newHat.Name = Hat2ID;
 			else
 				newHat.Value = "NoHat.rbxm";
+				newHat.Name = "NoHat.rbxm";
 			end
 		elseif (i == 3) then
 			if (RightLegColorID ~= nil) then
 				newHat.Value = Hat3ID;
+				newHat.Name = Hat3ID;
 			else
 				newHat.Value = "NoHat.rbxm";
+				newHat.Name = "NoHat.rbxm";
 			end
 		end
-		newHat.Name = "Hat";
 		local typeValue = Instance.new("NumberValue");
 		typeValue.Name = "CustomizationType";
 		typeValue.Parent = newHat;
@@ -181,15 +239,25 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	end
 end
 
-function CSServer(Port)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega") then
+function CSServer(Port,PlayerLimit)
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma") then
 		assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.");
 		local NetworkServer=game:GetService("NetworkServer");
 		pcall(NetworkServer.Stop,NetworkServer);
 		NetworkServer:Start(Port);
+		game:GetService("Players").MaxPlayers = PlayerLimit
 		game:GetService("Players").PlayerAdded:connect(function(Player)
-			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
-			Player:LoadCharacter();
+			if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
+				local message = Instance.new("Message")
+				message.Text = "You were kicked. Reason: Too many players on server."
+				message.Parent = Player
+				wait(2)
+				Player:remove()
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.");
+			else
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
+				Player:LoadCharacter();
+			end
 			Player.CharacterAdded:connect(function(char)
 				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character);
 			end)
@@ -222,10 +290,20 @@ function CSServer(Port)
 		if (rbxlegacyversion == "gamma") then
 			game.Workspace:InsertContent("rbxasset://Fonts//Health2010.rbxm");
 		end
+		game:GetService("Players").MaxPlayers = PlayerLimit;
 		game:GetService("Players").PlayerAdded:connect(function(Player)
-			print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
-			Player:LoadCharacter();
-			LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character);
+			if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
+				local message = Instance.new("Message")
+				message.Text = "You were kicked. Reason: Too many players on server."
+				message.Parent = Player
+				wait(2)
+				Player:remove()
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.");
+			else
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added");
+				Player:LoadCharacter();
+				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character);
+			end
 				while true do 
 					wait(0.001)
 					if (Player.Character ~= nil) then
@@ -251,7 +329,7 @@ function CSServer(Port)
 end
 
 function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,Ticket)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega") then
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma") then
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
 	

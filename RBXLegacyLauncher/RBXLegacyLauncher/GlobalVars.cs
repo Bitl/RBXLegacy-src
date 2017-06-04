@@ -10,6 +10,7 @@
 	public static string Map = "Baseplate.rbxl";
 	public static int RobloxPort = 53640;
 	public static int DefaultRobloxPort = 53640;
+	public static int PlayerLimit = 12;
 	//player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";
@@ -44,4 +45,5 @@
 	public static string ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
 	public static string ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
 	public static string ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
+	public static bool AdminMode = false;
 }

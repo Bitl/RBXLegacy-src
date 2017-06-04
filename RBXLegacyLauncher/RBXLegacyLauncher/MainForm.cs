@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace RBXLegacyLauncher
 {
@@ -86,10 +87,7 @@ namespace RBXLegacyLauncher
 				GeneratePlayerID();
 			}
 			
-			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before you join a server!","RBXLegacy Launcher - Join Server", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-			if (result == DialogResult.Cancel)
-				return;
-			
+			WriteConfigValues();
 			StartClient();
 			
 			if (GlobalVars.CloseOnLaunch == true)
@@ -100,10 +98,7 @@ namespace RBXLegacyLauncher
 		
 		void Button2Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before you start a server!","RBXLegacy Launcher - Start Server", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-			if (result == DialogResult.Cancel)
-				return;
-			
+			WriteConfigValues();
 			StartServer();
 			
 			if (GlobalVars.CloseOnLaunch == true)
@@ -114,7 +109,11 @@ namespace RBXLegacyLauncher
 		
 		void Button3Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("If you want to test out your place, you will have to save your place in RBXLegacy's map folder, then launch your place in Play Solo.","RBXLegacy Launcher - Launch ROBLOX Studio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			DialogResult result = MessageBox.Show("If you want to test out your place, you will have to save your place in RBXLegacy's map folder, then launch your place in Play Solo.","RBXLegacy Launcher - Launch ROBLOX Studio", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+			if (result == DialogResult.Cancel)
+				return;
+			
+			WriteConfigValues();
 			StartStudio();
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -172,7 +171,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21;
+			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -197,6 +196,7 @@ namespace RBXLegacyLauncher
     			line19 = reader.ReadLine();
     			line20 = reader.ReadLine();
     			line21 = reader.ReadLine();
+    			line22 = reader.ReadLine();
 			}
 			
 			bool bline1 = Convert.ToBoolean(line1);
@@ -243,6 +243,9 @@ namespace RBXLegacyLauncher
 			GlobalVars.ColorMenu_LeftLegColor = line20;
 			GlobalVars.ColorMenu_RightLegColor = line21;
 			
+			int iline22 = Convert.ToInt32(line22);
+			GlobalVars.PlayerLimit = iline22;
+			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
 				checkBox1.Checked = true;
@@ -252,18 +255,28 @@ namespace RBXLegacyLauncher
 				checkBox1.Checked = false;
 			}
 			
-			if (iline2 == 0)
+			if (GlobalVars.UserID == 0)
 			{
 				GeneratePlayerID();
 				WriteConfigValues();
 			}
 			else
 			{
-				textBox5.Text = Convert.ToString(iline2);
+				textBox5.Text = GlobalVars.UserID.ToString();
+			}
+			
+			if (GlobalVars.PlayerLimit == 0)
+			{
+				//We need at least a limit of 12 players.
+				GlobalVars.PlayerLimit = 12;
+				textBox3.Text = GlobalVars.PlayerLimit.ToString();
+			}
+			else
+			{
+				textBox3.Text = GlobalVars.PlayerLimit.ToString();
 			}
 			
 			textBox2.Text = GlobalVars.PlayerName;
-			
 			label26.Text = GlobalVars.SelectedClient;
 			label28.Text = GlobalVars.Map;
 			listBox1.SelectedItem = GlobalVars.Map;
@@ -298,6 +311,7 @@ namespace RBXLegacyLauncher
 				GlobalVars.ColorMenu_RightArmColor.ToString(),
 				GlobalVars.ColorMenu_LeftLegColor.ToString(),
 				GlobalVars.ColorMenu_RightLegColor.ToString(),
+				GlobalVars.PlayerLimit.ToString(),
 			};
 			File.WriteAllLines("config.txt", lines);
 			ConsolePrint("Config Saved.", 3);
@@ -326,6 +340,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
 			GlobalVars.ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
 			GlobalVars.ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
+			GlobalVars.PlayerLimit = 12;
 			ConsolePrint("All config settings reset. Reloading config.", 4);
 			WriteConfigValues();
 			ReadConfigValues();
@@ -653,10 +668,7 @@ namespace RBXLegacyLauncher
 		
 		void Button18Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before you start a server!","RBXLegacy Launcher - Start Server", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-			if (result == DialogResult.Cancel)
-				return;
-			
+			WriteConfigValues();
 			StartServerNo3D();
 			
 			if (GlobalVars.CloseOnLaunch == true)
@@ -667,10 +679,7 @@ namespace RBXLegacyLauncher
 		
 		void Button19Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Be sure to save your config options with the 'Save Config' button before starting a solo game!","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-			if (result == DialogResult.Cancel)
-				return;
-			
+			WriteConfigValues();
 			StartSolo();
 			
 			if (GlobalVars.CloseOnLaunch == true)
@@ -784,7 +793,7 @@ namespace RBXLegacyLauncher
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + "); " + quote;
+			args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + "," + GlobalVars.PlayerLimit + "); " + quote;
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
@@ -804,7 +813,7 @@ namespace RBXLegacyLauncher
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + "); " + quote + " -no3d";
+			args = quote + mapfile + "\" -script \"dofile('" + luafile + "'); _G.CSServer(" + GlobalVars.RobloxPort + "," + GlobalVars.PlayerLimit + "); " + quote + " -no3d";
 			try
 			{
 				ConsolePrint("Server Loaded in No3d.", 4);
@@ -870,6 +879,7 @@ namespace RBXLegacyLauncher
 		
 		void ConsoleProcessCommands(string command)
 		{
+			string important = Base64Decode("cmJ4bGVnYWN5IGthbnJpc2hh");
 			if (command.Equals("rbxlegacy server"))
 			{
 				StartServer();
@@ -930,6 +940,12 @@ namespace RBXLegacyLauncher
 			{
 				ConsoleRBXLegacyHelp(0);
 			}
+			else if (command.Equals(important))
+			{
+				GlobalVars.AdminMode = true;
+				ConsolePrint("ADMIN MODE ENABLED.", 4);
+				ConsolePrint("YOU ARE GOD.", 2, false);
+			}
 			else
 			{
 				ConsolePrint("ERROR 3 - Command is either not registered or valid", 2, false);
@@ -961,6 +977,38 @@ namespace RBXLegacyLauncher
 				ConsolePrint("-- load | Reloads the config file", 4);
 				ConsolePrint("-- reset | Resets the config file", 4, false);
 			}
+		}
+		
+		public static string Base64Decode(string base64EncodedData) 
+		{
+  			var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+  			return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+		}
+		
+		void TextBox3TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox3.Text, out parsedValue))
+			{
+				if (textBox3.Text.Equals(""))
+				{
+					GlobalVars.PlayerLimit = 12;
+				}
+				else
+				{
+					GlobalVars.PlayerLimit = Convert.ToInt32(textBox3.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.PlayerLimit = 12;
+			}
+		}
+		
+		protected override void OnFormClosing(FormClosingEventArgs e)
+		{
+    		base.OnFormClosing(e);
+    		WriteConfigValues();
 		}
 	}
 }

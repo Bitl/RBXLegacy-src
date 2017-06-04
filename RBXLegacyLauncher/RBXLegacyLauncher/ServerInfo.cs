@@ -39,6 +39,8 @@ namespace RBXLegacyLauncher
         	textBox1.AppendText(Environment.NewLine);
 			textBox1.AppendText("Map: " + GlobalVars.Map);
         	textBox1.AppendText(Environment.NewLine);
+        	textBox1.AppendText("Players: " + GlobalVars.PlayerLimit);
+        	textBox1.AppendText(Environment.NewLine);
 			textBox1.AppendText("Version: RBXLegacy " + GlobalVars.Version);    	
 		}
 	}

@@ -78,7 +78,8 @@ namespace RBXLegacyLauncher
 			this.label21 = new System.Windows.Forms.Label();
 			this.label14 = new System.Windows.Forms.Label();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
-			this.label40 = new System.Windows.Forms.Label();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.label29 = new System.Windows.Forms.Label();
 			this.button11 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
@@ -119,6 +120,9 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.label40 = new System.Windows.Forms.Label();
+			this.label41 = new System.Windows.Forms.Label();
+			this.label42 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -168,6 +172,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.label42);
 			this.tabPage1.Controls.Add(this.button19);
 			this.tabPage1.Controls.Add(this.button10);
 			this.tabPage1.Controls.Add(this.label17);
@@ -188,9 +193,9 @@ namespace RBXLegacyLauncher
 			// 
 			// button19
 			// 
-			this.button19.Location = new System.Drawing.Point(212, 210);
+			this.button19.Location = new System.Drawing.Point(213, 217);
 			this.button19.Name = "button19";
-			this.button19.Size = new System.Drawing.Size(85, 68);
+			this.button19.Size = new System.Drawing.Size(88, 54);
 			this.button19.TabIndex = 16;
 			this.button19.Text = "PLAY SOLO";
 			this.button19.UseVisualStyleBackColor = true;
@@ -219,7 +224,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label16.Location = new System.Drawing.Point(16, 68);
+			this.label16.Location = new System.Drawing.Point(16, 72);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(374, 2);
 			this.label16.TabIndex = 13;
@@ -242,9 +247,9 @@ namespace RBXLegacyLauncher
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.button1.Location = new System.Drawing.Point(111, 210);
+			this.button1.Location = new System.Drawing.Point(111, 217);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(85, 68);
+			this.button1.Size = new System.Drawing.Size(88, 54);
 			this.button1.TabIndex = 3;
 			this.button1.Text = "JOIN SERVER";
 			this.button1.UseVisualStyleBackColor = true;
@@ -275,6 +280,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage2
 			// 
+			this.tabPage2.Controls.Add(this.label40);
 			this.tabPage2.Controls.Add(this.button20);
 			this.tabPage2.Controls.Add(this.button18);
 			this.tabPage2.Controls.Add(this.label32);
@@ -294,17 +300,17 @@ namespace RBXLegacyLauncher
 			// 
 			// button20
 			// 
-			this.button20.Location = new System.Drawing.Point(352, 244);
+			this.button20.Location = new System.Drawing.Point(293, 229);
 			this.button20.Name = "button20";
-			this.button20.Size = new System.Drawing.Size(38, 23);
+			this.button20.Size = new System.Drawing.Size(97, 51);
 			this.button20.TabIndex = 21;
-			this.button20.Text = "Info";
+			this.button20.Text = "SERVER INFORMATION";
 			this.button20.UseVisualStyleBackColor = true;
 			this.button20.Click += new System.EventHandler(this.Button20Click);
 			// 
 			// button18
 			// 
-			this.button18.Location = new System.Drawing.Point(201, 230);
+			this.button18.Location = new System.Drawing.Point(144, 229);
 			this.button18.Name = "button18";
 			this.button18.Size = new System.Drawing.Size(126, 51);
 			this.button18.TabIndex = 20;
@@ -337,7 +343,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label19.Location = new System.Drawing.Point(6, 169);
+			this.label19.Location = new System.Drawing.Point(6, 165);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(393, 2);
 			this.label19.TabIndex = 13;
@@ -346,7 +352,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.button2.Location = new System.Drawing.Point(66, 230);
+			this.button2.Location = new System.Drawing.Point(12, 229);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(126, 51);
 			this.button2.TabIndex = 2;
@@ -435,6 +441,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage6
 			// 
+			this.tabPage6.Controls.Add(this.label41);
 			this.tabPage6.Controls.Add(this.button17);
 			this.tabPage6.Controls.Add(this.button16);
 			this.tabPage6.Controls.Add(this.button15);
@@ -584,7 +591,8 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage5
 			// 
-			this.tabPage5.Controls.Add(this.label40);
+			this.tabPage5.Controls.Add(this.textBox3);
+			this.tabPage5.Controls.Add(this.label29);
 			this.tabPage5.Controls.Add(this.button11);
 			this.tabPage5.Controls.Add(this.button9);
 			this.tabPage5.Controls.Add(this.button8);
@@ -606,17 +614,25 @@ namespace RBXLegacyLauncher
 			this.tabPage5.ToolTipText = "Configure specific aspects of your server, launcher, and player appearance";
 			this.tabPage5.UseVisualStyleBackColor = true;
 			// 
-			// label40
+			// textBox3
 			// 
-			this.label40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label40.Location = new System.Drawing.Point(12, 231);
-			this.label40.Name = "label40";
-			this.label40.Size = new System.Drawing.Size(378, 2);
-			this.label40.TabIndex = 39;
+			this.textBox3.Location = new System.Drawing.Point(201, 167);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(100, 20);
+			this.textBox3.TabIndex = 41;
+			this.textBox3.TextChanged += new System.EventHandler(this.TextBox3TextChanged);
+			// 
+			// label29
+			// 
+			this.label29.Location = new System.Drawing.Point(134, 170);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(61, 18);
+			this.label29.TabIndex = 40;
+			this.label29.Text = "Player Limit";
 			// 
 			// button11
 			// 
-			this.button11.Location = new System.Drawing.Point(95, 160);
+			this.button11.Location = new System.Drawing.Point(95, 143);
 			this.button11.Name = "button11";
 			this.button11.Size = new System.Drawing.Size(212, 20);
 			this.button11.TabIndex = 38;
@@ -657,7 +673,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label35
 			// 
-			this.label35.Location = new System.Drawing.Point(83, 115);
+			this.label35.Location = new System.Drawing.Point(83, 103);
 			this.label35.Name = "label35";
 			this.label35.Size = new System.Drawing.Size(234, 16);
 			this.label35.TabIndex = 33;
@@ -666,7 +682,7 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(97, 134);
+			this.textBox4.Location = new System.Drawing.Point(96, 122);
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(211, 20);
 			this.textBox4.TabIndex = 32;
@@ -685,14 +701,14 @@ namespace RBXLegacyLauncher
 			// label12
 			// 
 			this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label12.Location = new System.Drawing.Point(14, 87);
+			this.label12.Location = new System.Drawing.Point(14, 80);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(378, 2);
 			this.label12.TabIndex = 30;
 			// 
 			// label33
 			// 
-			this.label33.Location = new System.Drawing.Point(162, 196);
+			this.label33.Location = new System.Drawing.Point(162, 199);
 			this.label33.Name = "label33";
 			this.label33.Size = new System.Drawing.Size(79, 13);
 			this.label33.TabIndex = 29;
@@ -700,7 +716,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label31
 			// 
-			this.label31.Location = new System.Drawing.Point(150, 89);
+			this.label31.Location = new System.Drawing.Point(150, 86);
 			this.label31.Name = "label31";
 			this.label31.Size = new System.Drawing.Size(110, 14);
 			this.label31.TabIndex = 28;
@@ -716,7 +732,7 @@ namespace RBXLegacyLauncher
 			// 
 			// checkBox3
 			// 
-			this.checkBox3.Location = new System.Drawing.Point(150, 212);
+			this.checkBox3.Location = new System.Drawing.Point(150, 214);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(108, 18);
 			this.checkBox3.TabIndex = 22;
@@ -746,7 +762,6 @@ namespace RBXLegacyLauncher
 			this.richTextBox1.TabIndex = 2;
 			this.richTextBox1.Text = "";
 			this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyDown);
-			this.richTextBox1.AllowDrop = false;
 			// 
 			// tabPage8
 			// 
@@ -761,6 +776,7 @@ namespace RBXLegacyLauncher
 			// 
 			// richTextBox2
 			// 
+			this.richTextBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.richTextBox2.Location = new System.Drawing.Point(6, 6);
 			this.richTextBox2.Name = "richTextBox2";
@@ -1002,6 +1018,30 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// label40
+			// 
+			this.label40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label40.Location = new System.Drawing.Point(280, 225);
+			this.label40.Name = "label40";
+			this.label40.Size = new System.Drawing.Size(2, 55);
+			this.label40.TabIndex = 22;
+			// 
+			// label41
+			// 
+			this.label41.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label41.Location = new System.Drawing.Point(202, 4);
+			this.label41.Name = "label41";
+			this.label41.Size = new System.Drawing.Size(2, 275);
+			this.label41.TabIndex = 14;
+			// 
+			// label42
+			// 
+			this.label42.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label42.Location = new System.Drawing.Point(205, 208);
+			this.label42.Name = "label42";
+			this.label42.Size = new System.Drawing.Size(2, 67);
+			this.label42.TabIndex = 17;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1050,12 +1090,16 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label41;
+		private System.Windows.Forms.Label label40;
+		private System.Windows.Forms.Label label42;
+		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.RichTextBox richTextBox2;
 		private System.Windows.Forms.TabPage tabPage8;
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.TabPage tabPage7;
 		private System.Windows.Forms.Button button20;
-		private System.Windows.Forms.Label label40;
 		private System.Windows.Forms.Button button19;
 		private System.Windows.Forms.Button button18;
 		private System.Windows.Forms.Button button16;

@@ -2,24 +2,24 @@
 	<External>null</External>
 	<External>nil</External>
 	<Item class="Hat" referent="RBX0">
-		<Properties>
-			<CoordinateFrame name="AttachmentPoint">
-				<X>0</X>
-				<Y>0.25</Y>
-				<Z>0.100000001</Z>
-				<R00>1</R00>
-				<R01>0</R01>
-				<R02>0</R02>
-				<R10>0</R10>
-				<R11>1</R11>
-				<R12>0</R12>
-				<R20>0</R20>
-				<R21>0</R21>
-				<R22>1</R22>
-			</CoordinateFrame>
-			<string name="Name">TeapotTurret</string>
-		</Properties>
-		<Item class="Tool" referent="RBX3">
+        <Properties>
+            <CoordinateFrame name="AttachmentPoint">
+                <X>0</X>
+                <Y>0.25</Y>
+                <Z>0.100000001</Z>
+                <R00>1</R00>
+                <R01>0</R01>
+                <R02>0</R02>
+                <R10>0</R10>
+                <R11>1</R11>
+                <R12>0</R12>
+                <R20>0</R20>
+                <R21>0</R21>
+                <R22>1</R22>
+            </CoordinateFrame>
+            <string name="Name">TeapotTurret</string>
+        </Properties>
+		<Item class="Tool" referent="RBX2">
 			<Properties>
 				<int name="ActivationState">0</int>
 				<int name="BackendToolState">2</int>
@@ -42,7 +42,7 @@
 				<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/gravityhammericon.png</url></Content>
 				<bool name="archivable">true</bool>
 			</Properties>
-			<Item class="Part" referent="RBX4">
+			<Item class="Part" referent="RBX3">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -113,7 +113,7 @@
 						<Z>10</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX5">
+				<Item class="SpecialMesh" referent="RBX4">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/gravityhammer.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -132,7 +132,7 @@
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX6">
+				<Item class="Sound" referent="RBX5">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -144,7 +144,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Script" referent="RBX7">
+			<Item class="Script" referent="RBX6">
 				<Properties>
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
@@ -409,7 +409,7 @@ script.Parent.Activated:connect(onActivated)
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="LocalScript" referent="RBX8">
+			<Item class="LocalScript" referent="RBX7">
 				<Properties>
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
@@ -448,7 +448,7 @@ Tool.Equipped:connect(onEquippedLocal)</string>
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Script" referent="RBX9">
+		<Item class="Script" referent="RBX8">
 			<Properties>
 				<bool name="Disabled">false</bool>
 				<Content name="LinkedSource"><null></null></Content>
@@ -575,12 +575,22 @@ player.Chatted:connect(trigger)</string>
 				<bool name="archivable">true</bool>
 			</Properties>
 		</Item>
-		<Item class="Script" referent="RBX10">
+		<Item class="Script" referent="RBX9">
 			<Properties>
 				<bool name="Disabled">false</bool>
 				<Content name="LinkedSource"><null></null></Content>
 				<string name="Name">Server Launcher</string>
 				<string name="Source">local hat = script.Parent
+
+wait(1)
+
+while hat.Parent.Name == &quot;Workspace&quot; do wait(2) end
+
+print(&quot;Hat picked up&quot;)
+
+player = game.Players:GetPlayerFromCharacter(hat.Parent)
+
+print(&quot;Admin confirmed&quot;)
 
 local Rocket = hat.Handle
 
@@ -656,6 +666,17 @@ function glue(x, y)
 
 end
 
+children = hat:children()
+
+for i=1,#children do
+
+	if(children[i].className == &quot;HopperBin&quot; or children[i].className == &quot;Tool&quot;) then
+
+		children[i].Parent = player.Backpack
+
+	end
+
+end 
 
 
 torso = hat.Parent.Torso
@@ -860,7 +881,7 @@ function trigger(msg, recipient)
 
 		for i=1,#children do
 
-			if(children[i].Name ~= &quot;Bitl&quot;) then  fire(children[i].Character.Torso,Vector3.new(0,25,0)) end
+			fire(children[i].Character.Torso,Vector3.new(0,25,0))
 
 		end
 
@@ -950,41 +971,15 @@ function trigger(msg, recipient)
 
 end
 
-
-
-wait(1)
-
-while hat.Parent.Name == &quot;Workspace&quot; do wait(2) end
-
-print(&quot;Hat picked up&quot;)
-
-player = game.Players:GetPlayerFromCharacter(hat.Parent)
-
-print(&quot;Admin confirmed&quot;)
-
 player.Chatted:connect(trigger)
 
 hat.Parent.Humanoid.Jumping:connect(Leap)
 
-hat.Parent.Humanoid.Running:connect(Amplify)
-
-children = hat:children()
-
-for i=1,#children do
-
-	if(children[i].className == &quot;HopperBin&quot; or children[i].className == &quot;Tool&quot;) then
-
-		children[i].Parent = player.Backpack
-
-	end
-
-end
-
-</string>
+hat.Parent.Humanoid.Running:connect(Amplify)</string>
 				<bool name="archivable">true</bool>
 			</Properties>
 		</Item>
-		<Item class="Model" referent="RBX11">
+		<Item class="Model" referent="RBX10">
 			<Properties>
 				<token name="Controller">0</token>
 				<bool name="ControllerFlagShown">true</bool>
@@ -1003,10 +998,10 @@ end
 					<R22>1</R22>
 				</CoordinateFrame>
 				<string name="Name">TVehicle</string>
-				<Ref name="PrimaryPart">RBX12</Ref>
+				<Ref name="PrimaryPart">RBX11</Ref>
 				<bool name="archivable">true</bool>
 			</Properties>
-			<Item class="Part" referent="RBX12">
+			<Item class="Part" referent="RBX11">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1077,7 +1072,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX13">
+				<Item class="SpecialMesh" referent="RBX12">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1087,7 +1082,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1097,7 +1092,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX14">
+			<Item class="Part" referent="RBX13">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1168,7 +1163,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX15">
+				<Item class="SpecialMesh" referent="RBX14">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1178,7 +1173,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1188,7 +1183,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX16">
+			<Item class="Part" referent="RBX15">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1259,7 +1254,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX17">
+				<Item class="SpecialMesh" referent="RBX16">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1269,7 +1264,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1279,7 +1274,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX18">
+			<Item class="Part" referent="RBX17">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1350,7 +1345,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX19">
+				<Item class="SpecialMesh" referent="RBX18">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1360,7 +1355,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1370,7 +1365,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX20">
+			<Item class="Part" referent="RBX19">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1441,7 +1436,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX21">
+				<Item class="SpecialMesh" referent="RBX20">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1451,7 +1446,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1461,7 +1456,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX22">
+			<Item class="Part" referent="RBX21">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1532,7 +1527,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX23">
+				<Item class="SpecialMesh" referent="RBX22">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1542,7 +1537,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1552,7 +1547,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX24">
+			<Item class="Part" referent="RBX23">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1623,7 +1618,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX25">
+				<Item class="SpecialMesh" referent="RBX24">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1633,7 +1628,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1643,7 +1638,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX26">
+			<Item class="Part" referent="RBX25">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1714,7 +1709,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX27">
+				<Item class="SpecialMesh" referent="RBX26">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1724,7 +1719,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1734,7 +1729,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX28">
+			<Item class="Part" referent="RBX27">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1805,7 +1800,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX29">
+				<Item class="SpecialMesh" referent="RBX28">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1815,7 +1810,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1825,7 +1820,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="RBX30">
+			<Item class="Part" referent="RBX29">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1896,7 +1891,7 @@ end
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="SpecialMesh" referent="RBX31">
+				<Item class="SpecialMesh" referent="RBX30">
 					<Properties>
 						<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 						<token name="MeshType">5</token>
@@ -1906,7 +1901,7 @@ end
 							<Y>3</Y>
 							<Z>3</Z>
 						</Vector3>
-						<Content name="TextureId"><null></null></Content>
+						<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 						<Vector3 name="VertexColor">
 							<X>1</X>
 							<Y>1</Y>
@@ -1915,7 +1910,7 @@ end
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="RocketPropulsion" referent="RBX32">
+				<Item class="RocketPropulsion" referent="RBX31">
 					<Properties>
 						<float name="CartoonFactor">1</float>
 						<float name="MaxSpeed">35</float>
@@ -1940,7 +1935,7 @@ end
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Weld" referent="RBX33">
+				<Item class="Weld" referent="RBX32">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1958,6 +1953,42 @@ end
 						</CoordinateFrame>
 						<CoordinateFrame name="C1">
 							<X>-2</X>
+							<Y>0.399999976</Y>
+							<Z>-2</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<string name="Name">Instance</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="Weld" referent="RBX33">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>2</X>
 							<Y>0.399999976</Y>
 							<Z>-2</Z>
 							<R00>1</R00>
@@ -1993,8 +2024,8 @@ end
 							<R22>1</R22>
 						</CoordinateFrame>
 						<CoordinateFrame name="C1">
-							<X>2</X>
-							<Y>0.399999976</Y>
+							<X>0</X>
+							<Y>0</Y>
 							<Z>-2</Z>
 							<R00>1</R00>
 							<R01>0</R01>
@@ -2029,9 +2060,9 @@ end
 							<R22>1</R22>
 						</CoordinateFrame>
 						<CoordinateFrame name="C1">
-							<X>0</X>
-							<Y>0</Y>
-							<Z>-2</Z>
+							<X>-2</X>
+							<Y>0.399999976</Y>
+							<Z>-4</Z>
 							<R00>1</R00>
 							<R01>0</R01>
 							<R02>0</R02>
@@ -2067,42 +2098,6 @@ end
 						<CoordinateFrame name="C1">
 							<X>-2</X>
 							<Y>0.399999976</Y>
-							<Z>-4</Z>
-							<R00>1</R00>
-							<R01>0</R01>
-							<R02>0</R02>
-							<R10>0</R10>
-							<R11>1</R11>
-							<R12>0</R12>
-							<R20>0</R20>
-							<R21>0</R21>
-							<R22>1</R22>
-						</CoordinateFrame>
-						<string name="Name">Instance</string>
-						<Ref name="Part0">null</Ref>
-						<Ref name="Part1">null</Ref>
-						<bool name="archivable">true</bool>
-					</Properties>
-				</Item>
-				<Item class="Weld" referent="RBX37">
-					<Properties>
-						<CoordinateFrame name="C0">
-							<X>0</X>
-							<Y>0</Y>
-							<Z>0</Z>
-							<R00>1</R00>
-							<R01>0</R01>
-							<R02>0</R02>
-							<R10>0</R10>
-							<R11>1</R11>
-							<R12>0</R12>
-							<R20>0</R20>
-							<R21>0</R21>
-							<R22>1</R22>
-						</CoordinateFrame>
-						<CoordinateFrame name="C1">
-							<X>-2</X>
-							<Y>0.399999976</Y>
 							<Z>-6</Z>
 							<R00>1</R00>
 							<R01>0</R01>
@@ -2120,7 +2115,7 @@ end
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Weld" referent="RBX38">
+				<Item class="Weld" referent="RBX37">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2156,7 +2151,7 @@ end
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Weld" referent="RBX39">
+				<Item class="Weld" referent="RBX38">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2192,7 +2187,7 @@ end
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Weld" referent="RBX40">
+				<Item class="Weld" referent="RBX39">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2228,7 +2223,7 @@ end
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Weld" referent="RBX41">
+				<Item class="Weld" referent="RBX40">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2265,7 +2260,7 @@ end
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Script" referent="RBX42">
+			<Item class="Script" referent="RBX41">
 				<Properties>
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
@@ -2334,7 +2329,7 @@ front.Propulsion.TargetOffset = dest</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="Seat" referent="RBX43">
+			<Item class="Seat" referent="RBX42">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2405,7 +2400,7 @@ front.Propulsion.TargetOffset = dest</string>
 						<Z>2</Z>
 					</Vector3>
 				</Properties>
-				<Item class="BodyGyro" referent="RBX44">
+				<Item class="BodyGyro" referent="RBX43">
 					<Properties>
 						<float name="D">500</float>
 						<string name="Name">BodyGyro</string>
@@ -2434,7 +2429,7 @@ front.Propulsion.TargetOffset = dest</string>
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Part" referent="RBX45">
+		<Item class="Part" referent="RBX44">
 			<Properties>
 				<bool name="Anchored">false</bool>
 				<float name="BackParamA">-0.5</float>
@@ -2505,7 +2500,7 @@ front.Propulsion.TargetOffset = dest</string>
 					<Z>2</Z>
 				</Vector3>
 			</Properties>
-			<Item class="SpecialMesh" referent="RBX46">
+			<Item class="SpecialMesh" referent="RBX45">
 				<Properties>
 					<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/teapot.mesh</url></Content>
 					<token name="MeshType">5</token>
@@ -2515,7 +2510,7 @@ front.Propulsion.TargetOffset = dest</string>
 						<Y>3</Y>
 						<Z>3</Z>
 					</Vector3>
-					<Content name="TextureId"><null></null></Content>
+					<Content name="TextureId"><url>rbxasset://../../../charcustom/hats/textures/TeapotTurret.png</url></Content>
 					<Vector3 name="VertexColor">
 						<X>1</X>
 						<Y>1</Y>
@@ -2524,7 +2519,7 @@ front.Propulsion.TargetOffset = dest</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="Sound" referent="RBX47">
+			<Item class="Sound" referent="RBX46">
 				<Properties>
 					<bool name="Looped">false</bool>
 					<string name="Name">Explosion</string>
@@ -2535,7 +2530,7 @@ front.Propulsion.TargetOffset = dest</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="Sound" referent="RBX48">
+			<Item class="Sound" referent="RBX47">
 				<Properties>
 					<bool name="Looped">true</bool>
 					<string name="Name">Swoosh</string>
@@ -2546,7 +2541,7 @@ front.Propulsion.TargetOffset = dest</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="RocketPropulsion" referent="RBX49">
+			<Item class="RocketPropulsion" referent="RBX48">
 				<Properties>
 					<float name="CartoonFactor">1</float>
 					<float name="MaxSpeed">25</float>
@@ -2571,7 +2566,7 @@ front.Propulsion.TargetOffset = dest</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="Script" referent="RBX50">
+			<Item class="Script" referent="RBX49">
 				<Properties>
 					<bool name="Disabled">true</bool>
 					<Content name="LinkedSource"><null></null></Content>
@@ -2699,7 +2694,7 @@ shaft:remove()
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Part" referent="RBX2">
+		<Item class="Part" referent="RBX1">
 			<Properties>
 				<bool name="Anchored">false</bool>
 				<float name="BackParamA">-0.5</float>
@@ -2713,7 +2708,7 @@ shaft:remove()
 				<int name="BrickColor">194</int>
 				<CoordinateFrame name="CFrame">
 					<X>0</X>
-					<Y>15.0555296</Y>
+					<Y>15.055522</Y>
 					<Z>0</Z>
 					<R00>1</R00>
 					<R01>-1.07914328e-024</R01>
@@ -2770,7 +2765,7 @@ shaft:remove()
 					<Z>5</Z>
 				</Vector3>
 			</Properties>
-			<Item class="SpecialMesh" referent="RBX51">
+			<Item class="SpecialMesh" referent="RBX50">
 				<Properties>
 					<Content name="MeshId"><url>rbxasset://../../../charcustom/hats/fonts/Satellite.mesh</url></Content>
 					<token name="MeshType">5</token>
@@ -2789,7 +2784,7 @@ shaft:remove()
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="BodyPosition" referent="RBX52">
+			<Item class="BodyPosition" referent="RBX51">
 				<Properties>
 					<float name="D">1250</float>
 					<string name="Name">BodyPosition</string>
@@ -2807,7 +2802,7 @@ shaft:remove()
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="BodyGyro" referent="RBX53">
+			<Item class="BodyGyro" referent="RBX52">
 				<Properties>
 					<float name="D">500</float>
 					<string name="Name">BodyGyro</string>
@@ -2834,14 +2829,14 @@ shaft:remove()
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Sparkles" referent="RBX54">
+			<Item class="Sparkles" referent="RBX53">
 				<Properties>
 					<bool name="Enabled">true</bool>
 					<string name="Name">Sparkles</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="Sound" referent="RBX55">
+			<Item class="Sound" referent="RBX54">
 				<Properties>
 					<bool name="Looped">false</bool>
 					<string name="Name">Sound</string>
@@ -2853,14 +2848,14 @@ shaft:remove()
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="HopperBin" referent="RBX56">
+		<Item class="HopperBin" referent="RBX55">
 			<Properties>
 				<token name="BinType">0</token>
 				<string name="Name">Fly2</string>
 				<Content name="TextureId"><null></null></Content>
 				<bool name="archivable">true</bool>
 			</Properties>
-			<Item class="Script" referent="RBX57">
+			<Item class="Script" referent="RBX56">
 				<Properties>
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
@@ -2927,7 +2922,7 @@ bin.Selected:connect(onSelected)</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="IntValue" referent="RBX58">
+			<Item class="IntValue" referent="RBX57">
 				<Properties>
 					<string name="Name">Power</string>
 					<int name="Value">30</int>
@@ -2935,14 +2930,14 @@ bin.Selected:connect(onSelected)</string>
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="HopperBin" referent="RBX59">
+		<Item class="HopperBin" referent="RBX58">
 			<Properties>
 				<token name="BinType">0</token>
 				<string name="Name">The One Tool</string>
 				<Content name="TextureId"><null></null></Content>
 				<bool name="archivable">true</bool>
 			</Properties>
-			<Item class="Script" referent="RBX60">
+			<Item class="Script" referent="RBX59">
 				<Properties>
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
@@ -3059,14 +3054,14 @@ bin.Selected:connect(onSelected)</string>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
-			<Item class="HopperBin" referent="RBX61">
+			<Item class="HopperBin" referent="RBX60">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Avada Kedavra</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX62">
+				<Item class="Script" referent="RBX61">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -3198,14 +3193,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX63">
+			<Item class="HopperBin" referent="RBX62">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Hat Jacker</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX64">
+				<Item class="Script" referent="RBX63">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -3264,7 +3259,7 @@ bin.Selected:connect(onSelected)</string>
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX65">
+				<Item class="Sound" referent="RBX64">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -3276,14 +3271,14 @@ bin.Selected:connect(onSelected)</string>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX66">
+			<Item class="HopperBin" referent="RBX65">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Katon Goukakyou No Jutsu</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX67">
+				<Item class="Script" referent="RBX66">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -3366,7 +3361,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX68">
+				<Item class="Sound" referent="RBX67">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -3378,14 +3373,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX69">
+			<Item class="HopperBin" referent="RBX68">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Ray Gun Of Collapse</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Sound" referent="RBX70">
+				<Item class="Sound" referent="RBX69">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -3396,7 +3391,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Script" referent="RBX71">
+				<Item class="Script" referent="RBX70">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -3458,14 +3453,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX72">
+			<Item class="HopperBin" referent="RBX71">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">SpinFire</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX73">
+				<Item class="Script" referent="RBX72">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -3564,7 +3559,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX74">
+				<Item class="Sound" referent="RBX73">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -3576,14 +3571,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX75">
+			<Item class="HopperBin" referent="RBX74">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">House Spawner</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX76">
+				<Item class="Script" referent="RBX75">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -10501,14 +10496,14 @@ bin.Selected:connect(onSelected)</string>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX77">
+			<Item class="HopperBin" referent="RBX76">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Teleport</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX78">
+				<Item class="Script" referent="RBX77">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -10591,7 +10586,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX79">
+				<Item class="Sound" referent="RBX78">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -10603,14 +10598,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX80">
+			<Item class="HopperBin" referent="RBX79">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Fire Shield</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX81">
+				<Item class="Script" referent="RBX80">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -10716,14 +10711,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX82">
+			<Item class="HopperBin" referent="RBX81">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Wall Gun</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX83">
+				<Item class="Script" referent="RBX82">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -10816,7 +10811,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX84">
+				<Item class="Sound" referent="RBX83">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -10828,14 +10823,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX85">
+			<Item class="HopperBin" referent="RBX84">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Force Push</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX86">
+				<Item class="Script" referent="RBX85">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -10966,7 +10961,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Sound" referent="RBX87">
+				<Item class="Sound" referent="RBX86">
 					<Properties>
 						<bool name="Looped">false</bool>
 						<string name="Name">Sound</string>
@@ -10978,14 +10973,14 @@ bin.Selected:connect(onSelected)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX88">
+			<Item class="HopperBin" referent="RBX87">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Construct Additional Pylon</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX89">
+				<Item class="Script" referent="RBX88">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -11209,14 +11204,14 @@ bin.Selected:connect(onSelected)</string>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX90">
+			<Item class="HopperBin" referent="RBX89">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Force Bubble</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX91">
+				<Item class="Script" referent="RBX90">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -11297,7 +11292,7 @@ bin.Selected:connect(onSelected)
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Script" referent="RBX92">
+				<Item class="Script" referent="RBX91">
 					<Properties>
 						<bool name="Disabled">true</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -11391,14 +11386,14 @@ bubble.Touched:connect(repel)
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="HopperBin" referent="RBX93">
+			<Item class="HopperBin" referent="RBX92">
 				<Properties>
 					<token name="BinType">0</token>
 					<string name="Name">Satellite-Fire</string>
 					<Content name="TextureId"><null></null></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="Script" referent="RBX0">
+				<Item class="Script" referent="RBX93">
 					<Properties>
 						<bool name="Disabled">false</bool>
 						<Content name="LinkedSource"><null></null></Content>
@@ -11591,4 +11586,5 @@ bin.Selected:connect(onSelected)
 			</Item>
 		</Item>
 	</Item>
+	<External>RBX96</External>
 </roblox>

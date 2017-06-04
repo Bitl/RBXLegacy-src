@@ -47,6 +47,11 @@ namespace RBXLegacyLauncher
    						continue;
 					}
 					
+					if (file.Name.Equals("TeapotTurret.rbxm") && GlobalVars.AdminMode != true)
+					{
+   						continue;
+					}
+					
 					listBox1.Items.Add(file.Name);
    					listBox2.Items.Add(file.Name);
    					listBox3.Items.Add(file.Name);
@@ -121,6 +126,26 @@ namespace RBXLegacyLauncher
         		Image icon3 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Hat3ID_Offline.Replace(".rbxm", "") + ".png");
         		pictureBox3.Image = icon3;
         	}			
+		}
+		
+		void Button2Click(object sender, EventArgs e)
+		{
+			string hatdir = Environment.CurrentDirectory + @"\\charcustom\\hats";
+        	if (Directory.Exists(hatdir))
+        	{
+				listBox1.SelectedItem = "NoHat.rbxm";
+        		GlobalVars.Custom_Hat1ID_Offline = listBox1.SelectedItem.ToString();
+        		Image icon1 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Hat1ID_Offline.Replace(".rbxm", "") + ".png");
+        		pictureBox1.Image = icon1;
+				listBox2.SelectedItem = "NoHat.rbxm";
+        		GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedItem.ToString();
+        		Image icon2 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Hat2ID_Offline.Replace(".rbxm", "") + ".png");
+        		pictureBox2.Image = icon2;
+				listBox3.SelectedItem = "NoHat.rbxm";
+        		GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedItem.ToString();
+        		Image icon3 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Hat3ID_Offline.Replace(".rbxm", "") + ".png");
+        		pictureBox3.Image = icon3;
+        	}
 		}
 	}
 }
