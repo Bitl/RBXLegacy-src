@@ -40,6 +40,7 @@ namespace RBXLegacyLauncher
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.label42 = new System.Windows.Forms.Label();
 			this.button19 = new System.Windows.Forms.Button();
 			this.button10 = new System.Windows.Forms.Button();
 			this.label17 = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@ namespace RBXLegacyLauncher
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.label40 = new System.Windows.Forms.Label();
 			this.button20 = new System.Windows.Forms.Button();
 			this.button18 = new System.Windows.Forms.Button();
 			this.label32 = new System.Windows.Forms.Label();
@@ -63,6 +65,7 @@ namespace RBXLegacyLauncher
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.label18 = new System.Windows.Forms.Label();
 			this.tabPage6 = new System.Windows.Forms.TabPage();
+			this.label41 = new System.Windows.Forms.Label();
 			this.button17 = new System.Windows.Forms.Button();
 			this.button16 = new System.Windows.Forms.Button();
 			this.button15 = new System.Windows.Forms.Button();
@@ -120,9 +123,6 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label40 = new System.Windows.Forms.Label();
-			this.label41 = new System.Windows.Forms.Label();
-			this.label42 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -190,6 +190,14 @@ namespace RBXLegacyLauncher
 			this.tabPage1.Text = "JOIN";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// label42
+			// 
+			this.label42.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label42.Location = new System.Drawing.Point(205, 208);
+			this.label42.Name = "label42";
+			this.label42.Size = new System.Drawing.Size(2, 67);
+			this.label42.TabIndex = 17;
 			// 
 			// button19
 			// 
@@ -297,6 +305,14 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Text = "HOST";
 			this.tabPage2.ToolTipText = "Start a server for other players to play";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// label40
+			// 
+			this.label40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label40.Location = new System.Drawing.Point(280, 225);
+			this.label40.Name = "label40";
+			this.label40.Size = new System.Drawing.Size(2, 55);
+			this.label40.TabIndex = 22;
 			// 
 			// button20
 			// 
@@ -464,6 +480,14 @@ namespace RBXLegacyLauncher
 			this.tabPage6.Text = "SAVED";
 			this.tabPage6.ToolTipText = "Lists all your saved servers and ports";
 			this.tabPage6.UseVisualStyleBackColor = true;
+			// 
+			// label41
+			// 
+			this.label41.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label41.Location = new System.Drawing.Point(202, 4);
+			this.label41.Name = "label41";
+			this.label41.Size = new System.Drawing.Size(2, 275);
+			this.label41.TabIndex = 14;
 			// 
 			// button17
 			// 
@@ -1017,30 +1041,6 @@ namespace RBXLegacyLauncher
 			this.textBox5.Text = "0";
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
-			// 
-			// label40
-			// 
-			this.label40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label40.Location = new System.Drawing.Point(280, 225);
-			this.label40.Name = "label40";
-			this.label40.Size = new System.Drawing.Size(2, 55);
-			this.label40.TabIndex = 22;
-			// 
-			// label41
-			// 
-			this.label41.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label41.Location = new System.Drawing.Point(202, 4);
-			this.label41.Name = "label41";
-			this.label41.Size = new System.Drawing.Size(2, 275);
-			this.label41.TabIndex = 14;
-			// 
-			// label42
-			// 
-			this.label42.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label42.Location = new System.Drawing.Point(205, 208);
-			this.label42.Name = "label42";
-			this.label42.Size = new System.Drawing.Size(2, 67);
-			this.label42.TabIndex = 17;
 			// 
 			// MainForm
 			// 

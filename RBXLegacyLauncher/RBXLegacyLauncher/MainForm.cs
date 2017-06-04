@@ -14,6 +14,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace RBXLegacyLauncher
 {
@@ -172,6 +173,7 @@ namespace RBXLegacyLauncher
 		void ReadConfigValues()
 		{
 			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22;
+			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8, Decryptline9, Decryptline10, Decryptline11, Decryptline12, Decryptline13, Decryptline14, Decryptline15, Decryptline16, Decryptline17, Decryptline18, Decryptline19, Decryptline20, Decryptline21, Decryptline22;
 
 			using(StreamReader reader = new StreamReader("config.txt")) 
 			{
@@ -199,51 +201,102 @@ namespace RBXLegacyLauncher
     			line22 = reader.ReadLine();
 			}
 			
-			bool bline1 = Convert.ToBoolean(line1);
+			if (IsBase64String(line1))
+			{
+				Decryptline1 = Base64Decode(line1);
+    			Decryptline2 = Base64Decode(line2);
+    			Decryptline3 = Base64Decode(line3);
+    			Decryptline4 = Base64Decode(line4);
+    			Decryptline5 = Base64Decode(line5);
+    			Decryptline6 = Base64Decode(line6);
+    			Decryptline7 = Base64Decode(line7);
+    			Decryptline8 = Base64Decode(line8);
+    			Decryptline9 = Base64Decode(line9);
+    			Decryptline10 = Base64Decode(line10);
+    			Decryptline11 = Base64Decode(line11);
+    			Decryptline12 = Base64Decode(line12);
+    			Decryptline13 = Base64Decode(line13);
+    			Decryptline14 = Base64Decode(line14);
+    			Decryptline15 = Base64Decode(line15);
+    			Decryptline16 = Base64Decode(line16);
+    			Decryptline17 = Base64Decode(line17);
+    			Decryptline18 = Base64Decode(line18);
+    			Decryptline19 = Base64Decode(line19);
+    			Decryptline20 = Base64Decode(line20);
+    			Decryptline21 = Base64Decode(line21);
+    			Decryptline22 = Base64Decode(line22);
+			}
+			else
+			{
+				Decryptline1 = line1;
+    			Decryptline2 = line2;
+    			Decryptline3 = line3;
+    			Decryptline4 = line4;
+    			Decryptline5 = line5;
+    			Decryptline6 = line6;
+    			Decryptline7 = line7;
+    			Decryptline8 = line8;
+    			Decryptline9 = line9;
+    			Decryptline10 = line10;
+    			Decryptline11 = line11;
+    			Decryptline12 = line12;
+    			Decryptline13 = line13;
+    			Decryptline14 = line14;
+    			Decryptline15 = line15;
+    			Decryptline16 = line16;
+    			Decryptline17 = line17;
+    			Decryptline18 = line18;
+    			Decryptline19 = line19;
+    			Decryptline20 = line20;
+    			Decryptline21 = line21;
+    			Decryptline22 = line22;
+			}
+			
+			bool bline1 = Convert.ToBoolean(Decryptline1);
 			GlobalVars.CloseOnLaunch = bline1;
 			
-			int iline2 = Convert.ToInt32(line2);
+			int iline2 = Convert.ToInt32(Decryptline2);
 			GlobalVars.UserID = iline2;
 			
-			GlobalVars.PlayerName = line3;
+			GlobalVars.PlayerName = Decryptline3;
 			
-			GlobalVars.SelectedClient = line4;
+			GlobalVars.SelectedClient = Decryptline4;
 			
-			GlobalVars.Map = line5;
+			GlobalVars.Map = Decryptline5;
 			
-			int iline6 = Convert.ToInt32(line6);
+			int iline6 = Convert.ToInt32(Decryptline6);
 			GlobalVars.RobloxPort = iline6;
 			
-			GlobalVars.Custom_Hat1ID_Offline = line7;
-			GlobalVars.Custom_Hat2ID_Offline = line8;
-			GlobalVars.Custom_Hat3ID_Offline = line9;
+			GlobalVars.Custom_Hat1ID_Offline = Decryptline7;
+			GlobalVars.Custom_Hat2ID_Offline = Decryptline8;
+			GlobalVars.Custom_Hat3ID_Offline = Decryptline9;
 			
-			int iline10 = Convert.ToInt32(line10);
+			int iline10 = Convert.ToInt32(Decryptline10);
 			GlobalVars.HeadColorID = iline10;
 			
-			int iline11 = Convert.ToInt32(line11);
+			int iline11 = Convert.ToInt32(Decryptline11);
 			GlobalVars.TorsoColorID = iline11;
 			
-			int iline12 = Convert.ToInt32(line12);
+			int iline12 = Convert.ToInt32(Decryptline12);
 			GlobalVars.LeftArmColorID = iline12;
 			
-			int iline13 = Convert.ToInt32(line13);
+			int iline13 = Convert.ToInt32(Decryptline13);
 			GlobalVars.RightArmColorID = iline13;
 			
-			int iline14 = Convert.ToInt32(line14);
+			int iline14 = Convert.ToInt32(Decryptline14);
 			GlobalVars.LeftLegColorID = iline14;
 			
-			int iline15 = Convert.ToInt32(line15);
+			int iline15 = Convert.ToInt32(Decryptline15);
 			GlobalVars.RightLegColorID = iline15;
 			
-			GlobalVars.ColorMenu_HeadColor = line16;
-			GlobalVars.ColorMenu_TorsoColor = line17;
-			GlobalVars.ColorMenu_LeftArmColor = line18;
-			GlobalVars.ColorMenu_RightArmColor = line19;
-			GlobalVars.ColorMenu_LeftLegColor = line20;
-			GlobalVars.ColorMenu_RightLegColor = line21;
+			GlobalVars.ColorMenu_HeadColor = Decryptline16;
+			GlobalVars.ColorMenu_TorsoColor = Decryptline17;
+			GlobalVars.ColorMenu_LeftArmColor = Decryptline18;
+			GlobalVars.ColorMenu_RightArmColor = Decryptline19;
+			GlobalVars.ColorMenu_LeftLegColor = Decryptline20;
+			GlobalVars.ColorMenu_RightLegColor = Decryptline21;
 			
-			int iline22 = Convert.ToInt32(line22);
+			int iline22 = Convert.ToInt32(Decryptline22);
 			GlobalVars.PlayerLimit = iline22;
 			
 			if (GlobalVars.CloseOnLaunch == true)
@@ -290,28 +343,28 @@ namespace RBXLegacyLauncher
 		void WriteConfigValues()
 		{
 			string[] lines = { 
-				GlobalVars.CloseOnLaunch.ToString(), 
-				GlobalVars.UserID.ToString(), 
-				GlobalVars.PlayerName.ToString(), 
-				GlobalVars.SelectedClient.ToString(), 
-				GlobalVars.Map.ToString(), 
-				GlobalVars.RobloxPort.ToString(), 
-				GlobalVars.Custom_Hat1ID_Offline.ToString(),
-				GlobalVars.Custom_Hat2ID_Offline.ToString(),
-				GlobalVars.Custom_Hat3ID_Offline.ToString(),
-				GlobalVars.HeadColorID.ToString(),
-				GlobalVars.TorsoColorID.ToString(),
-				GlobalVars.LeftArmColorID.ToString(),
-				GlobalVars.RightArmColorID.ToString(),
-				GlobalVars.LeftLegColorID.ToString(),
-				GlobalVars.RightLegColorID.ToString(),
-				GlobalVars.ColorMenu_HeadColor.ToString(),
-				GlobalVars.ColorMenu_TorsoColor.ToString(),
-				GlobalVars.ColorMenu_LeftArmColor.ToString(),
-				GlobalVars.ColorMenu_RightArmColor.ToString(),
-				GlobalVars.ColorMenu_LeftLegColor.ToString(),
-				GlobalVars.ColorMenu_RightLegColor.ToString(),
-				GlobalVars.PlayerLimit.ToString(),
+				Base64Encode(GlobalVars.CloseOnLaunch.ToString()),
+				Base64Encode(GlobalVars.UserID.ToString()),
+				Base64Encode(GlobalVars.PlayerName.ToString()),
+				Base64Encode(GlobalVars.SelectedClient.ToString()),
+				Base64Encode(GlobalVars.Map.ToString()),
+				Base64Encode(GlobalVars.RobloxPort.ToString()),
+				Base64Encode(GlobalVars.Custom_Hat1ID_Offline.ToString()),
+				Base64Encode(GlobalVars.Custom_Hat2ID_Offline.ToString()),
+				Base64Encode(GlobalVars.Custom_Hat3ID_Offline.ToString()),
+				Base64Encode(GlobalVars.HeadColorID.ToString()),
+				Base64Encode(GlobalVars.TorsoColorID.ToString()),
+				Base64Encode(GlobalVars.LeftArmColorID.ToString()),
+				Base64Encode(GlobalVars.RightArmColorID.ToString()),
+				Base64Encode(GlobalVars.LeftLegColorID.ToString()),
+				Base64Encode(GlobalVars.RightLegColorID.ToString()),
+				Base64Encode(GlobalVars.ColorMenu_HeadColor.ToString()),
+				Base64Encode(GlobalVars.ColorMenu_TorsoColor.ToString()),
+				Base64Encode(GlobalVars.ColorMenu_LeftArmColor.ToString()),
+				Base64Encode(GlobalVars.ColorMenu_RightArmColor.ToString()),
+				Base64Encode(GlobalVars.ColorMenu_LeftLegColor.ToString()),
+				Base64Encode(GlobalVars.ColorMenu_RightLegColor.ToString()),
+				Base64Encode(GlobalVars.PlayerLimit.ToString())
 			};
 			File.WriteAllLines("config.txt", lines);
 			ConsolePrint("Config Saved.", 3);
@@ -696,7 +749,7 @@ namespace RBXLegacyLauncher
 		
 		void richTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            //Command proxy
+			//Command proxy
             
             int totalLines = richTextBox1.Lines.Length;
             if (totalLines > 0)
@@ -707,8 +760,24 @@ namespace RBXLegacyLauncher
             	{
             		richTextBox1.AppendText(Environment.NewLine);
             		ConsoleProcessCommands(lastLine);
+            		e.Handled = true;
             	}
             }
+            
+            if ( e.Modifiers == Keys.Control )
+			{
+				switch(e.KeyCode)
+				{
+				case Keys.C:
+				case Keys.X:
+				case Keys.V:
+				case Keys.Z:
+					e.Handled = true;
+					break;
+				default:
+					break;
+				}
+			}
         }
 		
 		void StartClient()
@@ -846,7 +915,7 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
-		void ConsolePrint(string text, int type, bool newline = true)
+		void ConsolePrint(string text, int type)
 		{
 			richTextBox1.AppendText("[" + DateTime.Now.ToShortTimeString() + "]", Color.White);
 			richTextBox1.AppendText(" - ", Color.White);
@@ -871,10 +940,7 @@ namespace RBXLegacyLauncher
 				richTextBox1.AppendText(text, Color.Yellow);
 			}
 			
-			if (newline == true)
-			{
-				richTextBox1.AppendText(Environment.NewLine);
-			}
+			richTextBox1.AppendText(Environment.NewLine);
 		}
 		
 		void ConsoleProcessCommands(string command)
@@ -944,11 +1010,11 @@ namespace RBXLegacyLauncher
 			{
 				GlobalVars.AdminMode = true;
 				ConsolePrint("ADMIN MODE ENABLED.", 4);
-				ConsolePrint("YOU ARE GOD.", 2, false);
+				ConsolePrint("YOU ARE GOD.", 2);
 			}
 			else
 			{
-				ConsolePrint("ERROR 3 - Command is either not registered or valid", 2, false);
+				ConsolePrint("ERROR 3 - Command is either not registered or valid", 2);
 			}
 			
 		}
@@ -961,7 +1027,7 @@ namespace RBXLegacyLauncher
 				ConsolePrint("-------------------------", 1);
 				ConsolePrint("= save | Saves the config file", 3);
 				ConsolePrint("= load | Reloads the config file", 3);
-				ConsolePrint("= reset | Resets the config file", 3, false);
+				ConsolePrint("= reset | Resets the config file", 3);
 			}
 			else
 			{
@@ -975,7 +1041,7 @@ namespace RBXLegacyLauncher
 				ConsolePrint("= config", 3);
 				ConsolePrint("-- save | Saves the config file", 4);
 				ConsolePrint("-- load | Reloads the config file", 4);
-				ConsolePrint("-- reset | Resets the config file", 4, false);
+				ConsolePrint("-- reset | Resets the config file", 4);
 			}
 		}
 		
@@ -983,6 +1049,18 @@ namespace RBXLegacyLauncher
 		{
   			var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
   			return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+		}
+		
+		public static string Base64Encode(string plainText) 
+		{
+  			var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+  			return System.Convert.ToBase64String(plainTextBytes);
+		}
+		
+		public static bool IsBase64String(string s)
+		{
+    		s = s.Trim();
+    		return (s.Length % 4 == 0) && Regex.IsMatch(s, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
 		}
 		
 		void TextBox3TextChanged(object sender, EventArgs e)
