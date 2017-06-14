@@ -77,7 +77,7 @@ namespace RBXLegacyLauncher
 		
 		void TextBox1TextChanged(object sender, EventArgs e)
 		{
-			GlobalVars.PlayerName = textBox2.Text;
+			GlobalVars.PlayerName = textBox1.Text;
 		}
 		
 		void TextBox2TextChanged(object sender, EventArgs e)
