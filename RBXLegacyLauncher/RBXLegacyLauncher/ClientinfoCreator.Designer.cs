@@ -46,6 +46,9 @@ namespace RBXLegacyLauncher
 			this.button2 = new System.Windows.Forms.Button();
 			this.checkBox5 = new System.Windows.Forms.CheckBox();
 			this.button3 = new System.Windows.Forms.Button();
+			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// checkBox1
@@ -70,16 +73,16 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(8, 113);
+			this.textBox1.Location = new System.Drawing.Point(8, 176);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(310, 218);
+			this.textBox1.Size = new System.Drawing.Size(310, 155);
 			this.textBox1.TabIndex = 4;
 			this.textBox1.TextChanged += new System.EventHandler(this.TextBox1TextChanged);
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(8, 94);
+			this.label1.Location = new System.Drawing.Point(8, 157);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(92, 16);
 			this.label1.TabIndex = 5;
@@ -133,12 +136,41 @@ namespace RBXLegacyLauncher
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
+			// checkBox3
+			// 
+			this.checkBox3.Location = new System.Drawing.Point(9, 89);
+			this.checkBox3.Name = "checkBox3";
+			this.checkBox3.Size = new System.Drawing.Size(175, 20);
+			this.checkBox3.TabIndex = 13;
+			this.checkBox3.Text = "Client uses a single EXE to run";
+			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3CheckedChanged);
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(8, 112);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(65, 13);
+			this.label3.TabIndex = 14;
+			this.label3.Text = "Client MD5";
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(9, 128);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(311, 20);
+			this.textBox2.TabIndex = 15;
+			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
+			// 
 			// ClientinfoEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(332, 403);
+			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.checkBox3);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.checkBox5);
 			this.Controls.Add(this.button2);
@@ -156,6 +188,9 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.CheckBox checkBox3;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.CheckBox checkBox5;
 		private System.Windows.Forms.Button button2;

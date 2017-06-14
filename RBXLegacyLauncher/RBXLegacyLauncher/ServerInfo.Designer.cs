@@ -46,11 +46,12 @@ namespace RBXLegacyLauncher
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.textBox1.Location = new System.Drawing.Point(13, 13);
+			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.textBox1.Location = new System.Drawing.Point(2, 3);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(479, 237);
+			this.textBox1.Size = new System.Drawing.Size(501, 256);
 			this.textBox1.TabIndex = 0;
 			// 
 			// ServerInfo
@@ -58,6 +59,7 @@ namespace RBXLegacyLauncher
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
+			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(504, 262);
 			this.Controls.Add(this.textBox1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

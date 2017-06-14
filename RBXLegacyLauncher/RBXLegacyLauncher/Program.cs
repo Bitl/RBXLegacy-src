@@ -16,6 +16,11 @@ namespace RBXLegacyLauncher
 	/// </summary>
 	internal sealed class Program
 	{
+		static string ProcessInput(string s)
+    	{
+       		return s;
+    	}
+		
 		/// <summary>
 		/// Program entry point.
 		/// </summary>
@@ -24,7 +29,18 @@ namespace RBXLegacyLauncher
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			if (args.Length == 0)
+			{
+				Application.Run(new MainForm());
+			}
+			else
+			{
+				foreach (string s in args)
+      			{
+        			GlobalVars.SharedArgs = ProcessInput(s);
+      			}
+				Application.Run(new LoaderForm());
+			}
 		}
 		
 	}

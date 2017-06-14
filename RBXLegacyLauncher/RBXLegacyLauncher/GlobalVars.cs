@@ -6,6 +6,10 @@
     public static string CustomPlayerDir = "";
     public static string IP = "localhost";
     public static string Version = "";
+    public static string MD5 = "";
+    public static string SharedArgs = "";
+    //vars for loader
+    public static bool ReadyToLaunch = false;
 	//server settings.
 	public static string Map = "Baseplate.rbxl";
 	public static int RobloxPort = 53640;
@@ -23,11 +27,15 @@
 	public static bool UsesID = true;
 	public static string SelectedClientDesc = "";
 	public static bool LoadsAssetsOnline = false;
+	public static bool LegacyMode = false;
+	public static string SelectedClientMD5 = "";
 	//clientinfocreator
 	public static bool ClientCreator_UsesPlayerName = false;
 	public static bool ClientCreator_UsesID = false;
 	public static bool ClientCreator_LoadsAssetsOnline = false;
 	public static string ClientCreator_SelectedClientDesc = "";
+	public static bool ClientCreator_LegacyMode = false;
+	public static string ClientCreator_SelectedClientMD5 = "";
 	//charcustom
 	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";

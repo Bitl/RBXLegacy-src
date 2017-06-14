@@ -71,30 +71,47 @@ namespace RBXLegacyLauncher
             	ofd.Title = "Load clientinfo.txt";
             	if (ofd.ShowDialog() == DialogResult.OK)
             	{
-					string line1, line2, line3, line4;
+					string line1;
+					string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6;
 
 					using(StreamReader reader = new StreamReader(ofd.FileName)) 
 					{
     					line1 = reader.ReadLine();
-    					line2 = reader.ReadLine();
-    					line3 = reader.ReadLine();
-    					line4 = reader.ReadLine();
 					}
+			
+					if (!SecurityFuncs.IsBase64String(line1))
+						return;
 					
-					Boolean bline1 = bool.Parse(line1);
+					string ConvertedLine = SecurityFuncs.Base64Decode(line1);
+					string[] result = ConvertedLine.Split('|');
+					Decryptline1 = SecurityFuncs.Base64Decode(result[0]);
+    				Decryptline2 = SecurityFuncs.Base64Decode(result[1]);
+    				Decryptline3 = SecurityFuncs.Base64Decode(result[2]);
+    				Decryptline4 = SecurityFuncs.Base64Decode(result[3]);
+    				Decryptline5 = SecurityFuncs.Base64Decode(result[4]);
+    				Decryptline6 = SecurityFuncs.Base64Decode(result[5]);
+					
+					Boolean bline1 = Convert.ToBoolean(Decryptline1);
 					GlobalVars.ClientCreator_UsesPlayerName = bline1;
 					
-					Boolean bline2 = bool.Parse(line2);
+					Boolean bline2 = Convert.ToBoolean(Decryptline2);
 					GlobalVars.ClientCreator_UsesID = bline2;
 					
-					Boolean bline3 = bool.Parse(line3);
+					Boolean bline3 = Convert.ToBoolean(Decryptline3);
 					GlobalVars.ClientCreator_LoadsAssetsOnline = bline3;
 					
-					GlobalVars.ClientCreator_SelectedClientDesc = line4;
+					Boolean bline4 = Convert.ToBoolean(Decryptline4);
+					GlobalVars.ClientCreator_LegacyMode = bline4;
+					
+					GlobalVars.ClientCreator_SelectedClientMD5 = Decryptline5;
+					
+					GlobalVars.ClientCreator_SelectedClientDesc = Decryptline6;
 					
 					checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 					checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
 					checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
+					checkBox3.Checked = GlobalVars.ClientCreator_LegacyMode;
+					textBox2.Text = GlobalVars.ClientCreator_SelectedClientMD5.ToUpper();
 					textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
             	}
 			}
@@ -112,12 +129,14 @@ namespace RBXLegacyLauncher
             	if (sfd.ShowDialog() == DialogResult.OK)
             	{
             		string[] lines = { 
-            			GlobalVars.ClientCreator_UsesPlayerName.ToString(), 
-            			GlobalVars.ClientCreator_UsesID.ToString(),  
-            			GlobalVars.ClientCreator_LoadsAssetsOnline.ToString(), 
-            			GlobalVars.ClientCreator_SelectedClientDesc.ToString() 
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_UsesPlayerName.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_UsesID.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_LoadsAssetsOnline.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_LegacyMode.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientMD5.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientDesc.ToString())
             		};
-					File.WriteAllLines(sfd.FileName, lines);
+            		File.WriteAllText(sfd.FileName, SecurityFuncs.Base64Encode(string.Join("|",lines)));
             	}     
 			}			
 		}
@@ -144,11 +163,33 @@ namespace RBXLegacyLauncher
 			GlobalVars.ClientCreator_UsesPlayerName = false;
 			GlobalVars.ClientCreator_UsesID = false;
 			GlobalVars.ClientCreator_LoadsAssetsOnline = false;
+			GlobalVars.ClientCreator_LegacyMode = false;
 			GlobalVars.ClientCreator_SelectedClientDesc = "";
+			GlobalVars.ClientCreator_SelectedClientMD5 = "";
 			checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 			checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
 			checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
+			checkBox3.Checked = GlobalVars.ClientCreator_LegacyMode;
+			textBox2.Text = GlobalVars.ClientCreator_SelectedClientMD5.ToUpper();
 			textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
+		}
+		
+		void CheckBox3CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox3.Checked == true)
+			{
+				GlobalVars.ClientCreator_LegacyMode = true;
+			}
+			else if (checkBox3.Checked == false)
+			{
+				GlobalVars.ClientCreator_LegacyMode = false;
+			}
+		}
+		
+		void TextBox2TextChanged(object sender, EventArgs e)
+		{
+			textBox2.Text = textBox2.Text.ToUpper();
+			GlobalVars.ClientCreator_SelectedClientMD5 = textBox2.Text.ToUpper();
 		}
 	}
 }

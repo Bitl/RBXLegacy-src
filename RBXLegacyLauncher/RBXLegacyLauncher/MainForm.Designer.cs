@@ -123,6 +123,9 @@ namespace RBXLegacyLauncher
 			this.label28 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.label43 = new System.Windows.Forms.Label();
+			this.label44 = new System.Windows.Forms.Label();
+			this.button21 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -615,6 +618,9 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage5
 			// 
+			this.tabPage5.Controls.Add(this.button21);
+			this.tabPage5.Controls.Add(this.label44);
+			this.tabPage5.Controls.Add(this.label43);
 			this.tabPage5.Controls.Add(this.textBox3);
 			this.tabPage5.Controls.Add(this.label29);
 			this.tabPage5.Controls.Add(this.button11);
@@ -666,9 +672,9 @@ namespace RBXLegacyLauncher
 			// 
 			// button9
 			// 
-			this.button9.Location = new System.Drawing.Point(209, 236);
+			this.button9.Location = new System.Drawing.Point(54, 212);
 			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(81, 42);
+			this.button9.Size = new System.Drawing.Size(100, 33);
 			this.button9.TabIndex = 37;
 			this.button9.Text = "Reset Config";
 			this.button9.UseVisualStyleBackColor = true;
@@ -687,9 +693,9 @@ namespace RBXLegacyLauncher
 			// button7
 			// 
 			this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button7.Location = new System.Drawing.Point(114, 236);
+			this.button7.Location = new System.Drawing.Point(54, 248);
 			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(81, 42);
+			this.button7.Size = new System.Drawing.Size(100, 33);
 			this.button7.TabIndex = 34;
 			this.button7.Text = "Save Config";
 			this.button7.UseVisualStyleBackColor = true;
@@ -732,7 +738,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label33
 			// 
-			this.label33.Location = new System.Drawing.Point(162, 199);
+			this.label33.Location = new System.Drawing.Point(293, 196);
 			this.label33.Name = "label33";
 			this.label33.Size = new System.Drawing.Size(79, 13);
 			this.label33.TabIndex = 29;
@@ -756,7 +762,7 @@ namespace RBXLegacyLauncher
 			// 
 			// checkBox3
 			// 
-			this.checkBox3.Location = new System.Drawing.Point(150, 214);
+			this.checkBox3.Location = new System.Drawing.Point(282, 212);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(108, 18);
 			this.checkBox3.TabIndex = 22;
@@ -1042,6 +1048,32 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// label43
+			// 
+			this.label43.Location = new System.Drawing.Point(54, 196);
+			this.label43.Name = "label43";
+			this.label43.Size = new System.Drawing.Size(100, 13);
+			this.label43.TabIndex = 42;
+			this.label43.Text = "CONFIG OPTIONS";
+			// 
+			// label44
+			// 
+			this.label44.Location = new System.Drawing.Point(183, 196);
+			this.label44.Name = "label44";
+			this.label44.Size = new System.Drawing.Size(77, 13);
+			this.label44.TabIndex = 43;
+			this.label44.Text = "URI OPTIONS";
+			// 
+			// button21
+			// 
+			this.button21.Location = new System.Drawing.Point(183, 224);
+			this.button21.Name = "button21";
+			this.button21.Size = new System.Drawing.Size(75, 39);
+			this.button21.TabIndex = 44;
+			this.button21.Text = "Install URI";
+			this.button21.UseVisualStyleBackColor = true;
+			this.button21.Click += new System.EventHandler(this.Button21Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1090,6 +1122,9 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label43;
+		private System.Windows.Forms.Label label44;
+		private System.Windows.Forms.Button button21;
 		private System.Windows.Forms.Label label41;
 		private System.Windows.Forms.Label label40;
 		private System.Windows.Forms.Label label42;

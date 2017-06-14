@@ -13,8 +13,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
-using System.Security.Cryptography;
-using System.Text.RegularExpressions;
 
 namespace RBXLegacyLauncher
 {
@@ -172,132 +170,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			string line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18, line19, line20, line21, line22;
-			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8, Decryptline9, Decryptline10, Decryptline11, Decryptline12, Decryptline13, Decryptline14, Decryptline15, Decryptline16, Decryptline17, Decryptline18, Decryptline19, Decryptline20, Decryptline21, Decryptline22;
-
-			using(StreamReader reader = new StreamReader("config.txt")) 
-			{
-    			line1 = reader.ReadLine();
-    			line2 = reader.ReadLine();
-    			line3 = reader.ReadLine();
-    			line4 = reader.ReadLine();
-    			line5 = reader.ReadLine();
-    			line6 = reader.ReadLine();
-    			line7 = reader.ReadLine();
-    			line8 = reader.ReadLine();
-    			line9 = reader.ReadLine();
-    			line10 = reader.ReadLine();
-    			line11 = reader.ReadLine();
-    			line12 = reader.ReadLine();
-    			line13 = reader.ReadLine();
-    			line14 = reader.ReadLine();
-    			line15 = reader.ReadLine();
-    			line16 = reader.ReadLine();
-    			line17 = reader.ReadLine();
-    			line18 = reader.ReadLine();
-    			line19 = reader.ReadLine();
-    			line20 = reader.ReadLine();
-    			line21 = reader.ReadLine();
-    			line22 = reader.ReadLine();
-			}
-			
-			if (IsBase64String(line1))
-			{
-				Decryptline1 = Base64Decode(line1);
-    			Decryptline2 = Base64Decode(line2);
-    			Decryptline3 = Base64Decode(line3);
-    			Decryptline4 = Base64Decode(line4);
-    			Decryptline5 = Base64Decode(line5);
-    			Decryptline6 = Base64Decode(line6);
-    			Decryptline7 = Base64Decode(line7);
-    			Decryptline8 = Base64Decode(line8);
-    			Decryptline9 = Base64Decode(line9);
-    			Decryptline10 = Base64Decode(line10);
-    			Decryptline11 = Base64Decode(line11);
-    			Decryptline12 = Base64Decode(line12);
-    			Decryptline13 = Base64Decode(line13);
-    			Decryptline14 = Base64Decode(line14);
-    			Decryptline15 = Base64Decode(line15);
-    			Decryptline16 = Base64Decode(line16);
-    			Decryptline17 = Base64Decode(line17);
-    			Decryptline18 = Base64Decode(line18);
-    			Decryptline19 = Base64Decode(line19);
-    			Decryptline20 = Base64Decode(line20);
-    			Decryptline21 = Base64Decode(line21);
-    			Decryptline22 = Base64Decode(line22);
-			}
-			else
-			{
-				Decryptline1 = line1;
-    			Decryptline2 = line2;
-    			Decryptline3 = line3;
-    			Decryptline4 = line4;
-    			Decryptline5 = line5;
-    			Decryptline6 = line6;
-    			Decryptline7 = line7;
-    			Decryptline8 = line8;
-    			Decryptline9 = line9;
-    			Decryptline10 = line10;
-    			Decryptline11 = line11;
-    			Decryptline12 = line12;
-    			Decryptline13 = line13;
-    			Decryptline14 = line14;
-    			Decryptline15 = line15;
-    			Decryptline16 = line16;
-    			Decryptline17 = line17;
-    			Decryptline18 = line18;
-    			Decryptline19 = line19;
-    			Decryptline20 = line20;
-    			Decryptline21 = line21;
-    			Decryptline22 = line22;
-			}
-			
-			bool bline1 = Convert.ToBoolean(Decryptline1);
-			GlobalVars.CloseOnLaunch = bline1;
-			
-			int iline2 = Convert.ToInt32(Decryptline2);
-			GlobalVars.UserID = iline2;
-			
-			GlobalVars.PlayerName = Decryptline3;
-			
-			GlobalVars.SelectedClient = Decryptline4;
-			
-			GlobalVars.Map = Decryptline5;
-			
-			int iline6 = Convert.ToInt32(Decryptline6);
-			GlobalVars.RobloxPort = iline6;
-			
-			GlobalVars.Custom_Hat1ID_Offline = Decryptline7;
-			GlobalVars.Custom_Hat2ID_Offline = Decryptline8;
-			GlobalVars.Custom_Hat3ID_Offline = Decryptline9;
-			
-			int iline10 = Convert.ToInt32(Decryptline10);
-			GlobalVars.HeadColorID = iline10;
-			
-			int iline11 = Convert.ToInt32(Decryptline11);
-			GlobalVars.TorsoColorID = iline11;
-			
-			int iline12 = Convert.ToInt32(Decryptline12);
-			GlobalVars.LeftArmColorID = iline12;
-			
-			int iline13 = Convert.ToInt32(Decryptline13);
-			GlobalVars.RightArmColorID = iline13;
-			
-			int iline14 = Convert.ToInt32(Decryptline14);
-			GlobalVars.LeftLegColorID = iline14;
-			
-			int iline15 = Convert.ToInt32(Decryptline15);
-			GlobalVars.RightLegColorID = iline15;
-			
-			GlobalVars.ColorMenu_HeadColor = Decryptline16;
-			GlobalVars.ColorMenu_TorsoColor = Decryptline17;
-			GlobalVars.ColorMenu_LeftArmColor = Decryptline18;
-			GlobalVars.ColorMenu_RightArmColor = Decryptline19;
-			GlobalVars.ColorMenu_LeftLegColor = Decryptline20;
-			GlobalVars.ColorMenu_RightLegColor = Decryptline21;
-			
-			int iline22 = Convert.ToInt32(Decryptline22);
-			GlobalVars.PlayerLimit = iline22;
+			LauncherFuncs.ReadConfigValues("config.txt");
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -342,61 +215,8 @@ namespace RBXLegacyLauncher
 		
 		void WriteConfigValues()
 		{
-			string[] lines = { 
-				Base64Encode(GlobalVars.CloseOnLaunch.ToString()),
-				Base64Encode(GlobalVars.UserID.ToString()),
-				Base64Encode(GlobalVars.PlayerName.ToString()),
-				Base64Encode(GlobalVars.SelectedClient.ToString()),
-				Base64Encode(GlobalVars.Map.ToString()),
-				Base64Encode(GlobalVars.RobloxPort.ToString()),
-				Base64Encode(GlobalVars.Custom_Hat1ID_Offline.ToString()),
-				Base64Encode(GlobalVars.Custom_Hat2ID_Offline.ToString()),
-				Base64Encode(GlobalVars.Custom_Hat3ID_Offline.ToString()),
-				Base64Encode(GlobalVars.HeadColorID.ToString()),
-				Base64Encode(GlobalVars.TorsoColorID.ToString()),
-				Base64Encode(GlobalVars.LeftArmColorID.ToString()),
-				Base64Encode(GlobalVars.RightArmColorID.ToString()),
-				Base64Encode(GlobalVars.LeftLegColorID.ToString()),
-				Base64Encode(GlobalVars.RightLegColorID.ToString()),
-				Base64Encode(GlobalVars.ColorMenu_HeadColor.ToString()),
-				Base64Encode(GlobalVars.ColorMenu_TorsoColor.ToString()),
-				Base64Encode(GlobalVars.ColorMenu_LeftArmColor.ToString()),
-				Base64Encode(GlobalVars.ColorMenu_RightArmColor.ToString()),
-				Base64Encode(GlobalVars.ColorMenu_LeftLegColor.ToString()),
-				Base64Encode(GlobalVars.ColorMenu_RightLegColor.ToString()),
-				Base64Encode(GlobalVars.PlayerLimit.ToString())
-			};
-			File.WriteAllLines("config.txt", lines);
+			LauncherFuncs.WriteConfigValues("config.txt");
 			ConsolePrint("Config Saved.", 3);
-		}
-		
-		void ResetConfigValues()
-		{
-			GlobalVars.CloseOnLaunch = false;
-			GlobalVars.UserID = 0;
-			GlobalVars.PlayerName = "Player";
-			GlobalVars.SelectedClient = "Mid-2008";
-			GlobalVars.Map = "Baseplate.rbxl";
-			GlobalVars.RobloxPort = 53640;
-			GlobalVars.Custom_Hat1ID_Offline = "NoHat.rbxm";
-			GlobalVars.Custom_Hat2ID_Offline = "NoHat.rbxm";
-			GlobalVars.Custom_Hat3ID_Offline = "NoHat.rbxm";
-			GlobalVars.HeadColorID = 24;
-			GlobalVars.TorsoColorID = 23;
-			GlobalVars.LeftArmColorID = 24;
-			GlobalVars.RightArmColorID = 24;
-			GlobalVars.LeftLegColorID = 119;
-			GlobalVars.RightLegColorID = 119;
-			GlobalVars.ColorMenu_HeadColor = "Color [A=255, R=245, G=205, B=47]";
-			GlobalVars.ColorMenu_TorsoColor = "Color [A=255, R=13, G=105, B=172]";
-			GlobalVars.ColorMenu_LeftArmColor = "Color [A=255, R=245, G=205, B=47]";
-			GlobalVars.ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
-			GlobalVars.ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
-			GlobalVars.ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
-			GlobalVars.PlayerLimit = 12;
-			ConsolePrint("All config settings reset. Reloading config.", 4);
-			WriteConfigValues();
-			ReadConfigValues();
 		}
 		
 		void ReadClientValues(string ClientName)
@@ -410,26 +230,7 @@ namespace RBXLegacyLauncher
 				GlobalVars.SelectedClient = "2008";
 			}
 			
-			string line1, line2, line3, line4;
-
-			using(StreamReader reader = new StreamReader(clientpath)) 
-			{
-    			line1 = reader.ReadLine();
-    			line2 = reader.ReadLine();
-    			line3 = reader.ReadLine();
-    			line4 = reader.ReadLine();
-			}
-			
-			bool bline1 = Convert.ToBoolean(line1);
-			GlobalVars.UsesPlayerName = bline1;
-			
-			bool bline2 = Convert.ToBoolean(line2);
-			GlobalVars.UsesID = bline2;
-			
-			bool bline3 = Convert.ToBoolean(line3);
-			GlobalVars.LoadsAssetsOnline = bline3;
-			
-			GlobalVars.SelectedClientDesc = line4;
+			LauncherFuncs.ReadClientValues(clientpath);
 			
 			if (GlobalVars.UsesPlayerName == true)
 			{
@@ -473,43 +274,7 @@ namespace RBXLegacyLauncher
 		
 		void GeneratePlayerID()
 		{
-			CryptoRandom random = new CryptoRandom();
-			int randomID = 0;
-			int randIDmode = random.Next(0,7);
-			if (randIDmode == 0)
-			{
-				randomID = random.Next(0, 99);
-			}
-			else if (randIDmode == 1)
-			{
-				randomID = random.Next(0, 999);
-			}
-			else if (randIDmode == 2)
-			{
-				randomID = random.Next(0, 9999);
-			}
-			else if (randIDmode == 3)
-			{
-				randomID = random.Next(0, 99999);
-			}
-			else if (randIDmode == 4)
-			{
-				randomID = random.Next(0, 999999);
-			}
-			else if (randIDmode == 5)
-			{
-				randomID = random.Next(0, 9999999);
-			}
-			else if (randIDmode == 6)
-			{
-				randomID = random.Next(0, 99999999);
-			}
-			else if (randIDmode == 7)
-			{
-				randomID = random.Next();
-			}
-			//2147483647 is max id.
-			GlobalVars.UserID = randomID;
+			LauncherFuncs.GeneratePlayerID();
 			textBox5.Text = Convert.ToString(GlobalVars.UserID);
 		}
 		
@@ -780,10 +545,73 @@ namespace RBXLegacyLauncher
 			}
         }
 		
+		void TextBox3TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox3.Text, out parsedValue))
+			{
+				if (textBox3.Text.Equals(""))
+				{
+					GlobalVars.PlayerLimit = 12;
+				}
+				else
+				{
+					GlobalVars.PlayerLimit = Convert.ToInt32(textBox3.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.PlayerLimit = 12;
+			}
+		}
+		
+		void ResetConfigValues()
+		{
+			LauncherFuncs.ResetConfigValues();
+			WriteConfigValues();
+			ReadConfigValues();
+		}
+		
+		void ConsolePrint(string text, int type)
+		{
+			richTextBox1.AppendText("[" + DateTime.Now.ToShortTimeString() + "]", Color.White);
+			richTextBox1.AppendText(" - ", Color.White);
+			if (type == 1)
+			{
+				richTextBox1.AppendText(text, Color.White);
+			}
+			else if (type == 2)
+			{
+				richTextBox1.AppendText(text, Color.Red);
+			}
+			else if (type == 3)
+			{
+				richTextBox1.AppendText(text, Color.Lime);
+			}
+			else if (type == 4)
+			{
+				richTextBox1.AppendText(text, Color.Aqua);
+			}
+			else if (type == 5)
+			{
+				richTextBox1.AppendText(text, Color.Yellow);
+			}
+			
+			richTextBox1.AppendText(Environment.NewLine);
+		}
+		
 		void StartClient()
 		{
 			string luafile = "rbxasset://scripts\\\\CSMPFunctions.lua";
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+			string rbxexe = "";
+			if (GlobalVars.LegacyMode == true)
+			{
+				rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+			}
+			else
+			{
+				rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_client.exe";
+			}
 			string quote = "\"";
 			string args = "";
 			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
@@ -808,7 +636,10 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Client Loaded.", 4);
-				Process.Start(rbxexe, args);
+				if (SecurityFuncs.checkClientMD5(GlobalVars.SelectedClient) == true)
+				{
+					Process.Start(rbxexe, args);
+				}
 			}
 			catch (Exception ex)
 			{
@@ -915,37 +746,9 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
-		void ConsolePrint(string text, int type)
-		{
-			richTextBox1.AppendText("[" + DateTime.Now.ToShortTimeString() + "]", Color.White);
-			richTextBox1.AppendText(" - ", Color.White);
-			if (type == 1)
-			{
-				richTextBox1.AppendText(text, Color.White);
-			}
-			else if (type == 2)
-			{
-				richTextBox1.AppendText(text, Color.Red);
-			}
-			else if (type == 3)
-			{
-				richTextBox1.AppendText(text, Color.Lime);
-			}
-			else if (type == 4)
-			{
-				richTextBox1.AppendText(text, Color.Aqua);
-			}
-			else if (type == 5)
-			{
-				richTextBox1.AppendText(text, Color.Yellow);
-			}
-			
-			richTextBox1.AppendText(Environment.NewLine);
-		}
-		
 		void ConsoleProcessCommands(string command)
 		{
-			string important = Base64Decode("cmJ4bGVnYWN5IGthbnJpc2hh");
+			string important = SecurityFuncs.Base64Decode("cmJ4bGVnYWN5IGthbnJpc2hh");
 			if (command.Equals("rbxlegacy server"))
 			{
 				StartServer();
@@ -1045,48 +848,26 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
-		public static string Base64Decode(string base64EncodedData) 
-		{
-  			var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
-  			return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-		}
-		
-		public static string Base64Encode(string plainText) 
-		{
-  			var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-  			return System.Convert.ToBase64String(plainTextBytes);
-		}
-		
-		public static bool IsBase64String(string s)
-		{
-    		s = s.Trim();
-    		return (s.Length % 4 == 0) && Regex.IsMatch(s, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
-		}
-		
-		void TextBox3TextChanged(object sender, EventArgs e)
-		{
-			int parsedValue;
-			if (int.TryParse(textBox3.Text, out parsedValue))
-			{
-				if (textBox3.Text.Equals(""))
-				{
-					GlobalVars.PlayerLimit = 12;
-				}
-				else
-				{
-					GlobalVars.PlayerLimit = Convert.ToInt32(textBox3.Text);
-				}
-			}
-			else
-			{
-				GlobalVars.PlayerLimit = 12;
-			}
-		}
-		
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
     		base.OnFormClosing(e);
     		WriteConfigValues();
+		}
+		
+		void Button21Click(object sender, EventArgs e)
+		{
+			try
+      		{
+     			string loadstring = Environment.CurrentDirectory + Path.DirectorySeparatorChar + System.AppDomain.CurrentDomain.FriendlyName;
+        		SecurityFuncs.RegisterURLProtocol("RBXLegacy", loadstring, "RBXLegacy URI");
+        		ConsolePrint("URI Successfully Installed!", 3);
+				DialogResult result1 = MessageBox.Show("URI Successfully Installed!","RBXLegacy Launcher - Install URI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+      		}
+      		catch (Exception ex)
+      		{
+        		ConsolePrint("ERROR 5 - Failed to install URI. (" + ex.Message + ")", 2);
+				DialogResult result2 = MessageBox.Show("Failed to install URI. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+      		}			
 		}
 	}
 }

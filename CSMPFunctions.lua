@@ -507,6 +507,8 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			if (rbxlegacyversion == "pre-alpha" or rbxlegacyversion == "pre-alpha-ext") then
 				game.GuiRoot.MainMenu["Toolbox"]:Remove()
 				game.GuiRoot.MainMenu["Edit Mode"]:Remove()
+				game.GuiRoot.RightPalette.ReportAbuse:Remove()
+				game.GuiRoot.ChatMenuPanel:Remove()
 			else
 				game.GuiRoot.MainMenu["Tools"]:Remove()
 				game.GuiRoot.MainMenu["Insert"]:Remove()
