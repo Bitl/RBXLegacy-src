@@ -10,6 +10,10 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace RBXLegacyLauncher
 {
@@ -32,7 +36,7 @@ namespace RBXLegacyLauncher
 		
 		void CharacterCustomizationLoad(object sender, EventArgs e)
 		{
-			string hatdir = Environment.CurrentDirectory + @"\\charcustom\\hats";
+			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
         	if (Directory.Exists(hatdir))
         	{
         		button2.Enabled = true;
