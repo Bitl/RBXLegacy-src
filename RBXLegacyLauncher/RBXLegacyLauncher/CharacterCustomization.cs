@@ -58,5 +58,11 @@ namespace RBXLegacyLauncher
 			CharacterCustomization_HatMenu chats = new CharacterCustomization_HatMenu();
 			chats.Show();
 		}
+		
+		void Button3Click(object sender, EventArgs e)
+		{
+			CharacterCustomization_ClothingMenu clothes = new CharacterCustomization_ClothingMenu();
+			clothes.Show();
+		}
 	}
 }

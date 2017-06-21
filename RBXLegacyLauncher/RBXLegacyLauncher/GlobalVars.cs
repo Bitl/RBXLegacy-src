@@ -40,6 +40,10 @@
 	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat3ID_Offline = "NoHat.rbxm";
+	public static int Custom_TShirt = 0;
+	public static int Custom_Shirt = 0;
+	public static int Custom_Pants = 0;
+	public static int Custom_Face = 0;
 	public static int HeadColorID = 24;
 	public static int TorsoColorID = 23;
 	public static int LeftArmColorID = 24;

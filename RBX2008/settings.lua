@@ -1,1 +1,0 @@
-settings().Rendering.frameRateManager = 2;

@@ -49,7 +49,7 @@ $con->close();
 <div id="Container">
 				<div id="Header">
 					<div id="Banner">
-						<center><div id="Logo"><a id="logo" title="RBXLegacy" href="index.php" style="display:inline-block;cursor:pointer;"><img src="images/Logo.png" border="0" id="img" alt="Origins06"/></a></div></center>
+						<center><div id="Logo"><a id="logo" title="RBXLegacy" href="index.php" style="display:inline-block;cursor:pointer;"><img src="images/Logo.png" border="0" id="img" alt="RBXLegacy"/></a></div></center>
 					</div>
 					<div class="Navigation">
 						<span><a id="Games" class="MenuItem" href="games.php">Games</a></span>
@@ -58,7 +58,13 @@ $con->close();
  					</div>
 				</div>
 				<div id="Body">
+					
 	<div id="SplashContainer">
+		<div id="MainPanel">
+			<center>
+			<div id="genlink"><b>alert text</b></div>
+			</center>
+		</div>
 		<div id="MainPanel">
 			<center>
 			<h2>Games</h2>

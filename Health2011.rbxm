@@ -15,34 +15,7 @@ script:remove();</ProtectedString>
 				<string name="Name">HealthGUI</string>
 				<bool name="archivable">true</bool>
 			</Properties>
-			<Item class="ImageLabel" referent="RBX2">
-				<Properties>
-					<bool name="Active">false</bool>
-					<Color3 name="BackgroundColor3">4290164919</Color3>
-					<float name="BackgroundTransparency">1</float>
-					<Color3 name="BorderColor3">4279970357</Color3>
-					<int name="BorderSizePixel">1</int>
-					<Content name="Image"><url>rbxasset://textures/healthgui/HurtOverlay.png</url></Content>
-					<string name="Name">hurtOverlay</string>
-					<UDim2 name="Position">
-						<XS>2</XS>
-						<XO>0</XO>
-						<YS>0</YS>
-						<YO>-22</YO>
-					</UDim2>
-					<UDim2 name="Size">
-						<XS>1</XS>
-						<XO>0</XO>
-						<YS>1.1500001</YS>
-						<YO>30</YO>
-					</UDim2>
-					<token name="SizeConstraint">0</token>
-					<bool name="Visible">true</bool>
-					<int name="ZIndex">1</int>
-					<bool name="archivable">true</bool>
-				</Properties>
-			</Item>
-			<Item class="Frame" referent="RBX3">
+			<Item class="Frame" referent="RBX2">
 				<Properties>
 					<bool name="Active">false</bool>
 					<Color3 name="BackgroundColor3">4285215356</Color3>
@@ -68,7 +41,7 @@ script:remove();</ProtectedString>
 					<int name="ZIndex">1</int>
 					<bool name="archivable">true</bool>
 				</Properties>
-				<Item class="ImageLabel" referent="RBX4">
+				<Item class="ImageLabel" referent="RBX3">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Color3 name="BackgroundColor3">4294967295</Color3>
@@ -95,7 +68,7 @@ script:remove();</ProtectedString>
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="ImageLabel" referent="RBX5">
+				<Item class="ImageLabel" referent="RBX4">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Color3 name="BackgroundColor3">4294967295</Color3>
@@ -122,7 +95,7 @@ script:remove();</ProtectedString>
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="Frame" referent="RBX6">
+				<Item class="Frame" referent="RBX5">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Color3 name="BackgroundColor3">4294967295</Color3>
@@ -148,13 +121,14 @@ script:remove();</ProtectedString>
 						<int name="ZIndex">1</int>
 						<bool name="archivable">true</bool>
 					</Properties>
-					<Item class="Script" referent="RBX7">
+					<Item class="Script" referent="RBX6">
 						<Properties>
 							<bool name="Disabled">false</bool>
 							<Content name="LinkedSource"><null></null></Content>
 							<string name="Name">Script</string>
 							<ProtectedString name="Source">h = script.Parent.Parent.Parent.Parent.Parent.Character.Humanoid
-tray = script.Parent
+tray = script.Parent.Parent
+base = tray.Parent
 local lastHealth = 100
 local lastHealth2 = 100
 local maxWidth = 0.96
@@ -193,11 +167,6 @@ function UpdateGUI(health)
 	end
 end
 
-
-function HealthChanged(health)
-	
-end
-
 function AnimateBars(x, y, lastX, height)
 	local width = math.abs(x - lastX)
 	if( x &gt; lastX ) then
@@ -234,7 +203,8 @@ function AnimateHurtOverlay()
 	-- overlay.Position = UDim2.new(-2, 0, -2, -22)
 	-- overlay.Size = UDim2.new(4.5, 0, 4.65, 30)
 	
-	overlay = HealthGUI_prototype.hurtOverlay
+	overlay = base.hurtOverlay
+	overlay.Visible = true
 	overlay.Position = UDim2.new(-2, 0, -2, -22)
 	overlay.Size = UDim2.new(4.5, 0, 4.65, 30)
 	-- Animate In, fast
@@ -264,21 +234,22 @@ function AnimateHurtOverlay()
 	
 	-- Hide after we&apos;re done
 	overlay.Position = UDim2.new(10, 0, 0, 0)
+	overlay.Visible = false
 end
 
 h.Changed:connect(function()
-	UpdateGUI(health)
-	if ( (lastHealth2 - health) &gt; (humanoid.MaxHealth / 10) ) then
-		lastHealth2 = health
+	UpdateGUI(h.Health)
+	if ( (lastHealth2 - h.Health) &gt; (h.MaxHealth / 10) ) then
+		lastHealth2 = h.Health
 	else
-		lastHealth2 = health
+		lastHealth2 = h.Health
 	end end)
 </ProtectedString>
 							<bool name="archivable">true</bool>
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="ImageLabel" referent="RBX8">
+				<Item class="ImageLabel" referent="RBX7">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Color3 name="BackgroundColor3">4294967295</Color3>
@@ -305,7 +276,7 @@ h.Changed:connect(function()
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
-				<Item class="ImageLabel" referent="RBX9">
+				<Item class="ImageLabel" referent="RBX8">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Color3 name="BackgroundColor3">4294967295</Color3>
@@ -332,6 +303,33 @@ h.Changed:connect(function()
 						<bool name="archivable">true</bool>
 					</Properties>
 				</Item>
+			</Item>
+			<Item class="ImageLabel" referent="RBX9">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Color3 name="BackgroundColor3">4290164919</Color3>
+					<float name="BackgroundTransparency">1</float>
+					<Color3 name="BorderColor3">4279970357</Color3>
+					<int name="BorderSizePixel">1</int>
+					<Content name="Image"><url>rbxasset://textures/healthgui/HurtOverlay.png</url></Content>
+					<string name="Name">hurtOverlay</string>
+					<UDim2 name="Position">
+						<XS>2</XS>
+						<XO>0</XO>
+						<YS>0</YS>
+						<YO>-22</YO>
+					</UDim2>
+					<UDim2 name="Size">
+						<XS>1</XS>
+						<XO>0</XO>
+						<YS>1.1500001</YS>
+						<YO>30</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<bool name="Visible">false</bool>
+					<int name="ZIndex">1</int>
+					<bool name="archivable">true</bool>
+				</Properties>
 			</Item>
 		</Item>
 	</Item>

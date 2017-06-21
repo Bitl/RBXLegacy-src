@@ -59,6 +59,10 @@
     <Compile Include="CharacterCustomization.Designer.cs">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </Compile>
+    <Compile Include="CharacterCustomization_ClothingMenu.cs" />
+    <Compile Include="CharacterCustomization_ClothingMenu.Designer.cs">
+      <DependentUpon>CharacterCustomization_ClothingMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="CharacterCustomization_HatMenu.cs" />
     <Compile Include="CharacterCustomization_HatMenu.Designer.cs">
       <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
@@ -98,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharacterCustomization_ClothingMenu.resx">
+      <DependentUpon>CharacterCustomization_ClothingMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CharacterCustomization_HatMenu.resx">
       <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>

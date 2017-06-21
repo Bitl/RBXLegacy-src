@@ -15,7 +15,7 @@
 <div id="Container">
 				<div id="Header">
 					<div id="Banner">
-						<center><div id="Logo"><a id="logo" title="RBXLegacy" href="index.php" style="display:inline-block;cursor:pointer;"><img src="images/Logo.png" border="0" id="img" alt="Origins06"/></a></div></center>
+						<center><div id="Logo"><a id="logo" title="RBXLegacy" href="index.php" style="display:inline-block;cursor:pointer;"><img src="images/Logo.png" border="0" id="img" alt="RBXLegacy"/></a></div></center>
 					</div>
 					<div class="Navigation">
 						<span><a id="Games" class="MenuItem" href="games.php">Games</a></span>
@@ -24,7 +24,13 @@
  					</div>
 				</div>
 				<div id="Body">
+					
 	<div id="SplashContainer">
+		<div id="MainPanel">
+			<center>
+			<div id="genlink"><b>alert text</b></div>
+			</center>
+		</div>
 		<div id="MainPanel">
 			<center>
 			<h2>Games</h2>
@@ -57,9 +63,7 @@ echo "<h3><b>".noHTML($row['name'])."</b></h3>";
 echo "<h3><b>Map: ".noHTML($row['map'])."</b></h3>"; 
 echo "<h3><b>Client: ".noHTML(base64_decode($row['client']))."</b></h3>"; 
 echo "<h3><b>Player Limit: ".noHTML($row['playerlimit'])."</b></h3>";
-date_default_timezone_set('America/Phoenix');
-$date = date('m/d/Y h:i:s a', time());
-echo "<h3><b> Creation Time: ".$date."</b></h3>";
+echo "<h3><b> Creation Time: ".noHTML($row['date'])."</b></h3>";
 $stringbuild = $row['ip']."|".$row['port']."|".$row['client'];
 $encryptstring = base64_encode($stringbuild);
 $url = "RBXLegacy://".$encryptstring;

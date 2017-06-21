@@ -24,12 +24,14 @@ $namefixed = mysqli_real_escape_string($con,$_POST['name']);
 $ipcrypt = base64_encode($_POST['ip']);
 $clientcrypt = base64_encode($_POST['client']);
 $portcrypt = base64_encode($_POST['port']);
+date_default_timezone_set('America/Phoenix');
+$date = date('m/d/Y h:i:s a', time());
 
-$sql="INSERT INTO games (name, map, ip, port, client, playerlimit)
+$sql="INSERT INTO games (name, map, ip, port, client, playerlimit, date)
 
 VALUES
 
-('$namefixed','$_POST[map]','$ipcrypt','$portcrypt','$clientcrypt','$_POST[playerlimit]')";
+('$namefixed','$_POST[map]','$ipcrypt','$portcrypt','$clientcrypt','$_POST[playerlimit]','$date')";
 
 if (!$con->query($sql))
 {
@@ -44,7 +46,7 @@ $playerlimit=$_POST['playerlimit'];
 <div id="Container">
 				<div id="Header">
 					<div id="Banner">
-						<center><div id="Logo"><a id="logo" title="RBXLegacy" href="index.php" style="display:inline-block;cursor:pointer;"><img src="images/Logo.png" border="0" id="img" alt="Origins06"/></a></div></center>
+						<center><div id="Logo"><a id="logo" title="RBXLegacy" href="index.php" style="display:inline-block;cursor:pointer;"><img src="images/Logo.png" border="0" id="img" alt="RBXLegacy"/></a></div></center>
 					</div>
 					<div class="Navigation">
 						<span><a id="Games" class="MenuItem" href="games.php">Games</a></span>
@@ -55,6 +57,11 @@ $playerlimit=$_POST['playerlimit'];
 				<div id="Body">
 					
 	<div id="SplashContainer">
+		<div id="MainPanel">
+			<center>
+			<div id="genlink"><b>alert text</b></div>
+			</center>
+		</div>
 		<div id="MainPanel">
 			<center>
 			<h2>Host Server</h2>
