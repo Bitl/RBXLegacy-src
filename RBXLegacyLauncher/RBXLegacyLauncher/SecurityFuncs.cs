@@ -83,5 +83,26 @@ namespace RBXLegacyLauncher
         		}
     		}
 		}
+		
+		public static bool checkScriptMD5()
+		{
+			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\scripts\\CSMPFunctions.exe";
+    		using (var md5 = MD5.Create())
+    		{
+    			using (var stream = File.OpenRead(rbxexe))
+        		{
+    				byte[] hash = md5.ComputeHash(stream);
+    				string clientMD5 = BitConverter.ToString(hash).Replace("-", "");
+            		if (clientMD5.Equals(GlobalVars.DefaultScriptMD5))
+            		{
+            			return true;
+            		}
+            		else
+            		{
+            			return false;
+            		}
+        		}
+    		}
+		}
 	}
 }

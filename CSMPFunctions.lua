@@ -1,152 +1,86 @@
 rbxlegacyversion = ""
 
--- VERSION CODENAME DOCUMENTATION
--- -------------------------------------------------------------
--- pre-alpha
--- - Mid-2008 or lower.
--- - Support for "fake" 2006/2007 clients, or the real things.
--- - Uses Legacy joinscript.
--- - Does not support hats or any other form of customization besides body colors.
--- -------------------------------------------------------------
--- pre-alpha-ext
--- - Mid-2008 or lower.
--- - Support for "fake" 2006/2007 clients, or the real things.
--- - Uses Legacy joinscript.
--- - Supports only hats, body colors, and T-Shirts.
--- -------------------------------------------------------------
--- alpha
--- - Mid-2008 or lower.
--- - Uses Legacy joinscript.
--- - Supports only hats, body colors, T-Shirts, shirts, and pants.
--- -------------------------------------------------------------
--- beta
--- - Late-2008-Early 2009.
--- - Uses Legacy joinscript.
--- - Supports only hats, body colors, T-Shirts, shirts, and pants.
--- -------------------------------------------------------------
--- delta-beta
--- - Late-2008-Early 2009.
--- - Uses RBXPri joinscript.
--- - Supports only hats, body colors, T-Shirts, shirts, and pants.
--- -------------------------------------------------------------
--- pre-gamma
--- - Late-2009-Early 2010.
--- - Uses Legacy joinscript.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- delta-pre-gamma
--- - Late-2009-Early 2010.
--- - Uses RBXPri joinscript.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- gamma
--- - Mid-2010-November 2010.
--- - Uses Legacy joinscript.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- delta-gamma
--- - Mid-2010-November 2010.
--- - Uses RBXPri joinscript.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- delta
--- - December-2010-Early 2011.
--- - Uses RBXPri joinscript.
--- - Supports the more modern 2011 user interface.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- delta-omega
--- - Mid-2011-Early-2012.
--- - Uses RBXPri joinscript.
--- - Supports the more modern 2011 user interface.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- omega
--- - Mid-2011-Early-2012.
--- - Uses RBXPri joinscript.
--- - Meant for more modern clients which don't use early 2011's UI.
--- - Supports all kinds of customization.
--- -------------------------------------------------------------
--- Don't edit anything below unless you know what you are doing.
--- -------------------------------------------------------------
-
-if (rbxlegacyversion == "pre-alpha") then
-	settings().Rendering.frameRateManager = 2;
-	settings().Rendering.graphicsMode = 2;
-	settings().Network.MaxSendBuffer = 1000000;
-	settings().Network.PhysicsReplicationUpdateRate = 1000000;
-	settings().Network.SendRate = 1000000;
-elseif (rbxlegacyversion == "pre-alpha-ext") then
-	settings().Rendering.frameRateManager = 2;
-	settings().Rendering.graphicsMode = 2;
-	settings().Network.MaxSendBuffer = 1000000;
-	settings().Network.PhysicsReplicationUpdateRate = 1000000;
-	settings().Network.SendRate = 1000000;
-elseif (rbxlegacyversion == "alpha") then
-	settings().Rendering.frameRateManager = 2;
-	settings().Rendering.graphicsMode = 2;
-	settings().Network.MaxSendBuffer = 1000000;
-	settings().Network.PhysicsReplicationUpdateRate = 1000000;
-	settings().Network.SendRate = 1000000;
-elseif (rbxlegacyversion == "beta") then
-	settings().Rendering.FrameRateManager = 2;
-	settings().Network.SendRate = 30;
-	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "delta-beta") then
-	settings().Rendering.FrameRateManager = 2;
-	settings().Network.SendRate = 30;
-	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "pre-gamma") then
-	settings().Rendering.FrameRateManager = 2;
-	settings().Network.DataSendRate = 30;
-	settings().Network.PhysicsSendRate = 20;
-	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "delta-pre-gamma") then
-	settings().Rendering.FrameRateManager = 2;
-	settings().Network.DataSendRate = 30;
-	settings().Network.PhysicsSendRate = 20;
-	settings().Network.ReceiveRate = 60;
-elseif (rbxlegacyversion == "gamma") then
-	settings().Rendering.FrameRateManager = 2;
-	settings().Network.DataSendRate = 30;
-	settings().Network.PhysicsSendRate = 20;
-	settings().Network.ReceiveRate = 60;
-	pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
-	pcall(function() settings().Diagnostics:LegacyScriptMode() end);
-elseif (rbxlegacyversion == "delta-gamma") then
-	settings().Rendering.FrameRateManager = 2;
-	settings().Network.DataSendRate = 30;
-	settings().Network.PhysicsSendRate = 20;
-	settings().Network.ReceiveRate = 60;
-	pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
-	pcall(function() settings().Diagnostics:LegacyScriptMode() end);
-elseif (rbxlegacyversion == "delta") then
-	settings().Rendering.FrameRateManager = 2;
-	pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
-	pcall(function() settings().Diagnostics:LegacyScriptMode() end);
-	coroutine.resume(coroutine.create(function()
-		loadstring('\108\111\99\97\108\32\67\111\114\101\71\117\105\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\67\111\114\101\71\117\105\34\41\59\10\119\104\105\108\101\32\110\111\116\32\67\111\114\101\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\82\111\98\108\111\120\71\117\105\34\41\32\100\111\10\9\67\111\114\101\71\117\105\46\67\104\105\108\100\65\100\100\101\100\58\119\97\105\116\40\41\59\10\101\110\100\10\108\111\99\97\108\32\82\111\98\108\111\120\71\117\105\32\61\32\67\111\114\101\71\117\105\46\82\111\98\108\111\120\71\117\105\59\10\108\111\99\97\108\32\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\84\111\112\76\101\102\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\66\117\105\108\100\84\111\111\108\115\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\117\105\108\100\84\111\111\108\115\34\41\10\102\117\110\99\116\105\111\110\32\109\97\107\101\89\82\101\108\97\116\105\118\101\40\41\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\10\105\102\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\116\104\101\110\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\32\101\110\100\10\105\102\32\66\117\105\108\100\84\111\111\108\115\32\116\104\101\110\32\66\117\105\108\100\84\111\111\108\115\46\70\114\97\109\101\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\32\101\110\100\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\48\44\48\44\49\44\45\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\88\44\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\101\110\100\10\102\117\110\99\116\105\111\110\32\109\97\107\101\88\82\101\108\97\116\105\118\101\40\41\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\105\102\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\116\104\101\110\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\32\101\110\100\10\105\102\32\66\117\105\108\100\84\111\111\108\115\32\116\104\101\110\32\66\117\105\108\100\84\111\111\108\115\46\70\114\97\109\101\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\32\101\110\100\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\48\44\48\44\49\44\45\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\88\44\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\101\110\100\10\108\111\99\97\108\32\102\117\110\99\116\105\111\110\32\114\101\115\105\122\101\40\41\10\105\102\32\82\111\98\108\111\120\71\117\105\46\65\98\115\111\108\117\116\101\83\105\122\101\46\120\32\62\32\82\111\98\108\111\120\71\117\105\46\65\98\115\111\108\117\116\101\83\105\122\101\46\121\32\116\104\101\110\10\109\97\107\101\89\82\101\108\97\116\105\118\101\40\41\10\101\108\115\101\10\109\97\107\101\88\82\101\108\97\116\105\118\101\40\41\10\101\110\100\10\101\110\100\10\82\111\98\108\111\120\71\117\105\46\67\104\97\110\103\101\100\58\99\111\110\110\101\99\116\40\102\117\110\99\116\105\111\110\40\112\114\111\112\101\114\116\121\41\10\105\102\32\112\114\111\112\101\114\116\121\32\61\61\32\34\65\98\115\111\108\117\116\101\83\105\122\101\34\32\116\104\101\110\10\119\97\105\116\40\41\10\114\101\115\105\122\101\40\41\10\101\110\100\10\101\110\100\41\10\119\97\105\116\40\41\10\114\101\115\105\122\101\40\41\10')()
-	end))
-	coroutine.resume(coroutine.create(function()
-	for _,v in pairs(game:GetChildren()) do
-	if v.Name == "GuiRoot" then
-	coroutine.resume(coroutine.create(function()
-	v.ScoreHud.Parent = nil
-	end)) end end end))
-elseif (rbxlegacyversion == "delta-omega") then
-	settings().Rendering.FrameRateManager = 2;
-	pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
-	pcall(function() settings().Diagnostics:LegacyScriptMode() end);
-	coroutine.resume(coroutine.create(function()
-	for _,v in pairs(game:GetChildren()) do
-	if v.Name == "GuiRoot" then
-	coroutine.resume(coroutine.create(function()
-	v.ScoreHud.Parent = nil
-	end)) end end end))
-elseif (rbxlegacyversion == "omega") then
-	settings().Rendering.FrameRateManager = 2;
-	pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
-	pcall(function() settings().Diagnostics:LegacyScriptMode() end);
+function SetRBXLegacyVersion(Version)
+	rbxlegacyversion = Version;
+	if (rbxlegacyversion == "pre-alpha") then
+		settings().Rendering.frameRateManager = 2;
+		settings().Rendering.graphicsMode = 2;
+		settings().Network.MaxSendBuffer = 1000000;
+		settings().Network.PhysicsReplicationUpdateRate = 1000000;
+		settings().Network.SendRate = 1000000;
+	elseif (rbxlegacyversion == "pre-alpha-ext") then
+		settings().Rendering.frameRateManager = 2;
+		settings().Rendering.graphicsMode = 2;
+		settings().Network.MaxSendBuffer = 1000000;
+		settings().Network.PhysicsReplicationUpdateRate = 1000000;
+		settings().Network.SendRate = 1000000;
+	elseif (rbxlegacyversion == "alpha") then
+		settings().Rendering.frameRateManager = 2;
+		settings().Rendering.graphicsMode = 2;
+		settings().Network.MaxSendBuffer = 1000000;
+		settings().Network.PhysicsReplicationUpdateRate = 1000000;
+		settings().Network.SendRate = 1000000;
+	elseif (rbxlegacyversion == "beta") then
+		settings().Rendering.FrameRateManager = 2;
+		settings().Network.SendRate = 30;
+		settings().Network.ReceiveRate = 60;
+	elseif (rbxlegacyversion == "delta-beta") then
+		settings().Rendering.FrameRateManager = 2;
+		settings().Network.SendRate = 30;
+		settings().Network.ReceiveRate = 60;
+	elseif (rbxlegacyversion == "pre-gamma") then
+		settings().Rendering.FrameRateManager = 2;
+		settings().Network.DataSendRate = 30;
+		settings().Network.PhysicsSendRate = 20;
+		settings().Network.ReceiveRate = 60;
+	elseif (rbxlegacyversion == "delta-pre-gamma") then
+		settings().Rendering.FrameRateManager = 2;
+		settings().Network.DataSendRate = 30;
+		settings().Network.PhysicsSendRate = 20;
+		settings().Network.ReceiveRate = 60;
+	elseif (rbxlegacyversion == "gamma") then
+		settings().Rendering.FrameRateManager = 2;
+		settings().Network.DataSendRate = 30;
+		settings().Network.PhysicsSendRate = 20;
+		settings().Network.ReceiveRate = 60;
+		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end);
+	elseif (rbxlegacyversion == "delta-gamma") then
+		settings().Rendering.FrameRateManager = 2;
+		settings().Network.DataSendRate = 30;
+		settings().Network.PhysicsSendRate = 20;
+		settings().Network.ReceiveRate = 60;
+		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end);
+	elseif (rbxlegacyversion == "delta") then
+		settings().Rendering.FrameRateManager = 2;
+		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end);
+		coroutine.resume(coroutine.create(function()
+			loadstring('\108\111\99\97\108\32\67\111\114\101\71\117\105\32\61\32\103\97\109\101\58\71\101\116\83\101\114\118\105\99\101\40\34\67\111\114\101\71\117\105\34\41\59\10\119\104\105\108\101\32\110\111\116\32\67\111\114\101\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\82\111\98\108\111\120\71\117\105\34\41\32\100\111\10\9\67\111\114\101\71\117\105\46\67\104\105\108\100\65\100\100\101\100\58\119\97\105\116\40\41\59\10\101\110\100\10\108\111\99\97\108\32\82\111\98\108\111\120\71\117\105\32\61\32\67\111\114\101\71\117\105\46\82\111\98\108\111\120\71\117\105\59\10\108\111\99\97\108\32\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\84\111\112\76\101\102\116\67\111\110\116\114\111\108\34\41\10\108\111\99\97\108\32\66\117\105\108\100\84\111\111\108\115\32\61\32\82\111\98\108\111\120\71\117\105\58\70\105\110\100\70\105\114\115\116\67\104\105\108\100\40\34\66\117\105\108\100\84\111\111\108\115\34\41\10\102\117\110\99\116\105\111\110\32\109\97\107\101\89\82\101\108\97\116\105\118\101\40\41\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\10\105\102\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\116\104\101\110\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\32\101\110\100\10\105\102\32\66\117\105\108\100\84\111\111\108\115\32\116\104\101\110\32\66\117\105\108\100\84\111\111\108\115\46\70\114\97\109\101\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\50\32\101\110\100\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\48\44\48\44\49\44\45\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\88\44\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\101\110\100\10\102\117\110\99\116\105\111\110\32\109\97\107\101\88\82\101\108\97\116\105\118\101\40\41\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\105\102\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\32\116\104\101\110\32\84\111\112\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\32\101\110\100\10\105\102\32\66\117\105\108\100\84\111\111\108\115\32\116\104\101\110\32\66\117\105\108\100\84\111\111\108\115\46\70\114\97\109\101\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\32\101\110\100\10\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\48\44\48\44\49\44\45\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\80\111\115\105\116\105\111\110\32\61\32\85\68\105\109\50\46\110\101\119\40\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\88\44\49\44\45\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\65\98\115\111\108\117\116\101\83\105\122\101\46\89\41\10\101\110\100\10\108\111\99\97\108\32\102\117\110\99\116\105\111\110\32\114\101\115\105\122\101\40\41\10\105\102\32\82\111\98\108\111\120\71\117\105\46\65\98\115\111\108\117\116\101\83\105\122\101\46\120\32\62\32\82\111\98\108\111\120\71\117\105\46\65\98\115\111\108\117\116\101\83\105\122\101\46\121\32\116\104\101\110\10\109\97\107\101\89\82\101\108\97\116\105\118\101\40\41\10\101\108\115\101\10\109\97\107\101\88\82\101\108\97\116\105\118\101\40\41\10\101\110\100\10\101\110\100\10\82\111\98\108\111\120\71\117\105\46\67\104\97\110\103\101\100\58\99\111\110\110\101\99\116\40\102\117\110\99\116\105\111\110\40\112\114\111\112\101\114\116\121\41\10\105\102\32\112\114\111\112\101\114\116\121\32\61\61\32\34\65\98\115\111\108\117\116\101\83\105\122\101\34\32\116\104\101\110\10\119\97\105\116\40\41\10\114\101\115\105\122\101\40\41\10\101\110\100\10\101\110\100\41\10\119\97\105\116\40\41\10\114\101\115\105\122\101\40\41\10')()
+		end))
+		coroutine.resume(coroutine.create(function()
+		for _,v in pairs(game:GetChildren()) do
+		if v.Name == "GuiRoot" then
+		coroutine.resume(coroutine.create(function()
+		v.ScoreHud.Parent = nil
+		end)) end end end))
+	elseif (rbxlegacyversion == "delta-omega") then
+		settings().Rendering.FrameRateManager = 2;
+		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end);
+		coroutine.resume(coroutine.create(function()
+		for _,v in pairs(game:GetChildren()) do
+		if v.Name == "GuiRoot" then
+		coroutine.resume(coroutine.create(function()
+		v.ScoreHud.Parent = nil
+		end)) end end end))
+	elseif (rbxlegacyversion == "omega") then
+		settings().Rendering.FrameRateManager = 2;
+		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end);
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end);
+	end
+	print("ROBLOX Client version set to '" .. rbxlegacyversion .. "'.");
 end
 
 rbxversion = version();
@@ -570,9 +504,14 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		pcall(function() Visit:SetUploadUrl(""); end);
 		game:GetService("Visit");
 		if (rbxlegacyversion == "delta") then
-			game.CoreGui.RobloxGui.TopLeftControl.Help.Active = true;
+			game.CoreGui.RobloxGui.TopLeftControl.Help:Remove();
 		elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help.Active = true;
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove();
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove();
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle.Position = UDim2.new(1, -150, 1, -40);
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot.Position = UDim2.new(1, -118, 1, -40);
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48);
+			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove();
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID);
 	else
@@ -679,9 +618,14 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game.Workspace:InsertContent("rbxasset://Fonts//CoreGui2012.rbxm");
 	end
 	if (rbxlegacyversion == "delta") then
-		game.CoreGui.RobloxGui.TopLeftControl.Help.Active = true;
+		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove();
 	elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
-		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help.Active = true;
+		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove();
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove();
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle.Position = UDim2.new(1, -150, 1, -40);
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot.Position = UDim2.new(1, -118, 1, -40);
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48);
+        game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove();
 	end
 	local plr = game.Players:CreateLocalPlayer(UserID);
 	plr.Name = PlayerName;
@@ -699,6 +643,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	end
 end
 
+_G.SetRBXLegacyVersion=SetRBXLegacyVersion;
 _G.CSServer=CSServer;
 _G.CSConnect=CSConnect;
 _G.CSSolo=CSSolo;

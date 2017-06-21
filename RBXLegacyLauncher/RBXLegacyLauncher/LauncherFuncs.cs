@@ -153,7 +153,7 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.ColorMenu_RightLegColor.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.PlayerLimit.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_TShirt.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Custom_Shirt .ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_Shirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Pants.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Face.ToString())
 			};
@@ -193,7 +193,7 @@ namespace RBXLegacyLauncher
 		public static void ReadClientValues(string clientpath)
 		{
 			string line1;
-			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6;
+			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7;
 
 			using(StreamReader reader = new StreamReader(clientpath)) 
 			{
@@ -211,6 +211,7 @@ namespace RBXLegacyLauncher
     		Decryptline4 = SecurityFuncs.Base64Decode(result[3]);
     		Decryptline5 = SecurityFuncs.Base64Decode(result[4]);
     		Decryptline6 = SecurityFuncs.Base64Decode(result[5]);
+    		Decryptline7 = SecurityFuncs.Base64Decode(result[6]);
 			
 			bool bline1 = Convert.ToBoolean(Decryptline1);
 			GlobalVars.UsesPlayerName = bline1;
@@ -226,7 +227,9 @@ namespace RBXLegacyLauncher
 			
 			GlobalVars.SelectedClientMD5 = Decryptline5;
 			
-			GlobalVars.SelectedClientDesc = Decryptline6;
+			GlobalVars.SelectedClientVersion = Decryptline6;
+					
+			GlobalVars.SelectedClientDesc = Decryptline7;
 			
 			GlobalVars.MD5 = GlobalVars.SelectedClientMD5;
 		}

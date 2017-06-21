@@ -8,6 +8,8 @@
     public static string Version = "";
     public static string MD5 = "";
     public static string SharedArgs = "";
+    public static string DefaultScript = "";
+    public static string DefaultScriptMD5 = "";
     //vars for loader
     public static bool ReadyToLaunch = false;
 	//server settings.
@@ -29,6 +31,7 @@
 	public static bool LoadsAssetsOnline = false;
 	public static bool LegacyMode = false;
 	public static string SelectedClientMD5 = "";
+	public static string SelectedClientVersion = "";
 	//clientinfocreator
 	public static bool ClientCreator_UsesPlayerName = false;
 	public static bool ClientCreator_UsesID = false;
@@ -36,6 +39,7 @@
 	public static string ClientCreator_SelectedClientDesc = "";
 	public static bool ClientCreator_LegacyMode = false;
 	public static string ClientCreator_SelectedClientMD5 = "";
+	public static string ClientCreator_SelectedClientVersion = "";
 	//charcustom
 	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";

@@ -49,6 +49,9 @@ namespace RBXLegacyLauncher
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.button4 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// checkBox1
@@ -73,7 +76,7 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(8, 176);
+			this.textBox1.Location = new System.Drawing.Point(10, 218);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(310, 155);
@@ -82,7 +85,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(8, 157);
+			this.label1.Location = new System.Drawing.Point(7, 199);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(92, 16);
 			this.label1.TabIndex = 5;
@@ -98,7 +101,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(166, 366);
+			this.button1.Location = new System.Drawing.Point(166, 408);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(154, 30);
 			this.button1.TabIndex = 7;
@@ -108,7 +111,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(8, 366);
+			this.button2.Location = new System.Drawing.Point(7, 408);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(150, 30);
 			this.button2.TabIndex = 10;
@@ -128,7 +131,7 @@ namespace RBXLegacyLauncher
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(8, 337);
+			this.button3.Location = new System.Drawing.Point(7, 379);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(312, 23);
 			this.button3.TabIndex = 12;
@@ -162,12 +165,41 @@ namespace RBXLegacyLauncher
 			this.textBox2.TabIndex = 15;
 			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
 			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(7, 157);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(71, 16);
+			this.label4.TabIndex = 16;
+			this.label4.Text = "Client Version";
+			// 
+			// textBox3
+			// 
+			this.textBox3.Location = new System.Drawing.Point(9, 176);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(232, 20);
+			this.textBox3.TabIndex = 17;
+			this.textBox3.TextChanged += new System.EventHandler(this.TextBox3TextChanged);
+			// 
+			// button4
+			// 
+			this.button4.Location = new System.Drawing.Point(247, 174);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(75, 23);
+			this.button4.TabIndex = 18;
+			this.button4.Text = "Help";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
+			// 
 			// ClientinfoEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(332, 403);
+			this.ClientSize = new System.Drawing.Size(332, 450);
+			this.Controls.Add(this.button4);
+			this.Controls.Add(this.textBox3);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.checkBox3);
@@ -188,6 +220,9 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.CheckBox checkBox3;

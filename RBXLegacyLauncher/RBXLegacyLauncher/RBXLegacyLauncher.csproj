@@ -72,6 +72,10 @@
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>
     </Compile>
     <Compile Include="CryptoRandom.cs" />
+    <Compile Include="DocForm.cs" />
+    <Compile Include="DocForm.Designer.cs">
+      <DependentUpon>DocForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LauncherFuncs.cs" />
     <Compile Include="LoaderForm.cs" />
     <Compile Include="LoaderForm.Designer.cs">
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClientinfoCreator.resx">
       <DependentUpon>ClientinfoCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocForm.resx">
+      <DependentUpon>DocForm.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
