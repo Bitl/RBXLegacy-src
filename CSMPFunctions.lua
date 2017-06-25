@@ -412,7 +412,7 @@ function CSServer(Port,PlayerLimit)
 	end
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,IconType,Ticket)
 	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta") then
 		pcall(function() game:SetPlaceID(-1, false) end);
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end);
@@ -496,7 +496,17 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			end
 		end
 		pcall(function() Player:SetUnder13(false) end);
-		pcall(function() Player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
+		if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+			if (IconType == "BC") then
+				Player:SetMembershipType(Enum.MembershipType.BuildersClub);
+			elseif (IconType == "TBC") then
+				Player:SetMembershipType(Enum.MembershipType.TurboBuildersClub);
+			elseif  (IconType == "OBC") then
+				Player:SetMembershipType(Enum.MembershipType.OutrageousBuildersClub);
+			elseif  (IconType == "NBC") then
+				Player:SetMembershipType(Enum.MembershipType.None);
+			end
+		end
 		pcall(function() Player:SetAccountAge(365) end);
 		Player:SetSuperSafeChat(false);
 		Player.CharacterAppearance=0;
@@ -523,7 +533,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			player = game:GetService("Players"):CreateLocalPlayer(UserID) 
 			player:SetSuperSafeChat(false)
 			pcall(function() player:SetUnder13(false) end);
-			pcall(function() player:SetMembershipType(Enum.MembershipType.BuildersClub) end);
 			pcall(function() player:SetAccountAge(365) end);
 			player.CharacterAppearance=0;
 			pcall(function() player.Name=PlayerName or ""; end);
@@ -602,7 +611,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 	end
 end
 
-function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
+function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,IconType)
 	if (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game:GetService("RunService"):Run();
 	else
@@ -630,6 +639,19 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	local plr = game.Players:CreateLocalPlayer(UserID);
 	plr.Name = PlayerName;
 	plr:LoadCharacter();
+	pcall(function() plr:SetUnder13(false) end);
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+		if (IconType == "BC") then
+			plr:SetMembershipType(Enum.MembershipType.BuildersClub);
+		elseif (IconType == "TBC") then
+			plr:SetMembershipType(Enum.MembershipType.TurboBuildersClub);
+		elseif  (IconType == "OBC") then
+			plr:SetMembershipType(Enum.MembershipType.OutrageousBuildersClub);
+		elseif  (IconType == "NBC") then
+			plr:SetMembershipType(Enum.MembershipType.None);
+		end
+	end
+	pcall(function() plr:SetAccountAge(365) end);
 	plr.CharacterAppearance=0;
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID);
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character);

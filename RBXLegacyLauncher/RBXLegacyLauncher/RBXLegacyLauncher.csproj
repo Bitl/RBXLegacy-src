@@ -18,6 +18,9 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <WarningLevel>4</WarningLevel>
+    <SignAssembly>False</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -42,6 +45,8 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <StartAction>Program</StartAction>
+    <StartProgram>..\..\..\RBXLegacy\release\RBXLegacy\RBXLegacyLauncher.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -59,10 +64,6 @@
     <Compile Include="CharacterCustomization.Designer.cs">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </Compile>
-    <Compile Include="CharacterCustomization_ClothingMenu.cs" />
-    <Compile Include="CharacterCustomization_ClothingMenu.Designer.cs">
-      <DependentUpon>CharacterCustomization_ClothingMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="CharacterCustomization_HatMenu.cs" />
     <Compile Include="CharacterCustomization_HatMenu.Designer.cs">
       <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
@@ -76,6 +77,10 @@
     <Compile Include="DocForm.Designer.cs">
       <DependentUpon>DocForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoEditor.cs" />
+    <Compile Include="InfoEditor.Designer.cs">
+      <DependentUpon>InfoEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="LauncherFuncs.cs" />
     <Compile Include="LoaderForm.cs" />
     <Compile Include="LoaderForm.Designer.cs">
@@ -86,6 +91,10 @@
       <DependentUpon>QuickConfigure.cs</DependentUpon>
     </Compile>
     <Compile Include="RichTextBoxExtensions.cs" />
+    <Compile Include="SDKForm.cs" />
+    <Compile Include="SDKForm.Designer.cs">
+      <DependentUpon>SDKForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecurityFuncs.cs" />
     <Compile Include="ServerInfo.cs" />
     <Compile Include="ServerInfo.Designer.cs">
@@ -107,9 +116,6 @@
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CharacterCustomization_ClothingMenu.resx">
-      <DependentUpon>CharacterCustomization_ClothingMenu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CharacterCustomization_HatMenu.resx">
       <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="DocForm.resx">
       <DependentUpon>DocForm.Designer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InfoEditor.resx">
+      <DependentUpon>InfoEditor.Designer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuickConfigure.resx">
       <DependentUpon>QuickConfigure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SDKForm.resx">
+      <DependentUpon>SDKForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ServerInfo.resx">
       <DependentUpon>ServerInfo.cs</DependentUpon>

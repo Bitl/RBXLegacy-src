@@ -91,12 +91,17 @@ namespace RBXLegacyLauncher
 			}
 			
 			WriteConfigValues();
-			Process.Start("sudppipe.exe", "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort);
+			Process sudp = new Process();
+			sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
+			sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
+			sudp.StartInfo.UseShellExecute = false;
+			sudp.StartInfo.CreateNoWindow = true;
+			sudp.Start();
 			StartClient();
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
-				this.Close();
+				this.WindowState = FormWindowState.Minimized;
 			}
 		}
 		
@@ -107,7 +112,7 @@ namespace RBXLegacyLauncher
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
-				this.Close();
+				this.WindowState = FormWindowState.Minimized;
 			}
 		}
 		
@@ -121,7 +126,7 @@ namespace RBXLegacyLauncher
 			StartStudio();
 			if (GlobalVars.CloseOnLaunch == true)
 			{
-				this.Close();
+				this.WindowState = FormWindowState.Minimized;
 			}
 		}
 		
@@ -357,12 +362,6 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
-		void Button6Click(object sender, EventArgs e)
-		{
-			ClientinfoEditor cie = new ClientinfoEditor();
-			cie.Show();
-		}
-		
 		void Button7Click(object sender, EventArgs e)
 		{
 			WriteConfigValues();
@@ -425,18 +424,30 @@ namespace RBXLegacyLauncher
 		
 		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
 		{
+			try
+			{
 			GlobalVars.IP = listBox3.SelectedItem.ToString();
 			textBox1.Text = GlobalVars.IP;
 			checkBox3.Enabled = false;
 			GlobalVars.LocalPlayMode = false;
 			label37.Text = GlobalVars.IP;
+			}
+			catch (Exception)
+      		{
+			}
 		}
 		
 		void ListBox4SelectedIndexChanged(object sender, EventArgs e)
 		{
+			try
+			{
 			GlobalVars.RobloxPort = Convert.ToInt32(listBox4.SelectedItem.ToString());
 			textBox4.Text = GlobalVars.RobloxPort.ToString();
 			label38.Text = GlobalVars.RobloxPort.ToString();
+			}
+			catch (Exception)
+      		{
+			}
 		}
 		
 		void Button10Click(object sender, EventArgs e)
@@ -510,7 +521,7 @@ namespace RBXLegacyLauncher
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
-				this.Close();
+				this.WindowState = FormWindowState.Minimized;
 			}						
 		}
 		
@@ -522,7 +533,7 @@ namespace RBXLegacyLauncher
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
-				this.Close();
+				this.WindowState = FormWindowState.Minimized;
 			}
 		}
 		
@@ -585,6 +596,27 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
+		void TextBox7TextChanged(object sender, EventArgs e)
+		{
+			int parsedValue;
+			if (int.TryParse(textBox7.Text, out parsedValue))
+			{
+				if (textBox7.Text.Equals(""))
+				{
+					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
+					GlobalVars.ServerPort = GlobalVars.DefaultRobloxPort;
+				}
+				else
+				{
+					GlobalVars.ServerPort = Convert.ToInt32(textBox7.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.ServerPort = GlobalVars.DefaultRobloxPort;
+			}		
+		}
+		
 		void ResetConfigValues()
 		{
 			LauncherFuncs.ResetConfigValues();
@@ -640,26 +672,31 @@ namespace RBXLegacyLauncher
 			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
 			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
 			{
-				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(" + GlobalVars.UserID + ",'localhost'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(" + GlobalVars.UserID + ",'localhost'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
 			{
-				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(" + GlobalVars.UserID + ",'localhost'," + GlobalVars.RobloxPort + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(" + GlobalVars.UserID + ",'localhost'," + GlobalVars.RobloxPort + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
 			{
-				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(0,'localhost'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(0,'localhost'," + GlobalVars.RobloxPort + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false)
 			{
-				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(0,'localhost'," + GlobalVars.RobloxPort + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = "-script " + quote + "dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSConnect(0,'localhost'," + GlobalVars.RobloxPort + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			try
 			{
 				ConsolePrint("Client Loaded.", 4);
 				if (SecurityFuncs.checkClientMD5(GlobalVars.SelectedClient) == true)
 				{
-					Process.Start(rbxexe, args);
+					Process client = new Process();
+					client.StartInfo.FileName = rbxexe;
+					client.StartInfo.Arguments = args;
+					client.EnableRaisingEvents = true;
+					client.Exited += new EventHandler(ClientExited);
+					client.Start();
 				}
 			}
 			catch (Exception)
@@ -675,6 +712,23 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
+		void ClientExited(object sender, EventArgs e)
+		{
+			Process[] sudp = Process.GetProcessesByName("sudppipe");
+			if (sudp != null)
+			{
+				foreach (var process in sudp)
+				{
+    				process.Kill();
+				}
+				
+				if (this.WindowState == FormWindowState.Minimized)
+				{
+					this.WindowState = FormWindowState.Normal;
+				}
+			}
+		}
+		
 		void StartSolo()
 		{
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
@@ -686,19 +740,19 @@ namespace RBXLegacyLauncher
 			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
 			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false )
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSSolo(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.Custom_Face + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			try
 			{
@@ -718,7 +772,7 @@ namespace RBXLegacyLauncher
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSServer(" + GlobalVars.RobloxPort + "," + GlobalVars.PlayerLimit + "); " + quote;
+			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + "); " + quote;
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
@@ -737,7 +791,7 @@ namespace RBXLegacyLauncher
 			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
 			string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSServer(" + GlobalVars.RobloxPort + "," + GlobalVars.PlayerLimit + "); " + quote + " -no3d";
+			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion('" + GlobalVars.SelectedClientVersion + "'); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + "); " + quote + " -no3d";
 			try
 			{
 				ConsolePrint("Server Loaded in No3d.", 4);
@@ -786,7 +840,12 @@ namespace RBXLegacyLauncher
 			}
 			else if (command.Equals("rbxlegacy client"))
 			{
-				Process.Start("sudppipe.exe", "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort);
+				Process sudp = new Process();
+				sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
+				sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
+				sudp.StartInfo.UseShellExecute = false;
+				sudp.StartInfo.CreateNoWindow = true;
+				sudp.Start();
 				StartClient();
 			}
 			else if (command.Equals("rbxlegacy client solo"))
@@ -812,6 +871,18 @@ namespace RBXLegacyLauncher
 			else if (command.Equals("rbxlegacy config reset"))
 			{
 				ResetConfigValues();
+			}
+			else if (command.Equals("rbxlegacy sdk"))
+			{
+				SDKForm sdk = new SDKForm();
+				sdk.Show();
+				ConsolePrint("Launched SDK.", 4);
+			}
+			else if (command.Equals("sdk"))
+			{
+				SDKForm sdk = new SDKForm();
+				sdk.Show();
+				ConsolePrint("Launched SDK.", 4);
 			}
 			else if (command.Equals("rbxlegacy help"))
 			{
@@ -865,6 +936,7 @@ namespace RBXLegacyLauncher
 				ConsolePrint("= server | Loads server with launcher settings", 3);
 				ConsolePrint("-- no3d | Loads server in NoGraphics mode with launcher settings", 4);
 				ConsolePrint("= studio | Loads Roblox Studio with launcher settings", 3);
+				ConsolePrint("= sdk | Loads the RBXLegacy SDK", 3);
 				ConsolePrint("= config", 3);
 				ConsolePrint("-- save | Saves the config file", 4);
 				ConsolePrint("-- load | Reloads the config file", 4);

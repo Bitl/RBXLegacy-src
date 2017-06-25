@@ -31,7 +31,7 @@ namespace RBXLegacyLauncher
 		public static void ReadConfigValues(string cfgpath)
 		{
 			string line1;
-			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8, Decryptline9, Decryptline10, Decryptline11, Decryptline12, Decryptline13, Decryptline14, Decryptline15, Decryptline16, Decryptline17, Decryptline18, Decryptline19, Decryptline20, Decryptline21, Decryptline22, Decryptline23, Decryptline24, Decryptline25, Decryptline26;
+			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8, Decryptline9, Decryptline10, Decryptline11, Decryptline12, Decryptline13, Decryptline14, Decryptline15, Decryptline16, Decryptline17, Decryptline18, Decryptline19, Decryptline20, Decryptline21, Decryptline22, Decryptline23, Decryptline24, Decryptline25, Decryptline26, Decryptline27;
 
 			using(StreamReader reader = new StreamReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.txt")) 
 			{
@@ -69,6 +69,7 @@ namespace RBXLegacyLauncher
     		Decryptline24 = SecurityFuncs.Base64Decode(result[23]);
     		Decryptline25 = SecurityFuncs.Base64Decode(result[24]);
     		Decryptline26 = SecurityFuncs.Base64Decode(result[25]);
+    		Decryptline27 = SecurityFuncs.Base64Decode(result[26]);
 			
 			bool bline1 = Convert.ToBoolean(Decryptline1);
 			GlobalVars.CloseOnLaunch = bline1;
@@ -83,7 +84,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.Map = Decryptline5;
 			
 			int iline6 = Convert.ToInt32(Decryptline6);
-			GlobalVars.RobloxPort = iline6;
+			GlobalVars.ServerPort = iline6;
 			
 			GlobalVars.Custom_Hat1ID_Offline = Decryptline7;
 			GlobalVars.Custom_Hat2ID_Offline = Decryptline8;
@@ -116,7 +117,7 @@ namespace RBXLegacyLauncher
 			
 			int iline22 = Convert.ToInt32(Decryptline22);
 			GlobalVars.PlayerLimit = iline22;
-			
+
 			int iline23 = Convert.ToInt32(Decryptline23);
 			GlobalVars.Custom_TShirt = iline23;
 			int iline24 = Convert.ToInt32(Decryptline24);
@@ -125,6 +126,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.Custom_Pants = iline25;
 			int iline26 = Convert.ToInt32(Decryptline26);
 			GlobalVars.Custom_Face = iline26;
+			GlobalVars.Custom_IconType = Decryptline27;
 		}
 		
 		public static void WriteConfigValues(string cfgpath)
@@ -135,7 +137,7 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.PlayerName.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.SelectedClient.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Map.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.RobloxPort.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.ServerPort.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Hat1ID_Offline.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Hat2ID_Offline.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Hat3ID_Offline.ToString()),
@@ -155,19 +157,33 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_TShirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Shirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Pants.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Custom_Face.ToString())
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_Face.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_IconType.ToString())
 			};
 			File.WriteAllText(cfgpath, SecurityFuncs.Base64Encode(string.Join("|",lines)));
 		}
 		
 		public static void ResetConfigValues()
 		{
+			string line1;
+			string Decryptline2;
+			using(StreamReader reader = new StreamReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\info.txt"))
+			{
+    			line1 = reader.ReadLine();
+			}
+			
+			if (!SecurityFuncs.IsBase64String(line1))
+				return;
+			string ConvertedLine = SecurityFuncs.Base64Decode(line1);
+			string[] result = ConvertedLine.Split('|');
+    		Decryptline2 = SecurityFuncs.Base64Decode(result[1]);
+    		
 			GlobalVars.CloseOnLaunch = false;
 			GlobalVars.UserID = 0;
 			GlobalVars.PlayerName = "Player";
-			GlobalVars.SelectedClient = "Mid-2008";
+    		GlobalVars.SelectedClient = Decryptline2;
 			GlobalVars.Map = "Baseplate.rbxl";
-			GlobalVars.RobloxPort = 53640;
+			GlobalVars.ServerPort = 53640;
 			GlobalVars.Custom_Hat1ID_Offline = "NoHat.rbxm";
 			GlobalVars.Custom_Hat2ID_Offline = "NoHat.rbxm";
 			GlobalVars.Custom_Hat3ID_Offline = "NoHat.rbxm";
@@ -188,6 +204,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.Custom_Shirt = 0;
 			GlobalVars.Custom_Pants = 0;
 			GlobalVars.Custom_Face = 0;
+			GlobalVars.Custom_IconType = "NBC";
 		}
 		
 		public static void ReadClientValues(string clientpath)
@@ -274,18 +291,5 @@ namespace RBXLegacyLauncher
 			//2147483647 is max id.
 			GlobalVars.UserID = randomID;
 		}
-		
-		public static bool IsProcessOpen(string name)
-    	{
-        	foreach (Process clsProcess in Process.GetProcesses()) 
-        	{
-           	 	if (clsProcess.ProcessName.Contains(name))
-            	{
-                	return true;
-            	}
-        	}
-
-        	return false;
-    	}
 	}
 }
