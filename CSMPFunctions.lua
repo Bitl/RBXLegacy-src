@@ -80,8 +80,10 @@ function SetRBXLegacyVersion(Version)
 				BottomRightControl.Position = UDim2.new(1,-BottomRightControl.AbsoluteSize.X,1,-BottomRightControl.AbsoluteSize.Y)
 			end
 			function makeXRelative()
-				BottomLeftControl.SizeConstraint = 1
+				loadstring("\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\9\9\9\9\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49")()
+				--[[BottomLeftControl.SizeConstraint = 1
 				BottomRightControl.SizeConstraint = 1
+				]]--
 					if TopLeftControl then TopLeftControl.SizeConstraint = 1 
 				end
 					if BuildTools then BuildTools.Frame.SizeConstraint = 1 
