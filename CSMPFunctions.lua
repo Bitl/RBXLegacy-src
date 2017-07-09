@@ -629,7 +629,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			client.ConnectionRejected:connect(rejected)
 			client.ConnectionFailed:connect(failed)
 			client:Connect(ServerIP,ServerPort, 0, 20)
-      end
+      			end)
 		end)
 
 		if not suc then
