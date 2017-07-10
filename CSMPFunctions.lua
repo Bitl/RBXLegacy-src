@@ -573,6 +573,9 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
+			wait(5) -- we have to wait until the menu gets built, don't we?
+			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
+			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
 	else
