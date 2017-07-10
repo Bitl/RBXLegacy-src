@@ -568,9 +568,9 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle.Position = UDim2.new(1, -150, 1, -40)
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot.Position = UDim2.new(1, -118, 1, -40)
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48)
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
 		end
@@ -661,11 +661,11 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
 	elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle.Position = UDim2.new(1, -150, 1, -40)
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot.Position = UDim2.new(1, -118, 1, -40)
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48)
-        game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
+      	 	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
 	--[[elseif (rbxlegacyversion == "ultra") then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
