@@ -129,13 +129,14 @@ function SetRBXLegacyVersion(Version)
 	elseif (rbxlegacyversion == "omega") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+		pcall(function() settings().Diagnostics:LegacyScriptMode()
 		--stamper
 		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
 		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
        		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
 		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
         	game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+	end)
 	--[[elseif (rbxlegacyversion == "ultra") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
