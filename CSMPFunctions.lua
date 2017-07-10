@@ -679,8 +679,8 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	plr:LoadCharacter()
 	if (rbxlegacyversion == "omega") then
 		wait(5) -- we have to wait until the menu gets built, don't we?
-		Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
-		Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
+		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
 	end
 	pcall(function() plr:SetUnder13(false) end)
 	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
