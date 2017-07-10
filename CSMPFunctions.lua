@@ -130,10 +130,16 @@ function SetRBXLegacyVersion(Version)
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-	elseif (rbxlegacyversion == "ultra") then
+		--stamper
+		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
+		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
+       		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
+		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
+        	game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+	--[[elseif (rbxlegacyversion == "ultra") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end)]]--we aren't ready for this yet
 	end
 	print("RBXLegacy client opration set to '" .. rbxlegacyversion .. "'.")
 end
@@ -644,7 +650,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 end
 
 function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,IconType)
-	if (rbxlegacyversion == "ultra" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+	if (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game:GetService("RunService"):Run()
 	else
 		game:GetService("RunService"):run()
@@ -660,14 +666,14 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
         game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48)
         game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-	elseif (rbxlegacyversion == "ultra") then
+	--[[elseif (rbxlegacyversion == "ultra") then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
-	end
+	end]]
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()
 	pcall(function() plr:SetUnder13(false) end)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "ultra") then
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		if (IconType == "BC") then
 			plr:SetMembershipType(Enum.MembershipType.BuildersClub)
 		elseif (IconType == "TBC") then
