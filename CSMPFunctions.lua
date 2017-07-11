@@ -1,6 +1,112 @@
 --coded by Bitl and Carrot
 --stuff was borrowed from RBXBanland, EnergyCell, John, and the RBXPri team
---prev: E3E711221D25224333D5EC3309BC2D7B
+--[[documentation for corescript stuff (ripped from roblox wiki, 2017)
+
+The following strings are known to exist in a normal game session, and Roblox Studio:
+
+"Exit"
+"RecordToggle"
+"Screenshot"
+"ToggleFullScreen"
+
+The following strings are known to exist only in Roblox Studio:
+
+"Group"
+"UnGroup"
+"UnionSelection"
+"NegateSelection"
+"SeparateSelection"
+"Copy"
+"Duplicate"
+"UndoVerb"
+"RedoVerb"
+"InsertIntoFromFileVerb"
+"InsertModelVerb"
+"SelectionSaveToFile"
+"PublishToRobloxAsVerb"
+"PublishSelectionToRobloxVerb"
+"CreateNewLinkedSourceVerb"
+"PublishAsPluginVerb"
+"LaunchInstancesVerb"
+"PlaySoloVerb"
+"StartServerVerb"
+"StartPlayerVerb"
+"PairRbxDevVerb"
+"ManageEmulationDevVerb"
+"AudioEnableVerb"
+"AnalyzeEnableVerb"
+"ShutdownClient"
+"ShutdownClientAndSave"
+"ToggleAxisWidget"
+"Toggle3DGrid"
+"ToggleCollisionCheckVerb"
+"ToggleLocalSpaceVerb"
+"ExportSelectionVerb"
+"ExportPlaceVerb"
+"PublishToRobloxVerb"
+"InsertAdvancedObjectDialogVerb"
+"JointToolHelpDialogVerb"
+"StudioMaterialVerb"
+"StudioColorVerb"
+"OpenToolBoxWithOptionsVerb"
+"InsertBasicObjectVerb"
+"JointCreationModeVerb"
+"LaunchHelpForSelectionVerb"
+
+locked guiservice
+
+ExplorerImageIndex27.pngGuiService
+Property CoreEffectFolder
+Property CoreGuiFolder
+Property ScreenGuiEnabled
+Property SelectedCoreObject
+Function AddCenterDialog
+Function AddKey
+Function AddSpecialKey
+Function CloseStatsBasedOnInputString
+Function GetBrickCount
+Function GetClosestDialogToPosition
+Function GetErrorMessage
+Function GetUiMessage
+Function OpenBrowserWindow
+Function RemoveCenterDialog
+Function RemoveKey
+Function RemoveSpecialKey
+Function SetGlobalGuiInset
+Function SetMenuIsOpen
+Function ShowStatsBasedOnInputString
+Function ToggleFullscreen
+YieldFunction GetScreenResolution
+Callback SendCoreUiNotification
+Event BrowserWindowClosed
+Event ErrorMessageChanged
+Event EscapeKeyPressed
+Event KeyPressed
+Event ShowLeaveConfirmation
+Event SpecialKeyPressed
+Event UiMessageChanged
+
+dialogs
+
+Dialog icon.pngDialog
+Function SetPlayerIsUsing
+Function SignalDialogChoiceSelected
+
+coregui
+
+StarterGui icon.pngCoreGui
+Property SelectionImageObject
+Function SetUserGuiRendering
+
+scriptcontext
+
+ExplorerImageIndex78.pngScriptContext
+Function AddCoreScriptLocal
+Function GetHeapStats
+Function GetScriptStats
+Function SetCollectScriptStats
+Event CamelCaseViolation
+]]
 
 rbxlegacyversion = ""
 
