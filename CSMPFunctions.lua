@@ -137,6 +137,13 @@ function SetRBXLegacyVersion(Version)
        		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
 		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
         	game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+		--corescripts
+		local RobloxGui = game:GetService("CoreGui"):WaitForChild("RobloxGui") 
+		local scriptContext = game:GetService("ScriptContext") 
+		--scriptContext:AddCoreScript("CoreScripts/Playerlist", RobloxGui) -- needs work, file://
+		--scriptContext:AddCoreScript("CoreScripts/GameMenu", RobloxGui) -- needs work, file://
+		--scriptContext:AddCoreScript("CoreScripts/BackpackFull", RobloxGui) -- needs work, file://
+		--todo: file:// and the corescript adder thing
 	end)
 	--[[elseif (rbxlegacyversion == "ultra") then
 		settings().Rendering.FrameRateManager = 2
