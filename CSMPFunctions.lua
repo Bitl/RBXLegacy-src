@@ -143,7 +143,7 @@ function SetRBXLegacyVersion(Version)
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)]]--we aren't ready for this yet
 	end
-	print("RBXLegacy client opration set to '" .. rbxlegacyversion .. "'.")
+	print("RBXLegacy client operation set to '" .. rbxlegacyversion .. "'.")
 end
 
 rbxversion = version()
