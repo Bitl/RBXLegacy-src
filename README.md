@@ -3,7 +3,7 @@
 
 ## What is RBXLegacy
 
-RBXLegacy is a launcher and website for ROBLOX's clients from 2008 - 2012.
+RBXLegacy is a launcher and website for ROBLOX's clients from 2006 - 2012. (you can also get 2012+ as a DLC.)
 
 This is the source code for RBXLegacy's launcher, installer and server. All of these source files are under the license specified in [LICENSE.MD](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD).
 
