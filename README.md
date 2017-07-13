@@ -1,7 +1,7 @@
 
 ![Logo](https://cdn.discordapp.com/attachments/327072930066333697/327073266197856268/Logo.png)
 
-## What is RBXLegacy
+## Overview
 
 RBXLegacy is a launcher and website for ROBLOX's clients from 2006 - 2012, designed so you can play offline, online and through LAN.
 
