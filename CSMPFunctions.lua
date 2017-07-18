@@ -1,6 +1,5 @@
 --coded by Bitl and Carrot
 --stuff was borrowed from RBXBanland, EnergyCell, John, and the RBXPri team
-
 rbxlegacyversion = ""
 
 function SetRBXLegacyVersion(Version)
@@ -80,8 +79,10 @@ function SetRBXLegacyVersion(Version)
 				BottomRightControl.Position = UDim2.new(1,-BottomRightControl.AbsoluteSize.X,1,-BottomRightControl.AbsoluteSize.Y)
 			end
 			function makeXRelative()
-				BottomLeftControl.SizeConstraint = 1
+				loadstring("\66\111\116\116\111\109\76\101\102\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49\10\9\9\9\9\66\111\116\116\111\109\82\105\103\104\116\67\111\110\116\114\111\108\46\83\105\122\101\67\111\110\115\116\114\97\105\110\116\32\61\32\49")()
+				--[[BottomLeftControl.SizeConstraint = 1
 				BottomRightControl.SizeConstraint = 1
+				]]--
 					if TopLeftControl then TopLeftControl.SizeConstraint = 1 
 				end
 					if BuildTools then BuildTools.Frame.SizeConstraint = 1 
@@ -127,13 +128,27 @@ function SetRBXLegacyVersion(Version)
 	elseif (rbxlegacyversion == "omega") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-	elseif (rbxlegacyversion == "ultra") then
+		pcall(function() settings().Diagnostics:LegacyScriptMode()
+		--stamper
+		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
+		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
+       		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
+		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
+        	game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+		--[[corescripts
+		local RobloxGui = game:GetService("CoreGui"):WaitForChild("RobloxGui") 
+		local scriptContext = game:GetService("ScriptContext") 
+		scriptContext:AddCoreScript("CoreScripts/Playerlist", RobloxGui)
+		scriptContext:AddCoreScript("CoreScripts/GameMenu", RobloxGui)
+		scriptContext:AddCoreScript("CoreScripts/BackpackFull", RobloxGui)
+		]]--todo: file:// (rbxasset://) and the corescript adder thing
+	end)
+	--[[elseif (rbxlegacyversion == "ultra") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end)]]--we aren't ready for this yet
 	end
-	print("RBXLegacy client opration set to '" .. rbxlegacyversion .. "'.")
+	print("RBXLegacy client operation set to '" .. rbxlegacyversion .. "'.")
 end
 
 rbxversion = version()
@@ -150,6 +165,8 @@ function newWaitForChild(newParent,name)
 end
 
 function LoadCharacterNew(playerApp,newChar)
+	--authentic roblox style loading
+	wait(0.5)
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
 			if (newVal.CustomizationType.Value == 1) then 
@@ -366,6 +383,7 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	typeValue.Name = "CustomizationType"
 	typeValue.Parent = newFace
 	typeValue.Value = 6
+	--BODY PARTS
 end
 
 function CSServer(Port,PlayerLimit)
@@ -414,7 +432,7 @@ function CSServer(Port,PlayerLimit)
 		RunService = game:GetService("RunService")
 		Server:start(Port, 20)
 		RunService:run()
-    game.Workspace:InsertContent("rbxasset://fonts/libraries.rbxm")
+		game.Workspace:InsertContent("rbxasset://fonts/libraries.rbxm")
 		game:GetService("Players").MaxPlayers = PlayerLimit
 		game:GetService("Players").PlayerAdded:connect(function(Player)
 			if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
@@ -559,11 +577,14 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle.Position = UDim2.new(1, -150, 1, -40)
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot.Position = UDim2.new(1, -118, 1, -40)
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48)
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
+			wait(5) -- we have to wait until the menu gets built, don't we?
+			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
+			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
 	else
@@ -629,7 +650,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			client.ConnectionRejected:connect(rejected)
 			client.ConnectionFailed:connect(failed)
 			client:Connect(ServerIP,ServerPort, 0, 20)
-      		end)
+      			end)
 		end)
 
 		if not suc then
@@ -642,7 +663,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 end
 
 function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,IconType)
-	if (rbxlegacyversion == "ultra" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+	if (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game:GetService("RunService"):Run()
 	else
 		game:GetService("RunService"):run()
@@ -652,20 +673,26 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
 	elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle.Position = UDim2.new(1, -150, 1, -40)
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot.Position = UDim2.new(1, -118, 1, -40)
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen.Position = UDim2.new(1, -85, 1, -48)
-        game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
+      	 	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-	elseif (rbxlegacyversion == "ultra") then
-		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 	end
+	--[[elseif (rbxlegacyversion == "ultra") then
+		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
+	end]]
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()
+	if (rbxlegacyversion == "omega") then
+		wait(5) -- we have to wait until the menu gets built, don't we?
+		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
+		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+	end
 	pcall(function() plr:SetUnder13(false) end)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "ultra") then
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		if (IconType == "BC") then
 			plr:SetMembershipType(Enum.MembershipType.BuildersClub)
 		elseif (IconType == "TBC") then
