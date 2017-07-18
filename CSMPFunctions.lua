@@ -1,5 +1,4 @@
---coded by Bitl and Carrot
---stuff was borrowed from RBXBanland, EnergyCell, John, and the RBXPri team
+--coded by Bitl
 --[[documentation for corescript stuff (ripped from roblox wiki, 2017)
 
 The following strings are known to exist in a normal game session, and Roblox Studio:
