@@ -228,7 +228,7 @@ function LoadCharacterNew(playerApp,newChar)
 			elseif (newVal.CustomizationType.Value == 6)  then
 				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta") then
 					pcall(function()
-					local newFace = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
 					if newFace[1] then 
 						if newFace[1].className == "Decal" then
 							newWaitForChild(charparts[1],"face"):remove()
@@ -373,12 +373,13 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	typeValue.Value = 5
 	--FACE
 	local newFace = Instance.new("StringValue",newCharApp)
-	if (FaceID ~= nil or FaceID ~= "0") then
+	if (FaceID ~= nil) then
 		newFace.Value = FaceID
+		newFace.Name = FaceID
 	else
-		newFace.Value = "0"
+		newFace.Value = "DefaultFace.rbxm"
+		newFace.Name = "DefaultFace.rbxm"
 	end
-	newFace.Name = "Face"
 	local typeValue = Instance.new("NumberValue")
 	typeValue.Name = "CustomizationType"
 	typeValue.Parent = newFace
