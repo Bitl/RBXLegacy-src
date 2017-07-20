@@ -244,7 +244,7 @@ function LoadCharacterNew(playerApp,newChar)
 	end
 end
 
-function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
+function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	local newCharApp = Instance.new("IntValue",Player)
 	newCharApp.Name = "Appearance"
 	--BODY COLORS
@@ -403,13 +403,65 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		newTorso.Value = TorsoID
 		newTorso.Name = TorsoID
 	else
-		newTorso.Value = "DefaultHead.rbxm"
-		newTorso.Name = "DefaultHead.rbxm"
+		newTorso.Value = "DefaultTorso.rbxm"
+		newTorso.Name = "DefaultTorso.rbxm"
 	end
 	local typeValue = Instance.new("NumberValue")
 	typeValue.Name = "CustomizationType"
 	typeValue.Parent = newTorso
 	typeValue.Value = 8
+	--RIGHT ARM
+	local newRArm = Instance.new("StringValue",newCharApp)
+	if (RArmID ~= nil) then
+		newRArm.Value = RArmID
+		newRArm.Name = RArmID
+	else
+		newRArm.Value = "DefaultRArm.rbxm"
+		newRArm.Name = "DefaultRArm.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newRArm
+	typeValue.Value = 9
+	--LEFT ARM
+	local newLArm = Instance.new("StringValue",newCharApp)
+	if (LArmID ~= nil) then
+		newLArm.Value = LArmID
+		newLArm.Name = LArmID
+	else
+		newLArm.Value = "DefaultLArm.rbxm"
+		newLArm.Name = "DefaultLArm.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newLArm
+	typeValue.Value = 10
+	--RIGHT LEG
+	local newRLeg = Instance.new("StringValue",newCharApp)
+	if (RLegID ~= nil) then
+		newRLeg.Value = RLegID
+		newRLeg.Name = RLegID
+	else
+		newRLeg.Value = "DefaultRLeg.rbxm"
+		newRLeg.Name = "DefaultRLeg.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newRLeg
+	typeValue.Value = 11
+	--LEFT LEG
+	local newLLeg = Instance.new("StringValue",newCharApp)
+	if (LLegID ~= nil) then
+		newLLeg.Value = LLegID
+		newLLeg.Name = LLegID
+	else
+		newLLeg.Value = "DefaultLLeg.rbxm"
+		newLLeg.Name = "DefaultLLeg.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newLLeg
+	typeValue.Value = 12
 end
 
 function CSServer(Port,PlayerLimit)
@@ -497,7 +549,7 @@ function CSServer(Port,PlayerLimit)
 	end
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,IconType,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Ticket)
 	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta") then
 		pcall(function() game:SetPlaceID(-1, false) end)
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
@@ -612,7 +664,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
 			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
 		end
-		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
+		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	else
 		pcall(function() game:SetPlaceID(-1, false) end)
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
@@ -626,7 +678,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			player.CharacterAppearance=0
 			pcall(function() player.Name=PlayerName or "" end)
 			game:GetService("Visit")
-			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
+			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 		end)
 	
 		local function dieerror(errmsg)
@@ -687,7 +739,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		end
 end
 
-function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,IconType)
+function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
 	if (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game:GetService("RunService"):Run()
 	else
@@ -698,11 +750,11 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
 	elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
-      	 	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
-        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
-        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
-        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
-        	game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
+      	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
+		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
+        game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
 	end
 	--[[elseif (rbxlegacyversion == "ultra") then
@@ -730,7 +782,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	end
 	pcall(function() plr:SetAccountAge(365) end)
 	plr.CharacterAppearance=0
-	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID)
+	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
 	game:GetService("Visit")
 	while true do wait()
