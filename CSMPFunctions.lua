@@ -384,7 +384,32 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	typeValue.Name = "CustomizationType"
 	typeValue.Parent = newFace
 	typeValue.Value = 6
-	--BODY PARTS
+	--HEADS
+	local newHead = Instance.new("StringValue",newCharApp)
+	if (HeadID ~= nil) then
+		newHead.Value = HeadID
+		newHead.Name = HeadID
+	else
+		newHead.Value = "DefaultHead.rbxm"
+		newHead.Name = "DefaultHead.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newHead
+	typeValue.Value = 7
+	--TORSOS
+	local newTorso = Instance.new("StringValue",newCharApp)
+	if (TorsoID ~= nil) then
+		newTorso.Value = TorsoID
+		newTorso.Name = TorsoID
+	else
+		newTorso.Value = "DefaultHead.rbxm"
+		newTorso.Name = "DefaultHead.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newTorso
+	typeValue.Value = 8
 end
 
 function CSServer(Port,PlayerLimit)
