@@ -69,7 +69,7 @@ namespace RBXLegacyLauncher
     		Decryptline24 = SecurityFuncs.Base64Decode(result[23]);
     		Decryptline25 = SecurityFuncs.Base64Decode(result[24]);
     		Decryptline26 = SecurityFuncs.Base64Decode(result[25]);
-    		Decryptline27 = SecurityFuncs.Base64Decode(result[26]);
+    		//Decryptline27 = SecurityFuncs.Base64Decode(result[26]);
 			
 			bool bline1 = Convert.ToBoolean(Decryptline1);
 			GlobalVars.CloseOnLaunch = bline1;
@@ -124,9 +124,8 @@ namespace RBXLegacyLauncher
 			GlobalVars.Custom_Shirt = iline24;
 			int iline25 = Convert.ToInt32(Decryptline25);
 			GlobalVars.Custom_Pants = iline25;
-			int iline26 = Convert.ToInt32(Decryptline26);
-			GlobalVars.Custom_Face = iline26;
-			GlobalVars.Custom_IconType = Decryptline27;
+			
+			GlobalVars.Custom_IconType = Decryptline26;
 		}
 		
 		public static void WriteConfigValues(string cfgpath)
@@ -157,7 +156,6 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_TShirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Shirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Pants.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Custom_Face.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_IconType.ToString())
 			};
 			File.WriteAllText(cfgpath, SecurityFuncs.Base64Encode(string.Join("|",lines)));
@@ -203,7 +201,6 @@ namespace RBXLegacyLauncher
 			GlobalVars.Custom_TShirt = 0;
 			GlobalVars.Custom_Shirt = 0;
 			GlobalVars.Custom_Pants = 0;
-			GlobalVars.Custom_Face = 0;
 			GlobalVars.Custom_IconType = "NBC";
 		}
 		

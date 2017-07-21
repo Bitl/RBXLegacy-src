@@ -56,10 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharacterColors.cs" />
-    <Compile Include="CharacterColors.Designer.cs">
-      <DependentUpon>CharacterColors.cs</DependentUpon>
-    </Compile>
     <Compile Include="CharacterCustomization.cs" />
     <Compile Include="CharacterCustomization.Designer.cs">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
@@ -110,9 +106,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CharacterColors.resx">
-      <DependentUpon>CharacterColors.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </EmbeddedResource>

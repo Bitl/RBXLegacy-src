@@ -240,6 +240,32 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
+			elseif (newVal.CustomizationType.Value == 7) then 
+				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta") then
+					pcall(function()
+					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
+					if newPart[1] then 
+						if newPart[1].className == "SpecialMesh" then
+							newPart[1].Parent = charparts[1]
+						else
+							newPart[1]:remove()
+						end
+					end
+				end)
+			end'
+			elseif (newVal.CustomizationType.Value == 8) then 
+				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma") then
+					pcall(function()
+					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
+					if newPart[1] then 
+						if newPart[1].className == "SpecialMesh" then
+							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
+						else
+							newPart[1]:remove()
+						end
+					end
+				end)
+			end
 		end
 	end
 end
@@ -397,71 +423,59 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	typeValue.Name = "CustomizationType"
 	typeValue.Parent = newHead
 	typeValue.Value = 7
-	--TORSOS
-	local newTorso = Instance.new("StringValue",newCharApp)
-	if (TorsoID ~= nil) then
-		newTorso.Value = TorsoID
-		newTorso.Name = TorsoID
-	else
-		newTorso.Value = "DefaultTorso.rbxm"
-		newTorso.Name = "DefaultTorso.rbxm"
+	--PACKAGES
+	for i=2,5,1 do
+		local BodyMesh = Instance.new("StringValue",newCharApp)
+		if (i == 2) then
+			if (TorsoID ~= nil) then
+				BodyMesh.Value = TorsoID
+				BodyMesh.Name = TorsoID
+			else
+				BodyMesh.Value = "DefaultTorso.rbxm"
+				BodyMesh.Name = "DefaultTorso.rbxm"
+			end
+		elseif (i == 3) then
+			if (LArmID ~= nil) then
+				newLArm.Value = LArmID
+				newLArm.Name = LArmID
+			else
+				newLArm.Value = "DefaultLArm.rbxm"
+				newLArm.Name = "DefaultLArm.rbxm"
+			end
+		elseif (i == 4) then
+			if (RArmID ~= nil) then
+				BodyMesh.Value = RArmID
+				BodyMesh.Name = RArmID
+			else
+				BodyMesh.Value = "DefaultRArm.rbxm"
+				BodyMesh.Name = "DefaultRArm.rbxm"
+			end
+		elseif (i == 5) then
+			if (LLegID ~= nil) then
+				BodyMesh.Value = LLegID
+				BodyMesh.Name = LLegID
+			else
+				BodyMesh.Value = "DefaultLLeg.rbxm"
+				BodyMesh.Name = "DefaultLLeg.rbxm"
+			end
+		elseif (i == 6) then
+			if (RLegID ~= nil) then
+				newRLeg.Value = RLegID
+				newRLeg.Name = RLegID
+			else
+				newRLeg.Value = "DefaultRLeg.rbxm"
+				newRLeg.Name = "DefaultRLeg.rbxm"
+			end
+		end
+		local indexValue = Instance.new("NumberValue")
+		indexValue.Name = "MeshIndex"
+		indexValue.Parent = BodyColor
+		indexValue.Value = i
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = BodyColor
+		typeValue.Value = 8
 	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newTorso
-	typeValue.Value = 8
-	--RIGHT ARM
-	local newRArm = Instance.new("StringValue",newCharApp)
-	if (RArmID ~= nil) then
-		newRArm.Value = RArmID
-		newRArm.Name = RArmID
-	else
-		newRArm.Value = "DefaultRArm.rbxm"
-		newRArm.Name = "DefaultRArm.rbxm"
-	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newRArm
-	typeValue.Value = 9
-	--LEFT ARM
-	local newLArm = Instance.new("StringValue",newCharApp)
-	if (LArmID ~= nil) then
-		newLArm.Value = LArmID
-		newLArm.Name = LArmID
-	else
-		newLArm.Value = "DefaultLArm.rbxm"
-		newLArm.Name = "DefaultLArm.rbxm"
-	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newLArm
-	typeValue.Value = 10
-	--RIGHT LEG
-	local newRLeg = Instance.new("StringValue",newCharApp)
-	if (RLegID ~= nil) then
-		newRLeg.Value = RLegID
-		newRLeg.Name = RLegID
-	else
-		newRLeg.Value = "DefaultRLeg.rbxm"
-		newRLeg.Name = "DefaultRLeg.rbxm"
-	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newRLeg
-	typeValue.Value = 11
-	--LEFT LEG
-	local newLLeg = Instance.new("StringValue",newCharApp)
-	if (LLegID ~= nil) then
-		newLLeg.Value = LLegID
-		newLLeg.Name = LLegID
-	else
-		newLLeg.Value = "DefaultLLeg.rbxm"
-		newLLeg.Name = "DefaultLLeg.rbxm"
-	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newLLeg
-	typeValue.Value = 12
 end
 
 function CSServer(Port,PlayerLimit)
