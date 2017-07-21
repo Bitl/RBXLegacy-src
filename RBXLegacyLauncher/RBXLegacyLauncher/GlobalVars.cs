@@ -1,31 +1,30 @@
-﻿public static class GlobalVars
-{
-    public static string ClientDir = "";
-    public static string ScriptsDir = "";
-    public static string MapsDir = "";
-    public static string CustomPlayerDir = "";
-    public static string IP = "localhost";
-    public static string Version = "";
-    public static string MD5 = "";
-    public static string SharedArgs = "";
-    public static string DefaultScript = "";
-    public static string DefaultScriptMD5 = "";
-    public static bool AdminMode = false;
-    //vars for loader
-    public static bool ReadyToLaunch = false;
-	//server settings.
+﻿public static class GlobalVars {
+	public static string ClientDir = "";
+	public static string ScriptsDir = "";
+	public static string MapsDir = "";
+	public static string CustomPlayerDir = "";
+	public static string IP = "localhost";
+	public static string Version = "";
+	public static string MD5 = "";
+	public static string SharedArgs = "";
+	public static string DefaultScript = "";
+	public static string DefaultScriptMD5 = "";
+	public static bool AdminMode = false;
+	// vars for loader
+	public static bool ReadyToLaunch = false;
+	// server settings
 	public static string Map = "Baseplate.rbxl";
 	public static int RobloxPort = 53640;
 	public static int ServerPort = 53640;
 	public static int DefaultRobloxPort = 53640;
 	public static int PlayerLimit = 12;
-	//player settings
+	// player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";
-	//launcher settings.
+	// launcher settings
 	public static bool CloseOnLaunch = false;
 	public static bool LocalPlayMode = false;
-	//client shit
+	// client shit
 	public static string SelectedClient = "";
 	public static bool UsesPlayerName = false;
 	public static bool UsesID = true;
@@ -34,7 +33,7 @@
 	public static bool LegacyMode = false;
 	public static string SelectedClientMD5 = "";
 	public static string SelectedClientVersion = "";
-	//clientinfocreator
+	// clientinfo creator
 	public static bool ClientCreator_UsesPlayerName = false;
 	public static bool ClientCreator_UsesID = false;
 	public static bool ClientCreator_LoadsAssetsOnline = false;
@@ -42,12 +41,12 @@
 	public static bool ClientCreator_LegacyMode = false;
 	public static string ClientCreator_SelectedClientMD5 = "";
 	public static string ClientCreator_SelectedClientVersion = "";
-	//infoeditor
+	// info editor
 	public static string InfoEditor_Version = "";
 	public static string InfoEditor_DefaultClient = "";
 	public static string InfoEditor_ScriptPath = "";
 	public static string InfoEditor_ScriptMD5 = "";
-	//charcustom
+	// charcustom
 	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat3ID_Offline = "NoHat.rbxm";
