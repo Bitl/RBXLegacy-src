@@ -45,8 +45,6 @@ namespace RBXLegacyLauncher
 			this.label1 = new System.Windows.Forms.Label();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.ChangeFaceButton42 = new System.Windows.Forms.Button();
-			this.PartShapeButton41 = new System.Windows.Forms.Button();
 			this.RandColorsButton39 = new System.Windows.Forms.Button();
 			this.ResetColorsButton40 = new System.Windows.Forms.Button();
 			this.PartSelectionLabel2 = new System.Windows.Forms.Label();
@@ -89,6 +87,16 @@ namespace RBXLegacyLauncher
 			this.RArmButton3 = new System.Windows.Forms.Button();
 			this.TorsoButton2 = new System.Windows.Forms.Button();
 			this.HeadButton1 = new System.Windows.Forms.Button();
+			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button3 = new System.Windows.Forms.Button();
+			this.button4 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
+			this.button6 = new System.Windows.Forms.Button();
+			this.button7 = new System.Windows.Forms.Button();
+			this.tabPage5 = new System.Windows.Forms.TabPage();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
 			this.label4 = new System.Windows.Forms.Label();
@@ -100,6 +108,7 @@ namespace RBXLegacyLauncher
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
+			this.tabPage1.SuspendLayout();
 			this.tabPage3.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.SuspendLayout();
@@ -167,6 +176,8 @@ namespace RBXLegacyLauncher
 			// tabControl1
 			// 
 			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Controls.Add(this.tabPage5);
 			this.tabControl1.Controls.Add(this.tabPage3);
 			this.tabControl1.Controls.Add(this.tabPage4);
 			this.tabControl1.Location = new System.Drawing.Point(12, 12);
@@ -177,8 +188,6 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage2
 			// 
-			this.tabPage2.Controls.Add(this.ChangeFaceButton42);
-			this.tabPage2.Controls.Add(this.PartShapeButton41);
 			this.tabPage2.Controls.Add(this.RandColorsButton39);
 			this.tabPage2.Controls.Add(this.ResetColorsButton40);
 			this.tabPage2.Controls.Add(this.PartSelectionLabel2);
@@ -226,32 +235,14 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage2.Size = new System.Drawing.Size(447, 244);
 			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "BODY";
+			this.tabPage2.Text = "BODY COLORS";
 			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
-			// ChangeFaceButton42
-			// 
-			this.ChangeFaceButton42.Location = new System.Drawing.Point(298, 202);
-			this.ChangeFaceButton42.Name = "ChangeFaceButton42";
-			this.ChangeFaceButton42.Size = new System.Drawing.Size(131, 23);
-			this.ChangeFaceButton42.TabIndex = 88;
-			this.ChangeFaceButton42.Text = "Change Face";
-			this.ChangeFaceButton42.UseVisualStyleBackColor = true;
-			// 
-			// PartShapeButton41
-			// 
-			this.PartShapeButton41.Location = new System.Drawing.Point(164, 202);
-			this.PartShapeButton41.Name = "PartShapeButton41";
-			this.PartShapeButton41.Size = new System.Drawing.Size(131, 23);
-			this.PartShapeButton41.TabIndex = 87;
-			this.PartShapeButton41.Text = "Change Part Shape";
-			this.PartShapeButton41.UseVisualStyleBackColor = true;
 			// 
 			// RandColorsButton39
 			// 
 			this.RandColorsButton39.Location = new System.Drawing.Point(164, 174);
 			this.RandColorsButton39.Name = "RandColorsButton39";
-			this.RandColorsButton39.Size = new System.Drawing.Size(131, 23);
+			this.RandColorsButton39.Size = new System.Drawing.Size(131, 51);
 			this.RandColorsButton39.TabIndex = 86;
 			this.RandColorsButton39.Text = "Randomize Colors";
 			this.RandColorsButton39.UseVisualStyleBackColor = true;
@@ -261,7 +252,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.ResetColorsButton40.Location = new System.Drawing.Point(298, 174);
 			this.ResetColorsButton40.Name = "ResetColorsButton40";
-			this.ResetColorsButton40.Size = new System.Drawing.Size(131, 23);
+			this.ResetColorsButton40.Size = new System.Drawing.Size(131, 51);
 			this.ResetColorsButton40.TabIndex = 85;
 			this.ResetColorsButton40.Text = "Reset Colors";
 			this.ResetColorsButton40.UseVisualStyleBackColor = true;
@@ -610,6 +601,7 @@ namespace RBXLegacyLauncher
 			this.LLegButton6.Size = new System.Drawing.Size(31, 70);
 			this.LLegButton6.TabIndex = 50;
 			this.LLegButton6.UseVisualStyleBackColor = false;
+			this.LLegButton6.Click += new System.EventHandler(this.LLegButton6Click);
 			// 
 			// RLegButton5
 			// 
@@ -619,6 +611,7 @@ namespace RBXLegacyLauncher
 			this.RLegButton5.Size = new System.Drawing.Size(31, 70);
 			this.RLegButton5.TabIndex = 49;
 			this.RLegButton5.UseVisualStyleBackColor = false;
+			this.RLegButton5.Click += new System.EventHandler(this.RLegButton5Click);
 			// 
 			// LArmButton4
 			// 
@@ -628,6 +621,7 @@ namespace RBXLegacyLauncher
 			this.LArmButton4.Size = new System.Drawing.Size(31, 72);
 			this.LArmButton4.TabIndex = 48;
 			this.LArmButton4.UseVisualStyleBackColor = false;
+			this.LArmButton4.Click += new System.EventHandler(this.LArmButton4Click);
 			// 
 			// RArmButton3
 			// 
@@ -637,6 +631,7 @@ namespace RBXLegacyLauncher
 			this.RArmButton3.Size = new System.Drawing.Size(31, 72);
 			this.RArmButton3.TabIndex = 47;
 			this.RArmButton3.UseVisualStyleBackColor = false;
+			this.RArmButton3.Click += new System.EventHandler(this.RArmButton3Click);
 			// 
 			// TorsoButton2
 			// 
@@ -646,6 +641,7 @@ namespace RBXLegacyLauncher
 			this.TorsoButton2.Size = new System.Drawing.Size(68, 72);
 			this.TorsoButton2.TabIndex = 46;
 			this.TorsoButton2.UseVisualStyleBackColor = false;
+			this.TorsoButton2.Click += new System.EventHandler(this.TorsoButton2Click);
 			// 
 			// HeadButton1
 			// 
@@ -655,6 +651,109 @@ namespace RBXLegacyLauncher
 			this.HeadButton1.Size = new System.Drawing.Size(47, 46);
 			this.HeadButton1.TabIndex = 45;
 			this.HeadButton1.UseVisualStyleBackColor = false;
+			this.HeadButton1.Click += new System.EventHandler(this.HeadButton1Click);
+			// 
+			// tabPage1
+			// 
+			this.tabPage1.Controls.Add(this.label6);
+			this.tabPage1.Controls.Add(this.label7);
+			this.tabPage1.Controls.Add(this.button1);
+			this.tabPage1.Controls.Add(this.button3);
+			this.tabPage1.Controls.Add(this.button4);
+			this.tabPage1.Controls.Add(this.button5);
+			this.tabPage1.Controls.Add(this.button6);
+			this.tabPage1.Controls.Add(this.button7);
+			this.tabPage1.Location = new System.Drawing.Point(4, 22);
+			this.tabPage1.Name = "tabPage1";
+			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage1.Size = new System.Drawing.Size(447, 244);
+			this.tabPage1.TabIndex = 4;
+			this.tabPage1.Text = "BODY SHAPES";
+			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// label6
+			// 
+			this.label6.Location = new System.Drawing.Point(261, 209);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(80, 16);
+			this.label6.TabIndex = 92;
+			// 
+			// label7
+			// 
+			this.label7.Location = new System.Drawing.Point(162, 209);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(105, 16);
+			this.label7.TabIndex = 91;
+			this.label7.Text = "SELECTED PART:";
+			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(189)))), ((int)(((byte)(71)))));
+			this.button1.Location = new System.Drawing.Point(80, 155);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(31, 70);
+			this.button1.TabIndex = 90;
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
+			// 
+			// button3
+			// 
+			this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(189)))), ((int)(((byte)(71)))));
+			this.button3.Location = new System.Drawing.Point(43, 155);
+			this.button3.Name = "button3";
+			this.button3.Size = new System.Drawing.Size(31, 70);
+			this.button3.TabIndex = 89;
+			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.Button3Click);
+			// 
+			// button4
+			// 
+			this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
+			this.button4.Location = new System.Drawing.Point(117, 77);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(31, 72);
+			this.button4.TabIndex = 88;
+			this.button4.UseVisualStyleBackColor = false;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
+			// 
+			// button5
+			// 
+			this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
+			this.button5.Location = new System.Drawing.Point(6, 77);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(31, 72);
+			this.button5.TabIndex = 87;
+			this.button5.UseVisualStyleBackColor = false;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
+			// 
+			// button6
+			// 
+			this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(105)))), ((int)(((byte)(172)))));
+			this.button6.Location = new System.Drawing.Point(43, 77);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(68, 72);
+			this.button6.TabIndex = 86;
+			this.button6.UseVisualStyleBackColor = false;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
+			// 
+			// button7
+			// 
+			this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
+			this.button7.Location = new System.Drawing.Point(53, 27);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(47, 46);
+			this.button7.TabIndex = 85;
+			this.button7.UseVisualStyleBackColor = false;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
+			// 
+			// tabPage5
+			// 
+			this.tabPage5.Location = new System.Drawing.Point(4, 22);
+			this.tabPage5.Name = "tabPage5";
+			this.tabPage5.Size = new System.Drawing.Size(447, 244);
+			this.tabPage5.TabIndex = 5;
+			this.tabPage5.Text = "FACES";
+			this.tabPage5.UseVisualStyleBackColor = true;
 			// 
 			// tabPage3
 			// 
@@ -686,7 +785,7 @@ namespace RBXLegacyLauncher
 			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage4.Size = new System.Drawing.Size(447, 244);
 			this.tabPage4.TabIndex = 3;
-			this.tabPage4.Text = "ICON";
+			this.tabPage4.Text = "ICONS";
 			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
 			// label4
@@ -765,11 +864,22 @@ namespace RBXLegacyLauncher
 			this.Load += new System.EventHandler(this.CharacterCustomizationLoad);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage2.ResumeLayout(false);
+			this.tabPage1.ResumeLayout(false);
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			this.tabPage4.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.TabPage tabPage5;
+		private System.Windows.Forms.Button button7;
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Button button3;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.Button HeadButton1;
 		private System.Windows.Forms.Button TorsoButton2;
 		private System.Windows.Forms.Button RArmButton3;
@@ -812,8 +922,6 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.Label PartSelectionLabel2;
 		private System.Windows.Forms.Button ResetColorsButton40;
 		private System.Windows.Forms.Button RandColorsButton39;
-		private System.Windows.Forms.Button PartShapeButton41;
-		private System.Windows.Forms.Button ChangeFaceButton42;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TabPage tabPage4;
 		private System.Windows.Forms.TabPage tabPage3;

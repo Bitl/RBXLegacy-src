@@ -110,6 +110,15 @@ namespace RBXLegacyLauncher
 			LArmButton4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
 			RLegButton5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
 			LLegButton6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
+			
+			//mesh menu implementation
+			label6.Text = SelectedPart;
+			button7.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
+			button6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
+			button5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
+			button4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
+			button3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
+			button1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
 		}
 		
 		Color ConvertStringtoColor(string CString)
@@ -131,36 +140,42 @@ namespace RBXLegacyLauncher
 				GlobalVars.HeadColorID = ColorID;
 				GlobalVars.ColorMenu_HeadColor = ButtonColor.ToString();
 				HeadButton1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
+				button7.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
 			}
 			else if (SelectedPart == "Torso")
 			{
 				GlobalVars.TorsoColorID = ColorID;
 				GlobalVars.ColorMenu_TorsoColor = ButtonColor.ToString();
 				TorsoButton2.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
+				button6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_TorsoColor);
 			}
 			else if (SelectedPart == "Right Arm")
 			{
 				GlobalVars.RightArmColorID = ColorID;
 				GlobalVars.ColorMenu_RightArmColor = ButtonColor.ToString();
 				RArmButton3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
+				button5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightArmColor);
 			}
 			else if (SelectedPart == "Left Arm")
 			{
 				GlobalVars.LeftArmColorID = ColorID;
 				GlobalVars.ColorMenu_LeftArmColor = ButtonColor.ToString();
 				LArmButton4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
+				button4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
 			}
 			else if (SelectedPart == "Right Leg")
 			{
 				GlobalVars.RightLegColorID = ColorID;
 				GlobalVars.ColorMenu_RightLegColor = ButtonColor.ToString();
 				RLegButton5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
+				button3.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
 			}
 			else if (SelectedPart == "Left Leg")
 			{
 				GlobalVars.LeftLegColorID = ColorID;
 				GlobalVars.ColorMenu_LeftLegColor = ButtonColor.ToString();
 				LLegButton6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
+				button1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
 			}
 		}
 		
@@ -543,6 +558,79 @@ namespace RBXLegacyLauncher
 			RLegButton5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
 			LLegButton6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
             MessageBox.Show("Colors Reset!");			
+		}
+		
+		
+		void HeadButton1Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Head";
+			PartSelectionLabel2.Text = SelectedPart;
+		}
+		
+		void TorsoButton2Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Torso";
+			PartSelectionLabel2.Text = SelectedPart;
+		}
+		
+		void RArmButton3Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Right Arm";
+			PartSelectionLabel2.Text = SelectedPart;
+		}
+		
+		void LArmButton4Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Left Arm";
+			PartSelectionLabel2.Text = SelectedPart;
+		}
+		
+		void RLegButton5Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Right Leg";
+			PartSelectionLabel2.Text = SelectedPart;
+		}
+		
+		void LLegButton6Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Left Leg";
+			PartSelectionLabel2.Text = SelectedPart;
+		}
+		
+		void Button7Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Head";
+			label6.Text = SelectedPart;
+		}
+		
+		void Button6Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Torso";
+			label6.Text = SelectedPart;
+		}
+		
+		void Button5Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Right Arm";
+			label6.Text = SelectedPart;
+		}
+		
+		void Button4Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Left Arm";
+			label6.Text = SelectedPart;
+		}
+		
+		void Button3Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Right Leg";
+			label6.Text = SelectedPart;
+		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			SelectedPart = "Left Leg";
+			label6.Text = SelectedPart;
 		}
 	}
 }
