@@ -168,7 +168,7 @@ namespace RBXLegacyLauncher
 			this.Controls.Add(this.listBox3);
 			this.Controls.Add(this.listBox2);
 			this.Controls.Add(this.listBox1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "CharacterCustomization_HatMenu";
 			this.Text = "Hats";

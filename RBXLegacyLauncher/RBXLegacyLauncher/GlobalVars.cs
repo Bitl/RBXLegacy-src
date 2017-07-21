@@ -54,7 +54,6 @@
 	public static int Custom_TShirt = 0;
 	public static int Custom_Shirt = 0;
 	public static int Custom_Pants = 0;
-	public static int Custom_Face = 0;
 	public static string Custom_IconType = "NBC";
 	public static int HeadColorID = 24;
 	public static int TorsoColorID = 23;
@@ -62,6 +61,13 @@
 	public static int RightArmColorID = 24;
 	public static int LeftLegColorID = 119;
 	public static int RightLegColorID = 119;
+	public static string FaceID = "DefaultFace.rbxm";
+	public static string HeadID = "DefaultHead.rbxm";
+	public static string TorsoID = "DefaultTorso.rbxm";
+	public static string LeftArmID = "DefaultLArm.rbxm";
+	public static string RightArmID = "DefaultRArm.rbxm";
+	public static string LeftLegID = "DefaultLLeg.rbxm";
+	public static string RightLegID = "DefaultRLeg.rbxm";
 	public static string ColorMenu_HeadColor = "Color [A=255, R=245, G=205, B=47]";
 	public static string ColorMenu_TorsoColor = "Color [A=255, R=13, G=105, B=172]";
 	public static string ColorMenu_LeftArmColor = "Color [A=255, R=245, G=205, B=47]";

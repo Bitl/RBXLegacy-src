@@ -37,7 +37,6 @@ namespace RBXLegacyLauncher
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CharacterColors));
-			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
@@ -79,17 +78,10 @@ namespace RBXLegacyLauncher
 			this.label2 = new System.Windows.Forms.Label();
 			this.button40 = new System.Windows.Forms.Button();
 			this.button39 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.button41 = new System.Windows.Forms.Button();
+			this.button42 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// button1
-			// 
-			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
-			this.button1.Location = new System.Drawing.Point(59, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(47, 46);
-			this.button1.TabIndex = 0;
-			this.button1.UseVisualStyleBackColor = false;
-			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// button2
 			// 
@@ -478,9 +470,9 @@ namespace RBXLegacyLauncher
 			// 
 			// button40
 			// 
-			this.button40.Location = new System.Drawing.Point(170, 187);
+			this.button40.Location = new System.Drawing.Point(304, 159);
 			this.button40.Name = "button40";
-			this.button40.Size = new System.Drawing.Size(265, 23);
+			this.button40.Size = new System.Drawing.Size(131, 23);
 			this.button40.TabIndex = 41;
 			this.button40.Text = "Reset Colors";
 			this.button40.UseVisualStyleBackColor = true;
@@ -490,17 +482,47 @@ namespace RBXLegacyLauncher
 			// 
 			this.button39.Location = new System.Drawing.Point(170, 159);
 			this.button39.Name = "button39";
-			this.button39.Size = new System.Drawing.Size(265, 23);
+			this.button39.Size = new System.Drawing.Size(131, 23);
 			this.button39.TabIndex = 42;
 			this.button39.Text = "Randomize Colors";
 			this.button39.UseVisualStyleBackColor = true;
 			this.button39.Click += new System.EventHandler(this.Button39Click);
+			// 
+			// button1
+			// 
+			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
+			this.button1.Location = new System.Drawing.Point(59, 12);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(47, 46);
+			this.button1.TabIndex = 0;
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
+			// 
+			// button41
+			// 
+			this.button41.Location = new System.Drawing.Point(170, 187);
+			this.button41.Name = "button41";
+			this.button41.Size = new System.Drawing.Size(131, 23);
+			this.button41.TabIndex = 43;
+			this.button41.Text = "Change Part Shape";
+			this.button41.UseVisualStyleBackColor = true;
+			// 
+			// button42
+			// 
+			this.button42.Location = new System.Drawing.Point(304, 187);
+			this.button42.Name = "button42";
+			this.button42.Size = new System.Drawing.Size(131, 23);
+			this.button42.TabIndex = 44;
+			this.button42.Text = "Change Face";
+			this.button42.UseVisualStyleBackColor = true;
 			// 
 			// CharacterColors
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(437, 222);
+			this.Controls.Add(this.button42);
+			this.Controls.Add(this.button41);
 			this.Controls.Add(this.button39);
 			this.Controls.Add(this.button40);
 			this.Controls.Add(this.label2);
@@ -543,7 +565,7 @@ namespace RBXLegacyLauncher
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.Name = "CharacterColors";
@@ -551,6 +573,8 @@ namespace RBXLegacyLauncher
 			this.Load += new System.EventHandler(this.CharacterColorsLoad);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button42;
+		private System.Windows.Forms.Button button41;
 		private System.Windows.Forms.Button button39;
 		private System.Windows.Forms.Button button40;
 		private System.Windows.Forms.Label label2;
