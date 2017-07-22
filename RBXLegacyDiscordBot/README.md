@@ -1,0 +1,1 @@
+All these files are a modified version of [Red Discord Bot](https://github.com/Twentysix26/Red-DiscordBot)
