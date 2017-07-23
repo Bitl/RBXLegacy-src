@@ -64,18 +64,10 @@
     <Compile Include="CharacterCustomization_HatMenu.Designer.cs">
       <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientinfoCreator.cs" />
-    <Compile Include="ClientinfoCreator.Designer.cs">
-      <DependentUpon>ClientinfoCreator.cs</DependentUpon>
-    </Compile>
     <Compile Include="CryptoRandom.cs" />
     <Compile Include="DocForm.cs" />
     <Compile Include="DocForm.Designer.cs">
       <DependentUpon>DocForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="InfoEditor.cs" />
-    <Compile Include="InfoEditor.Designer.cs">
-      <DependentUpon>InfoEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="LauncherFuncs.cs" />
     <Compile Include="LoaderForm.cs" />
@@ -112,14 +104,8 @@
     <EmbeddedResource Include="CharacterCustomization_HatMenu.resx">
       <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientinfoCreator.resx">
-      <DependentUpon>ClientinfoCreator.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DocForm.resx">
       <DependentUpon>DocForm.Designer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InfoEditor.resx">
-      <DependentUpon>InfoEditor.Designer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
