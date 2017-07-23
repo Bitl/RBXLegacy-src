@@ -5,7 +5,7 @@
 
 RBXLegacy is a launcher and website for ROBLOX's clients from 2006 - 2012, designed so you can play offline, online and through LAN.
 
-This is the source code for RBXLegacy's launcher, installer and server. All of these source files are under the license specified in [LICENSE.MD](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD).
+This is the source code for RBXLegacy's launcher, installer, server, and Discord bot. All of these source files (except for the Discord bot) are under the license specified in [LICENSE.MD](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD).
 
 ## Installing
 
