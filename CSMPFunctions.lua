@@ -68,7 +68,7 @@ function SetRBXLegacyVersion(Version)
 			local BottomRightControl = RobloxGui:FindFirstChild("BottomRightControl")
 			local TopLeftControl = RobloxGui:FindFirstChild("TopLeftControl")
 			local BuildTools = RobloxGui:FindFirstChild("BuildTools")
-			function makeYRelative()
+			function makeYRelative() -- 123
 				BottomLeftControl.SizeConstraint = 2
 				BottomRightControl.SizeConstraint = 2
 					if TopLeftControl then TopLeftControl.SizeConstraint = 2 
