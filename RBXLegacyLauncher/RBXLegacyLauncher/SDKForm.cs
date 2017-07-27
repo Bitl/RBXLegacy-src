@@ -148,11 +148,6 @@ namespace RBXLegacyLauncher
 			}			
 		}
 		
-		void ClientinfoCreatorLoad(object sender, EventArgs e)
-		{
-			
-		}
-		
 		void CheckBox5CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBox5.Checked == true)

@@ -55,6 +55,7 @@ namespace RBXLegacyLauncher
 			this.checkBox2 = new System.Windows.Forms.CheckBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.button7 = new System.Windows.Forms.Button();
 			this.textBox4 = new System.Windows.Forms.TextBox();
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.textBox6 = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@ namespace RBXLegacyLauncher
 			this.label8 = new System.Windows.Forms.Label();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -121,6 +121,7 @@ namespace RBXLegacyLauncher
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(232, 20);
 			this.textBox3.TabIndex = 32;
+			this.textBox3.TextChanged += new System.EventHandler(this.TextBox3TextChanged);
 			// 
 			// label4
 			// 
@@ -136,6 +137,7 @@ namespace RBXLegacyLauncher
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(311, 20);
 			this.textBox2.TabIndex = 30;
+			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
 			// 
 			// label3
 			// 
@@ -153,6 +155,7 @@ namespace RBXLegacyLauncher
 			this.checkBox3.TabIndex = 28;
 			this.checkBox3.Text = "Client uses a single EXE to run";
 			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3CheckedChanged);
 			// 
 			// button3
 			// 
@@ -171,6 +174,7 @@ namespace RBXLegacyLauncher
 			this.checkBox5.TabIndex = 26;
 			this.checkBox5.Text = "Loads assets from servers online";
 			this.checkBox5.UseVisualStyleBackColor = true;
+			this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckBox5CheckedChanged);
 			// 
 			// button2
 			// 
@@ -213,6 +217,7 @@ namespace RBXLegacyLauncher
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(310, 34);
 			this.textBox1.TabIndex = 21;
+			this.textBox1.TextChanged += new System.EventHandler(this.TextBox1TextChanged);
 			// 
 			// checkBox2
 			// 
@@ -222,6 +227,7 @@ namespace RBXLegacyLauncher
 			this.checkBox2.TabIndex = 20;
 			this.checkBox2.Text = "Allows the launcher to set custom IDs";
 			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2CheckedChanged);
 			// 
 			// checkBox1
 			// 
@@ -231,6 +237,7 @@ namespace RBXLegacyLauncher
 			this.checkBox1.TabIndex = 19;
 			this.checkBox1.Text = "Allows players to set custom names";
 			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1CheckedChanged);
 			// 
 			// tabPage2
 			// 
@@ -252,6 +259,15 @@ namespace RBXLegacyLauncher
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "INFO EDITOR";
 			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(167, 254);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(150, 57);
+			this.button7.TabIndex = 32;
+			this.button7.Text = "Save";
+			this.button7.UseVisualStyleBackColor = true;
 			// 
 			// textBox4
 			// 
@@ -315,9 +331,9 @@ namespace RBXLegacyLauncher
 			// 
 			// button5
 			// 
-			this.button5.Location = new System.Drawing.Point(5, 180);
+			this.button5.Location = new System.Drawing.Point(5, 190);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(312, 68);
+			this.button5.Size = new System.Drawing.Size(312, 58);
 			this.button5.TabIndex = 23;
 			this.button5.Text = "New info.txt";
 			this.button5.UseVisualStyleBackColor = true;
@@ -331,15 +347,6 @@ namespace RBXLegacyLauncher
 			this.button6.Text = "Load";
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
-			// 
-			// button7
-			// 
-			this.button7.Location = new System.Drawing.Point(167, 254);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(150, 57);
-			this.button7.TabIndex = 32;
-			this.button7.Text = "Save";
-			this.button7.UseVisualStyleBackColor = true;
 			// 
 			// SDKForm
 			// 
