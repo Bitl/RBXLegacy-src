@@ -128,12 +128,9 @@ function SetRBXLegacyVersion(Version)
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-		coroutine.resume(coroutine.create(function()
-		for _,v in pairs(game:GetChildren()) do
-		if v.Name == "GuiRoot" then
-		coroutine.resume(coroutine.create(function()
-		v.ScoreHud.Parent = nil
-		end)) end end end))
+		wait() -- intalizing
+		game.GuiRoot.ScoreHud:Remove() -- no legacy scorehud, allow for the new one
+		end)
 	elseif (rbxlegacyversion == "omega") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
