@@ -6,7 +6,7 @@ function SetRBXLegacyVersion(Version)
 	rbxlegacyversion = Version
 	if (rbxlegacyversion == "pre-alpha") then
 		settings().Rendering.frameRateManager = 2
-    		settings().Rendering.graphicsMode = 2
+    	settings().Rendering.graphicsMode = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
@@ -18,7 +18,6 @@ function SetRBXLegacyVersion(Version)
 		settings().Network.SendRate = 1000000
 	elseif (rbxlegacyversion == "alpha") then
 		settings().Rendering.frameRateManager = 2
-		settings().Rendering.graphicsMode = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
