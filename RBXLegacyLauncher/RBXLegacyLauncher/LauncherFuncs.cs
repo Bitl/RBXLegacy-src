@@ -31,7 +31,7 @@ namespace RBXLegacyLauncher
 		public static void ReadConfigValues(string cfgpath)
 		{
 			string line1;
-			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8, Decryptline9, Decryptline10, Decryptline11, Decryptline12, Decryptline13, Decryptline14, Decryptline15, Decryptline16, Decryptline17, Decryptline18, Decryptline19, Decryptline20, Decryptline21, Decryptline22, Decryptline23, Decryptline24, Decryptline25, Decryptline26, Decryptline27;
+			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8, Decryptline9, Decryptline10, Decryptline11, Decryptline12, Decryptline13, Decryptline14, Decryptline15, Decryptline16, Decryptline17, Decryptline18, Decryptline19, Decryptline20, Decryptline21, Decryptline22, Decryptline23, Decryptline24, Decryptline25, Decryptline26, Decryptline27, Decryptline28, Decryptline29, Decryptline30, Decryptline31, Decryptline32, Decryptline33;
 
 			using(StreamReader reader = new StreamReader(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.txt")) 
 			{
@@ -69,7 +69,13 @@ namespace RBXLegacyLauncher
     		Decryptline24 = SecurityFuncs.Base64Decode(result[23]);
     		Decryptline25 = SecurityFuncs.Base64Decode(result[24]);
     		Decryptline26 = SecurityFuncs.Base64Decode(result[25]);
-    		//Decryptline27 = SecurityFuncs.Base64Decode(result[26]);
+    		Decryptline27 = SecurityFuncs.Base64Decode(result[26]);
+    		Decryptline28 = SecurityFuncs.Base64Decode(result[27]);
+    		Decryptline29 = SecurityFuncs.Base64Decode(result[28]);
+    		Decryptline30 = SecurityFuncs.Base64Decode(result[29]);
+    		Decryptline31 = SecurityFuncs.Base64Decode(result[30]);
+    		Decryptline32 = SecurityFuncs.Base64Decode(result[31]);
+    		Decryptline33 = SecurityFuncs.Base64Decode(result[32]);
 			
 			bool bline1 = Convert.ToBoolean(Decryptline1);
 			GlobalVars.CloseOnLaunch = bline1;
@@ -126,6 +132,14 @@ namespace RBXLegacyLauncher
 			GlobalVars.Custom_Pants = iline25;
 			
 			GlobalVars.Custom_IconType = Decryptline26;
+			
+			GlobalVars.FaceID = Decryptline27;
+			GlobalVars.HeadID = Decryptline28;
+			GlobalVars.TorsoID = Decryptline29;
+			GlobalVars.LeftArmID = Decryptline30;
+			GlobalVars.RightArmID = Decryptline31;
+			GlobalVars.LeftLegID = Decryptline32;
+			GlobalVars.RightLegID = Decryptline33;
 		}
 		
 		public static void WriteConfigValues(string cfgpath)
@@ -156,7 +170,14 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_TShirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Shirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Pants.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Custom_IconType.ToString())
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_IconType.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.FaceID.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.HeadID.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.TorsoID.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.LeftArmID.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.RightArmID.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.LeftLegID.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.RightLegID.ToString())
 			};
 			File.WriteAllText(cfgpath, SecurityFuncs.Base64Encode(string.Join("|",lines)));
 		}
