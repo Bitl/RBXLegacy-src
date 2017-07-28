@@ -130,7 +130,7 @@ function SetRBXLegacyVersion(Version)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		wait() -- intalizing
 		game.GuiRoot.ScoreHud:Remove() -- no legacy scorehud, allow for the new one
-		end)
+	end)
 	elseif (rbxlegacyversion == "omega") then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
