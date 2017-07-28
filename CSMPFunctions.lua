@@ -29,6 +29,16 @@ function SetRBXLegacyVersion(Version)
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.SendRate = 30
 		settings().Network.ReceiveRate = 60
+	elseif (rbxlegacyversion == "pre-gamma-beta") then
+		settings().Rendering.FrameRateManager = 2
+		settings().Network.DataSendRate = 30
+		settings().Network.PhysicsSendRate = 20
+		settings().Network.ReceiveRate = 60
+	elseif (rbxlegacyversion == "delta-pre-gamma-beta") then
+		settings().Rendering.FrameRateManager = 2
+		settings().Network.DataSendRate = 30
+		settings().Network.PhysicsSendRate = 20
+		settings().Network.ReceiveRate = 60
 	elseif (rbxlegacyversion == "pre-gamma") then
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.DataSendRate = 30
@@ -165,7 +175,7 @@ end
 
 function LoadCharacterNew(playerApp,newChar)
 	--authentic roblox style loading
-	wait(0.5)
+	wait(1.5)
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
 			if (newVal.CustomizationType.Value == 1) then 
@@ -225,7 +235,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 6)  then
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta") then
+				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
 					pcall(function()
 					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
 					if newFace[1] then 
@@ -240,7 +250,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 7) then 
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta") then
+				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
 					if newPart[1] then 
@@ -253,7 +263,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 8) then 
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma") then
+				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
@@ -478,7 +488,7 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 end
 
 function CSServer(Port,PlayerLimit)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta") then
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta" or rbxlegacyversion == "delta-pre-gamma-beta") then
 		assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.")
 		local NetworkServer=game:GetService("NetworkServer")
 		pcall(NetworkServer.Stop,NetworkServer)
@@ -563,7 +573,7 @@ function CSServer(Port,PlayerLimit)
 end
 
 function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Ticket)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta") then
+	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta" or rbxlegacyversion == "delta-pre-gamma-beta") then
 		pcall(function() game:SetPlaceID(-1, false) end)
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
 		game:GetService("RunService"):Run()
