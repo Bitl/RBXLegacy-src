@@ -228,7 +228,7 @@ namespace RBXLegacyLauncher
 		public static void ReadClientValues(string clientpath)
 		{
 			string line1;
-			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7;
+			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8;
 
 			using(StreamReader reader = new StreamReader(clientpath)) 
 			{
@@ -247,6 +247,7 @@ namespace RBXLegacyLauncher
     		Decryptline5 = SecurityFuncs.Base64Decode(result[4]);
     		Decryptline6 = SecurityFuncs.Base64Decode(result[5]);
     		Decryptline7 = SecurityFuncs.Base64Decode(result[6]);
+    		Decryptline8 = SecurityFuncs.Base64Decode(result[7]);
 			
 			bool bline1 = Convert.ToBoolean(Decryptline1);
 			GlobalVars.UsesPlayerName = bline1;
@@ -267,6 +268,9 @@ namespace RBXLegacyLauncher
 			GlobalVars.SelectedClientDesc = Decryptline7;
 			
 			GlobalVars.MD5 = GlobalVars.SelectedClientMD5;
+			
+			bool bline5 = Convert.ToBoolean(Decryptline4);
+			GlobalVars.HasRocky = bline5;
 		}
 		
 		public static void GeneratePlayerID()

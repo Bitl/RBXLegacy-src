@@ -91,13 +91,21 @@ namespace RBXLegacyLauncher
 			}
 			
 			WriteConfigValues();
-			Process sudp = new Process();
-			sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
-			sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
-			sudp.StartInfo.UseShellExecute = false;
-			sudp.StartInfo.CreateNoWindow = true;
-			sudp.Start();
-			StartClient();
+			ReadClientValues(GlobalVars.SelectedClient);
+			if (GlobalVars.HasRocky == true)
+			{
+				Process sudp = new Process();
+				sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
+				sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
+				sudp.StartInfo.UseShellExecute = false;
+				sudp.StartInfo.CreateNoWindow = true;
+				sudp.Start();
+				StartClient();
+			}
+			else if (GlobalVars.HasRocky == false)
+			{
+				StartClient();
+			}
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -290,7 +298,7 @@ namespace RBXLegacyLauncher
 			{
 				label30.Visible = true;
 			}
-			
+					
 			textBox6.Text = GlobalVars.SelectedClientDesc;
 			label26.Text = GlobalVars.SelectedClient;
 			ConsolePrint("Client '" + GlobalVars.SelectedClient + "' successfully loaded.", 3);

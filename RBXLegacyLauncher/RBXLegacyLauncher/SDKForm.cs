@@ -74,7 +74,7 @@ namespace RBXLegacyLauncher
             	if (ofd.ShowDialog() == DialogResult.OK)
             	{
 					string line1;
-					string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7;
+					string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8;
 
 					using(StreamReader reader = new StreamReader(ofd.FileName)) 
 					{
@@ -93,6 +93,7 @@ namespace RBXLegacyLauncher
     				Decryptline5 = SecurityFuncs.Base64Decode(result[4]);
     				Decryptline6 = SecurityFuncs.Base64Decode(result[5]);
     				Decryptline7 = SecurityFuncs.Base64Decode(result[6]);
+    				Decryptline8 = SecurityFuncs.Base64Decode(result[8]);
 					
 					Boolean bline1 = Convert.ToBoolean(Decryptline1);
 					GlobalVars.ClientCreator_UsesPlayerName = bline1;
@@ -106,6 +107,9 @@ namespace RBXLegacyLauncher
 					Boolean bline4 = Convert.ToBoolean(Decryptline4);
 					GlobalVars.ClientCreator_LegacyMode = bline4;
 					
+					Boolean bline5 = Convert.ToBoolean(Decryptline8);
+					GlobalVars.ClientCreator_HasRocky = bline5;
+					
 					GlobalVars.ClientCreator_SelectedClientMD5 = Decryptline5;
 					
 					GlobalVars.ClientCreator_SelectedClientVersion = Decryptline6;
@@ -116,6 +120,7 @@ namespace RBXLegacyLauncher
 					checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
 					checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
 					checkBox3.Checked = GlobalVars.ClientCreator_LegacyMode;
+					checkBox4.Checked = GlobalVars.ClientCreator_HasRocky;
 					textBox2.Text = GlobalVars.ClientCreator_SelectedClientMD5.ToUpper();
 					textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
 					textBox3.Text = GlobalVars.ClientCreator_SelectedClientVersion;
@@ -141,7 +146,8 @@ namespace RBXLegacyLauncher
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_LegacyMode.ToString()),
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientMD5.ToString()),
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientVersion.ToString()),
-            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientDesc.ToString())
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientDesc.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_HasRocky.ToString())
             		};
             		File.WriteAllText(sfd.FileName, SecurityFuncs.Base64Encode(string.Join("|",lines)));
             	}     
