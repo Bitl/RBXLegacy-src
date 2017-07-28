@@ -459,11 +459,11 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 			end
 		elseif (i == 6) then
 			if (RLegID ~= nil) then
-				newRLeg.Value = RLegID
-				newRLeg.Name = RLegID
+				BodyMesh.Value = RLegID
+				BodyMesh.Name = RLegID
 			else
-				newRLeg.Value = "DefaultRLeg.rbxm"
-				newRLeg.Name = "DefaultRLeg.rbxm"
+				BodyMesh.Value = "DefaultRLeg.rbxm"
+				BodyMesh.Name = "DefaultRLeg.rbxm"
 			end
 		end
 		local indexValue = Instance.new("NumberValue")
