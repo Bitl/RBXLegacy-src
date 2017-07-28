@@ -252,7 +252,7 @@ function LoadCharacterNew(playerApp,newChar)
 						end
 					end
 				end)
-			end'
+			end
 			elseif (newVal.CustomizationType.Value == 8) then 
 				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma") then
 					pcall(function()
