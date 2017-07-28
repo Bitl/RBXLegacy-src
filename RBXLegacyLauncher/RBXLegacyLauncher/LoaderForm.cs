@@ -191,5 +191,10 @@ namespace RBXLegacyLauncher
 			
 			LauncherFuncs.ReadClientValues(clientpath);
 		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 	}
 }

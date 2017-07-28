@@ -40,6 +40,7 @@ namespace RBXLegacyLauncher
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.label1 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -47,35 +48,48 @@ namespace RBXLegacyLauncher
 			// 
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+			this.pictureBox1.Location = new System.Drawing.Point(169, 28);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(260, 59);
+			this.pictureBox1.Size = new System.Drawing.Size(130, 109);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
 			// 
 			// progressBar1
 			// 
-			this.progressBar1.Location = new System.Drawing.Point(12, 98);
+			this.progressBar1.Location = new System.Drawing.Point(12, 187);
 			this.progressBar1.Name = "progressBar1";
-			this.progressBar1.Size = new System.Drawing.Size(260, 23);
+			this.progressBar1.Size = new System.Drawing.Size(429, 28);
 			this.progressBar1.TabIndex = 1;
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(12, 74);
+			this.label1.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(105, 153);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(260, 21);
+			this.label1.Size = new System.Drawing.Size(260, 31);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "Initializing...";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// button1
+			// 
+			this.button1.Font = new System.Drawing.Font("Source Sans Pro", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Location = new System.Drawing.Point(172, 221);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(121, 30);
+			this.button1.TabIndex = 3;
+			this.button1.Text = "Cancel";
+			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// LoaderForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(284, 135);
+			this.ClientSize = new System.Drawing.Size(453, 254);
+			this.ControlBox = false;
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.pictureBox1);
@@ -86,6 +100,7 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.PictureBox pictureBox1;

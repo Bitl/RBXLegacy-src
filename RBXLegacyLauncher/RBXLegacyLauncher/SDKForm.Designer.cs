@@ -39,6 +39,7 @@ namespace RBXLegacyLauncher
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SDKForm));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.checkBox4 = new System.Windows.Forms.CheckBox();
 			this.button4 = new System.Windows.Forms.Button();
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace RBXLegacyLauncher
 			this.label8 = new System.Windows.Forms.Label();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -107,6 +107,15 @@ namespace RBXLegacyLauncher
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "CLIENTINFO EDITOR";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// checkBox4
+			// 
+			this.checkBox4.Location = new System.Drawing.Point(5, 106);
+			this.checkBox4.Name = "checkBox4";
+			this.checkBox4.Size = new System.Drawing.Size(175, 20);
+			this.checkBox4.TabIndex = 34;
+			this.checkBox4.Text = "Client has rocky packets";
+			this.checkBox4.UseVisualStyleBackColor = true;
 			// 
 			// button4
 			// 
@@ -261,7 +270,7 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(328, 329);
+			this.tabPage2.Size = new System.Drawing.Size(328, 331);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "INFO EDITOR";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -359,15 +368,6 @@ namespace RBXLegacyLauncher
 			this.button6.Text = "Load";
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
-			// 
-			// checkBox4
-			// 
-			this.checkBox4.Location = new System.Drawing.Point(5, 106);
-			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(175, 20);
-			this.checkBox4.TabIndex = 34;
-			this.checkBox4.Text = "Client requires Rocky patch";
-			this.checkBox4.UseVisualStyleBackColor = true;
 			// 
 			// SDKForm
 			// 
