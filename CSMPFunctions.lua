@@ -435,11 +435,11 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 			end
 		elseif (i == 3) then
 			if (LArmID ~= nil) then
-				newLArm.Value = LArmID
-				newLArm.Name = LArmID
+				BodyMesh.Value = LArmID
+				BodyMesh.Name = LArmID
 			else
-				newLArm.Value = "DefaultLArm.rbxm"
-				newLArm.Name = "DefaultLArm.rbxm"
+				BodyMesh.Value = "DefaultLArm.rbxm"
+				BodyMesh.Name = "DefaultLArm.rbxm"
 			end
 		elseif (i == 4) then
 			if (RArmID ~= nil) then
