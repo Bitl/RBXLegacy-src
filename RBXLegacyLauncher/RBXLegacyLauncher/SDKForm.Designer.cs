@@ -114,6 +114,7 @@ namespace RBXLegacyLauncher
 			this.button4.TabIndex = 33;
 			this.button4.Text = "Help";
 			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
 			// textBox3
 			// 
@@ -165,6 +166,7 @@ namespace RBXLegacyLauncher
 			this.button3.TabIndex = 27;
 			this.button3.Text = "New clientinfo.txt";
 			this.button3.UseVisualStyleBackColor = true;
+			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
 			// checkBox5
 			// 
@@ -184,6 +186,7 @@ namespace RBXLegacyLauncher
 			this.button2.TabIndex = 25;
 			this.button2.Text = "Load";
 			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
 			// button1
 			// 
@@ -193,6 +196,7 @@ namespace RBXLegacyLauncher
 			this.button1.TabIndex = 24;
 			this.button1.Text = "Save";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// label2
 			// 
@@ -268,6 +272,7 @@ namespace RBXLegacyLauncher
 			this.button7.TabIndex = 32;
 			this.button7.Text = "Save";
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// textBox4
 			// 
@@ -275,6 +280,7 @@ namespace RBXLegacyLauncher
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(311, 20);
 			this.textBox4.TabIndex = 31;
+			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
 			// 
 			// textBox5
 			// 
@@ -282,6 +288,7 @@ namespace RBXLegacyLauncher
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(312, 20);
 			this.textBox5.TabIndex = 30;
+			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
 			// textBox6
 			// 
@@ -289,6 +296,7 @@ namespace RBXLegacyLauncher
 			this.textBox6.Name = "textBox6";
 			this.textBox6.Size = new System.Drawing.Size(313, 20);
 			this.textBox6.TabIndex = 29;
+			this.textBox6.TextChanged += new System.EventHandler(this.TextBox6TextChanged);
 			// 
 			// textBox7
 			// 
@@ -296,6 +304,7 @@ namespace RBXLegacyLauncher
 			this.textBox7.Name = "textBox7";
 			this.textBox7.Size = new System.Drawing.Size(311, 20);
 			this.textBox7.TabIndex = 28;
+			this.textBox7.TextChanged += new System.EventHandler(this.TextBox7TextChanged);
 			// 
 			// label5
 			// 
@@ -337,6 +346,7 @@ namespace RBXLegacyLauncher
 			this.button5.TabIndex = 23;
 			this.button5.Text = "New info.txt";
 			this.button5.UseVisualStyleBackColor = true;
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// button6
 			// 

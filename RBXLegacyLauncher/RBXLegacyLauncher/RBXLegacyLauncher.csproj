@@ -60,10 +60,6 @@
     <Compile Include="CharacterCustomization.Designer.cs">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </Compile>
-    <Compile Include="CharacterCustomization_HatMenu.cs" />
-    <Compile Include="CharacterCustomization_HatMenu.Designer.cs">
-      <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="CryptoRandom.cs" />
     <Compile Include="DocForm.cs" />
     <Compile Include="DocForm.Designer.cs">
@@ -100,9 +96,6 @@
   <ItemGroup>
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CharacterCustomization_HatMenu.resx">
-      <DependentUpon>CharacterCustomization_HatMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DocForm.resx">
       <DependentUpon>DocForm.Designer.cs</DependentUpon>
