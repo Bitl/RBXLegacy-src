@@ -242,9 +242,9 @@ namespace RBXLegacyLauncher
 					GlobalVars.InfoEditor_ScriptPath = Decryptline3;
 					GlobalVars.InfoEditor_ScriptMD5 = Decryptline4;
 					
-					textBox1.Text = GlobalVars.InfoEditor_Version;
-					textBox2.Text = GlobalVars.InfoEditor_DefaultClient;
-					textBox3.Text = GlobalVars.InfoEditor_ScriptPath;
+					textBox7.Text = GlobalVars.InfoEditor_Version;
+					textBox6.Text = GlobalVars.InfoEditor_DefaultClient;
+					textBox5.Text = GlobalVars.InfoEditor_ScriptPath;
 					textBox4.Text = GlobalVars.InfoEditor_ScriptMD5.ToUpper();
             	}
 			}
@@ -278,9 +278,9 @@ namespace RBXLegacyLauncher
 			GlobalVars.InfoEditor_DefaultClient = "";
 			GlobalVars.InfoEditor_ScriptPath = "";
 			GlobalVars.InfoEditor_ScriptMD5 = "";
-			textBox1.Text = GlobalVars.InfoEditor_Version;
-			textBox2.Text = GlobalVars.InfoEditor_DefaultClient;
-			textBox3.Text = GlobalVars.InfoEditor_ScriptPath;
+			textBox7.Text = GlobalVars.InfoEditor_Version;
+			textBox6.Text = GlobalVars.InfoEditor_DefaultClient;
+			textBox5.Text = GlobalVars.InfoEditor_ScriptPath;
 			textBox4.Text = GlobalVars.InfoEditor_ScriptMD5.ToUpper();
 		}
 		
