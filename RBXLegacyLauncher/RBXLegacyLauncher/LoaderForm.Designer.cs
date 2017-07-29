@@ -48,7 +48,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(169, 28);
+			this.pictureBox1.Location = new System.Drawing.Point(163, 29);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(130, 109);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -75,9 +75,9 @@ namespace RBXLegacyLauncher
 			// button1
 			// 
 			this.button1.Font = new System.Drawing.Font("Source Sans Pro", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(172, 221);
+			this.button1.Location = new System.Drawing.Point(163, 221);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(121, 30);
+			this.button1.Size = new System.Drawing.Size(130, 30);
 			this.button1.TabIndex = 3;
 			this.button1.Text = "Cancel";
 			this.button1.UseVisualStyleBackColor = true;

@@ -93,7 +93,7 @@ namespace RBXLegacyLauncher
     				Decryptline5 = SecurityFuncs.Base64Decode(result[4]);
     				Decryptline6 = SecurityFuncs.Base64Decode(result[5]);
     				Decryptline7 = SecurityFuncs.Base64Decode(result[6]);
-    				Decryptline8 = SecurityFuncs.Base64Decode(result[8]);
+    				Decryptline8 = SecurityFuncs.Base64Decode(result[7]);
 					
 					Boolean bline1 = Convert.ToBoolean(Decryptline1);
 					GlobalVars.ClientCreator_UsesPlayerName = bline1;
@@ -107,14 +107,14 @@ namespace RBXLegacyLauncher
 					Boolean bline4 = Convert.ToBoolean(Decryptline4);
 					GlobalVars.ClientCreator_LegacyMode = bline4;
 					
-					Boolean bline5 = Convert.ToBoolean(Decryptline8);
+					Boolean bline5 = Convert.ToBoolean(Decryptline5);
 					GlobalVars.ClientCreator_HasRocky = bline5;
 					
-					GlobalVars.ClientCreator_SelectedClientMD5 = Decryptline5;
+					GlobalVars.ClientCreator_SelectedClientMD5 = Decryptline6;
 					
-					GlobalVars.ClientCreator_SelectedClientVersion = Decryptline6;
+					GlobalVars.ClientCreator_SelectedClientVersion = Decryptline7;
 					
-					GlobalVars.ClientCreator_SelectedClientDesc = Decryptline7;
+					GlobalVars.ClientCreator_SelectedClientDesc = Decryptline8;
 					
 					checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 					checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
@@ -144,10 +144,10 @@ namespace RBXLegacyLauncher
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_UsesID.ToString()),
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_LoadsAssetsOnline.ToString()),
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_LegacyMode.ToString()),
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_HasRocky.ToString()),
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientMD5.ToString()),
             			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientVersion.ToString()),
-            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientDesc.ToString()),
-            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_HasRocky.ToString())
+            			SecurityFuncs.Base64Encode(GlobalVars.ClientCreator_SelectedClientDesc.ToString())
             		};
             		File.WriteAllText(sfd.FileName, SecurityFuncs.Base64Encode(string.Join("|",lines)));
             	}     
@@ -175,10 +175,12 @@ namespace RBXLegacyLauncher
 			GlobalVars.ClientCreator_SelectedClientDesc = "";
 			GlobalVars.ClientCreator_SelectedClientMD5 = "";
 			GlobalVars.ClientCreator_SelectedClientVersion = "";
+			GlobalVars.ClientCreator_HasRocky = false;
 			checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 			checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
 			checkBox5.Checked = GlobalVars.ClientCreator_LoadsAssetsOnline;
 			checkBox3.Checked = GlobalVars.ClientCreator_LegacyMode;
+			checkBox4.Checked = GlobalVars.ClientCreator_HasRocky;
 			textBox2.Text = GlobalVars.ClientCreator_SelectedClientMD5.ToUpper();
 			textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
 			textBox3.Text = GlobalVars.ClientCreator_SelectedClientVersion;
@@ -205,6 +207,18 @@ namespace RBXLegacyLauncher
 		void TextBox3TextChanged(object sender, EventArgs e)
 		{
 			GlobalVars.ClientCreator_SelectedClientVersion = textBox3.Text;
+		}
+		
+		void CheckBox4CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox4.Checked == true)
+			{
+				GlobalVars.ClientCreator_HasRocky = true;
+			}
+			else if (checkBox4.Checked == false)
+			{
+				GlobalVars.ClientCreator_HasRocky = false;
+			}
 		}
 		
 		void Button4Click(object sender, EventArgs e)

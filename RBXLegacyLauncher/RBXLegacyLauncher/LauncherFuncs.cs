@@ -261,16 +261,16 @@ namespace RBXLegacyLauncher
 			bool bline4 = Convert.ToBoolean(Decryptline4);
 			GlobalVars.LegacyMode = bline4;
 			
-			GlobalVars.SelectedClientMD5 = Decryptline5;
+			bool bline5 = Convert.ToBoolean(Decryptline5);
+			GlobalVars.HasRocky = bline5;
 			
-			GlobalVars.SelectedClientVersion = Decryptline6;
-					
-			GlobalVars.SelectedClientDesc = Decryptline7;
+			GlobalVars.SelectedClientMD5 = Decryptline6;
+			
+			GlobalVars.SelectedClientVersion = Decryptline7;
+			
+			GlobalVars.SelectedClientDesc = Decryptline8;
 			
 			GlobalVars.MD5 = GlobalVars.SelectedClientMD5;
-			
-			bool bline5 = Convert.ToBoolean(Decryptline4);
-			GlobalVars.HasRocky = bline5;
 		}
 		
 		public static void GeneratePlayerID()
