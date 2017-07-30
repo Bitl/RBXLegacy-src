@@ -164,7 +164,6 @@ end
 
 function LoadCharacterNew(playerApp,newChar)
 	--authentic roblox style loading
-	wait(1.5)
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
 			if (newVal.CustomizationType.Value == 1) then 
@@ -328,152 +327,162 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		typeValue.Value = 1
 	end
 	--HATS
-	for i=1,3,1 do
-		local newHat = Instance.new("StringValue",newCharApp)
-		if (i == 1) then
-			if (Hat1ID ~= nil) then
-				newHat.Value = Hat1ID
-				newHat.Name = Hat1ID
-			else
-				newHat.Value = "NoHat.rbxm"
-				newHat.Name = "NoHat.rbxm"
+	if (rbxlegacyversion ~= "pre-alpha") then
+		for i=1,3,1 do
+			local newHat = Instance.new("StringValue",newCharApp)
+			if (i == 1) then
+				if (Hat1ID ~= nil) then
+					newHat.Value = Hat1ID
+					newHat.Name = Hat1ID
+				else
+					newHat.Value = "NoHat.rbxm"
+					newHat.Name = "NoHat.rbxm"
+				end
+			elseif (i == 2) then
+				if (Hat2ID ~= nil) then
+					newHat.Value = Hat2ID
+					newHat.Name = Hat2ID
+				else
+					newHat.Value = "NoHat.rbxm"
+					newHat.Name = "NoHat.rbxm"
+				end
+			elseif (i == 3) then
+				if (Hat3ID ~= nil) then
+					newHat.Value = Hat3ID
+					newHat.Name = Hat3ID
+				else
+					newHat.Value = "NoHat.rbxm"
+					newHat.Name = "NoHat.rbxm"
+				end
 			end
-		elseif (i == 2) then
-			if (Hat2ID ~= nil) then
-				newHat.Value = Hat2ID
-				newHat.Name = Hat2ID
-			else
-				newHat.Value = "NoHat.rbxm"
-				newHat.Name = "NoHat.rbxm"
-			end
-		elseif (i == 3) then
-			if (Hat3ID ~= nil) then
-				newHat.Value = Hat3ID
-				newHat.Name = Hat3ID
-			else
-				newHat.Value = "NoHat.rbxm"
-				newHat.Name = "NoHat.rbxm"
-			end
+			local typeValue = Instance.new("NumberValue")
+			typeValue.Name = "CustomizationType"
+			typeValue.Parent = newHat
+			typeValue.Value = 2
 		end
-		local typeValue = Instance.new("NumberValue")
-		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newHat
-		typeValue.Value = 2
 	end
 	--T-SHIRT
-	local newTShirt = Instance.new("StringValue",newCharApp)
-	if (TShirtID ~= nil or TShirtID ~= "0") then
-		newTShirt.Value = TShirtID
-	else
-		newTShirt.Value = "0"
-	end
-	newTShirt.Name = "T-Shirt"
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newTShirt
-	typeValue.Value = 3
-	--SHIRT
-	local newShirt = Instance.new("StringValue",newCharApp)
-	if (ShirtID ~= nil or ShirtID ~= "0") then
-		newShirt.Value = ShirtID
-	else
-		newShirt.Value = "0"
-	end
-	newShirt.Name = "Shirt"
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newShirt
-	typeValue.Value = 4
-	--PANTS
-	local newPants = Instance.new("StringValue",newCharApp)
-	if (PantsID ~= nil or PantsID ~= "0") then
-		newPants.Value = PantsID
-	else
-		newPants.Value = "0"
-	end
-	newPants.Name = "Pants"
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newPants
-	typeValue.Value = 5
-	--FACE
-	local newFace = Instance.new("StringValue",newCharApp)
-	if (FaceID ~= nil) then
-		newFace.Value = FaceID
-		newFace.Name = FaceID
-	else
-		newFace.Value = "DefaultFace.rbxm"
-		newFace.Name = "DefaultFace.rbxm"
-	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newFace
-	typeValue.Value = 6
-	--HEADS
-	local newHead = Instance.new("StringValue",newCharApp)
-	if (HeadID ~= nil) then
-		newHead.Value = HeadID
-		newHead.Name = HeadID
-	else
-		newHead.Value = "DefaultHead.rbxm"
-		newHead.Name = "DefaultHead.rbxm"
-	end
-	local typeValue = Instance.new("NumberValue")
-	typeValue.Name = "CustomizationType"
-	typeValue.Parent = newHead
-	typeValue.Value = 7
-	--PACKAGES
-	for i=2,5,1 do
-		local BodyMesh = Instance.new("StringValue",newCharApp)
-		if (i == 2) then
-			if (TorsoID ~= nil) then
-				BodyMesh.Value = TorsoID
-				BodyMesh.Name = TorsoID
-			else
-				BodyMesh.Value = "DefaultTorso.rbxm"
-				BodyMesh.Name = "DefaultTorso.rbxm"
-			end
-		elseif (i == 3) then
-			if (LArmID ~= nil) then
-				BodyMesh.Value = LArmID
-				BodyMesh.Name = LArmID
-			else
-				BodyMesh.Value = "DefaultLArm.rbxm"
-				BodyMesh.Name = "DefaultLArm.rbxm"
-			end
-		elseif (i == 4) then
-			if (RArmID ~= nil) then
-				BodyMesh.Value = RArmID
-				BodyMesh.Name = RArmID
-			else
-				BodyMesh.Value = "DefaultRArm.rbxm"
-				BodyMesh.Name = "DefaultRArm.rbxm"
-			end
-		elseif (i == 5) then
-			if (LLegID ~= nil) then
-				BodyMesh.Value = LLegID
-				BodyMesh.Name = LLegID
-			else
-				BodyMesh.Value = "DefaultLLeg.rbxm"
-				BodyMesh.Name = "DefaultLLeg.rbxm"
-			end
-		elseif (i == 6) then
-			if (RLegID ~= nil) then
-				BodyMesh.Value = RLegID
-				BodyMesh.Name = RLegID
-			else
-				BodyMesh.Value = "DefaultRLeg.rbxm"
-				BodyMesh.Name = "DefaultRLeg.rbxm"
-			end
+	if (rbxlegacyversion ~= "pre-alpha") then
+		local newTShirt = Instance.new("StringValue",newCharApp)
+		if (TShirtID ~= nil or TShirtID ~= "0") then
+			newTShirt.Value = TShirtID
+		else
+			newTShirt.Value = "0"
 		end
-		local indexValue = Instance.new("NumberValue")
-		indexValue.Name = "MeshIndex"
-		indexValue.Parent = BodyColor
-		indexValue.Value = i
+		newTShirt.Name = "T-Shirt"
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
-		typeValue.Parent = BodyColor
-		typeValue.Value = 8
+		typeValue.Parent = newTShirt
+		typeValue.Value = 3
+	end
+	--SHIRTS AND PANTS
+	if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext") then
+		local newShirt = Instance.new("StringValue",newCharApp)
+		if (ShirtID ~= nil or ShirtID ~= "0") then
+			newShirt.Value = ShirtID
+		else
+			newShirt.Value = "0"
+		end
+		newShirt.Name = "Shirt"
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = newShirt
+		typeValue.Value = 4
+		
+		local newPants = Instance.new("StringValue",newCharApp)
+		if (PantsID ~= nil or PantsID ~= "0") then
+			newPants.Value = PantsID
+		else
+			newPants.Value = "0"
+		end
+		newPants.Name = "Pants"
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = newPants
+		typeValue.Value = 5
+	end
+	--FACE AND HEADS
+	if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
+		local newFace = Instance.new("StringValue",newCharApp)
+		if (FaceID ~= nil) then
+			newFace.Value = FaceID
+			newFace.Name = FaceID
+		else
+			newFace.Value = "DefaultFace.rbxm"
+			newFace.Name = "DefaultFace.rbxm"
+		end
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = newFace
+		typeValue.Value = 6
+	
+		local newHead = Instance.new("StringValue",newCharApp)
+		if (HeadID ~= nil) then
+			newHead.Value = HeadID
+			newHead.Name = HeadID
+		else
+			newHead.Value = "DefaultHead.rbxm"
+			newHead.Name = "DefaultHead.rbxm"
+		end
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = newHead
+		typeValue.Value = 7
+	end
+	--PACKAGES
+	if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
+		for i=2,5,1 do
+			local BodyMesh = Instance.new("StringValue",newCharApp)
+			if (i == 2) then
+				if (TorsoID ~= nil) then
+					BodyMesh.Value = TorsoID
+					BodyMesh.Name = TorsoID
+				else
+					BodyMesh.Value = "DefaultTorso.rbxm"
+					BodyMesh.Name = "DefaultTorso.rbxm"
+				end
+			elseif (i == 3) then
+				if (LArmID ~= nil) then
+					BodyMesh.Value = LArmID
+					BodyMesh.Name = LArmID
+				else
+					BodyMesh.Value = "DefaultLArm.rbxm"
+					BodyMesh.Name = "DefaultLArm.rbxm"
+				end
+			elseif (i == 4) then
+				if (RArmID ~= nil) then
+					BodyMesh.Value = RArmID
+					BodyMesh.Name = RArmID
+				else
+					BodyMesh.Value = "DefaultRArm.rbxm"
+					BodyMesh.Name = "DefaultRArm.rbxm"
+				end
+			elseif (i == 5) then
+				if (LLegID ~= nil) then
+					BodyMesh.Value = LLegID
+					BodyMesh.Name = LLegID
+				else
+					BodyMesh.Value = "DefaultLLeg.rbxm"
+					BodyMesh.Name = "DefaultLLeg.rbxm"
+				end
+			elseif (i == 6) then
+				if (RLegID ~= nil) then
+					BodyMesh.Value = RLegID
+					BodyMesh.Name = RLegID
+				else
+					BodyMesh.Value = "DefaultRLeg.rbxm"
+					BodyMesh.Name = "DefaultRLeg.rbxm"
+				end
+			end
+			local indexValue = Instance.new("NumberValue")
+			indexValue.Name = "MeshIndex"
+			indexValue.Parent = BodyColor
+			indexValue.Value = i
+			local typeValue = Instance.new("NumberValue")
+			typeValue.Name = "CustomizationType"
+			typeValue.Parent = BodyColor
+			typeValue.Value = 8
+		end
 	end
 end
 

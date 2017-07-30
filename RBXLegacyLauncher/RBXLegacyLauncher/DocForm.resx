@@ -119,80 +119,67 @@
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>VERSION CODENAME DOCUMENTATION
+USE NUMBERS PROVIDED AS VALUES
 -------------------------------------------------------------
-pre-alpha
+1 - Pre-Alpha
 - Mid-2008 or lower.
 - Support for "fake" 2006/2007 clients, or the real things.
 - Uses Legacy joinscript.
 - Does not support hats or any other form of customization besides body colors.
 -------------------------------------------------------------
-pre-alpha-ext
+2 - Pre-Alpha (Ext.)
 - Mid-2008 or lower.
 - Support for "fake" 2006/2007 clients, or the real things.
 - Uses Legacy joinscript.
 - Supports only hats, body colors, and T-Shirts.
 -------------------------------------------------------------
-alpha
+3 - Alpha
 - Mid-2008 or lower.
 - Uses Legacy joinscript.
 - Supports only hats, body colors, T-Shirts, shirts, and pants.
 -------------------------------------------------------------
-beta
+4 - Beta
 - Late-2008-Early 2009.
 - Uses Legacy joinscript.
 - Supports only hats, body colors, T-Shirts, shirts, and pants.
 -------------------------------------------------------------
-delta-beta
-- Late-2008-Early 2009.
-- Uses RBXPri joinscript.
-- Supports only hats, body colors, T-Shirts, shirts, and pants.
--------------------------------------------------------------
-pre-gamma-beta
+5 - Pre-Gamma Beta
 - Early-2009-Early 2010.
 - Uses Legacy joinscript.
 - Supports most kinds of customization except faces and body meshes.
 -------------------------------------------------------------
-delta-pre-gamma-beta
-- Early-2009-Early 2010.
-- Uses RBXPri joinscript.
-- Supports most kinds of customization except faces and body meshes.
--------------------------------------------------------------
-pre-gamma
+6 - Pre-Gamma
 - Early-2009-Early 2010.
 - Uses Legacy joinscript.
-- Supports most kinds of customization except body meshes.
+- Supports most kinds of customization except most body meshes.
 -------------------------------------------------------------
-delta-pre-gamma
-- Early-2009-Early 2010.
-- Uses RBXPri joinscript.
-- Supports most kinds of customization except body meshes.
--------------------------------------------------------------
-gamma
+7 - Gamma
 - Mid-2010-November 2010.
 - Uses Legacy joinscript.
 - Supports all kinds of customization.
 -------------------------------------------------------------
-delta-gamma
-- Mid-2010-November 2010.
-- Uses RBXPri joinscript.
-- Supports all kinds of customization.
--------------------------------------------------------------
-delta
+8 - Delta
 - December-2010-Early 2011.
 - Uses RBXPri joinscript.
 - Supports the more modern 2011 user interface.
 - Supports all kinds of customization.
 -------------------------------------------------------------
-delta-omega
+9 - Delta Omega
 - Mid-2011-Early-2012.
 - Uses RBXPri joinscript.
 - Supports the more modern 2011 user interface.
 - Supports all kinds of customization.
 -------------------------------------------------------------
-omega
+10 - Omega
 - Mid-2011-Early-2012.
 - Uses RBXPri joinscript.
 - Meant for more modern clients which don't use early 2011's UI.
+- Supports all kinds of customization.
+-------------------------------------------------------------
+11 - Ultra
+- ???-???.
+- Uses RBXPri joinscript.
+- Meant for more modern clients over ones supported with Ultra.
 - Supports all kinds of customization.
 -------------------------------------------------------------</value>
   </data>

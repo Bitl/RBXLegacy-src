@@ -266,7 +266,8 @@ namespace RBXLegacyLauncher
 			
 			GlobalVars.SelectedClientMD5 = Decryptline6;
 			
-			GlobalVars.SelectedClientVersion = Decryptline7;
+			int iline7 = Convert.ToInt32(Decryptline7);
+			GlobalVars.SelectedClientVersion = iline7;
 			
 			GlobalVars.SelectedClientDesc = Decryptline8;
 			

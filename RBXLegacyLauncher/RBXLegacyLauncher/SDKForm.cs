@@ -112,7 +112,8 @@ namespace RBXLegacyLauncher
 					
 					GlobalVars.ClientCreator_SelectedClientMD5 = Decryptline6;
 					
-					GlobalVars.ClientCreator_SelectedClientVersion = Decryptline7;
+					int iline7 = Convert.ToInt32(Decryptline7);
+					GlobalVars.ClientCreator_SelectedClientVersion = iline7;
 					
 					GlobalVars.ClientCreator_SelectedClientDesc = Decryptline8;
 					
@@ -123,7 +124,7 @@ namespace RBXLegacyLauncher
 					checkBox4.Checked = GlobalVars.ClientCreator_HasRocky;
 					textBox2.Text = GlobalVars.ClientCreator_SelectedClientMD5.ToUpper();
 					textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
-					textBox3.Text = GlobalVars.ClientCreator_SelectedClientVersion;
+					textBox3.Text = GlobalVars.ClientCreator_SelectedClientVersion.ToString();
             	}
 			}
 		}
@@ -174,7 +175,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.ClientCreator_LegacyMode = false;
 			GlobalVars.ClientCreator_SelectedClientDesc = "";
 			GlobalVars.ClientCreator_SelectedClientMD5 = "";
-			GlobalVars.ClientCreator_SelectedClientVersion = "";
+			GlobalVars.ClientCreator_SelectedClientVersion = 0;
 			GlobalVars.ClientCreator_HasRocky = false;
 			checkBox1.Checked = GlobalVars.ClientCreator_UsesPlayerName;
 			checkBox2.Checked = GlobalVars.ClientCreator_UsesID;
@@ -183,7 +184,7 @@ namespace RBXLegacyLauncher
 			checkBox4.Checked = GlobalVars.ClientCreator_HasRocky;
 			textBox2.Text = GlobalVars.ClientCreator_SelectedClientMD5.ToUpper();
 			textBox1.Text = GlobalVars.ClientCreator_SelectedClientDesc;
-			textBox3.Text = GlobalVars.ClientCreator_SelectedClientVersion;
+			textBox3.Text = GlobalVars.ClientCreator_SelectedClientVersion.ToString();
 		}
 		
 		void CheckBox3CheckedChanged(object sender, EventArgs e)
@@ -206,7 +207,22 @@ namespace RBXLegacyLauncher
 		
 		void TextBox3TextChanged(object sender, EventArgs e)
 		{
-			GlobalVars.ClientCreator_SelectedClientVersion = textBox3.Text;
+			int parsedValue;
+			if (int.TryParse(textBox3.Text, out parsedValue))
+			{
+				if (textBox3.Text.Equals(""))
+				{
+					GlobalVars.ClientCreator_SelectedClientVersion = 0;
+				}
+				else
+				{
+					GlobalVars.ClientCreator_SelectedClientVersion = Convert.ToInt32(textBox3.Text);
+				}
+			}
+			else
+			{
+				GlobalVars.ClientCreator_SelectedClientVersion = 0;
+			}
 		}
 		
 		void CheckBox4CheckedChanged(object sender, EventArgs e)
