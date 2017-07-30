@@ -105,7 +105,161 @@ namespace RBXLegacyLauncher
 		
 		void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-     		if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
+			if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage1"])
+			{
+				if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+				{
+					string partdir;
+					if (SelectedPart == "Head")
+					{
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\heads";
+						if (Directory.Exists(partdir))
+						{
+							listBox5.Items.Clear();
+							DirectoryInfo dinfo = new DirectoryInfo(partdir);
+							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+							foreach( FileInfo file in Files )
+							{
+								if (file.Name.Equals(String.Empty))
+								{
+									continue;
+								}
+								
+								listBox5.Items.Add(file.Name);
+							}
+							listBox5.SelectedItem = GlobalVars.HeadID;
+							listBox5.Enabled = true;
+							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.HeadID.Replace(".rbxm", "") + ".png");
+							pictureBox5.Image = icon5;
+						}
+					}
+					else if (SelectedPart == "Torso")
+					{
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\2";
+						if (Directory.Exists(partdir))
+						{
+							listBox5.Items.Clear();
+							DirectoryInfo dinfo = new DirectoryInfo(partdir);
+							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+							foreach( FileInfo file in Files )
+							{
+								if (file.Name.Equals(String.Empty))
+								{
+									continue;
+								}
+								
+								listBox5.Items.Add(file.Name);
+							}
+							listBox5.SelectedItem = GlobalVars.TorsoID;
+							listBox5.Enabled = true;
+							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.TorsoID.Replace(".rbxm", "") + ".png");
+							pictureBox5.Image = icon5;
+						}
+					}
+					else if (SelectedPart == "Right Arm")
+					{
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\3";
+						if (Directory.Exists(partdir))
+						{
+							listBox5.Items.Clear();
+							DirectoryInfo dinfo = new DirectoryInfo(partdir);
+							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+							foreach( FileInfo file in Files )
+							{
+								if (file.Name.Equals(String.Empty))
+								{
+									continue;
+								}
+								
+								listBox5.Items.Add(file.Name);
+							}
+							listBox5.SelectedItem = GlobalVars.RightArmID;
+							listBox5.Enabled = true;
+							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightArmID.Replace(".rbxm", "") + ".png");
+							pictureBox5.Image = icon5;
+						}
+					}
+					else if (SelectedPart == "Left Arm")
+					{
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\4";
+						if (Directory.Exists(partdir))
+						{
+							listBox5.Items.Clear();
+							DirectoryInfo dinfo = new DirectoryInfo(partdir);
+							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+							foreach( FileInfo file in Files )
+							{
+								if (file.Name.Equals(String.Empty))
+								{
+									continue;
+								}
+								
+								listBox5.Items.Add(file.Name);
+							}
+							listBox5.SelectedItem = GlobalVars.LeftArmID;
+							listBox5.Enabled = true;
+							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftArmID.Replace(".rbxm", "") + ".png");
+							pictureBox5.Image = icon5;
+						}
+					}
+					else if (SelectedPart == "Right Leg")
+					{
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\5";
+						if (Directory.Exists(partdir))
+						{
+							listBox5.Items.Clear();
+							DirectoryInfo dinfo = new DirectoryInfo(partdir);
+							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+							foreach( FileInfo file in Files )
+							{
+								if (file.Name.Equals(String.Empty))
+								{
+									continue;
+								}
+								
+								listBox5.Items.Add(file.Name);
+							}
+							listBox5.SelectedItem = GlobalVars.RightLegID;
+							listBox5.Enabled = true;
+							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightLegID.Replace(".rbxm", "") + ".png");
+							pictureBox5.Image = icon5;
+						}
+					}
+					else if (SelectedPart == "Left Leg")
+					{
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\6";
+						if (Directory.Exists(partdir))
+						{
+							listBox5.Items.Clear();
+							DirectoryInfo dinfo = new DirectoryInfo(partdir);
+							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+							foreach( FileInfo file in Files )
+							{
+								if (file.Name.Equals(String.Empty))
+								{
+									continue;
+								}
+								
+								listBox5.Items.Add(file.Name);
+							}
+							listBox5.SelectedItem = GlobalVars.LeftLegID;
+							listBox5.Enabled = true;
+							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftLegID.Replace(".rbxm", "") + ".png");
+							pictureBox5.Image = icon5;
+						}
+					}
+				}
+				else
+     			{
+     				listBox5.Items.Clear();
+     			}
+				
+				listBox1.Items.Clear();
+     			listBox2.Items.Clear();
+     			listBox3.Items.Clear();
+     			listBox4.Items.Clear();
+			}
+     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
      		{
      			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\faces";
         		if (Directory.Exists(facedir))
@@ -130,6 +284,7 @@ namespace RBXLegacyLauncher
      			listBox1.Items.Clear();
      			listBox2.Items.Clear();
      			listBox3.Items.Clear();
+     			listBox5.Items.Clear();
      		}
 			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
      		{
@@ -169,6 +324,7 @@ namespace RBXLegacyLauncher
         		}
         		
         		listBox4.Items.Clear();
+        		listBox5.Items.Clear();
 			}
 			else
 			{

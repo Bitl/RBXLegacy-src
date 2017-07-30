@@ -1,69 +1,48 @@
 --coded by Bitl and Carrot
 --stuff was borrowed from RBXBanland, EnergyCell, John, and the RBXPri team
-rbxlegacyversion = ""
+rbxlegacyversion = 0
 
 function SetRBXLegacyVersion(Version)
 	rbxlegacyversion = Version
-	if (rbxlegacyversion == "pre-alpha") then
+	if (rbxlegacyversion == 1) then -- Pre Alpha
 		settings().Rendering.frameRateManager = 2
     	settings().Rendering.graphicsMode = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
-	elseif (rbxlegacyversion == "pre-alpha-ext") then
+	elseif (rbxlegacyversion == 2) then -- Ext. Pre Alpha
 		settings().Rendering.frameRateManager = 2
 		settings().Rendering.graphicsMode = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
-	elseif (rbxlegacyversion == "alpha") then
+	elseif (rbxlegacyversion == 3) then -- Alpha
 		settings().Rendering.frameRateManager = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
-	elseif (rbxlegacyversion == "beta") then
+	elseif (rbxlegacyversion == 4) then -- Beta
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.SendRate = 30
 		settings().Network.ReceiveRate = 60
-	elseif (rbxlegacyversion == "delta-beta") then
-		settings().Rendering.FrameRateManager = 2
-		settings().Network.SendRate = 30
-		settings().Network.ReceiveRate = 60
-	elseif (rbxlegacyversion == "pre-gamma-beta") then
+	elseif (rbxlegacyversion == 5) then -- Beta Pre-Gamma
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.DataSendRate = 30
 		settings().Network.PhysicsSendRate = 20
 		settings().Network.ReceiveRate = 60
-	elseif (rbxlegacyversion == "delta-pre-gamma-beta") then
+	elseif (rbxlegacyversion == 6) then -- Pre-Gamma
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.DataSendRate = 30
 		settings().Network.PhysicsSendRate = 20
 		settings().Network.ReceiveRate = 60
-	elseif (rbxlegacyversion == "pre-gamma") then
-		settings().Rendering.FrameRateManager = 2
-		settings().Network.DataSendRate = 30
-		settings().Network.PhysicsSendRate = 20
-		settings().Network.ReceiveRate = 60
-	elseif (rbxlegacyversion == "delta-pre-gamma") then
-		settings().Rendering.FrameRateManager = 2
-		settings().Network.DataSendRate = 30
-		settings().Network.PhysicsSendRate = 20
-		settings().Network.ReceiveRate = 60
-	elseif (rbxlegacyversion == "gamma") then
+	elseif (rbxlegacyversion == 7) then -- Gamma
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.DataSendRate = 30
 		settings().Network.PhysicsSendRate = 20
 		settings().Network.ReceiveRate = 60
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-	elseif (rbxlegacyversion == "delta-gamma") then
-		settings().Rendering.FrameRateManager = 2
-		settings().Network.DataSendRate = 30
-		settings().Network.PhysicsSendRate = 20
-		settings().Network.ReceiveRate = 60
-		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-	elseif (rbxlegacyversion == "delta") then
+	elseif (rbxlegacyversion == 8) then -- Delta
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
@@ -117,22 +96,22 @@ function SetRBXLegacyVersion(Version)
 		end))
 		wait() -- intalizing
 		game.GuiRoot.ScoreHud:Remove() -- no legacy scorehud, allow for the new one
-	elseif (rbxlegacyversion == "delta-omega") then
+	elseif (rbxlegacyversion == 9) then -- Delta Omega
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		wait() -- intalizing
 		game.GuiRoot.ScoreHud:Remove() -- no legacy scorehud, allow for the new one
-	elseif (rbxlegacyversion == "omega") then
+	elseif (rbxlegacyversion == 10) then -- Omega
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode()
 		--stamper
 		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
 		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
-       		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
+       	game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
 		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
-        	game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+        game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
 		--[[corescripts
 		local RobloxGui = game:GetService("CoreGui"):WaitForChild("RobloxGui") 
 		local scriptContext = game:GetService("ScriptContext") 
@@ -140,11 +119,11 @@ function SetRBXLegacyVersion(Version)
 		scriptContext:AddCoreScript("CoreScripts/GameMenu", RobloxGui)
 		scriptContext:AddCoreScript("CoreScripts/BackpackFull", RobloxGui)
 		]]--todo: file:// (rbxasset://) and the corescript adder thing
-	end)
-	--[[elseif (rbxlegacyversion == "ultra") then
+		end)
+	elseif (rbxlegacyversion == 11) then -- Ultra
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode() end)]]--we aren't ready for this yet
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 	end
 	print("RBXLegacy client operation set to '" .. rbxlegacyversion .. "'.")
 end
@@ -164,6 +143,7 @@ end
 
 function LoadCharacterNew(playerApp,newChar)
 	--authentic roblox style loading
+	wait(1.5)
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
 			if (newVal.CustomizationType.Value == 1) then 
@@ -171,7 +151,7 @@ function LoadCharacterNew(playerApp,newChar)
 				charparts[newVal.ColorIndex.Value].BrickColor = newVal.Value 
 				end)
 			elseif (newVal.CustomizationType.Value == 2)  then
-				if (rbxlegacyversion ~= "pre-alpha") then
+				if (rbxlegacyversion > 1) then
 					pcall(function()
 					local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
 					if newHat[1] then 
@@ -184,7 +164,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 3)  then
-				if (rbxlegacyversion ~= "pre-alpha") then
+				if (rbxlegacyversion > 1) then
 					pcall(function()
 					local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
 					if newTShirt[1] then 
@@ -197,7 +177,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 4)  then
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext") then
+				if (rbxlegacyversion > 2) then
 					pcall(function()
 					local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
 					if newShirt[1] then 
@@ -210,7 +190,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 5)  then
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext") then
+				if (rbxlegacyversion > 2) then
 					pcall(function()
 					local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
 					if newPants[1] then 
@@ -223,7 +203,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 6)  then
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
+				if (rbxlegacyversion > 5) then
 					pcall(function()
 					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
 					if newFace[1] then 
@@ -238,7 +218,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 7) then 
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
+				if (rbxlegacyversion > 5) then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
 					if newPart[1] then 
@@ -252,7 +232,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (newVal.CustomizationType.Value == 8) then 
-				if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
+				if (rbxlegacyversion > 6) then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
@@ -327,172 +307,162 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		typeValue.Value = 1
 	end
 	--HATS
-	if (rbxlegacyversion ~= "pre-alpha") then
-		for i=1,3,1 do
-			local newHat = Instance.new("StringValue",newCharApp)
-			if (i == 1) then
-				if (Hat1ID ~= nil) then
-					newHat.Value = Hat1ID
-					newHat.Name = Hat1ID
-				else
-					newHat.Value = "NoHat.rbxm"
-					newHat.Name = "NoHat.rbxm"
-				end
-			elseif (i == 2) then
-				if (Hat2ID ~= nil) then
-					newHat.Value = Hat2ID
-					newHat.Name = Hat2ID
-				else
-					newHat.Value = "NoHat.rbxm"
-					newHat.Name = "NoHat.rbxm"
-				end
-			elseif (i == 3) then
-				if (Hat3ID ~= nil) then
-					newHat.Value = Hat3ID
-					newHat.Name = Hat3ID
-				else
-					newHat.Value = "NoHat.rbxm"
-					newHat.Name = "NoHat.rbxm"
-				end
+	for i=1,3,1 do
+		local newHat = Instance.new("StringValue",newCharApp)
+		if (i == 1) then
+			if (Hat1ID ~= nil) then
+				newHat.Value = Hat1ID
+				newHat.Name = Hat1ID
+			else
+				newHat.Value = "NoHat.rbxm"
+				newHat.Name = "NoHat.rbxm"
 			end
-			local typeValue = Instance.new("NumberValue")
-			typeValue.Name = "CustomizationType"
-			typeValue.Parent = newHat
-			typeValue.Value = 2
+		elseif (i == 2) then
+			if (Hat2ID ~= nil) then
+				newHat.Value = Hat2ID
+				newHat.Name = Hat2ID
+			else
+				newHat.Value = "NoHat.rbxm"
+				newHat.Name = "NoHat.rbxm"
+			end
+		elseif (i == 3) then
+			if (Hat3ID ~= nil) then
+				newHat.Value = Hat3ID
+				newHat.Name = Hat3ID
+			else
+				newHat.Value = "NoHat.rbxm"
+				newHat.Name = "NoHat.rbxm"
+			end
 		end
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = newHat
+		typeValue.Value = 2
 	end
 	--T-SHIRT
-	if (rbxlegacyversion ~= "pre-alpha") then
-		local newTShirt = Instance.new("StringValue",newCharApp)
-		if (TShirtID ~= nil or TShirtID ~= "0") then
-			newTShirt.Value = TShirtID
-		else
-			newTShirt.Value = "0"
-		end
-		newTShirt.Name = "T-Shirt"
-		local typeValue = Instance.new("NumberValue")
-		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newTShirt
-		typeValue.Value = 3
+	local newTShirt = Instance.new("StringValue",newCharApp)
+	if (TShirtID ~= nil or TShirtID ~= "0") then
+		newTShirt.Value = TShirtID
+	else
+		newTShirt.Value = "0"
 	end
-	--SHIRTS AND PANTS
-	if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext") then
-		local newShirt = Instance.new("StringValue",newCharApp)
-		if (ShirtID ~= nil or ShirtID ~= "0") then
-			newShirt.Value = ShirtID
-		else
-			newShirt.Value = "0"
-		end
-		newShirt.Name = "Shirt"
-		local typeValue = Instance.new("NumberValue")
-		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newShirt
-		typeValue.Value = 4
-		
-		local newPants = Instance.new("StringValue",newCharApp)
-		if (PantsID ~= nil or PantsID ~= "0") then
-			newPants.Value = PantsID
-		else
-			newPants.Value = "0"
-		end
-		newPants.Name = "Pants"
-		local typeValue = Instance.new("NumberValue")
-		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newPants
-		typeValue.Value = 5
+	newTShirt.Name = "T-Shirt"
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newTShirt
+	typeValue.Value = 3
+	--SHIRT
+	local newShirt = Instance.new("StringValue",newCharApp)
+	if (ShirtID ~= nil or ShirtID ~= "0") then
+		newShirt.Value = ShirtID
+	else
+		newShirt.Value = "0"
 	end
-	--FACE AND HEADS
-	if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
-		local newFace = Instance.new("StringValue",newCharApp)
-		if (FaceID ~= nil) then
-			newFace.Value = FaceID
-			newFace.Name = FaceID
-		else
-			newFace.Value = "DefaultFace.rbxm"
-			newFace.Name = "DefaultFace.rbxm"
-		end
-		local typeValue = Instance.new("NumberValue")
-		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newFace
-		typeValue.Value = 6
-	
-		local newHead = Instance.new("StringValue",newCharApp)
-		if (HeadID ~= nil) then
-			newHead.Value = HeadID
-			newHead.Name = HeadID
-		else
-			newHead.Value = "DefaultHead.rbxm"
-			newHead.Name = "DefaultHead.rbxm"
-		end
-		local typeValue = Instance.new("NumberValue")
-		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newHead
-		typeValue.Value = 7
+	newShirt.Name = "Shirt"
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newShirt
+	typeValue.Value = 4
+	--PANTS
+	local newPants = Instance.new("StringValue",newCharApp)
+	if (PantsID ~= nil or PantsID ~= "0") then
+		newPants.Value = PantsID
+	else
+		newPants.Value = "0"
 	end
+	newPants.Name = "Pants"
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newPants
+	typeValue.Value = 5
+	--FACE
+	local newFace = Instance.new("StringValue",newCharApp)
+	if (FaceID ~= nil) then
+		newFace.Value = FaceID
+		newFace.Name = FaceID
+	else
+		newFace.Value = "DefaultFace.rbxm"
+		newFace.Name = "DefaultFace.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newFace
+	typeValue.Value = 6
+	--HEADS
+	local newHead = Instance.new("StringValue",newCharApp)
+	if (HeadID ~= nil) then
+		newHead.Value = HeadID
+		newHead.Name = HeadID
+	else
+		newHead.Value = "DefaultHead.rbxm"
+		newHead.Name = "DefaultHead.rbxm"
+	end
+	local typeValue = Instance.new("NumberValue")
+	typeValue.Name = "CustomizationType"
+	typeValue.Parent = newHead
+	typeValue.Value = 7
 	--PACKAGES
-	if (rbxlegacyversion ~= "pre-alpha" or rbxlegacyversion ~= "pre-alpha-ext" or rbxlegacyversion ~= "alpha" or rbxlegacyversion ~= "beta" or rbxlegacyversion ~= "delta-beta" or rbxlegacyversion ~= "pre-gamma" or rbxlegacyversion ~= "delta-pre-gamma" or rbxlegacyversion ~= "pre-gamma-beta" or rbxlegacyversion ~= "delta-pre-gamma-beta") then
-		for i=2,5,1 do
-			local BodyMesh = Instance.new("StringValue",newCharApp)
-			if (i == 2) then
-				if (TorsoID ~= nil) then
-					BodyMesh.Value = TorsoID
-					BodyMesh.Name = TorsoID
-				else
-					BodyMesh.Value = "DefaultTorso.rbxm"
-					BodyMesh.Name = "DefaultTorso.rbxm"
-				end
-			elseif (i == 3) then
-				if (LArmID ~= nil) then
-					BodyMesh.Value = LArmID
-					BodyMesh.Name = LArmID
-				else
-					BodyMesh.Value = "DefaultLArm.rbxm"
-					BodyMesh.Name = "DefaultLArm.rbxm"
-				end
-			elseif (i == 4) then
-				if (RArmID ~= nil) then
-					BodyMesh.Value = RArmID
-					BodyMesh.Name = RArmID
-				else
-					BodyMesh.Value = "DefaultRArm.rbxm"
-					BodyMesh.Name = "DefaultRArm.rbxm"
-				end
-			elseif (i == 5) then
-				if (LLegID ~= nil) then
-					BodyMesh.Value = LLegID
-					BodyMesh.Name = LLegID
-				else
-					BodyMesh.Value = "DefaultLLeg.rbxm"
-					BodyMesh.Name = "DefaultLLeg.rbxm"
-				end
-			elseif (i == 6) then
-				if (RLegID ~= nil) then
-					BodyMesh.Value = RLegID
-					BodyMesh.Name = RLegID
-				else
-					BodyMesh.Value = "DefaultRLeg.rbxm"
-					BodyMesh.Name = "DefaultRLeg.rbxm"
-				end
+	for i=2,5,1 do
+		local BodyMesh = Instance.new("StringValue",newCharApp)
+		if (i == 2) then
+			if (TorsoID ~= nil) then
+				BodyMesh.Value = TorsoID
+				BodyMesh.Name = TorsoID
+			else
+				BodyMesh.Value = "DefaultTorso.rbxm"
+				BodyMesh.Name = "DefaultTorso.rbxm"
 			end
-			local indexValue = Instance.new("NumberValue")
-			indexValue.Name = "MeshIndex"
-			indexValue.Parent = BodyColor
-			indexValue.Value = i
-			local typeValue = Instance.new("NumberValue")
-			typeValue.Name = "CustomizationType"
-			typeValue.Parent = BodyColor
-			typeValue.Value = 8
+		elseif (i == 3) then
+			if (LArmID ~= nil) then
+				BodyMesh.Value = LArmID
+				BodyMesh.Name = LArmID
+			else
+				BodyMesh.Value = "DefaultLArm.rbxm"
+				BodyMesh.Name = "DefaultLArm.rbxm"
+			end
+		elseif (i == 4) then
+			if (RArmID ~= nil) then
+				BodyMesh.Value = RArmID
+				BodyMesh.Name = RArmID
+			else
+				BodyMesh.Value = "DefaultRArm.rbxm"
+				BodyMesh.Name = "DefaultRArm.rbxm"
+			end
+		elseif (i == 5) then
+			if (LLegID ~= nil) then
+				BodyMesh.Value = LLegID
+				BodyMesh.Name = LLegID
+			else
+				BodyMesh.Value = "DefaultLLeg.rbxm"
+				BodyMesh.Name = "DefaultLLeg.rbxm"
+			end
+		elseif (i == 6) then
+			if (RLegID ~= nil) then
+				BodyMesh.Value = RLegID
+				BodyMesh.Name = RLegID
+			else
+				BodyMesh.Value = "DefaultRLeg.rbxm"
+				BodyMesh.Name = "DefaultRLeg.rbxm"
+			end
 		end
+		local indexValue = Instance.new("NumberValue")
+		indexValue.Name = "MeshIndex"
+		indexValue.Parent = BodyColor
+		indexValue.Value = i
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = BodyColor
+		typeValue.Value = 8
 	end
 end
 
 function CSServer(Port,PlayerLimit)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta" or rbxlegacyversion == "delta-pre-gamma-beta") then
+	if (rbxlegacyversion >= 8) then
 		assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.")
 		local NetworkServer=game:GetService("NetworkServer")
 		pcall(NetworkServer.Stop,NetworkServer)
 		NetworkServer:Start(Port)
-		if (rbxlegacyversion ~= "omega") then
+		if (rbxlegacyversion < 9) then
 			game:GetService("Players").MaxPlayers = PlayerLimit
 		end
 		game:GetService("Players").PlayerAdded:connect(function(Player)
@@ -572,7 +542,7 @@ function CSServer(Port,PlayerLimit)
 end
 
 function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Ticket)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "delta-gamma" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-pre-gamma" or rbxlegacyversion == "delta-omega" or rbxlegacyversion == "delta-beta" or rbxlegacyversion == "delta-pre-gamma-beta") then
+	if (rbxlegacyversion >= 8) then
 		pcall(function() game:SetPlaceID(-1, false) end)
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
 		game:GetService("RunService"):Run()
@@ -655,7 +625,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			end
 		end
 		pcall(function() Player:SetUnder13(false) end)
-		if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+		if (rbxlegacyversion >= 8) then
 			if (IconType == "BC") then
 				Player:SetMembershipType(Enum.MembershipType.BuildersClub)
 			elseif (IconType == "TBC") then
@@ -672,9 +642,9 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		pcall(function() Player.Name=PlayerName or "" end)
 		pcall(function() Visit:SetUploadUrl("") end)
 		game:GetService("Visit")
-		if (rbxlegacyversion == "delta") then
+		if (rbxlegacyversion == 8) then
 			game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
-		elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+		elseif (rbxlegacyversion > 8) then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
@@ -682,9 +652,10 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-			wait(5) -- we have to wait until the menu gets built, don't we?
 			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
 			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+		elseif (rbxlegacyversion == 11) then
+			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	else
@@ -762,15 +733,15 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 end
 
 function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
-	if (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+	if (rbxlegacyversion > 8) then
 		game:GetService("RunService"):Run()
 	else
 		game:GetService("RunService"):run()
 	end
 	game.Workspace:InsertContent("rbxasset://fonts//libraries.rbxm")
-	if (rbxlegacyversion == "delta") then
+	if (rbxlegacyversion == 8) then
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
-	elseif (rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+	elseif (rbxlegacyversion >= 8) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
       	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
@@ -778,20 +749,18 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
         game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
         game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-	end
-	--[[elseif (rbxlegacyversion == "ultra") then
+	elseif (rbxlegacyversion == 11) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
-	end]]
+	end
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()
-	if (rbxlegacyversion == "omega") then
-		wait(5) -- we have to wait until the menu gets built, don't we?
+	if (rbxlegacyversion >= 9) then
 		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
 		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
 	end
 	pcall(function() plr:SetUnder13(false) end)
-	if (rbxlegacyversion == "delta" or rbxlegacyversion == "omega" or rbxlegacyversion == "delta-omega") then
+	if (rbxlegacyversion >= 8) then
 		if (IconType == "BC") then
 			plr:SetMembershipType(Enum.MembershipType.BuildersClub)
 		elseif (IconType == "TBC") then
