@@ -141,7 +141,6 @@ end
 
 function LoadCharacterNew(playerApp,newChar)
 	--authentic roblox style loading
-	wait(1.5)
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
 			if (newVal.CustomizationType.Value == 1) then 
