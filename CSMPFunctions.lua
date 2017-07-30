@@ -123,7 +123,7 @@ function SetRBXLegacyVersion(Version)
 		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
 		game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
 	end
-	print("RBXLegacy client operation set to '" .. rbxlegacyversion .. "'.")
+	print("RBXLegacy client version '" .. rbxlegacyversion .. "' loaded.")
 end
 
 rbxversion = version()
