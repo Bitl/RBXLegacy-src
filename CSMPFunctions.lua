@@ -245,6 +245,98 @@ function LoadCharacterNew(playerApp,newChar)
 	end
 end
 
+function LoadCharacterNew3DView(playerApp,newChar)
+	--authentic roblox style loading
+	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
+	for _,newVal in pairs(playerApp:GetChildren()) do
+			if (newVal.CustomizationType.Value == 1) then 
+				pcall(function() 
+				charparts[newVal.ColorIndex.Value].BrickColor = newVal.Value 
+				end)
+			elseif (newVal.CustomizationType.Value == 2)  then
+					pcall(function()
+					local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
+					if newHat[1] then 
+						if newHat[1].className == "Hat" then
+							newHat[1].Parent = newChar
+						else
+							newHat[1]:remove()
+						end
+					end
+				end)
+			elseif (newVal.CustomizationType.Value == 3)  then
+					pcall(function()
+					local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+					if newTShirt[1] then 
+						if newTShirt[1].className == "ShirtGraphic" then
+							newTShirt[1].Parent = newChar
+						else
+							newTShirt[1]:remove()
+						end
+					end
+				end)
+			elseif (newVal.CustomizationType.Value == 4)  then
+					pcall(function()
+					local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+					if newShirt[1] then 
+						if newShirt[1].className == "Shirt" then
+							newShirt[1].Parent = newChar
+						else
+							newShirt[1]:remove()
+						end
+					end
+				end)
+			elseif (newVal.CustomizationType.Value == 5)  then
+					pcall(function()
+					local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+					if newPants[1] then 
+						if newPants[1].className == "Pants" then
+							newPants[1].Parent = newChar
+						else
+							newPants[1]:remove()
+						end
+					end
+				end)
+			elseif (newVal.CustomizationType.Value == 6)  then
+					pcall(function()
+					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
+					if newFace[1] then 
+						if newFace[1].className == "Decal" then
+							newWaitForChild(charparts[1],"face"):remove()
+							newFace[1].Parent = charparts[1]
+							newFace[1].Face = "Front"
+						else
+							newFace[1]:remove()
+						end
+					end
+				end)
+			elseif (newVal.CustomizationType.Value == 7) then 
+					pcall(function()
+					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
+					if newPart[1] then 
+						if newPart[1].className == "SpecialMesh" or newPart[1].className == "CylinderMesh" or newPart[1].className == "BlockMesh" then
+							newWaitForChild(charparts[1],"Mesh"):remove()
+							newPart[1].Parent = charparts[1]
+						else
+							newPart[1]:remove()
+						end
+					end
+				end)
+			elseif (newVal.CustomizationType.Value == 8) then 
+					pcall(function()
+					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
+					if newPart[1] then 
+						if newPart[1].className == "SpecialMesh" then
+							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
+						else
+							newPart[1]:remove()
+						end
+					end
+				end)
+		end
+	end
+end
+
 function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	local newCharApp = Instance.new("IntValue",Player)
 	newCharApp.Name = "Appearance"
@@ -463,16 +555,18 @@ function CSServer(Port,PlayerLimit)
 			game:GetService("Players").MaxPlayers = PlayerLimit
 		end
 		game:GetService("Players").PlayerAdded:connect(function(Player)
-			if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
-				local message = Instance.new("Message")
-				message.Text = "You were kicked. Reason: Too many players on server."
-				message.Parent = Player
-				wait(2)
-				Player:remove()
-				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.")
-			else
-				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
-				Player:LoadCharacter()
+			if (rbxlegacyversion < 9) then
+				if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
+					local message = Instance.new("Message")
+					message.Text = "You were kicked. Reason: Too many players on server."
+					message.Parent = Player
+					wait(2)
+					Player:remove()
+					print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.")
+				else
+					print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
+					Player:LoadCharacter()
+				end
 			end
 			Player.CharacterAdded:connect(function(char)
 				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
@@ -782,7 +876,25 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	end
 end
 
+function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
+	if (rbxlegacyversion > 8) then
+		game:GetService("RunService"):Run()
+	else
+		game:GetService("RunService"):run()
+	end
+	local plr = game.Players:CreateLocalPlayer(UserID)
+	plr.Name = PlayerName
+	plr:LoadCharacter()
+	pcall(function() plr:SetUnder13(false) end)
+	pcall(function() plr:SetAccountAge(365) end)
+	plr.CharacterAppearance=0
+	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
+	LoadCharacterNew3DView(newWaitForChild(plr,"Appearance"),plr.Character)
+	game:GetService("NetworkClient")
+end
+
 _G.SetRBXLegacyVersion=SetRBXLegacyVersion
 _G.CSServer=CSServer
 _G.CSConnect=CSConnect
 _G.CSSolo=CSSolo
+_G.CS3DView=CS3DView
