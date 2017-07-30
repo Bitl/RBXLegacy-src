@@ -244,6 +244,7 @@ function LoadCharacterNew(playerApp,newChar)
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" or newPart[1].className == "CylinderMesh" or newPart[1].className == "BlockMesh" then
+							newWaitForChild(charparts[1],"Mesh"):remove()
 							newPart[1].Parent = charparts[1]
 						else
 							newPart[1]:remove()
