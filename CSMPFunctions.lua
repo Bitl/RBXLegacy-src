@@ -143,11 +143,13 @@ function LoadCharacterNew(playerApp,newChar)
 	--authentic roblox style loading
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
-			if (newVal.CustomizationType.Value == 1) then 
+			local customtype = newVal:FindFirstChild("CustomizationType")
+			if (customtype.Value == 1) then 
 				pcall(function() 
-				charparts[newVal.ColorIndex.Value].BrickColor = newVal.Value 
+				local colorindex = newVal:FindFirstChild("ColorIndex")
+				charparts[colorindex.Value].BrickColor = newVal.Value 
 				end)
-			elseif (newVal.CustomizationType.Value == 2)  then
+			elseif (customtype.Value == 2)  then
 				if (rbxlegacyversion > 1) then
 					pcall(function()
 					local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
@@ -160,7 +162,7 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
-			elseif (newVal.CustomizationType.Value == 3)  then
+			elseif (customtype.Value == 3)  then
 				if (rbxlegacyversion > 1) then
 					pcall(function()
 					local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
@@ -173,7 +175,7 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
-			elseif (newVal.CustomizationType.Value == 4)  then
+			elseif (customtype.Value == 4)  then
 				if (rbxlegacyversion > 2) then
 					pcall(function()
 					local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
@@ -186,7 +188,7 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
-			elseif (newVal.CustomizationType.Value == 5)  then
+			elseif (customtype.Value == 5)  then
 				if (rbxlegacyversion > 2) then
 					pcall(function()
 					local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
@@ -199,7 +201,7 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
-			elseif (newVal.CustomizationType.Value == 6)  then
+			elseif (customtype.Value == 6)  then
 				if (rbxlegacyversion > 5) then
 					pcall(function()
 					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
@@ -214,7 +216,7 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
-			elseif (newVal.CustomizationType.Value == 7) then 
+			elseif (customtype.Value == 7) then 
 				if (rbxlegacyversion > 5) then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
@@ -228,12 +230,13 @@ function LoadCharacterNew(playerApp,newChar)
 					end
 				end)
 			end
-			elseif (newVal.CustomizationType.Value == 8) then 
+			elseif (customtype.Value == 8) then 
 				if (rbxlegacyversion > 6) then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" then
+							local meshindex = newVal:FindFirstChild("MeshIndex")
 							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
 						else
 							newPart[1]:remove()
@@ -249,11 +252,13 @@ function LoadCharacterNew3DView(playerApp,newChar)
 	--authentic roblox style loading
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
-			if (newVal.CustomizationType.Value == 1) then 
+			local customtype = newVal:FindFirstChild("CustomizationType")
+			if (customtype.Value == 1) then 
 				pcall(function() 
-				charparts[newVal.ColorIndex.Value].BrickColor = newVal.Value 
+				local colorindex = newVal:FindFirstChild("ColorIndex")
+				charparts[colorindex.Value].BrickColor = newVal.Value 
 				end)
-			elseif (newVal.CustomizationType.Value == 2)  then
+			elseif (customtype.Value == 2)  then
 					pcall(function()
 					local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
 					if newHat[1] then 
@@ -264,7 +269,7 @@ function LoadCharacterNew3DView(playerApp,newChar)
 						end
 					end
 				end)
-			elseif (newVal.CustomizationType.Value == 3)  then
+			elseif (customtype.Value == 3)  then
 					pcall(function()
 					local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
 					if newTShirt[1] then 
@@ -275,7 +280,7 @@ function LoadCharacterNew3DView(playerApp,newChar)
 						end
 					end
 				end)
-			elseif (newVal.CustomizationType.Value == 4)  then
+			elseif (customtype.Value == 4)  then
 					pcall(function()
 					local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
 					if newShirt[1] then 
@@ -286,7 +291,7 @@ function LoadCharacterNew3DView(playerApp,newChar)
 						end
 					end
 				end)
-			elseif (newVal.CustomizationType.Value == 5)  then
+			elseif (customtype.Value == 5)  then
 					pcall(function()
 					local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
 					if newPants[1] then 
@@ -297,7 +302,7 @@ function LoadCharacterNew3DView(playerApp,newChar)
 						end
 					end
 				end)
-			elseif (newVal.CustomizationType.Value == 6)  then
+			elseif (customtype.Value == 6)  then
 					pcall(function()
 					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
 					if newFace[1] then 
@@ -310,7 +315,7 @@ function LoadCharacterNew3DView(playerApp,newChar)
 						end
 					end
 				end)
-			elseif (newVal.CustomizationType.Value == 7) then 
+			elseif (customtype.Value == 7) then 
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
 					if newPart[1] then 
@@ -322,11 +327,12 @@ function LoadCharacterNew3DView(playerApp,newChar)
 						end
 					end
 				end)
-			elseif (newVal.CustomizationType.Value == 8) then 
+			elseif (customtype.Value == 8) then 
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" then
+							local meshindex = newVal:FindFirstChild("MeshIndex")
 							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
 						else
 							newPart[1]:remove()
@@ -386,14 +392,14 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 			end
 			BodyColor.Name = "RightLegColor"
 		end
-		local indexValue = Instance.new("NumberValue")
-		indexValue.Name = "ColorIndex"
-		indexValue.Parent = BodyColor
-		indexValue.Value = i
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
 		typeValue.Parent = BodyColor
 		typeValue.Value = 1
+		local indexValue = Instance.new("NumberValue")
+		indexValue.Name = "ColorIndex"
+		indexValue.Parent = BodyColor
+		indexValue.Value = i
 	end
 	--HATS
 	for i=1,3,1 do
@@ -534,14 +540,14 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 				BodyMesh.Name = "DefaultRLeg.rbxm"
 			end
 		end
-		local indexValue = Instance.new("NumberValue")
-		indexValue.Name = "MeshIndex"
-		indexValue.Parent = BodyColor
-		indexValue.Value = i
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
 		typeValue.Parent = BodyColor
 		typeValue.Value = 8
+		local indexValue = Instance.new("NumberValue")
+		indexValue.Name = "MeshIndex"
+		indexValue.Parent = BodyColor
+		indexValue.Value = i
 	end
 end
 
@@ -877,11 +883,8 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 end
 
 function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
-	if (rbxlegacyversion > 8) then
-		game:GetService("RunService"):Run()
-	else
-		game:GetService("RunService"):run()
-	end
+	--We are using a late 2009 client
+	game:GetService("RunService"):run()
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()
@@ -891,6 +894,7 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	LoadCharacterNew3DView(newWaitForChild(plr,"Appearance"),plr.Character)
 	game:GetService("NetworkClient")
+	game:GetService("ScriptContext").ScriptsDisabled = true
 end
 
 _G.SetRBXLegacyVersion=SetRBXLegacyVersion
