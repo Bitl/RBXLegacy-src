@@ -143,9 +143,11 @@ function LoadCharacterNew(playerApp,newChar)
 	--authentic roblox style loading
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
+			newWaitForChild(newVal,"CustomizationType")
 			local customtype = newVal:FindFirstChild("CustomizationType")
 			if (customtype.Value == 1) then 
 				pcall(function() 
+				newWaitForChild(newVal,"ColorIndex")
 				local colorindex = newVal:FindFirstChild("ColorIndex")
 				charparts[colorindex.Value].BrickColor = newVal.Value 
 				end)
@@ -236,6 +238,7 @@ function LoadCharacterNew(playerApp,newChar)
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" then
+							newWaitForChild(newVal,"MeshIndex")
 							local meshindex = newVal:FindFirstChild("MeshIndex")
 							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
 						else
@@ -252,9 +255,11 @@ function LoadCharacterNew3DView(playerApp,newChar)
 	--authentic roblox style loading
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
+			newWaitForChild(newVal,"CustomizationType")
 			local customtype = newVal:FindFirstChild("CustomizationType")
 			if (customtype.Value == 1) then 
-				pcall(function() 
+				pcall(function()
+				newWaitForChild(newVal,"ColorIndex")				
 				local colorindex = newVal:FindFirstChild("ColorIndex")
 				charparts[colorindex.Value].BrickColor = newVal.Value 
 				end)
@@ -332,6 +337,7 @@ function LoadCharacterNew3DView(playerApp,newChar)
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" then
+							newWaitForChild(newVal,"MeshIndex")
 							local meshindex = newVal:FindFirstChild("MeshIndex")
 							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
 						else
@@ -614,8 +620,7 @@ function CSServer(Port,PlayerLimit)
 				Player:LoadCharacter()
 				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
 			end
-				while true do 
-					wait(0.001)
+				while true do wait()
 					if (Player.Character ~= nil) then
 						if (Player.Character.Humanoid.Health == 0) then
 							wait(5)
