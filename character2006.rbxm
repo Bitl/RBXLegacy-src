@@ -273,7 +273,7 @@
 					<string name="Name">roblox</string>
 					<float name="Shiny">20</float>
 					<float name="Specular">0</float>
-					<Content name="Texture"><url>rbxasset://textures\shirt.png</url></Content>
+					<Content name="Texture"><url>rbxasset://textures\tshirt.png</url></Content>
 					<bool name="archivable">true</bool>
 				</Properties>
 			</Item>
