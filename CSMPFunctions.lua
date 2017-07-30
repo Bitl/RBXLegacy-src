@@ -105,25 +105,23 @@ function SetRBXLegacyVersion(Version)
 	elseif (rbxlegacyversion == 10) then -- Omega
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
-		pcall(function() settings().Diagnostics:LegacyScriptMode()
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		--stamper
 		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
 		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
-       	game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
+		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
 		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
-        game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
-		--[[corescripts
-		local RobloxGui = game:GetService("CoreGui"):WaitForChild("RobloxGui") 
-		local scriptContext = game:GetService("ScriptContext") 
-		scriptContext:AddCoreScript("CoreScripts/Playerlist", RobloxGui)
-		scriptContext:AddCoreScript("CoreScripts/GameMenu", RobloxGui)
-		scriptContext:AddCoreScript("CoreScripts/BackpackFull", RobloxGui)
-		]]--todo: file:// (rbxasset://) and the corescript adder thing
-		end)
-	elseif (rbxlegacyversion == 11) then -- Ultra
+		game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+	elseif (rbxlegacyversion == 11) then
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+		--stamper
+		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
+		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
+		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
+		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
+		game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
 	end
 	print("RBXLegacy client operation set to '" .. rbxlegacyversion .. "'.")
 end
