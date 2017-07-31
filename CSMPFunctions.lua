@@ -725,7 +725,16 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			client.ConnectionRejected:connect(rejected)
 			client.ConnectionFailed:connect(failed)
 			client:Connect(ServerIP,ServerPort, 0, 20)
-      		end)
+			if (rbxlegacyversion == 1) then
+				game.GuiRoot.MainMenu["Toolbox"]:Remove()
+				game.GuiRoot.MainMenu["Edit Mode"]:Remove()
+				game.GuiRoot.ChatHud:Remove()
+				game.GuiRoot.RightPalette.ReportAbuse:Remove()
+			elseif (rbxlegacyversion == 2) then
+				game.GuiRoot.ChatHud:Remove()
+				game.GuiRoot.RightPalette.ReportAbuse:Remove()
+			end
+      	end)
 
 		if not suc then
 			local x = Instance.new("Message")
@@ -790,7 +799,13 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 end
 
 function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
-	--We are using a late 2009 client
+	-- Fake us using 2011.
+	rbxlegacyversion = 7
+	--We are using a late 2009 client.
+	settings().Rendering.FrameRateManager = 2
+	settings().Network.DataSendRate = 30
+	settings().Network.PhysicsSendRate = 20
+	settings().Network.ReceiveRate = 60
 	game:GetService("RunService"):run()
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
@@ -798,10 +813,15 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 	pcall(function() plr:SetUnder13(false) end)
 	pcall(function() plr:SetAccountAge(365) end)
 	plr.CharacterAppearance=0
+	game.GuiRoot.MainMenu:Remove()
+	game.GuiRoot.ScoreHud:Remove()
+	game.GuiRoot.ChatHud:Remove()
+	game.GuiRoot.RightPalette.ReportAbuse:Remove()
+	game.GuiRoot.ChatMenuPanel:Remove()
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
-	LoadCharacterNew3DView(newWaitForChild(plr,"Appearance"),plr.Character)
+	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
+	wait(1)
 	game:GetService("NetworkClient")
-	game:GetService("ScriptContext").ScriptsDisabled = true
 end
 
 _G.SetRBXLegacyVersion=SetRBXLegacyVersion

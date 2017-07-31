@@ -7,9 +7,12 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using System.Threading;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
@@ -1270,6 +1273,47 @@ namespace RBXLegacyLauncher
         			Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftLegID.Replace(".rbxm", "") + ".png");
         			pictureBox5.Image = icon5;
         		}
+			}
+		}
+		
+		void Button4Click(object sender, EventArgs e)
+		{
+			LauncherFuncs.WriteConfigValues("config.txt");
+			Start3DView();
+		}
+		
+		void Start3DView()
+		{
+			string mapfile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\3DView\\content\\fonts\\3DView.rbxl";
+			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\3DView\\3DView.exe";
+			string quote = "\"";
+			string args = "";
+			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
+			string HatIDOffline2 = GlobalVars.Custom_Hat2ID_Offline;
+			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
+			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+			}
+			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false )
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+			}
+			try
+			{
+				Process.Start(rbxexe, args);
+			}
+			catch (Exception ex)
+			{
+				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 	}

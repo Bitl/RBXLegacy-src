@@ -115,6 +115,7 @@ namespace RBXLegacyLauncher
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.button4 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabControl2.SuspendLayout();
@@ -962,12 +963,23 @@ namespace RBXLegacyLauncher
 			this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
 			// 
+			// button4
+			// 
+			this.button4.Location = new System.Drawing.Point(200, 288);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(75, 23);
+			this.button4.TabIndex = 49;
+			this.button4.Text = "3D Preview";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.Button4Click);
+			// 
 			// CharacterCustomization
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(473, 293);
+			this.ClientSize = new System.Drawing.Size(473, 314);
+			this.Controls.Add(this.button4);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -991,6 +1003,7 @@ namespace RBXLegacyLauncher
 			this.tabPage4.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button4;
 		private System.Windows.Forms.ListBox listBox5;
 		private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.ListBox listBox4;
