@@ -233,7 +233,7 @@ function LoadCharacterNew(playerApp,newChar)
 				end)
 			end
 			elseif (customtype.Value == 8) then 
-				if (rbxlegacyversion > 6) then
+				if (rbxlegacyversion > 7) then
 					pcall(function()
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
 					if newPart[1] then 
@@ -799,13 +799,8 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 end
 
 function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
-	-- Fake us using 2011.
 	rbxlegacyversion = 7
-	--We are using a late 2009 client.
 	settings().Rendering.FrameRateManager = 2
-	settings().Network.DataSendRate = 30
-	settings().Network.PhysicsSendRate = 20
-	settings().Network.ReceiveRate = 60
 	game:GetService("RunService"):run()
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
@@ -813,11 +808,17 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 	pcall(function() plr:SetUnder13(false) end)
 	pcall(function() plr:SetAccountAge(365) end)
 	plr.CharacterAppearance=0
-	game.GuiRoot.MainMenu:Remove()
+	game.CoreGui.RobloxGui:Remove()
 	game.GuiRoot.ScoreHud:Remove()
 	game.GuiRoot.ChatHud:Remove()
-	game.GuiRoot.RightPalette.ReportAbuse:Remove()
 	game.GuiRoot.ChatMenuPanel:Remove()
+	if (plr.PlayerGui:FindFirstChild("HealthGUI")) then
+		plr.PlayerGui.HealthGUI:Remove()
+	end
+	pcall(function() game:GetService("ScriptContext").ScriptsDisabled = true end)
+	if plr.Character:FindFirstChild("Animate") then
+		plr.Character.Animate:Remove()
+	end
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
 	wait(1)
