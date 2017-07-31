@@ -251,104 +251,6 @@ function LoadCharacterNew(playerApp,newChar)
 	end
 end
 
-function LoadCharacterNew3DView(playerApp,newChar)
-	--authentic roblox style loading
-	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
-	for _,newVal in pairs(playerApp:GetChildren()) do
-			newWaitForChild(newVal,"CustomizationType")
-			local customtype = newVal:FindFirstChild("CustomizationType")
-			if (customtype.Value == 1) then 
-				pcall(function()
-				newWaitForChild(newVal,"ColorIndex")				
-				local colorindex = newVal:FindFirstChild("ColorIndex")
-				charparts[colorindex.Value].BrickColor = newVal.Value 
-				end)
-			elseif (customtype.Value == 2)  then
-					pcall(function()
-					local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
-					if newHat[1] then 
-						if newHat[1].className == "Hat" then
-							newHat[1].Parent = newChar
-						else
-							newHat[1]:remove()
-						end
-					end
-				end)
-			elseif (customtype.Value == 3)  then
-					pcall(function()
-					local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
-					if newTShirt[1] then 
-						if newTShirt[1].className == "ShirtGraphic" then
-							newTShirt[1].Parent = newChar
-						else
-							newTShirt[1]:remove()
-						end
-					end
-				end)
-			elseif (customtype.Value == 4)  then
-					pcall(function()
-					local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
-					if newShirt[1] then 
-						if newShirt[1].className == "Shirt" then
-							newShirt[1].Parent = newChar
-						else
-							newShirt[1]:remove()
-						end
-					end
-				end)
-			elseif (customtype.Value == 5)  then
-					pcall(function()
-					local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
-					if newPants[1] then 
-						if newPants[1].className == "Pants" then
-							newPants[1].Parent = newChar
-						else
-							newPants[1]:remove()
-						end
-					end
-				end)
-			elseif (customtype.Value == 6)  then
-					pcall(function()
-					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
-					if newFace[1] then 
-						if newFace[1].className == "Decal" then
-							newWaitForChild(charparts[1],"face"):remove()
-							newFace[1].Parent = charparts[1]
-							newFace[1].Face = "Front"
-						else
-							newFace[1]:remove()
-						end
-					end
-				end)
-			elseif (customtype.Value == 7) then 
-					pcall(function()
-					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
-					if newPart[1] then 
-						if newPart[1].className == "SpecialMesh" or newPart[1].className == "CylinderMesh" or newPart[1].className == "BlockMesh" then
-							newWaitForChild(charparts[1],"Mesh"):remove()
-							newPart[1].Parent = charparts[1]
-						else
-							newPart[1]:remove()
-						end
-					end
-				end)
-			elseif (customtype.Value == 8) then 
-					pcall(function()
-					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
-					if newPart[1] then 
-						if newPart[1].className == "SpecialMesh" then
-							newWaitForChild(newVal,"MeshIndex")
-							local meshindex = newVal:FindFirstChild("MeshIndex")
-							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
-						else
-							newPart[1]:remove()
-						end
-					end
-				end)
-		end
-	end
-end
-
 function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	local newCharApp = Instance.new("IntValue",Player)
 	newCharApp.Name = "Appearance"
@@ -358,45 +260,51 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		if (i == 1) then
 			if (HeadColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(HeadColorID)
+				BodyColor.Name = "HeadColor (ID: "..HeadColorID..")"
 			else
 				BodyColor.Value = BrickColor.new(1)
+				BodyColor.Name = "HeadColor (ID: 1)"
 			end
-			BodyColor.Name = "HeadColor"
 		elseif (i == 2) then
 			if (TorsoColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(TorsoColorID)
+				BodyColor.Name = "TorsoColor (ID: "..TorsoColorID..")"
 			else
 				BodyColor.Value = BrickColor.new(1)
+				BodyColor.Name = "TorsoColor (ID: 1)"
 			end
-			BodyColor.Name = "TorsoColor"
 		elseif (i == 3) then
 			if (LeftArmColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(LeftArmColorID)
+				BodyColor.Name = "LeftArmColor (ID: "..LeftArmColorID..")"
 			else
 				BodyColor.Value = BrickColor.new(1)
+				BodyColor.Name = "LeftArmColor (ID: 1)"
 			end
-			BodyColor.Name = "LeftArmColor"
 		elseif (i == 4) then
 			if (RightArmColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(RightArmColorID)
+				BodyColor.Name = "RightArmColor (ID: "..RightArmColorID..")"
 			else
 				BodyColor.Value = BrickColor.new(1)
+				BodyColor.Name = "RightArmColor (ID: 1)"
 			end
-			BodyColor.Name = "RightArmColor"
 		elseif (i == 5) then
 			if (LeftLegColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(LeftLegColorID)
+				BodyColor.Name = "LeftLegColor (ID: "..LeftLegColorID..")"
 			else
 				BodyColor.Value = BrickColor.new(1)
+				BodyColor.Name = "LeftLegColor (ID: 1)"
 			end
-			BodyColor.Name = "LeftLegColor"
 		elseif (i == 6) then
 			if (RightLegColorID ~= nil) then
 				BodyColor.Value = BrickColor.new(RightLegColorID)
+				BodyColor.Name = "RightLegColor (ID: "..RightLegColorID..")"
 			else
 				BodyColor.Value = BrickColor.new(1)
+				BodyColor.Name = "RightLegColor (ID: 1)"
 			end
-			BodyColor.Name = "RightLegColor"
 		end
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
