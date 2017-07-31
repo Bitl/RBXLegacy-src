@@ -95,13 +95,13 @@ function SetRBXLegacyVersion(Version)
 		resize()
 		end))
 		wait() -- intalizing
-		game.GuiRoot.ScoreHud:Remove() -- no legacy scorehud, allow for the new one
+		game.GuiRoot.ScoreHud:Remove()
 	elseif (rbxlegacyversion == 9) then -- Delta Omega
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		wait() -- intalizing
-		game.GuiRoot.ScoreHud:Remove() -- no legacy scorehud, allow for the new one
+		game.GuiRoot.ScoreHud:Remove()
 	elseif (rbxlegacyversion == 10) then -- Omega
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
@@ -235,12 +235,12 @@ function LoadCharacterNew(playerApp,newChar)
 			elseif (customtype.Value == 8) then 
 				if (rbxlegacyversion > 7) then
 					pcall(function()
-					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..newVal.MeshIndex.Value.."/"..newVal.Value)
+					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..meshindex.Value.."/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" then
 							newWaitForChild(newVal,"MeshIndex")
 							local meshindex = newVal:FindFirstChild("MeshIndex")
-							newPart[1].Parent = charparts[newVal.MeshIndex.Value]
+							newPart[1].Parent = charparts[meshindex.Value]
 						else
 							newPart[1]:remove()
 						end
@@ -799,7 +799,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 end
 
 function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
-	rbxlegacyversion = 7
+	rbxlegacyversion = 8
 	settings().Rendering.FrameRateManager = 2
 	game:GetService("RunService"):run()
 	local plr = game.Players:CreateLocalPlayer(UserID)

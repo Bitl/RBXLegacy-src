@@ -59,7 +59,6 @@ namespace RBXLegacyLauncher
 			this.label29 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.button20 = new System.Windows.Forms.Button();
-			this.button18 = new System.Windows.Forms.Button();
 			this.label32 = new System.Windows.Forms.Label();
 			this.label20 = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
@@ -92,6 +91,7 @@ namespace RBXLegacyLauncher
 			this.tabPage8 = new System.Windows.Forms.TabPage();
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.label2 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
@@ -118,7 +118,6 @@ namespace RBXLegacyLauncher
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -320,7 +319,6 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Controls.Add(this.label29);
 			this.tabPage2.Controls.Add(this.label40);
 			this.tabPage2.Controls.Add(this.button20);
-			this.tabPage2.Controls.Add(this.button18);
 			this.tabPage2.Controls.Add(this.label32);
 			this.tabPage2.Controls.Add(this.label20);
 			this.tabPage2.Controls.Add(this.label19);
@@ -392,16 +390,6 @@ namespace RBXLegacyLauncher
 			this.button20.UseVisualStyleBackColor = true;
 			this.button20.Click += new System.EventHandler(this.Button20Click);
 			// 
-			// button18
-			// 
-			this.button18.Location = new System.Drawing.Point(144, 229);
-			this.button18.Name = "button18";
-			this.button18.Size = new System.Drawing.Size(126, 51);
-			this.button18.TabIndex = 20;
-			this.button18.Text = "START SERVER IN NOGRAPHICS MODE";
-			this.button18.UseVisualStyleBackColor = true;
-			this.button18.Click += new System.EventHandler(this.Button18Click);
-			// 
 			// label32
 			// 
 			this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -436,9 +424,9 @@ namespace RBXLegacyLauncher
 			// 
 			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.button2.Location = new System.Drawing.Point(12, 229);
+			this.button2.Location = new System.Drawing.Point(6, 229);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(126, 51);
+			this.button2.Size = new System.Drawing.Size(268, 51);
 			this.button2.TabIndex = 2;
 			this.button2.Text = "START SERVER";
 			this.button2.UseVisualStyleBackColor = true;
@@ -749,6 +737,15 @@ namespace RBXLegacyLauncher
 			this.tabPage4.ToolTipText = "About RBXLegacy";
 			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(43, 265);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(322, 16);
+			this.label2.TabIndex = 7;
+			this.label2.Text = "RBXLegacy is: Bitl, Carrot, iago, winsupermario1234, and CPunch.";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// label11
 			// 
 			this.label11.Location = new System.Drawing.Point(206, 73);
@@ -996,15 +993,6 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(43, 265);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(322, 16);
-			this.label2.TabIndex = 7;
-			this.label2.Text = "RBXLegacy is: Bitl, Carrot, iago, winsupermario1234, and CPunch.";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1070,7 +1058,6 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.TabPage tabPage7;
 		private System.Windows.Forms.Button button20;
 		private System.Windows.Forms.Button button19;
-		private System.Windows.Forms.Button button18;
 		private System.Windows.Forms.Button button16;
 		private System.Windows.Forms.Button button17;
 		private System.Windows.Forms.Button button12;

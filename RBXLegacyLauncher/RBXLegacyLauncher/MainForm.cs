@@ -522,17 +522,6 @@ namespace RBXLegacyLauncher
 			listBox4.Items.AddRange(lines_ports);
 		}
 		
-		void Button18Click(object sender, EventArgs e)
-		{
-			WriteConfigValues();
-			StartServerNo3D();
-			
-			if (GlobalVars.CloseOnLaunch == true)
-			{
-				this.WindowState = FormWindowState.Minimized;
-			}						
-		}
-		
 		void Button19Click(object sender, EventArgs e)
 		{
 			DialogResult result = MessageBox.Show("Note: If the health bar or scoreboard don't appear, just reset your character. If your character does not move or your character lags after the client window is loaded, just open the server window then minimize it.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OK, MessageBoxIcon.Information);
