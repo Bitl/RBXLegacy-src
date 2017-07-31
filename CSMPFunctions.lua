@@ -548,11 +548,11 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		end
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
-		typeValue.Parent = BodyColor
+		typeValue.Parent = BodyMesh
 		typeValue.Value = 8
 		local indexValue = Instance.new("NumberValue")
 		indexValue.Name = "MeshIndex"
-		indexValue.Parent = BodyColor
+		indexValue.Parent = BodyMesh
 		indexValue.Value = i
 	end
 end
@@ -620,17 +620,11 @@ function CSServer(Port,PlayerLimit)
 				Player:LoadCharacter()
 				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
 			end
-				while true do wait()
-					if (Player.Character ~= nil) then
-						if (Player.Character.Humanoid.Health == 0) then
-							wait(5)
-							Player:LoadCharacter()
-							LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
-						elseif (Player.Character.Parent == nil) then 
-							wait(5)
-							Player:LoadCharacter() -- to make sure nobody is deleted.
-							LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
-						end
+				if (Player.Character ~= nil) then
+					local Character=Player.Character
+					local Humanoid=Character:FindFirstChild("Humanoid")
+					if (Humanoid~=nil) then
+						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character) end) end)
 					end
 				end
 			end)
@@ -878,11 +872,11 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
 	game:GetService("Visit")
-	while true do wait()
-		if (plr.Character.Humanoid.Health == 0) then
-			wait(5)
-			plr:LoadCharacter()
-			LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
+	if (plr.Character ~= nil) then
+		local Character=plr.Character
+		local Humanoid=Character:FindFirstChild("Humanoid")
+		if (Humanoid~=nil) then
+			Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character) end) end)
 		end
 	end
 end
