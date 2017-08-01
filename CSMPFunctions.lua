@@ -235,11 +235,11 @@ function LoadCharacterNew(playerApp,newChar)
 			elseif (customtype.Value == 8) then 
 				if (rbxlegacyversion > 7) then
 					pcall(function()
+					local meshindex = newVal:FindFirstChild("MeshIndex")
 					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..meshindex.Value.."/"..newVal.Value)
 					if newPart[1] then 
 						if newPart[1].className == "SpecialMesh" then
 							newWaitForChild(newVal,"MeshIndex")
-							local meshindex = newVal:FindFirstChild("MeshIndex")
 							newPart[1].Parent = charparts[meshindex.Value]
 						else
 							newPart[1]:remove()
@@ -656,8 +656,10 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
-			Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+			if (Player.PlayerGui:FindFirstChild("Menu")) then
+				Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
+				Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+			end
 		elseif (rbxlegacyversion == 11) then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 		end
@@ -754,7 +756,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	game.Workspace:InsertContent("rbxasset://fonts//libraries.rbxm")
 	if (rbxlegacyversion == 8) then
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
-	elseif (rbxlegacyversion >= 8) then
+	elseif (rbxlegacyversion > 8) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
       	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
@@ -762,16 +764,16 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
         game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
         game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
+		if (plr.PlayerGui:FindFirstChild("Menu")) then
+			plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
+			plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+		end
 	elseif (rbxlegacyversion == 11) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 	end
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()
-	if (rbxlegacyversion >= 9) then
-		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
-		plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
-	end
 	pcall(function() plr:SetUnder13(false) end)
 	if (rbxlegacyversion >= 8) then
 		if (IconType == "BC") then
