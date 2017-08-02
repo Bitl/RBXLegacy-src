@@ -754,6 +754,11 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game:GetService("RunService"):run()
 	end
 	game.Workspace:InsertContent("rbxasset://fonts//libraries.rbxm")
+	
+	local plr = game.Players:CreateLocalPlayer(UserID)
+	plr.Name = PlayerName
+	plr:LoadCharacter()	
+	
 	if (rbxlegacyversion == 8) then
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
 	elseif (rbxlegacyversion > 8) then
@@ -771,9 +776,6 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	elseif (rbxlegacyversion == 11) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 	end
-	local plr = game.Players:CreateLocalPlayer(UserID)
-	plr.Name = PlayerName
-	plr:LoadCharacter()
 	pcall(function() plr:SetUnder13(false) end)
 	if (rbxlegacyversion >= 8) then
 		if (IconType == "BC") then
