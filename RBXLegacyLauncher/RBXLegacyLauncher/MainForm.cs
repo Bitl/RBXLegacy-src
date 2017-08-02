@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created by SharpDevelop.
  * User: BITL-Gaming
  * Date: 10/7/2016
@@ -660,7 +660,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp_client.exe";
+				rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxPlayer.exe";
 			}
 			string quote = "\"";
 			string args = "";
@@ -729,8 +729,16 @@ namespace RBXLegacyLauncher
 		void StartSolo()
 		{
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
-			string quote = "\"";
+            string rbxexe = "";
+            if (GlobalVars.LegacyMode == true)
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+            }
+            else
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxStudio.exe";
+            }
+            string quote = "\"";
 			string args = "";
 			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
 			string HatIDOffline2 = GlobalVars.Custom_Hat2ID_Offline;
@@ -766,8 +774,16 @@ namespace RBXLegacyLauncher
 		void StartServer()
 		{
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
-			string quote = "\"";
+            string rbxexe = "";
+            if (GlobalVars.LegacyMode == true)
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+            }
+            else
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxStudio.exe";
+            }
+            string quote = "\"";
 			string args = "";
 			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + "); " + quote;
 			try
@@ -785,8 +801,16 @@ namespace RBXLegacyLauncher
 		void StartServerNo3D()
 		{
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
-			string quote = "\"";
+            string rbxexe = "";
+            if (GlobalVars.LegacyMode == true)
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+            }
+            else
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxStudio.exe";
+            }
+            string quote = "\"";
 			string args = "";
 			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + "); " + quote + " -no3d";
 			try
@@ -804,8 +828,16 @@ namespace RBXLegacyLauncher
 		void StartStudio()
 		{
 			string mapfile = GlobalVars.MapsDir + @"\\" + GlobalVars.Map;
-			string rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
-			string quote = "\"";
+            string rbxexe = "";
+            if (GlobalVars.LegacyMode == true)
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxApp.exe";
+            }
+            else
+            {
+                rbxexe = GlobalVars.ClientDir + @"\\" + GlobalVars.SelectedClient + @"\\RobloxStudio.exe";
+            }
+            string quote = "\"";
 			string args = "";
 			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ");" + quote;
 			try
