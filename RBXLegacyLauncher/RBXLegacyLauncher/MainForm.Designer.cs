@@ -40,6 +40,7 @@ namespace RBXLegacyLauncher
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.button6 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.label35 = new System.Windows.Forms.Label();
 			this.textBox4 = new System.Windows.Forms.TextBox();
@@ -118,7 +119,6 @@ namespace RBXLegacyLauncher
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.button6 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -188,6 +188,18 @@ namespace RBXLegacyLauncher
 			this.tabPage1.Text = "JOIN";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// button6
+			// 
+			this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button6.Location = new System.Drawing.Point(281, 183);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(109, 24);
+			this.button6.TabIndex = 45;
+			this.button6.Text = "admin abilities";
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Visible = false;
+			this.button3.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// button11
 			// 
@@ -994,16 +1006,6 @@ namespace RBXLegacyLauncher
 			this.textBox5.Text = "0";
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
-			// 
-			// button6
-			// 
-			this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.button6.Location = new System.Drawing.Point(281, 183);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(109, 24);
-			this.button6.TabIndex = 45;
-			this.button6.Text = "admin abilities";
-			this.button6.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 

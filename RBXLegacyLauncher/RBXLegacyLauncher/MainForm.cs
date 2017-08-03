@@ -113,6 +113,21 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
+		void Button3Click(object sender, EventArgs e)
+		{
+			DialogResult result = MessageBox.Show("If you want to test out your place, you will have to save your place in RBXLegacy's map folder, then launch your place in Play Solo.","RBXLegacy Launcher - Launch ROBLOX Studio", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+			if (result == DialogResult.Cancel)
+				return;
+			
+			WriteConfigValues();
+			StartStudio();
+			if (GlobalVars.CloseOnLaunch == true)
+			{
+				this.WindowState = FormWindowState.Minimized;
+			}
+		}
+		
+		
 		void Button2Click(object sender, EventArgs e)
 		{
 			WriteConfigValues();
