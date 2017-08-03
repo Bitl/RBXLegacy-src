@@ -145,18 +145,6 @@ namespace RBXLegacyLauncher
 			this.Close();
 		}
 		
-		void Button2Click(object sender, EventArgs e)
-		{
-			WriteConfigValues();
-			StartServer();
-			
-			if (GlobalVars.CloseOnLaunch == true)
-			{
-				this.WindowState = FormWindowState.Minimized;
-			}
-		}
-		
-		
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			string line1;
