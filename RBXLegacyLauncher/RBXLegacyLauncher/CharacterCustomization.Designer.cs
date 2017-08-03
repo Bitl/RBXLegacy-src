@@ -132,6 +132,7 @@ namespace RBXLegacyLauncher
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.button4 = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabControl2.SuspendLayout();
@@ -148,6 +149,7 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// radioButton1
@@ -882,13 +884,9 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage4
 			// 
+			this.tabPage4.Controls.Add(this.panel1);
 			this.tabPage4.Controls.Add(this.button1308);
 			this.tabPage4.Controls.Add(this.button1208);
-			this.tabPage4.Controls.Add(this.radioButton9);
-			this.tabPage4.Controls.Add(this.radioButton8);
-			this.tabPage4.Controls.Add(this.radioButton7);
-			this.tabPage4.Controls.Add(this.radioButton6);
-			this.tabPage4.Controls.Add(this.radioButton5);
 			this.tabPage4.Controls.Add(this.label6);
 			this.tabPage4.Controls.Add(this.button1108);
 			this.tabPage4.Controls.Add(this.button1008);
@@ -942,7 +940,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton9
 			// 
-			this.radioButton9.Location = new System.Drawing.Point(370, 153);
+			this.radioButton9.Location = new System.Drawing.Point(211, 5);
 			this.radioButton9.Name = "radioButton9";
 			this.radioButton9.Size = new System.Drawing.Size(51, 22);
 			this.radioButton9.TabIndex = 72;
@@ -951,7 +949,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton8
 			// 
-			this.radioButton8.Location = new System.Drawing.Point(323, 153);
+			this.radioButton8.Location = new System.Drawing.Point(164, 5);
 			this.radioButton8.Name = "radioButton8";
 			this.radioButton8.Size = new System.Drawing.Size(51, 22);
 			this.radioButton8.TabIndex = 71;
@@ -960,7 +958,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton7
 			// 
-			this.radioButton7.Location = new System.Drawing.Point(266, 154);
+			this.radioButton7.Location = new System.Drawing.Point(107, 6);
 			this.radioButton7.Name = "radioButton7";
 			this.radioButton7.Size = new System.Drawing.Size(51, 22);
 			this.radioButton7.TabIndex = 70;
@@ -969,7 +967,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton6
 			// 
-			this.radioButton6.Location = new System.Drawing.Point(213, 154);
+			this.radioButton6.Location = new System.Drawing.Point(54, 6);
 			this.radioButton6.Name = "radioButton6";
 			this.radioButton6.Size = new System.Drawing.Size(51, 22);
 			this.radioButton6.TabIndex = 69;
@@ -979,7 +977,7 @@ namespace RBXLegacyLauncher
 			// radioButton5
 			// 
 			this.radioButton5.Checked = true;
-			this.radioButton5.Location = new System.Drawing.Point(164, 154);
+			this.radioButton5.Location = new System.Drawing.Point(5, 6);
 			this.radioButton5.Name = "radioButton5";
 			this.radioButton5.Size = new System.Drawing.Size(51, 22);
 			this.radioButton5.TabIndex = 68;
@@ -1167,6 +1165,19 @@ namespace RBXLegacyLauncher
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.radioButton6);
+			this.panel1.Controls.Add(this.radioButton5);
+			this.panel1.Controls.Add(this.radioButton7);
+			this.panel1.Controls.Add(this.radioButton9);
+			this.panel1.Controls.Add(this.radioButton8);
+			this.panel1.Location = new System.Drawing.Point(159, 150);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(257, 24);
+			this.panel1.TabIndex = 75;
+			this.panel1.Visible = false;
+			// 
 			// CharacterCustomization
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1198,8 +1209,10 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.RadioButton radioButton5;
 		private System.Windows.Forms.RadioButton radioButton6;
