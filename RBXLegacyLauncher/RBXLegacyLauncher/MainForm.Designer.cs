@@ -118,6 +118,7 @@ namespace RBXLegacyLauncher
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.button6 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -165,6 +166,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.button6);
 			this.tabPage1.Controls.Add(this.button11);
 			this.tabPage1.Controls.Add(this.label35);
 			this.tabPage1.Controls.Add(this.textBox4);
@@ -993,6 +995,16 @@ namespace RBXLegacyLauncher
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// button6
+			// 
+			this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button6.Location = new System.Drawing.Point(281, 183);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(109, 24);
+			this.button6.TabIndex = 45;
+			this.button6.Text = "admin abilities";
+			this.button6.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1043,6 +1055,7 @@ namespace RBXLegacyLauncher
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Label label45;

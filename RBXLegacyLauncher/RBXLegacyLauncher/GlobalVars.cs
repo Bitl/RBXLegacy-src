@@ -75,4 +75,6 @@
 	public static string ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
 	public static string ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
 	public static string ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
+	// recommended
+	public static int AdTheme = 2008;
 }

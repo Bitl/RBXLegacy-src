@@ -1316,5 +1316,34 @@ namespace RBXLegacyLauncher
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+			
+		// relevance
+		// TODO: make it make certain "clothe palletes" appear
+		
+ 		void RadioButton5CheckedChanged(object sender, EventArgs e)
+		{
+			GlobalVars.AdTheme = 2008;
+		}
+		
+		void RadioButton6CheckedChanged(object sender, EventArgs e)
+		{
+			GlobalVars.AdTheme = 2009;
+		}
+		
+		void RadioButton7CheckedChanged(object sender, EventArgs e)
+		{
+			GlobalVars.AdTheme = 2010;
+		}
+		
+		void RadioButton8CheckedChanged(object sender, EventArgs e)
+		{
+			GlobalVars.AdTheme = 2011;
+		}
+		
+		void RadioButton9CheckedChanged(object sender, EventArgs e)
+		{
+			GlobalVars.AdTheme = 2012;
+		}
+		
 	}
 }

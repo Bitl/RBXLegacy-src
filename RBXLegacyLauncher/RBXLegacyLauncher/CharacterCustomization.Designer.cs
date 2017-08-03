@@ -106,6 +106,24 @@ namespace RBXLegacyLauncher
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.button1308 = new System.Windows.Forms.Button();
+			this.button1208 = new System.Windows.Forms.Button();
+			this.radioButton9 = new System.Windows.Forms.RadioButton();
+			this.radioButton8 = new System.Windows.Forms.RadioButton();
+			this.radioButton7 = new System.Windows.Forms.RadioButton();
+			this.radioButton6 = new System.Windows.Forms.RadioButton();
+			this.radioButton5 = new System.Windows.Forms.RadioButton();
+			this.label6 = new System.Windows.Forms.Label();
+			this.button1108 = new System.Windows.Forms.Button();
+			this.button1008 = new System.Windows.Forms.Button();
+			this.button908 = new System.Windows.Forms.Button();
+			this.button708 = new System.Windows.Forms.Button();
+			this.button608 = new System.Windows.Forms.Button();
+			this.button508 = new System.Windows.Forms.Button();
+			this.pictureBox8 = new System.Windows.Forms.PictureBox();
+			this.pictureBox7 = new System.Windows.Forms.PictureBox();
+			this.pictureBox6 = new System.Windows.Forms.PictureBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -114,11 +132,6 @@ namespace RBXLegacyLauncher
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.button4 = new System.Windows.Forms.Button();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.pictureBox6 = new System.Windows.Forms.PictureBox();
-			this.pictureBox7 = new System.Windows.Forms.PictureBox();
-			this.pictureBox8 = new System.Windows.Forms.PictureBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabControl2.SuspendLayout();
@@ -132,9 +145,9 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabPage4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// radioButton1
@@ -169,12 +182,10 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton4
 			// 
-			this.radioButton4.Checked = true;
 			this.radioButton4.Location = new System.Drawing.Point(241, 50);
 			this.radioButton4.Name = "radioButton4";
 			this.radioButton4.Size = new System.Drawing.Size(53, 16);
 			this.radioButton4.TabIndex = 37;
-			this.radioButton4.TabStop = true;
 			this.radioButton4.Text = "None";
 			this.radioButton4.UseVisualStyleBackColor = true;
 			this.radioButton4.CheckedChanged += new System.EventHandler(this.RadioButton4CheckedChanged);
@@ -184,7 +195,7 @@ namespace RBXLegacyLauncher
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(225, 3);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(60, 16);
+			this.label1.Size = new System.Drawing.Size(93, 16);
 			this.label1.TabIndex = 38;
 			this.label1.Text = "Icon Type";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -871,10 +882,23 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage4
 			// 
+			this.tabPage4.Controls.Add(this.button1308);
+			this.tabPage4.Controls.Add(this.button1208);
+			this.tabPage4.Controls.Add(this.radioButton9);
+			this.tabPage4.Controls.Add(this.radioButton8);
+			this.tabPage4.Controls.Add(this.radioButton7);
+			this.tabPage4.Controls.Add(this.radioButton6);
+			this.tabPage4.Controls.Add(this.radioButton5);
+			this.tabPage4.Controls.Add(this.label6);
+			this.tabPage4.Controls.Add(this.button1108);
+			this.tabPage4.Controls.Add(this.button1008);
+			this.tabPage4.Controls.Add(this.button908);
+			this.tabPage4.Controls.Add(this.button708);
+			this.tabPage4.Controls.Add(this.button608);
+			this.tabPage4.Controls.Add(this.button508);
 			this.tabPage4.Controls.Add(this.pictureBox8);
 			this.tabPage4.Controls.Add(this.pictureBox7);
 			this.tabPage4.Controls.Add(this.pictureBox6);
-			this.tabPage4.Controls.Add(this.label6);
 			this.tabPage4.Controls.Add(this.label4);
 			this.tabPage4.Controls.Add(this.label9);
 			this.tabPage4.Controls.Add(this.label5);
@@ -895,6 +919,183 @@ namespace RBXLegacyLauncher
 			this.tabPage4.TabIndex = 3;
 			this.tabPage4.Text = "MISCELLANEOUS";
 			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// button1308
+			// 
+			this.button1308.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1308.BackgroundImage")));
+			this.button1308.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button1308.Location = new System.Drawing.Point(400, 207);
+			this.button1308.Name = "button1308";
+			this.button1308.Size = new System.Drawing.Size(39, 34);
+			this.button1308.TabIndex = 74;
+			this.button1308.UseVisualStyleBackColor = true;
+			// 
+			// button1208
+			// 
+			this.button1208.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1208.BackgroundImage")));
+			this.button1208.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button1208.Location = new System.Drawing.Point(400, 173);
+			this.button1208.Name = "button1208";
+			this.button1208.Size = new System.Drawing.Size(39, 34);
+			this.button1208.TabIndex = 73;
+			this.button1208.UseVisualStyleBackColor = true;
+			// 
+			// radioButton9
+			// 
+			this.radioButton9.Location = new System.Drawing.Point(370, 153);
+			this.radioButton9.Name = "radioButton9";
+			this.radioButton9.Size = new System.Drawing.Size(51, 22);
+			this.radioButton9.TabIndex = 72;
+			this.radioButton9.Text = "2012";
+			this.radioButton9.UseVisualStyleBackColor = true;
+			// 
+			// radioButton8
+			// 
+			this.radioButton8.Location = new System.Drawing.Point(323, 153);
+			this.radioButton8.Name = "radioButton8";
+			this.radioButton8.Size = new System.Drawing.Size(51, 22);
+			this.radioButton8.TabIndex = 71;
+			this.radioButton8.Text = "2011";
+			this.radioButton8.UseVisualStyleBackColor = true;
+			// 
+			// radioButton7
+			// 
+			this.radioButton7.Location = new System.Drawing.Point(266, 154);
+			this.radioButton7.Name = "radioButton7";
+			this.radioButton7.Size = new System.Drawing.Size(51, 22);
+			this.radioButton7.TabIndex = 70;
+			this.radioButton7.Text = "2010";
+			this.radioButton7.UseVisualStyleBackColor = true;
+			// 
+			// radioButton6
+			// 
+			this.radioButton6.Location = new System.Drawing.Point(213, 154);
+			this.radioButton6.Name = "radioButton6";
+			this.radioButton6.Size = new System.Drawing.Size(51, 22);
+			this.radioButton6.TabIndex = 69;
+			this.radioButton6.Text = "2009";
+			this.radioButton6.UseVisualStyleBackColor = true;
+			// 
+			// radioButton5
+			// 
+			this.radioButton5.Checked = true;
+			this.radioButton5.Location = new System.Drawing.Point(164, 154);
+			this.radioButton5.Name = "radioButton5";
+			this.radioButton5.Size = new System.Drawing.Size(51, 22);
+			this.radioButton5.TabIndex = 68;
+			this.radioButton5.TabStop = true;
+			this.radioButton5.Text = "2008";
+			this.radioButton5.UseVisualStyleBackColor = true;
+			// 
+			// label6
+			// 
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.Location = new System.Drawing.Point(118, 157);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(40, 15);
+			this.label6.TabIndex = 67;
+			this.label6.Text = "Theme";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// button1108
+			// 
+			this.button1108.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1108.BackgroundImage")));
+			this.button1108.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button1108.Location = new System.Drawing.Point(331, 177);
+			this.button1108.Name = "button1108";
+			this.button1108.Size = new System.Drawing.Size(63, 61);
+			this.button1108.TabIndex = 66;
+			this.button1108.UseVisualStyleBackColor = true;
+			// 
+			// button1008
+			// 
+			this.button1008.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1008.BackgroundImage")));
+			this.button1008.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button1008.Location = new System.Drawing.Point(266, 177);
+			this.button1008.Name = "button1008";
+			this.button1008.Size = new System.Drawing.Size(63, 61);
+			this.button1008.TabIndex = 65;
+			this.button1008.UseVisualStyleBackColor = true;
+			// 
+			// button908
+			// 
+			this.button908.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button908.BackgroundImage")));
+			this.button908.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button908.Location = new System.Drawing.Point(201, 177);
+			this.button908.Name = "button908";
+			this.button908.Size = new System.Drawing.Size(63, 61);
+			this.button908.TabIndex = 64;
+			this.button908.UseVisualStyleBackColor = true;
+			// 
+			// button708
+			// 
+			this.button708.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button708.BackgroundImage")));
+			this.button708.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button708.Location = new System.Drawing.Point(136, 177);
+			this.button708.Name = "button708";
+			this.button708.Size = new System.Drawing.Size(63, 61);
+			this.button708.TabIndex = 63;
+			this.button708.UseVisualStyleBackColor = true;
+			// 
+			// button608
+			// 
+			this.button608.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button608.BackgroundImage")));
+			this.button608.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button608.Location = new System.Drawing.Point(71, 177);
+			this.button608.Name = "button608";
+			this.button608.Size = new System.Drawing.Size(63, 61);
+			this.button608.TabIndex = 62;
+			this.button608.UseVisualStyleBackColor = true;
+			// 
+			// button508
+			// 
+			this.button508.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button508.BackgroundImage")));
+			this.button508.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.button508.Location = new System.Drawing.Point(6, 177);
+			this.button508.Name = "button508";
+			this.button508.Size = new System.Drawing.Size(63, 61);
+			this.button508.TabIndex = 61;
+			this.button508.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox8
+			// 
+			this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+			this.pictureBox8.Location = new System.Drawing.Point(412, 135);
+			this.pictureBox8.Name = "pictureBox8";
+			this.pictureBox8.Size = new System.Drawing.Size(16, 16);
+			this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox8.TabIndex = 60;
+			this.pictureBox8.TabStop = false;
+			// 
+			// pictureBox7
+			// 
+			this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+			this.pictureBox7.Location = new System.Drawing.Point(384, 105);
+			this.pictureBox7.Name = "pictureBox7";
+			this.pictureBox7.Size = new System.Drawing.Size(16, 16);
+			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox7.TabIndex = 59;
+			this.pictureBox7.TabStop = false;
+			// 
+			// pictureBox6
+			// 
+			this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+			this.pictureBox6.Location = new System.Drawing.Point(347, 76);
+			this.pictureBox6.Name = "pictureBox6";
+			this.pictureBox6.Size = new System.Drawing.Size(16, 16);
+			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox6.TabIndex = 58;
+			this.pictureBox6.TabStop = false;
+			// 
+			// label4
+			// 
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(6, 154);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(114, 20);
+			this.label4.TabIndex = 56;
+			this.label4.Text = "Classic Clothing";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label9
 			// 
@@ -966,56 +1167,6 @@ namespace RBXLegacyLauncher
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
-			// label4
-			// 
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(157, 170);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(114, 16);
-			this.label4.TabIndex = 56;
-			this.label4.Text = "Recommended";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label6
-			// 
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(40, 202);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(337, 16);
-			this.label6.TabIndex = 57;
-			this.label6.Text = "todo: fill this with preset tshirts, pants, and shirts";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// pictureBox6
-			// 
-			this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-			this.pictureBox6.Location = new System.Drawing.Point(347, 76);
-			this.pictureBox6.Name = "pictureBox6";
-			this.pictureBox6.Size = new System.Drawing.Size(16, 16);
-			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox6.TabIndex = 58;
-			this.pictureBox6.TabStop = false;
-			// 
-			// pictureBox7
-			// 
-			this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-			this.pictureBox7.Location = new System.Drawing.Point(384, 105);
-			this.pictureBox7.Name = "pictureBox7";
-			this.pictureBox7.Size = new System.Drawing.Size(16, 16);
-			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox7.TabIndex = 59;
-			this.pictureBox7.TabStop = false;
-			// 
-			// pictureBox8
-			// 
-			this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-			this.pictureBox8.Location = new System.Drawing.Point(412, 135);
-			this.pictureBox8.Name = "pictureBox8";
-			this.pictureBox8.Size = new System.Drawing.Size(16, 16);
-			this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox8.TabIndex = 60;
-			this.pictureBox8.TabStop = false;
-			// 
 			// CharacterCustomization
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1044,12 +1195,25 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tabPage4.ResumeLayout(false);
 			this.tabPage4.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.RadioButton radioButton5;
+		private System.Windows.Forms.RadioButton radioButton6;
+		private System.Windows.Forms.RadioButton radioButton7;
+		private System.Windows.Forms.RadioButton radioButton8;
+		private System.Windows.Forms.RadioButton radioButton9;
+		private System.Windows.Forms.Button button508;
+		private System.Windows.Forms.Button button608;
+		private System.Windows.Forms.Button button708;
+		private System.Windows.Forms.Button button908;
+		private System.Windows.Forms.Button button1008;
+		private System.Windows.Forms.Button button1108;
+		private System.Windows.Forms.Button button1208;
+		private System.Windows.Forms.Button button1308;
 		private System.Windows.Forms.PictureBox pictureBox6;
 		private System.Windows.Forms.PictureBox pictureBox7;
 		private System.Windows.Forms.PictureBox pictureBox8;
