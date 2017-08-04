@@ -34,41 +34,115 @@ namespace RBXLegacyLauncher
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
-			ColorArray = new string[32, 2] {
-			{ "1", ColorButton7.BackColor.ToString() }, 
-			{ "208", ColorButton8.BackColor.ToString() },
-			{ "194", ColorButton9.BackColor.ToString() }, 
-			{ "199", ColorButton10.BackColor.ToString() },
-			{ "26", ColorButton14.BackColor.ToString() },
-			{ "21", ColorButton13.BackColor.ToString() },
-			{ "24", ColorButton12.BackColor.ToString() },
-			{ "226", ColorButton11.BackColor.ToString() },
-			{ "23", ColorButton18.BackColor.ToString() },
-			{ "107", ColorButton17.BackColor.ToString() },
-			{ "102", ColorButton16.BackColor.ToString() },
-			{ "11", ColorButton15.BackColor.ToString() },
-			{ "45", ColorButton22.BackColor.ToString() },
-			{ "135", ColorButton21.BackColor.ToString() },
-			{ "106", ColorButton20.BackColor.ToString() },
-			{ "105", ColorButton19.BackColor.ToString() },
-			{ "141", ColorButton26.BackColor.ToString() },
-			{ "28", ColorButton25.BackColor.ToString() },
-			{ "37", ColorButton24.BackColor.ToString() },
-			{ "119", ColorButton23.BackColor.ToString() },
-			{ "29", ColorButton30.BackColor.ToString() },
-			{ "151", ColorButton29.BackColor.ToString() },
-			{ "38", ColorButton28.BackColor.ToString() },
-			{ "192", ColorButton27.BackColor.ToString() },
-			{ "104", ColorButton34.BackColor.ToString() },
-			{ "9", ColorButton33.BackColor.ToString() },
-			{ "101", ColorButton32.BackColor.ToString() },
-			{ "5", ColorButton31.BackColor.ToString() },
-			{ "153", ColorButton38.BackColor.ToString() },
-			{ "217", ColorButton37.BackColor.ToString() },
-			{ "18", ColorButton36.BackColor.ToString() },
-			{ "125", ColorButton35.BackColor.ToString() }
+			LauncherFuncs.ReadClientValuesBCC(GlobalVars.SelectedClient);
+			if (GlobalVars.SelectedClientVersion < 6)
+			{
+				ColorArray = new string[32, 2] {
+					{ "1", ColorButton7.BackColor.ToString() }, 
+					{ "208", ColorButton8.BackColor.ToString() },
+					{ "194", ColorButton9.BackColor.ToString() }, 
+					{ "199", ColorButton10.BackColor.ToString() },
+					{ "26", ColorButton14.BackColor.ToString() },
+					{ "21", ColorButton13.BackColor.ToString() },
+					{ "24", ColorButton12.BackColor.ToString() },
+					{ "226", ColorButton11.BackColor.ToString() },
+					{ "23", ColorButton18.BackColor.ToString() },
+					{ "107", ColorButton17.BackColor.ToString() },
+					{ "102", ColorButton16.BackColor.ToString() },
+					{ "11", ColorButton15.BackColor.ToString() },
+					{ "45", ColorButton22.BackColor.ToString() },
+					{ "135", ColorButton21.BackColor.ToString() },
+					{ "106", ColorButton20.BackColor.ToString() },
+					{ "105", ColorButton19.BackColor.ToString() },
+					{ "141", ColorButton26.BackColor.ToString() },
+					{ "28", ColorButton25.BackColor.ToString() },
+					{ "37", ColorButton24.BackColor.ToString() },
+					{ "119", ColorButton23.BackColor.ToString() },
+					{ "29", ColorButton30.BackColor.ToString() },
+					{ "151", ColorButton29.BackColor.ToString() },
+					{ "38", ColorButton28.BackColor.ToString() },
+					{ "192", ColorButton27.BackColor.ToString() },
+					{ "104", ColorButton34.BackColor.ToString() },
+					{ "9", ColorButton33.BackColor.ToString() },
+					{ "101", ColorButton32.BackColor.ToString() },
+					{ "5", ColorButton31.BackColor.ToString() },
+					{ "153", ColorButton38.BackColor.ToString() },
+					{ "217", ColorButton37.BackColor.ToString() },
+					{ "18", ColorButton36.BackColor.ToString() },
+					{ "125", ColorButton35.BackColor.ToString() }
+				};
+			}
+		else if (GlobalVars.SelectedClientVersion >= 6)
+		{
+			ColorArray = new string[64, 2] {
+				{ "1", ColorButton7.BackColor.ToString() }, 
+				{ "208", ColorButton8.BackColor.ToString() },
+				{ "194", ColorButton9.BackColor.ToString() }, 
+				{ "199", ColorButton10.BackColor.ToString() },
+				{ "26", ColorButton14.BackColor.ToString() },
+				{ "21", ColorButton13.BackColor.ToString() },
+				{ "24", ColorButton12.BackColor.ToString() },
+				{ "226", ColorButton11.BackColor.ToString() },
+				{ "23", ColorButton18.BackColor.ToString() },
+				{ "107", ColorButton17.BackColor.ToString() },
+				{ "102", ColorButton16.BackColor.ToString() },
+				{ "11", ColorButton15.BackColor.ToString() },
+				{ "45", ColorButton22.BackColor.ToString() },
+				{ "135", ColorButton21.BackColor.ToString() },
+				{ "106", ColorButton20.BackColor.ToString() },
+				{ "105", ColorButton19.BackColor.ToString() },
+				{ "141", ColorButton26.BackColor.ToString() },
+				{ "28", ColorButton25.BackColor.ToString() },
+				{ "37", ColorButton24.BackColor.ToString() },
+				{ "119", ColorButton23.BackColor.ToString() },
+				{ "29", ColorButton30.BackColor.ToString() },
+				{ "151", ColorButton29.BackColor.ToString() },
+				{ "38", ColorButton28.BackColor.ToString() },
+				{ "192", ColorButton27.BackColor.ToString() },
+				{ "104", ColorButton34.BackColor.ToString() },
+				{ "9", ColorButton33.BackColor.ToString() },
+				{ "101", ColorButton32.BackColor.ToString() },
+				{ "5", ColorButton31.BackColor.ToString() },
+				{ "153", ColorButton38.BackColor.ToString() },
+				{ "217", ColorButton37.BackColor.ToString() },
+				{ "18", ColorButton36.BackColor.ToString() },
+				{ "125", ColorButton35.BackColor.ToString() },
+				{ "1001", ColorButton39.BackColor.ToString() },
+				{ "1002", ColorButton40.BackColor.ToString() },
+				{ "1003", ColorButton41.BackColor.ToString() },
+				{ "1022", ColorButton42.BackColor.ToString() },
+				{ "1023", ColorButton43.BackColor.ToString() },
+				{ "133", ColorButton44.BackColor.ToString() },
+				{ "1018", ColorButton45.BackColor.ToString() },
+				{ "1030", ColorButton46.BackColor.ToString() },
+				{ "1029", ColorButton47.BackColor.ToString() },
+				{ "1025", ColorButton48.BackColor.ToString() },
+				{ "1016", ColorButton49.BackColor.ToString() },
+				{ "1026", ColorButton50.BackColor.ToString() },
+				{ "1024", ColorButton51.BackColor.ToString() },
+				{ "1027", ColorButton52.BackColor.ToString() },
+				{ "1028", ColorButton53.BackColor.ToString() },
+				{ "1008", ColorButton54.BackColor.ToString() },
+				{ "1009", ColorButton55.BackColor.ToString() },
+				{ "1005", ColorButton55.BackColor.ToString() },
+				{ "1004", ColorButton56.BackColor.ToString() },
+				{ "1032", ColorButton57.BackColor.ToString() },
+				{ "1010", ColorButton58.BackColor.ToString() },
+				{ "1019", ColorButton59.BackColor.ToString() },
+				{ "1020", ColorButton60.BackColor.ToString() },
+				{ "1031", ColorButton61.BackColor.ToString() },
+				{ "1006", ColorButton62.BackColor.ToString() },
+				{ "1013", ColorButton63.BackColor.ToString() },
+				{ "1021", ColorButton64.BackColor.ToString() },
+				{ "1014", ColorButton65.BackColor.ToString() },
+				{ "1007", ColorButton66.BackColor.ToString() },
+				{ "1015", ColorButton67.BackColor.ToString() },
+				{ "1012", ColorButton68.BackColor.ToString() },
+				{ "1011", ColorButton68.BackColor.ToString() }
 			};
+		}
+					
+		
 			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
@@ -97,6 +171,7 @@ namespace RBXLegacyLauncher
 				radioButton4.Checked = true;
 			}
 			// pages
+			LauncherFuncs.ReadClientValuesBCC(GlobalVars.SelectedClient)
 			if (GlobalVars.SelectedClientVersion >= 6)
 			{
 				button6.Enabled = true;

@@ -274,6 +274,55 @@ namespace RBXLegacyLauncher
 			GlobalVars.MD5 = GlobalVars.SelectedClientMD5;
 		}
 		
+		public static void ReadClientValuesBCC(string ClientName)
+		{
+			string line1;
+			string Decryptline1, Decryptline2, Decryptline3, Decryptline4, Decryptline5, Decryptline6, Decryptline7, Decryptline8;
+
+			using(StreamReader reader = new StreamReader(clientpath)) 
+			{
+    			line1 = reader.ReadLine();
+			}
+			
+			if (!SecurityFuncs.IsBase64String(line1))
+				return;
+			
+			string ConvertedLine = SecurityFuncs.Base64Decode(line1);
+			string[] result = ConvertedLine.Split('|');
+			Decryptline1 = SecurityFuncs.Base64Decode(result[0]);
+    		Decryptline2 = SecurityFuncs.Base64Decode(result[1]);
+    		Decryptline3 = SecurityFuncs.Base64Decode(result[2]);
+    		Decryptline4 = SecurityFuncs.Base64Decode(result[3]);
+    		Decryptline5 = SecurityFuncs.Base64Decode(result[4]);
+    		Decryptline6 = SecurityFuncs.Base64Decode(result[5]);
+    		Decryptline7 = SecurityFuncs.Base64Decode(result[6]);
+    		Decryptline8 = SecurityFuncs.Base64Decode(result[7]);
+			
+			bool bline1 = Convert.ToBoolean(Decryptline1);
+			GlobalVars.UsesPlayerName = bline1;
+			
+			bool bline2 = Convert.ToBoolean(Decryptline2);
+			GlobalVars.UsesID = bline2;
+			
+			bool bline3 = Convert.ToBoolean(Decryptline3);
+			GlobalVars.LoadsAssetsOnline = bline3;
+			
+			bool bline4 = Convert.ToBoolean(Decryptline4);
+			GlobalVars.LegacyMode = bline4;
+			
+			bool bline5 = Convert.ToBoolean(Decryptline5);
+			GlobalVars.HasRocky = bline5;
+			
+			GlobalVars.SelectedClientMD5 = Decryptline6;
+			
+			int iline7 = Convert.ToInt32(Decryptline7);
+			GlobalVars.SelectedClientVersion = iline7;
+			
+			GlobalVars.SelectedClientDesc = Decryptline8;
+			
+			GlobalVars.MD5 = GlobalVars.SelectedClientMD5;
+		}
+		
 		public static void GeneratePlayerID()
 		{
 			CryptoRandom random = new CryptoRandom();
