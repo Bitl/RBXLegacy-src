@@ -199,7 +199,6 @@ namespace RBXLegacyLauncher
 			this.button6.Text = "admin abilities";
 			this.button6.UseVisualStyleBackColor = true;
 			this.button6.Visible = false;
-			this.button3.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// button11
 			// 
