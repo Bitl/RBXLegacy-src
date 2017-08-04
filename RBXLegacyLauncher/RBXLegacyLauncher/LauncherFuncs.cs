@@ -280,12 +280,11 @@ namespace RBXLegacyLauncher
 			
 			if (!File.Exists(clientpath))
 			{
-				ConsolePrint("ERROR 1 - No clientinfo.txt detected with the client you chose. The client either cannot be loaded, or it is not available.", 2);
-				MessageBox.Show("No clientinfo.txt detected with the client you chose. The client either cannot be loaded, or it is not available.","RBXLegacy Launcher - Error while loading client", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MainForm.ConsolePrint("Error occured while intalizing Character Customization.", 2);
 				GlobalVars.SelectedClient = "2008";
 			}
 			
-			LauncherFuncs.ReadClientValues(clientpath);
+			ReadClientValues(clientpath);
 		}
 		
 		public static void GeneratePlayerID()
