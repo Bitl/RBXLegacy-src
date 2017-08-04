@@ -280,7 +280,6 @@ namespace RBXLegacyLauncher
 			
 			if (!File.Exists(clientpath))
 			{
-				MainForm.ConsolePrint("Error occured while intalizing Character Customization.", 2);
 				GlobalVars.SelectedClient = "2008";
 			}
 			

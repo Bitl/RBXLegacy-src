@@ -637,7 +637,7 @@ namespace RBXLegacyLauncher
 			this.button6.TabIndex = 88;
 			this.button6.Text = "Next Page >>";
 			this.button6.UseVisualStyleBackColor = true;
-			this.Button6.Click += new System.EventHandler(this.Button6Click);
+			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// button5
 			// 
@@ -648,7 +648,7 @@ namespace RBXLegacyLauncher
 			this.button5.TabIndex = 87;
 			this.button5.Text = "<< Last Page";
 			this.button5.UseVisualStyleBackColor = true;
-			this.Button5.Click += new System.EventHandler(this.Button5Click);
+			this.button5.Click += new System.EventHandler(this.Button5Click);
 			// 
 			// ColorButton7
 			// 
