@@ -664,7 +664,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 		end
 		if (rbxlegacyversion > 8) then
-			wait(5)
+			Player.CanLoadCharacterAppearance = false
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	else
@@ -761,6 +761,9 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()	
+	if (rbxlegacyversion > 8) then
+		plr.CanLoadCharacterAppearance = false
+	end
 	
 	if (rbxlegacyversion == 8) then
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
