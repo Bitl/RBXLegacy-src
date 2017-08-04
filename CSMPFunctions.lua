@@ -663,6 +663,9 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		elseif (rbxlegacyversion == 11) then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 		end
+		if (rbxlegacyversion > 8) then
+			wait(5)
+		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	else
 		pcall(function() game:SetPlaceID(-1, false) end)
