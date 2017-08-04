@@ -1115,28 +1115,28 @@ namespace RBXLegacyLauncher
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
-		void ColorButton68Click(object sender, EventArgs e)
+		void ColorButton67Click(object sender, EventArgs e)
 		{
 			Color ButtonColor = ColorButton35.BackColor;
 			int colorID = 1007;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
-		void ColorButton69Click(object sender, EventArgs e)
+		void ColorButton68Click(object sender, EventArgs e)
 		{
 			Color ButtonColor = ColorButton35.BackColor;
 			int colorID = 1015;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 			
-		void ColorButton70Click(object sender, EventArgs e)
+		void ColorButton69Click(object sender, EventArgs e)
 		{
 			Color ButtonColor = ColorButton35.BackColor;
 			int colorID = 1012;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
-		void ColorButton71Click(object sender, EventArgs e)
+		void ColorButton70Click(object sender, EventArgs e)
 		{
 			Color ButtonColor = ColorButton35.BackColor;
 			int colorID = 1011;
