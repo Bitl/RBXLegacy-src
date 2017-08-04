@@ -96,6 +96,11 @@ namespace RBXLegacyLauncher
 			{
 				radioButton4.Checked = true;
 			}
+			// pages
+			if (GlobalVars.SelectedClientVersion >= 6)
+			{
+				button6.Enabled = true;
+			}
         	//color menu implementation
         	PartSelectionLabel2.Text = SelectedPart;
 			HeadButton1.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_HeadColor);
@@ -1282,6 +1287,20 @@ namespace RBXLegacyLauncher
 			Start3DView();
 		}
 		
+		void Button6Click(object sender, EventArgs e)
+		{
+			// TODO: make buttons on previous page invisible, and buttons on THIS page visible.
+			button5.Enabled = true;
+			button6.Enabled = false;
+		}
+		
+		void Button5Click(object sender, EventArgs e)
+		{
+			// TODO: make buttons on previous page visible, and buttons on THIS page invisible.
+			button5.Enabled = false;
+			button6.Enabled = true;
+		}
+		
 		void Start3DView()
 		{
 			string mapfile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\3DView\\content\\fonts\\3DView.rbxl";
@@ -1344,6 +1363,5 @@ namespace RBXLegacyLauncher
 		{
 			GlobalVars.AdTheme = 2012;
 		}
-		
 	}
 }

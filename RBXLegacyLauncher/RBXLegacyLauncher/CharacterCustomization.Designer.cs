@@ -46,6 +46,8 @@ namespace RBXLegacyLauncher
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabControl2 = new System.Windows.Forms.TabControl();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
+			this.button6 = new System.Windows.Forms.Button();
+			this.button5 = new System.Windows.Forms.Button();
 			this.ColorButton7 = new System.Windows.Forms.Button();
 			this.ResetColorsButton40 = new System.Windows.Forms.Button();
 			this.RandColorsButton39 = new System.Windows.Forms.Button();
@@ -211,7 +213,7 @@ namespace RBXLegacyLauncher
 			this.tabControl1.Location = new System.Drawing.Point(12, 8);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(455, 270);
+			this.tabControl1.Size = new System.Drawing.Size(455, 276);
 			this.tabControl1.TabIndex = 48;
 			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
 			// 
@@ -229,7 +231,7 @@ namespace RBXLegacyLauncher
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(447, 244);
+			this.tabPage1.Size = new System.Drawing.Size(447, 250);
 			this.tabPage1.TabIndex = 1;
 			this.tabPage1.Text = "BODY";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -241,12 +243,14 @@ namespace RBXLegacyLauncher
 			this.tabControl2.Location = new System.Drawing.Point(154, 6);
 			this.tabControl2.Name = "tabControl2";
 			this.tabControl2.SelectedIndex = 0;
-			this.tabControl2.Size = new System.Drawing.Size(290, 205);
+			this.tabControl2.Size = new System.Drawing.Size(290, 219);
 			this.tabControl2.TabIndex = 87;
 			this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
 			// 
 			// tabPage5
 			// 
+			this.tabPage5.Controls.Add(this.button6);
+			this.tabPage5.Controls.Add(this.button5);
 			this.tabPage5.Controls.Add(this.ColorButton7);
 			this.tabPage5.Controls.Add(this.ResetColorsButton40);
 			this.tabPage5.Controls.Add(this.RandColorsButton39);
@@ -284,15 +288,35 @@ namespace RBXLegacyLauncher
 			this.tabPage5.Location = new System.Drawing.Point(4, 22);
 			this.tabPage5.Name = "tabPage5";
 			this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage5.Size = new System.Drawing.Size(282, 179);
+			this.tabPage5.Size = new System.Drawing.Size(282, 193);
 			this.tabPage5.TabIndex = 0;
 			this.tabPage5.Text = "PART COLOR";
 			this.tabPage5.UseVisualStyleBackColor = true;
 			// 
+			// button6
+			// 
+			this.button6.Enabled = false;
+			this.button6.Location = new System.Drawing.Point(142, 162);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(131, 26);
+			this.button6.TabIndex = 88;
+			this.button6.Text = "Next Page >>";
+			this.button6.UseVisualStyleBackColor = true;
+			// 
+			// button5
+			// 
+			this.button5.Enabled = false;
+			this.button5.Location = new System.Drawing.Point(6, 162);
+			this.button5.Name = "button5";
+			this.button5.Size = new System.Drawing.Size(131, 26);
+			this.button5.TabIndex = 87;
+			this.button5.Text = "<< Last Page";
+			this.button5.UseVisualStyleBackColor = true;
+			// 
 			// ColorButton7
 			// 
 			this.ColorButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-			this.ColorButton7.Location = new System.Drawing.Point(6, 3);
+			this.ColorButton7.Location = new System.Drawing.Point(6, 5);
 			this.ColorButton7.Name = "ColorButton7";
 			this.ColorButton7.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton7.TabIndex = 51;
@@ -303,7 +327,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.ResetColorsButton40.Location = new System.Drawing.Point(142, 131);
 			this.ResetColorsButton40.Name = "ResetColorsButton40";
-			this.ResetColorsButton40.Size = new System.Drawing.Size(131, 42);
+			this.ResetColorsButton40.Size = new System.Drawing.Size(131, 26);
 			this.ResetColorsButton40.TabIndex = 85;
 			this.ResetColorsButton40.Text = "Reset Colors";
 			this.ResetColorsButton40.UseVisualStyleBackColor = true;
@@ -313,7 +337,7 @@ namespace RBXLegacyLauncher
 			// 
 			this.RandColorsButton39.Location = new System.Drawing.Point(6, 131);
 			this.RandColorsButton39.Name = "RandColorsButton39";
-			this.RandColorsButton39.Size = new System.Drawing.Size(131, 42);
+			this.RandColorsButton39.Size = new System.Drawing.Size(131, 26);
 			this.RandColorsButton39.TabIndex = 86;
 			this.RandColorsButton39.Text = "Randomize Colors";
 			this.RandColorsButton39.UseVisualStyleBackColor = true;
@@ -322,7 +346,7 @@ namespace RBXLegacyLauncher
 			// ColorButton9
 			// 
 			this.ColorButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(163)))), ((int)(((byte)(165)))));
-			this.ColorButton9.Location = new System.Drawing.Point(74, 3);
+			this.ColorButton9.Location = new System.Drawing.Point(74, 5);
 			this.ColorButton9.Name = "ColorButton9";
 			this.ColorButton9.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton9.TabIndex = 53;
@@ -332,7 +356,7 @@ namespace RBXLegacyLauncher
 			// ColorButton8
 			// 
 			this.ColorButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(229)))), ((int)(((byte)(224)))));
-			this.ColorButton8.Location = new System.Drawing.Point(40, 3);
+			this.ColorButton8.Location = new System.Drawing.Point(40, 5);
 			this.ColorButton8.Name = "ColorButton8";
 			this.ColorButton8.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton8.TabIndex = 52;
@@ -342,7 +366,7 @@ namespace RBXLegacyLauncher
 			// ColorButton10
 			// 
 			this.ColorButton10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(95)))), ((int)(((byte)(96)))));
-			this.ColorButton10.Location = new System.Drawing.Point(108, 3);
+			this.ColorButton10.Location = new System.Drawing.Point(108, 5);
 			this.ColorButton10.Name = "ColorButton10";
 			this.ColorButton10.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton10.TabIndex = 54;
@@ -352,7 +376,7 @@ namespace RBXLegacyLauncher
 			// ColorButton14
 			// 
 			this.ColorButton14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
-			this.ColorButton14.Location = new System.Drawing.Point(142, 3);
+			this.ColorButton14.Location = new System.Drawing.Point(142, 5);
 			this.ColorButton14.Name = "ColorButton14";
 			this.ColorButton14.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton14.TabIndex = 55;
@@ -362,7 +386,7 @@ namespace RBXLegacyLauncher
 			// ColorButton35
 			// 
 			this.ColorButton35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(185)))), ((int)(((byte)(145)))));
-			this.ColorButton35.Location = new System.Drawing.Point(245, 99);
+			this.ColorButton35.Location = new System.Drawing.Point(245, 101);
 			this.ColorButton35.Name = "ColorButton35";
 			this.ColorButton35.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton35.TabIndex = 82;
@@ -372,7 +396,7 @@ namespace RBXLegacyLauncher
 			// ColorButton13
 			// 
 			this.ColorButton13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(40)))), ((int)(((byte)(27)))));
-			this.ColorButton13.Location = new System.Drawing.Point(177, 3);
+			this.ColorButton13.Location = new System.Drawing.Point(177, 5);
 			this.ColorButton13.Name = "ColorButton13";
 			this.ColorButton13.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton13.TabIndex = 56;
@@ -382,7 +406,7 @@ namespace RBXLegacyLauncher
 			// ColorButton36
 			// 
 			this.ColorButton36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(142)))), ((int)(((byte)(105)))));
-			this.ColorButton36.Location = new System.Drawing.Point(211, 99);
+			this.ColorButton36.Location = new System.Drawing.Point(211, 101);
 			this.ColorButton36.Name = "ColorButton36";
 			this.ColorButton36.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton36.TabIndex = 81;
@@ -392,7 +416,7 @@ namespace RBXLegacyLauncher
 			// ColorButton12
 			// 
 			this.ColorButton12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
-			this.ColorButton12.Location = new System.Drawing.Point(211, 3);
+			this.ColorButton12.Location = new System.Drawing.Point(211, 5);
 			this.ColorButton12.Name = "ColorButton12";
 			this.ColorButton12.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton12.TabIndex = 57;
@@ -402,7 +426,7 @@ namespace RBXLegacyLauncher
 			// ColorButton37
 			// 
 			this.ColorButton37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(92)))), ((int)(((byte)(69)))));
-			this.ColorButton37.Location = new System.Drawing.Point(177, 99);
+			this.ColorButton37.Location = new System.Drawing.Point(177, 101);
 			this.ColorButton37.Name = "ColorButton37";
 			this.ColorButton37.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton37.TabIndex = 80;
@@ -412,7 +436,7 @@ namespace RBXLegacyLauncher
 			// ColorButton11
 			// 
 			this.ColorButton11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(234)))), ((int)(((byte)(142)))));
-			this.ColorButton11.Location = new System.Drawing.Point(245, 3);
+			this.ColorButton11.Location = new System.Drawing.Point(245, 5);
 			this.ColorButton11.Name = "ColorButton11";
 			this.ColorButton11.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton11.TabIndex = 58;
@@ -422,7 +446,7 @@ namespace RBXLegacyLauncher
 			// ColorButton38
 			// 
 			this.ColorButton38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(122)))), ((int)(((byte)(118)))));
-			this.ColorButton38.Location = new System.Drawing.Point(142, 99);
+			this.ColorButton38.Location = new System.Drawing.Point(142, 101);
 			this.ColorButton38.Name = "ColorButton38";
 			this.ColorButton38.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton38.TabIndex = 79;
@@ -432,7 +456,7 @@ namespace RBXLegacyLauncher
 			// ColorButton18
 			// 
 			this.ColorButton18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(105)))), ((int)(((byte)(172)))));
-			this.ColorButton18.Location = new System.Drawing.Point(6, 35);
+			this.ColorButton18.Location = new System.Drawing.Point(6, 37);
 			this.ColorButton18.Name = "ColorButton18";
 			this.ColorButton18.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton18.TabIndex = 59;
@@ -442,7 +466,7 @@ namespace RBXLegacyLauncher
 			// ColorButton31
 			// 
 			this.ColorButton31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(196)))), ((int)(((byte)(153)))));
-			this.ColorButton31.Location = new System.Drawing.Point(108, 99);
+			this.ColorButton31.Location = new System.Drawing.Point(108, 101);
 			this.ColorButton31.Name = "ColorButton31";
 			this.ColorButton31.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton31.TabIndex = 78;
@@ -452,7 +476,7 @@ namespace RBXLegacyLauncher
 			// ColorButton17
 			// 
 			this.ColorButton17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(143)))), ((int)(((byte)(155)))));
-			this.ColorButton17.Location = new System.Drawing.Point(40, 35);
+			this.ColorButton17.Location = new System.Drawing.Point(40, 37);
 			this.ColorButton17.Name = "ColorButton17";
 			this.ColorButton17.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton17.TabIndex = 60;
@@ -462,7 +486,7 @@ namespace RBXLegacyLauncher
 			// ColorButton32
 			// 
 			this.ColorButton32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(135)))), ((int)(((byte)(121)))));
-			this.ColorButton32.Location = new System.Drawing.Point(74, 99);
+			this.ColorButton32.Location = new System.Drawing.Point(74, 101);
 			this.ColorButton32.Name = "ColorButton32";
 			this.ColorButton32.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton32.TabIndex = 77;
@@ -472,7 +496,7 @@ namespace RBXLegacyLauncher
 			// ColorButton16
 			// 
 			this.ColorButton16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(153)))), ((int)(((byte)(201)))));
-			this.ColorButton16.Location = new System.Drawing.Point(74, 35);
+			this.ColorButton16.Location = new System.Drawing.Point(74, 37);
 			this.ColorButton16.Name = "ColorButton16";
 			this.ColorButton16.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton16.TabIndex = 61;
@@ -482,7 +506,7 @@ namespace RBXLegacyLauncher
 			// ColorButton33
 			// 
 			this.ColorButton33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(186)))), ((int)(((byte)(199)))));
-			this.ColorButton33.Location = new System.Drawing.Point(40, 99);
+			this.ColorButton33.Location = new System.Drawing.Point(40, 101);
 			this.ColorButton33.Name = "ColorButton33";
 			this.ColorButton33.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton33.TabIndex = 76;
@@ -492,7 +516,7 @@ namespace RBXLegacyLauncher
 			// ColorButton15
 			// 
 			this.ColorButton15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(186)))), ((int)(((byte)(219)))));
-			this.ColorButton15.Location = new System.Drawing.Point(108, 35);
+			this.ColorButton15.Location = new System.Drawing.Point(108, 37);
 			this.ColorButton15.Name = "ColorButton15";
 			this.ColorButton15.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton15.TabIndex = 62;
@@ -502,7 +526,7 @@ namespace RBXLegacyLauncher
 			// ColorButton34
 			// 
 			this.ColorButton34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(50)))), ((int)(((byte)(123)))));
-			this.ColorButton34.Location = new System.Drawing.Point(6, 99);
+			this.ColorButton34.Location = new System.Drawing.Point(6, 101);
 			this.ColorButton34.Name = "ColorButton34";
 			this.ColorButton34.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton34.TabIndex = 75;
@@ -512,7 +536,7 @@ namespace RBXLegacyLauncher
 			// ColorButton22
 			// 
 			this.ColorButton22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(210)))), ((int)(((byte)(228)))));
-			this.ColorButton22.Location = new System.Drawing.Point(142, 35);
+			this.ColorButton22.Location = new System.Drawing.Point(142, 37);
 			this.ColorButton22.Name = "ColorButton22";
 			this.ColorButton22.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton22.TabIndex = 63;
@@ -522,7 +546,7 @@ namespace RBXLegacyLauncher
 			// ColorButton27
 			// 
 			this.ColorButton27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(63)))), ((int)(((byte)(39)))));
-			this.ColorButton27.Location = new System.Drawing.Point(245, 67);
+			this.ColorButton27.Location = new System.Drawing.Point(245, 69);
 			this.ColorButton27.Name = "ColorButton27";
 			this.ColorButton27.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton27.TabIndex = 74;
@@ -532,7 +556,7 @@ namespace RBXLegacyLauncher
 			// ColorButton21
 			// 
 			this.ColorButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(134)))), ((int)(((byte)(156)))));
-			this.ColorButton21.Location = new System.Drawing.Point(177, 35);
+			this.ColorButton21.Location = new System.Drawing.Point(177, 37);
 			this.ColorButton21.Name = "ColorButton21";
 			this.ColorButton21.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton21.TabIndex = 64;
@@ -542,7 +566,7 @@ namespace RBXLegacyLauncher
 			// ColorButton28
 			// 
 			this.ColorButton28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(95)))), ((int)(((byte)(55)))));
-			this.ColorButton28.Location = new System.Drawing.Point(211, 67);
+			this.ColorButton28.Location = new System.Drawing.Point(211, 69);
 			this.ColorButton28.Name = "ColorButton28";
 			this.ColorButton28.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton28.TabIndex = 73;
@@ -552,7 +576,7 @@ namespace RBXLegacyLauncher
 			// ColorButton20
 			// 
 			this.ColorButton20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(134)))), ((int)(((byte)(64)))));
-			this.ColorButton20.Location = new System.Drawing.Point(211, 35);
+			this.ColorButton20.Location = new System.Drawing.Point(211, 37);
 			this.ColorButton20.Name = "ColorButton20";
 			this.ColorButton20.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton20.TabIndex = 65;
@@ -562,7 +586,7 @@ namespace RBXLegacyLauncher
 			// ColorButton29
 			// 
 			this.ColorButton29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(144)))), ((int)(((byte)(130)))));
-			this.ColorButton29.Location = new System.Drawing.Point(177, 67);
+			this.ColorButton29.Location = new System.Drawing.Point(177, 69);
 			this.ColorButton29.Name = "ColorButton29";
 			this.ColorButton29.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton29.TabIndex = 72;
@@ -572,7 +596,7 @@ namespace RBXLegacyLauncher
 			// ColorButton19
 			// 
 			this.ColorButton19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(155)))), ((int)(((byte)(63)))));
-			this.ColorButton19.Location = new System.Drawing.Point(245, 35);
+			this.ColorButton19.Location = new System.Drawing.Point(245, 37);
 			this.ColorButton19.Name = "ColorButton19";
 			this.ColorButton19.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton19.TabIndex = 66;
@@ -582,7 +606,7 @@ namespace RBXLegacyLauncher
 			// ColorButton30
 			// 
 			this.ColorButton30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(196)))), ((int)(((byte)(140)))));
-			this.ColorButton30.Location = new System.Drawing.Point(142, 67);
+			this.ColorButton30.Location = new System.Drawing.Point(142, 69);
 			this.ColorButton30.Name = "ColorButton30";
 			this.ColorButton30.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton30.TabIndex = 71;
@@ -592,7 +616,7 @@ namespace RBXLegacyLauncher
 			// ColorButton26
 			// 
 			this.ColorButton26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(70)))), ((int)(((byte)(43)))));
-			this.ColorButton26.Location = new System.Drawing.Point(6, 67);
+			this.ColorButton26.Location = new System.Drawing.Point(6, 69);
 			this.ColorButton26.Name = "ColorButton26";
 			this.ColorButton26.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton26.TabIndex = 67;
@@ -602,7 +626,7 @@ namespace RBXLegacyLauncher
 			// ColorButton23
 			// 
 			this.ColorButton23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(189)))), ((int)(((byte)(71)))));
-			this.ColorButton23.Location = new System.Drawing.Point(108, 67);
+			this.ColorButton23.Location = new System.Drawing.Point(108, 69);
 			this.ColorButton23.Name = "ColorButton23";
 			this.ColorButton23.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton23.TabIndex = 70;
@@ -612,7 +636,7 @@ namespace RBXLegacyLauncher
 			// ColorButton25
 			// 
 			this.ColorButton25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(126)))), ((int)(((byte)(71)))));
-			this.ColorButton25.Location = new System.Drawing.Point(40, 67);
+			this.ColorButton25.Location = new System.Drawing.Point(40, 69);
 			this.ColorButton25.Name = "ColorButton25";
 			this.ColorButton25.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton25.TabIndex = 68;
@@ -622,7 +646,7 @@ namespace RBXLegacyLauncher
 			// ColorButton24
 			// 
 			this.ColorButton24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(150)))), ((int)(((byte)(73)))));
-			this.ColorButton24.Location = new System.Drawing.Point(74, 67);
+			this.ColorButton24.Location = new System.Drawing.Point(74, 69);
 			this.ColorButton24.Name = "ColorButton24";
 			this.ColorButton24.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton24.TabIndex = 69;
@@ -636,7 +660,7 @@ namespace RBXLegacyLauncher
 			this.tabPage6.Location = new System.Drawing.Point(4, 22);
 			this.tabPage6.Name = "tabPage6";
 			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage6.Size = new System.Drawing.Size(282, 179);
+			this.tabPage6.Size = new System.Drawing.Size(282, 193);
 			this.tabPage6.TabIndex = 1;
 			this.tabPage6.Text = "PART MESH";
 			this.tabPage6.UseVisualStyleBackColor = true;
@@ -662,14 +686,14 @@ namespace RBXLegacyLauncher
 			// 
 			// PartSelectionLabel2
 			// 
-			this.PartSelectionLabel2.Location = new System.Drawing.Point(249, 219);
+			this.PartSelectionLabel2.Location = new System.Drawing.Point(249, 230);
 			this.PartSelectionLabel2.Name = "PartSelectionLabel2";
 			this.PartSelectionLabel2.Size = new System.Drawing.Size(80, 16);
 			this.PartSelectionLabel2.TabIndex = 84;
 			// 
 			// PartLabel1
 			// 
-			this.PartLabel1.Location = new System.Drawing.Point(154, 219);
+			this.PartLabel1.Location = new System.Drawing.Point(154, 230);
 			this.PartLabel1.Name = "PartLabel1";
 			this.PartLabel1.Size = new System.Drawing.Size(105, 16);
 			this.PartLabel1.TabIndex = 83;
@@ -698,7 +722,7 @@ namespace RBXLegacyLauncher
 			// LArmButton4
 			// 
 			this.LArmButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(205)))), ((int)(((byte)(47)))));
-			this.LArmButton4.Location = new System.Drawing.Point(117, 77);
+			this.LArmButton4.Location = new System.Drawing.Point(114, 77);
 			this.LArmButton4.Name = "LArmButton4";
 			this.LArmButton4.Size = new System.Drawing.Size(31, 72);
 			this.LArmButton4.TabIndex = 48;
@@ -743,7 +767,7 @@ namespace RBXLegacyLauncher
 			this.tabPage2.Controls.Add(this.listBox4);
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Size = new System.Drawing.Size(447, 244);
+			this.tabPage2.Size = new System.Drawing.Size(447, 250);
 			this.tabPage2.TabIndex = 5;
 			this.tabPage2.Text = "FACE";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -800,7 +824,7 @@ namespace RBXLegacyLauncher
 			this.tabPage3.Location = new System.Drawing.Point(4, 22);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(447, 244);
+			this.tabPage3.Size = new System.Drawing.Size(447, 250);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "HATS";
 			this.tabPage3.UseVisualStyleBackColor = true;
@@ -913,7 +937,7 @@ namespace RBXLegacyLauncher
 			this.tabPage4.Location = new System.Drawing.Point(4, 22);
 			this.tabPage4.Name = "tabPage4";
 			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage4.Size = new System.Drawing.Size(447, 244);
+			this.tabPage4.Size = new System.Drawing.Size(447, 250);
 			this.tabPage4.TabIndex = 3;
 			this.tabPage4.Text = "MISCELLANEOUS";
 			this.tabPage4.UseVisualStyleBackColor = true;
@@ -1175,14 +1199,14 @@ namespace RBXLegacyLauncher
 			this.button4.TabIndex = 49;
 			this.button4.Text = "3D Preview";
 			this.button4.UseVisualStyleBackColor = true;
-			this.button4.Click += new System.EventHandler(this.Button4Click);
+			this.button4.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// CharacterCustomization
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(473, 285);
+			this.ClientSize = new System.Drawing.Size(473, 291);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -1211,6 +1235,8 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.RadioButton radioButton5;
