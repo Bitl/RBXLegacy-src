@@ -921,224 +921,224 @@ namespace RBXLegacyLauncher
 				
 		void ColorButton39Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton39.BackColor;
 			int colorID = 1001;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton40Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton40.BackColor;
 			int colorID = 1002;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton41Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton41.BackColor;
 			int colorID = 1003;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton42Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton42.BackColor;
 			int colorID = 1022;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton43Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton43.BackColor;
 			int colorID = 1023;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 				
 		void ColorButton44Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton44.BackColor;
 			int colorID = 133;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton45Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton45.BackColor;
 			int colorID = 1018;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 				
 		void ColorButton46Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton46.BackColor;
 			int colorID = 1030;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton47Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton47.BackColor;
 			int colorID = 1029;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton48Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton48.BackColor;
 			int colorID = 1025;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton49Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton49.BackColor;
 			int colorID = 1016;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton50Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton50.BackColor;
 			int colorID = 1026;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton51Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton51.BackColor;
 			int colorID = 1024;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton52Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton52.BackColor;
 			int colorID = 1027;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton53Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton53.BackColor;
 			int colorID = 1028;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton54Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton54.BackColor;
 			int colorID = 1008;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton55Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton55.BackColor;
 			int colorID = 1009;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton56Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton56.BackColor;
 			int colorID = 1005;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 				
 		void ColorButton57Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton57.BackColor;
 			int colorID = 1004;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton58Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton58.BackColor;
 			int colorID = 1032;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton59Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton59.BackColor;
 			int colorID = 1010;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton60Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton60.BackColor;
 			int colorID = 1019;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton61Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton61.BackColor;
 			int colorID = 1020;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton62Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton62.BackColor;
 			int colorID = 1031;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton63Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton63.BackColor;
 			int colorID = 1006;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton64Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton64.BackColor;
 			int colorID = 1013;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton65Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton65.BackColor;
 			int colorID = 1021;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton66Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton66.BackColor;
 			int colorID = 1014;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton67Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton67.BackColor;
 			int colorID = 1007;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton68Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton68.BackColor;
 			int colorID = 1015;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 			
 		void ColorButton69Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton69.BackColor;
 			int colorID = 1012;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}
 		
 		void ColorButton70Click(object sender, EventArgs e)
 		{
-			Color ButtonColor = ColorButton35.BackColor;
+			Color ButtonColor = ColorButton70.BackColor;
 			int colorID = 1011;
 			ChangeColorOfPart(colorID, ButtonColor);
 		}

@@ -225,9 +225,9 @@ namespace RBXLegacyLauncher
 			// 
 			this.radioButton4.Location = new System.Drawing.Point(240, 35);
 			this.radioButton4.Name = "radioButton4";
-			this.radioButton4.Size = new System.Drawing.Size(53, 16);
+			this.radioButton4.Size = new System.Drawing.Size(102, 16);
 			this.radioButton4.TabIndex = 37;
-			this.radioButton4.Text = "None";
+			this.radioButton4.Text = "No Icon (NBC)";
 			this.radioButton4.UseVisualStyleBackColor = true;
 			this.radioButton4.CheckedChanged += new System.EventHandler(this.RadioButton4CheckedChanged);
 			// 
@@ -719,6 +719,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton39.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton39.TabIndex = 89;
 			this.ColorButton39.UseVisualStyleBackColor = false;
+			this.ColorButton39.Click += new System.EventHandler(this.ColorButton39Click);
 			// 
 			// ColorButton64
 			// 
@@ -728,6 +729,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton64.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton64.TabIndex = 114;
 			this.ColorButton64.UseVisualStyleBackColor = false;
+			this.ColorButton64.Click += new System.EventHandler(this.ColorButton64Click);
 			// 
 			// ColorButton50
 			// 
@@ -737,6 +739,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton50.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton50.TabIndex = 100;
 			this.ColorButton50.UseVisualStyleBackColor = false;
+			this.ColorButton50.Click += new System.EventHandler(this.ColorButton50Click);
 			// 
 			// ColorButton41
 			// 
@@ -746,6 +749,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton41.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton41.TabIndex = 91;
 			this.ColorButton41.UseVisualStyleBackColor = false;
+			this.ColorButton41.Click += new System.EventHandler(this.ColorButton41Click);
 			// 
 			// ColorButton49
 			// 
@@ -755,6 +759,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton49.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton49.TabIndex = 99;
 			this.ColorButton49.UseVisualStyleBackColor = false;
+			this.ColorButton49.Click += new System.EventHandler(this.ColorButton49Click);
 			// 
 			// ColorButton63
 			// 
@@ -764,6 +769,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton63.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton63.TabIndex = 113;
 			this.ColorButton63.UseVisualStyleBackColor = false;
+			this.ColorButton63.Click += new System.EventHandler(this.ColorButton63Click);
 			// 
 			// ColorButton40
 			// 
@@ -773,6 +779,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton40.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton40.TabIndex = 90;
 			this.ColorButton40.UseVisualStyleBackColor = false;
+			this.ColorButton40.Click += new System.EventHandler(this.ColorButton40Click);
 			// 
 			// ColorButton51
 			// 
@@ -782,6 +789,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton51.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton51.TabIndex = 101;
 			this.ColorButton51.UseVisualStyleBackColor = false;
+			this.ColorButton51.Click += new System.EventHandler(this.ColorButton51Click);
 			// 
 			// ColorButton65
 			// 
@@ -791,6 +799,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton65.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton65.TabIndex = 115;
 			this.ColorButton65.UseVisualStyleBackColor = false;
+			this.ColorButton65.Click += new System.EventHandler(this.ColorButton65Click);
 			// 
 			// ColorButton48
 			// 
@@ -800,6 +809,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton48.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton48.TabIndex = 98;
 			this.ColorButton48.UseVisualStyleBackColor = false;
+			this.ColorButton48.Click += new System.EventHandler(this.ColorButton48Click);
 			// 
 			// ColorButton42
 			// 
@@ -809,6 +819,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton42.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton42.TabIndex = 92;
 			this.ColorButton42.UseVisualStyleBackColor = false;
+			this.ColorButton42.Click += new System.EventHandler(this.ColorButton42Click);
 			// 
 			// ColorButton62
 			// 
@@ -818,6 +829,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton62.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton62.TabIndex = 112;
 			this.ColorButton62.UseVisualStyleBackColor = false;
+			this.ColorButton62.Click += new System.EventHandler(this.ColorButton62Click);
 			// 
 			// ColorButton57
 			// 
@@ -827,6 +839,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton57.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton57.TabIndex = 107;
 			this.ColorButton57.UseVisualStyleBackColor = false;
+			this.ColorButton57.Click += new System.EventHandler(this.ColorButton57Click);
 			// 
 			// ColorButton66
 			// 
@@ -836,6 +849,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton66.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton66.TabIndex = 116;
 			this.ColorButton66.UseVisualStyleBackColor = false;
+			this.ColorButton66.Click += new System.EventHandler(this.ColorButton66Click);
 			// 
 			// ColorButton43
 			// 
@@ -845,6 +859,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton43.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton43.TabIndex = 93;
 			this.ColorButton43.UseVisualStyleBackColor = false;
+			this.ColorButton43.Click += new System.EventHandler(this.ColorButton43Click);
 			// 
 			// ColorButton52
 			// 
@@ -854,6 +869,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton52.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton52.TabIndex = 102;
 			this.ColorButton52.UseVisualStyleBackColor = false;
+			this.ColorButton52.Click += new System.EventHandler(this.ColorButton52Click);
 			// 
 			// ColorButton56
 			// 
@@ -863,6 +879,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton56.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton56.TabIndex = 106;
 			this.ColorButton56.UseVisualStyleBackColor = false;
+			this.ColorButton56.Click += new System.EventHandler(this.ColorButton56Click);
 			// 
 			// ColorButton47
 			// 
@@ -872,6 +889,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton47.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton47.TabIndex = 97;
 			this.ColorButton47.UseVisualStyleBackColor = false;
+			this.ColorButton47.Click += new System.EventHandler(this.ColorButton47Click);
 			// 
 			// ColorButton70
 			// 
@@ -881,6 +899,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton70.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton70.TabIndex = 120;
 			this.ColorButton70.UseVisualStyleBackColor = false;
+			this.ColorButton70.Click += new System.EventHandler(this.ColorButton70Click);
 			// 
 			// ColorButton61
 			// 
@@ -890,6 +909,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton61.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton61.TabIndex = 111;
 			this.ColorButton61.UseVisualStyleBackColor = false;
+			this.ColorButton61.Click += new System.EventHandler(this.ColorButton61Click);
 			// 
 			// ColorButton58
 			// 
@@ -899,6 +919,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton58.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton58.TabIndex = 108;
 			this.ColorButton58.UseVisualStyleBackColor = false;
+			this.ColorButton58.Click += new System.EventHandler(this.ColorButton58Click);
 			// 
 			// ColorButton67
 			// 
@@ -908,6 +929,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton67.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton67.TabIndex = 117;
 			this.ColorButton67.UseVisualStyleBackColor = false;
+			this.ColorButton67.Click += new System.EventHandler(this.ColorButton67Click);
 			// 
 			// ColorButton44
 			// 
@@ -917,6 +939,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton44.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton44.TabIndex = 94;
 			this.ColorButton44.UseVisualStyleBackColor = false;
+			this.ColorButton44.Click += new System.EventHandler(this.ColorButton44Click);
 			// 
 			// ColorButton53
 			// 
@@ -926,6 +949,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton53.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton53.TabIndex = 103;
 			this.ColorButton53.UseVisualStyleBackColor = false;
+			this.ColorButton53.Click += new System.EventHandler(this.ColorButton53Click);
 			// 
 			// ColorButton55
 			// 
@@ -935,6 +959,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton55.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton55.TabIndex = 105;
 			this.ColorButton55.UseVisualStyleBackColor = false;
+			this.ColorButton55.Click += new System.EventHandler(this.ColorButton55Click);
 			// 
 			// ColorButton46
 			// 
@@ -944,6 +969,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton46.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton46.TabIndex = 96;
 			this.ColorButton46.UseVisualStyleBackColor = false;
+			this.ColorButton46.Click += new System.EventHandler(this.ColorButton46Click);
 			// 
 			// ColorButton69
 			// 
@@ -953,6 +979,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton69.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton69.TabIndex = 119;
 			this.ColorButton69.UseVisualStyleBackColor = false;
+			this.ColorButton69.Click += new System.EventHandler(this.ColorButton69Click);
 			// 
 			// ColorButton60
 			// 
@@ -962,6 +989,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton60.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton60.TabIndex = 110;
 			this.ColorButton60.UseVisualStyleBackColor = false;
+			this.ColorButton60.Click += new System.EventHandler(this.ColorButton60Click);
 			// 
 			// ColorButton59
 			// 
@@ -971,6 +999,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton59.Size = new System.Drawing.Size(29, 26);
 			this.ColorButton59.TabIndex = 109;
 			this.ColorButton59.UseVisualStyleBackColor = false;
+			this.ColorButton59.Click += new System.EventHandler(this.ColorButton59Click);
 			// 
 			// ColorButton68
 			// 
@@ -980,6 +1009,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton68.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton68.TabIndex = 118;
 			this.ColorButton68.UseVisualStyleBackColor = false;
+			this.ColorButton68.Click += new System.EventHandler(this.ColorButton68Click);
 			// 
 			// ColorButton45
 			// 
@@ -989,6 +1019,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton45.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton45.TabIndex = 95;
 			this.ColorButton45.UseVisualStyleBackColor = false;
+			this.ColorButton45.Click += new System.EventHandler(this.ColorButton45Click);
 			// 
 			// ColorButton54
 			// 
@@ -998,6 +1029,7 @@ namespace RBXLegacyLauncher
 			this.ColorButton54.Size = new System.Drawing.Size(28, 26);
 			this.ColorButton54.TabIndex = 104;
 			this.ColorButton54.UseVisualStyleBackColor = false;
+			this.ColorButton54.Click += new System.EventHandler(this.ColorButton54Click);
 			// 
 			// button5
 			// 
@@ -1484,7 +1516,7 @@ namespace RBXLegacyLauncher
 			// pictureBox8
 			// 
 			this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-			this.pictureBox8.Location = new System.Drawing.Point(411, 89);
+			this.pictureBox8.Location = new System.Drawing.Point(425, 89);
 			this.pictureBox8.Name = "pictureBox8";
 			this.pictureBox8.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1494,7 +1526,7 @@ namespace RBXLegacyLauncher
 			// pictureBox7
 			// 
 			this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-			this.pictureBox7.Location = new System.Drawing.Point(383, 71);
+			this.pictureBox7.Location = new System.Drawing.Point(425, 71);
 			this.pictureBox7.Name = "pictureBox7";
 			this.pictureBox7.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1504,7 +1536,7 @@ namespace RBXLegacyLauncher
 			// pictureBox6
 			// 
 			this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-			this.pictureBox6.Location = new System.Drawing.Point(346, 53);
+			this.pictureBox6.Location = new System.Drawing.Point(425, 53);
 			this.pictureBox6.Name = "pictureBox6";
 			this.pictureBox6.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
