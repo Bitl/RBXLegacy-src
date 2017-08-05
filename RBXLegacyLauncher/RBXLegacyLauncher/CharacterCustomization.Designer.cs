@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created by SharpDevelop.
  * User: BITL
  * Date: 2/5/2017
@@ -46,6 +46,8 @@ namespace RBXLegacyLauncher
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.tabControl2 = new System.Windows.Forms.TabControl();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
+			this.button6 = new System.Windows.Forms.Button();
+			this.Page2Panel = new System.Windows.Forms.Panel();
 			this.Page1Panel = new System.Windows.Forms.Panel();
 			this.ColorButton25 = new System.Windows.Forms.Button();
 			this.ColorButton16 = new System.Windows.Forms.Button();
@@ -79,8 +81,6 @@ namespace RBXLegacyLauncher
 			this.ColorButton19 = new System.Windows.Forms.Button();
 			this.ColorButton29 = new System.Windows.Forms.Button();
 			this.ColorButton36 = new System.Windows.Forms.Button();
-			this.button6 = new System.Windows.Forms.Button();
-			this.Page2Panel = new System.Windows.Forms.Panel();
 			this.ColorButton39 = new System.Windows.Forms.Button();
 			this.ColorButton64 = new System.Windows.Forms.Button();
 			this.ColorButton50 = new System.Windows.Forms.Button();
@@ -174,8 +174,8 @@ namespace RBXLegacyLauncher
 			this.tabPage1.SuspendLayout();
 			this.tabControl2.SuspendLayout();
 			this.tabPage5.SuspendLayout();
-			this.Page1Panel.SuspendLayout();
 			this.Page2Panel.SuspendLayout();
+			this.Page1Panel.SuspendLayout();
 			this.tabPage6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
 			this.tabPage2.SuspendLayout();
@@ -286,7 +286,6 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage5
 			// 
-			this.tabPage5.Controls.Add(this.Page1Panel);
 			this.tabPage5.Controls.Add(this.button6);
 			this.tabPage5.Controls.Add(this.Page2Panel);
 			this.tabPage5.Controls.Add(this.button5);
@@ -299,6 +298,59 @@ namespace RBXLegacyLauncher
 			this.tabPage5.TabIndex = 0;
 			this.tabPage5.Text = "PART COLOR";
 			this.tabPage5.UseVisualStyleBackColor = true;
+			// 
+			// button6
+			// 
+			this.button6.Enabled = false;
+			this.button6.Location = new System.Drawing.Point(142, 162);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(131, 26);
+			this.button6.TabIndex = 88;
+			this.button6.Text = "Next Page >>";
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
+			// 
+			// Page2Panel
+			// 
+			this.Page2Panel.Controls.Add(this.Page1Panel);
+			this.Page2Panel.Controls.Add(this.ColorButton39);
+			this.Page2Panel.Controls.Add(this.ColorButton64);
+			this.Page2Panel.Controls.Add(this.ColorButton50);
+			this.Page2Panel.Controls.Add(this.ColorButton41);
+			this.Page2Panel.Controls.Add(this.ColorButton49);
+			this.Page2Panel.Controls.Add(this.ColorButton63);
+			this.Page2Panel.Controls.Add(this.ColorButton40);
+			this.Page2Panel.Controls.Add(this.ColorButton51);
+			this.Page2Panel.Controls.Add(this.ColorButton65);
+			this.Page2Panel.Controls.Add(this.ColorButton48);
+			this.Page2Panel.Controls.Add(this.ColorButton42);
+			this.Page2Panel.Controls.Add(this.ColorButton62);
+			this.Page2Panel.Controls.Add(this.ColorButton57);
+			this.Page2Panel.Controls.Add(this.ColorButton66);
+			this.Page2Panel.Controls.Add(this.ColorButton43);
+			this.Page2Panel.Controls.Add(this.ColorButton52);
+			this.Page2Panel.Controls.Add(this.ColorButton56);
+			this.Page2Panel.Controls.Add(this.ColorButton47);
+			this.Page2Panel.Controls.Add(this.ColorButton70);
+			this.Page2Panel.Controls.Add(this.ColorButton61);
+			this.Page2Panel.Controls.Add(this.ColorButton58);
+			this.Page2Panel.Controls.Add(this.ColorButton67);
+			this.Page2Panel.Controls.Add(this.ColorButton44);
+			this.Page2Panel.Controls.Add(this.ColorButton53);
+			this.Page2Panel.Controls.Add(this.ColorButton55);
+			this.Page2Panel.Controls.Add(this.ColorButton46);
+			this.Page2Panel.Controls.Add(this.ColorButton69);
+			this.Page2Panel.Controls.Add(this.ColorButton60);
+			this.Page2Panel.Controls.Add(this.ColorButton59);
+			this.Page2Panel.Controls.Add(this.ColorButton68);
+			this.Page2Panel.Controls.Add(this.ColorButton45);
+			this.Page2Panel.Controls.Add(this.ColorButton54);
+			this.Page2Panel.Location = new System.Drawing.Point(0, 3);
+			this.Page2Panel.Name = "Page2Panel";
+			this.Page2Panel.Size = new System.Drawing.Size(282, 127);
+			this.Page2Panel.TabIndex = 121;
+			this.Page2Panel.Visible = false;
+			this.Page2Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Page2PanelPaint);
 			// 
 			// Page1Panel
 			// 
@@ -334,7 +386,7 @@ namespace RBXLegacyLauncher
 			this.Page1Panel.Controls.Add(this.ColorButton19);
 			this.Page1Panel.Controls.Add(this.ColorButton29);
 			this.Page1Panel.Controls.Add(this.ColorButton36);
-			this.Page1Panel.Location = new System.Drawing.Point(0, 3);
+			this.Page1Panel.Location = new System.Drawing.Point(0, 0);
 			this.Page1Panel.Name = "Page1Panel";
 			this.Page1Panel.Size = new System.Drawing.Size(282, 127);
 			this.Page1Panel.TabIndex = 122;
@@ -659,58 +711,6 @@ namespace RBXLegacyLauncher
 			this.ColorButton36.UseVisualStyleBackColor = false;
 			this.ColorButton36.Click += new System.EventHandler(this.ColorButton36Click);
 			// 
-			// button6
-			// 
-			this.button6.Enabled = false;
-			this.button6.Location = new System.Drawing.Point(142, 162);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(131, 26);
-			this.button6.TabIndex = 88;
-			this.button6.Text = "Next Page >>";
-			this.button6.UseVisualStyleBackColor = true;
-			this.button6.Click += new System.EventHandler(this.Button6Click);
-			// 
-			// Page2Panel
-			// 
-			this.Page2Panel.Controls.Add(this.ColorButton39);
-			this.Page2Panel.Controls.Add(this.ColorButton64);
-			this.Page2Panel.Controls.Add(this.ColorButton50);
-			this.Page2Panel.Controls.Add(this.ColorButton41);
-			this.Page2Panel.Controls.Add(this.ColorButton49);
-			this.Page2Panel.Controls.Add(this.ColorButton63);
-			this.Page2Panel.Controls.Add(this.ColorButton40);
-			this.Page2Panel.Controls.Add(this.ColorButton51);
-			this.Page2Panel.Controls.Add(this.ColorButton65);
-			this.Page2Panel.Controls.Add(this.ColorButton48);
-			this.Page2Panel.Controls.Add(this.ColorButton42);
-			this.Page2Panel.Controls.Add(this.ColorButton62);
-			this.Page2Panel.Controls.Add(this.ColorButton57);
-			this.Page2Panel.Controls.Add(this.ColorButton66);
-			this.Page2Panel.Controls.Add(this.ColorButton43);
-			this.Page2Panel.Controls.Add(this.ColorButton52);
-			this.Page2Panel.Controls.Add(this.ColorButton56);
-			this.Page2Panel.Controls.Add(this.ColorButton47);
-			this.Page2Panel.Controls.Add(this.ColorButton70);
-			this.Page2Panel.Controls.Add(this.ColorButton61);
-			this.Page2Panel.Controls.Add(this.ColorButton58);
-			this.Page2Panel.Controls.Add(this.ColorButton67);
-			this.Page2Panel.Controls.Add(this.ColorButton44);
-			this.Page2Panel.Controls.Add(this.ColorButton53);
-			this.Page2Panel.Controls.Add(this.ColorButton55);
-			this.Page2Panel.Controls.Add(this.ColorButton46);
-			this.Page2Panel.Controls.Add(this.ColorButton69);
-			this.Page2Panel.Controls.Add(this.ColorButton60);
-			this.Page2Panel.Controls.Add(this.ColorButton59);
-			this.Page2Panel.Controls.Add(this.ColorButton68);
-			this.Page2Panel.Controls.Add(this.ColorButton45);
-			this.Page2Panel.Controls.Add(this.ColorButton54);
-			this.Page2Panel.Location = new System.Drawing.Point(0, 3);
-			this.Page2Panel.Name = "Page2Panel";
-			this.Page2Panel.Size = new System.Drawing.Size(282, 127);
-			this.Page2Panel.TabIndex = 121;
-			this.Page2Panel.Visible = false;
-			this.Page2Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Page2PanelPaint);
-			// 
 			// ColorButton39
 			// 
 			this.ColorButton39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
@@ -833,7 +833,7 @@ namespace RBXLegacyLauncher
 			// 
 			// ColorButton57
 			// 
-			this.ColorButton57.BackColor = System.Drawing.Color.Red;
+			this.ColorButton57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
 			this.ColorButton57.Location = new System.Drawing.Point(76, 67);
 			this.ColorButton57.Name = "ColorButton57";
 			this.ColorButton57.Size = new System.Drawing.Size(28, 26);
@@ -903,7 +903,7 @@ namespace RBXLegacyLauncher
 			// 
 			// ColorButton61
 			// 
-			this.ColorButton61.BackColor = System.Drawing.Color.Lime;
+			this.ColorButton61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(254)))), ((int)(((byte)(0)))));
 			this.ColorButton61.Location = new System.Drawing.Point(213, 67);
 			this.ColorButton61.Name = "ColorButton61";
 			this.ColorButton61.Size = new System.Drawing.Size(28, 26);
@@ -953,7 +953,7 @@ namespace RBXLegacyLauncher
 			// 
 			// ColorButton55
 			// 
-			this.ColorButton55.BackColor = System.Drawing.Color.Yellow;
+			this.ColorButton55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(0)))));
 			this.ColorButton55.Location = new System.Drawing.Point(8, 67);
 			this.ColorButton55.Name = "ColorButton55";
 			this.ColorButton55.Size = new System.Drawing.Size(29, 26);
@@ -983,7 +983,7 @@ namespace RBXLegacyLauncher
 			// 
 			// ColorButton60
 			// 
-			this.ColorButton60.BackColor = System.Drawing.Color.Cyan;
+			this.ColorButton60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
 			this.ColorButton60.Location = new System.Drawing.Point(179, 67);
 			this.ColorButton60.Name = "ColorButton60";
 			this.ColorButton60.Size = new System.Drawing.Size(28, 26);
@@ -993,7 +993,7 @@ namespace RBXLegacyLauncher
 			// 
 			// ColorButton59
 			// 
-			this.ColorButton59.BackColor = System.Drawing.Color.Blue;
+			this.ColorButton59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(254)))));
 			this.ColorButton59.Location = new System.Drawing.Point(144, 67);
 			this.ColorButton59.Name = "ColorButton59";
 			this.ColorButton59.Size = new System.Drawing.Size(29, 26);
@@ -1641,8 +1641,8 @@ namespace RBXLegacyLauncher
 			this.tabPage1.ResumeLayout(false);
 			this.tabControl2.ResumeLayout(false);
 			this.tabPage5.ResumeLayout(false);
-			this.Page1Panel.ResumeLayout(false);
 			this.Page2Panel.ResumeLayout(false);
+			this.Page1Panel.ResumeLayout(false);
 			this.tabPage6.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
 			this.tabPage2.ResumeLayout(false);
