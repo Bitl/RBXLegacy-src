@@ -286,6 +286,7 @@ namespace RBXLegacyLauncher
 			// 
 			// tabPage5
 			// 
+			this.tabPage5.Controls.Add(this.Page1Panel);
 			this.tabPage5.Controls.Add(this.button6);
 			this.tabPage5.Controls.Add(this.Page2Panel);
 			this.tabPage5.Controls.Add(this.button5);
@@ -312,7 +313,6 @@ namespace RBXLegacyLauncher
 			// 
 			// Page2Panel
 			// 
-			this.Page2Panel.Controls.Add(this.Page1Panel);
 			this.Page2Panel.Controls.Add(this.ColorButton39);
 			this.Page2Panel.Controls.Add(this.ColorButton64);
 			this.Page2Panel.Controls.Add(this.ColorButton50);
@@ -386,7 +386,7 @@ namespace RBXLegacyLauncher
 			this.Page1Panel.Controls.Add(this.ColorButton19);
 			this.Page1Panel.Controls.Add(this.ColorButton29);
 			this.Page1Panel.Controls.Add(this.ColorButton36);
-			this.Page1Panel.Location = new System.Drawing.Point(0, 0);
+			this.Page1Panel.Location = new System.Drawing.Point(1, 0);
 			this.Page1Panel.Name = "Page1Panel";
 			this.Page1Panel.Size = new System.Drawing.Size(282, 127);
 			this.Page1Panel.TabIndex = 122;
