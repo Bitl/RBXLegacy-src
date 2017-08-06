@@ -878,8 +878,10 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()
-	pcall(function() plr:SetUnder13(true) end)
+	pcall(function() plr:SetUnder13(false) end)
+	pcall(function() plr:SetSuperSafeChat(true) end)
 	pcall(function() plr:SetAccountAge(365) end)
+	
 	plr.CharacterAppearance=0
 	game.CoreGui.RobloxGui:Remove()
 	game.GuiRoot.ScoreHud:Remove()
