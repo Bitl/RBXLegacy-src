@@ -858,6 +858,17 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 			Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character) end) end)
 		end
 	end
+	
+	if (rbxlegacyversion > 8)	
+		local function waitForChild(instance, name)
+			while not instance:FindFirstChild(name) do
+				instance.ChildAdded:wait()
+			end
+		end
+
+		waitForChild(game.StarterGui,"Menu")
+		game.StarterGui.Menu.Workaround:remove()
+	end
 end
 
 function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
