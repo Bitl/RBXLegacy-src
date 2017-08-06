@@ -686,7 +686,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 					end
 				end)
 			end)
-		end
 		elseif (rbxlegacyversion == 11) then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 		end
@@ -832,7 +831,6 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 				end
 			end)
 		end)
-	end
 	elseif (rbxlegacyversion == 11) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 	end
