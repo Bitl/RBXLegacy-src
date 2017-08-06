@@ -859,7 +859,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		end
 	end
 	
-	if (rbxlegacyversion > 8)	
+	if (rbxlegacyversion > 8) then
 		local function waitForChild(instance, name)
 			while not instance:FindFirstChild(name) do
 				instance.ChildAdded:wait()
