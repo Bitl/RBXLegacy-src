@@ -656,10 +656,37 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-			if (Player.PlayerGui:FindFirstChild("Menu")) then
-				Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
-				Player.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+			-- set up listeners for type of mouse mode
+
+			local function waitForChild(instance, name)
+				while not instance:FindFirstChild(name) do
+					instance.ChildAdded:wait()
+				end
 			end
+
+			delay(0, function()
+				-- wait for the objects to load. we don't want to be TOO quick
+				waitForChild(Player.PlayerGui,"UserSettingsShield")
+				waitForChild(Player.PlayerGui.UserSettingsShield,"Settings")
+				waitForChild(Player.PlayerGui.UserSettingsShield.Settings,"SettingsStyle")
+				waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle,"GameSettingsMenu")
+				waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu, "CameraField")
+				waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.CameraField, "DropDownMenuButton")
+	
+				UserSettings().GameSettings.ControlMode.Changed:connect(function()
+					if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
+						if game.CoreGui.RobloxGui.MouseLockLabel.Visible == false then
+							game.CoreGui.RobloxGui.MouseLockLabel.Visible = true
+						end
+					end
+					if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
+						if game.CoreGui.RobloxGui.MouseLockLabel.Visible == true then
+							game.CoreGui.RobloxGui.MouseLockLabel.Visible = false
+						end
+					end
+				end)
+			end)
+		end
 		elseif (rbxlegacyversion == 11) then
 			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 		end
@@ -769,16 +796,43 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
 	elseif (rbxlegacyversion > 8) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
-      	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
+      		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
-        game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
+       		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
+       		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-		if (plr.PlayerGui:FindFirstChild("Menu")) then
-			plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.FullscreenCheckbox:SetVerb("ToggleFullScreen")
-			plr.PlayerGui.Menu.UserSettingsShield.Settings.SettingsStyle.GameMainMenu.ScreenshotButton:SetVerb("Screenshot")
+		-- set up listeners for type of mouse mode
+
+		local function waitForChild(instance, name)
+			while not instance:FindFirstChild(name) do
+				instance.ChildAdded:wait()
+			end
 		end
+
+		delay(0, function()
+			-- wait for the objects to load. we don't want to be TOO quick
+			waitForChild(plr.PlayerGui,"UserSettingsShield")
+			waitForChild(plr.PlayerGui.UserSettingsShield,"Settings")
+			waitForChild(plr.PlayerGui.UserSettingsShield.Settings,"SettingsStyle")
+			waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle,"GameSettingsMenu")
+			waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu, "CameraField")
+			waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.CameraField, "DropDownMenuButton")
+	
+			UserSettings().GameSettings.ControlMode.Changed:connect(function()
+				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
+					if game.CoreGui.RobloxGui.MouseLockLabel.Visible == false then
+						game.CoreGui.RobloxGui.MouseLockLabel.Visible = true
+					end
+				end
+				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
+					if game.CoreGui.RobloxGui.MouseLockLabel.Visible == true then
+						game.CoreGui.RobloxGui.MouseLockLabel.Visible = false
+					end
+				end
+			end)
+		end)
+	end
 	elseif (rbxlegacyversion == 11) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
 	end
