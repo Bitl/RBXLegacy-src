@@ -3,19 +3,12 @@ using System.Windows.Forms;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Class with program entry point.
-	/// </summary>
 	internal sealed class Program
 	{
 		static string ProcessInput(string s)
     	{
        		return s;
     	}
-		
-		/// <summary>
-		/// Program entry point.
-		/// </summary>
 		[STAThread]
 		private static void Main(string[] args)
 		{

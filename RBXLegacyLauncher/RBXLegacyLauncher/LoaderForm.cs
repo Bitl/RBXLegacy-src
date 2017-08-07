@@ -11,21 +11,11 @@ using System.Text.RegularExpressions;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of LoaderForm.
-	/// </summary>
 	public partial class LoaderForm : Form
 	{
 		public LoaderForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
 		
 		void LoaderFormLoad(object sender, EventArgs e)

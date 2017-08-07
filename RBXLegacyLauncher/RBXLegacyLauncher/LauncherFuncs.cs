@@ -11,9 +11,6 @@ using System.Text;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of LauncherFuncs.
-	/// </summary>
 	public class LauncherFuncs
 	{
 		public LauncherFuncs()

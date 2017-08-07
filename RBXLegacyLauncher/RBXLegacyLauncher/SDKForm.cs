@@ -7,21 +7,11 @@ using System.Threading;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of SDKForm.
-	/// </summary>
 	public partial class SDKForm : Form
 	{
 		public SDKForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
 		
 		// clientinfo

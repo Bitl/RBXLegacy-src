@@ -10,9 +10,6 @@ using Microsoft.Win32;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of SecurityFuncs.
-	/// </summary>
 	public class SecurityFuncs
 	{
 		public SecurityFuncs()

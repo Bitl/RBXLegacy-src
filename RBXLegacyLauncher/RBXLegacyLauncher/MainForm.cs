@@ -1,11 +1,3 @@
-/*
- * Created by SharpDevelop.
- * User: BITL-Gaming
- * Date: 10/7/2016
- * Time: 3:01 PM
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,25 +12,15 @@ using System.Text.RegularExpressions;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of MainForm.
-	/// </summary>
 	public partial class MainForm : Form
 	{
 		public MainForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
 		void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
-     		if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
+     		if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
      		{
         		string mapdir = GlobalVars.MapsDir;
 				DirectoryInfo dinfo = new DirectoryInfo(mapdir);
@@ -52,7 +34,7 @@ namespace RBXLegacyLauncher
 				listBox3.Items.Clear();
      			listBox4.Items.Clear();
      		}
-     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
+     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])
      		{
         		string clientdir = GlobalVars.ClientDir;
 				DirectoryInfo dinfo = new DirectoryInfo(clientdir);
@@ -66,7 +48,7 @@ namespace RBXLegacyLauncher
 				listBox3.Items.Clear();
      			listBox4.Items.Clear();
      		}
-     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage6"])//your specific tabname
+     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage6"])
      		{
      			string[] lines_server = File.ReadAllLines("servers.txt");
 				string[] lines_ports = File.ReadAllLines("ports.txt");

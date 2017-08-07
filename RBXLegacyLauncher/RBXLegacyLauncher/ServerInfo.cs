@@ -5,21 +5,11 @@ using System.Net;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of ServerInfo.
-	/// </summary>
 	public partial class ServerInfo : Form
 	{
 		public ServerInfo()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
 		
 		void ServerInfoLoad(object sender, EventArgs e)
@@ -64,7 +54,7 @@ namespace RBXLegacyLauncher
 			{
 				try
   				{
-    				ipAddress = wc.DownloadString("http://icanhazip.com/");
+    				ipAddress = wc.DownloadString("http://canihazip.com/s");
   				}
 				catch (Exception)
   				{

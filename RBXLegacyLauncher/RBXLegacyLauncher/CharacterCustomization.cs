@@ -12,9 +12,6 @@ using System.Text.RegularExpressions;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of CharacterCustomization.
-	/// </summary>
 	public partial class CharacterCustomization : Form
 	{
 		public static string SelectedPart = "Head";
@@ -22,9 +19,6 @@ namespace RBXLegacyLauncher
 		
 		public CharacterCustomization()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
 			LauncherFuncs.ReadClientValuesBCC(GlobalVars.SelectedClient);
 			if (GlobalVars.SelectedClientVersion < 6)
@@ -175,7 +169,7 @@ namespace RBXLegacyLauncher
 		{
 			if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage1"])
 			{
-				if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+				if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
 				{
 					string partdir;
 					if (SelectedPart == "Head")
@@ -327,7 +321,7 @@ namespace RBXLegacyLauncher
      			listBox3.Items.Clear();
      			listBox4.Items.Clear();
 			}
-     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])//your specific tabname
+     		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
      		{
      			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\faces";
         		if (Directory.Exists(facedir))
@@ -354,7 +348,7 @@ namespace RBXLegacyLauncher
      			listBox3.Items.Clear();
      			listBox5.Items.Clear();
      		}
-			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])//your specific tabname
+			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])
      		{
 				string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
         		if (Directory.Exists(hatdir))
@@ -406,7 +400,7 @@ namespace RBXLegacyLauncher
 		
 		void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
 		{
-     		if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+     		if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
      			string partdir;
 				if (SelectedPart == "Head")
@@ -1209,7 +1203,7 @@ namespace RBXLegacyLauncher
 		{
 			SelectedPart = "Head";
 			PartSelectionLabel2.Text = SelectedPart;
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
 				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\heads";
 				if (Directory.Exists(partdir))
@@ -1239,7 +1233,7 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Torso";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
      			string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\2";
      			if (Directory.Exists(partdir))
@@ -1269,7 +1263,7 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Right Arm";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
 				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\3";
 				if (Directory.Exists(partdir))
@@ -1299,7 +1293,7 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Left Arm";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
 				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\4";
 				if (Directory.Exists(partdir))
@@ -1329,7 +1323,7 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Right Leg";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
 				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\5";
 				if (Directory.Exists(partdir))
@@ -1359,7 +1353,7 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Left Leg";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])//your specific tabname
+			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
 				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\6";
 				if (Directory.Exists(partdir))

@@ -9,21 +9,11 @@ using System.IO;
 
 namespace RBXLegacyLauncher
 {
-	/// <summary>
-	/// Description of QuickConfigure.
-	/// </summary>
 	public partial class QuickConfigure : Form
 	{
 		public QuickConfigure()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
 		
 		void QuickConfigureLoad(object sender, EventArgs e)
