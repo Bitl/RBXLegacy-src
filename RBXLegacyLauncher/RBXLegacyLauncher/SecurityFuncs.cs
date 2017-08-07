@@ -1,12 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: BITL
- * Date: 6/12/2017
- * Time: 5:10 PM
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;

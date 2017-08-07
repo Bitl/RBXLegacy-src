@@ -1,12 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: BITL
- * Date: 6/13/2017
- * Time: 10:24 AM
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;

@@ -1,12 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: BITL
- * Date: 5/14/2017
- * Time: 9:14 AM
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
-namespace RBXLegacyLauncher
+﻿namespace RBXLegacyLauncher
 {
 	partial class ServerInfo
 	{

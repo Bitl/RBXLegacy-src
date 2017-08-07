@@ -1,11 +1,3 @@
-/*
- * Created by SharpDevelop.
- * User: BITL
- * Date: 2/5/2017
- * Time: 1:53 PM
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
 namespace RBXLegacyLauncher
 {
 	partial class CharacterCustomization
