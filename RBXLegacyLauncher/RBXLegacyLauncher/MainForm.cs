@@ -112,6 +112,12 @@ namespace RBXLegacyLauncher
 		
 		void Button2Click(object sender, EventArgs e)
 		{
+			Process pmap = new Process();
+			pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
+			pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+			pmap.StartInfo.UseShellExecute = false;
+			pmap.StartInfo.CreateNoWindow = true;
+			pmap.Start();
 			WriteConfigValues();
 			StartServer();
 			
@@ -187,6 +193,17 @@ namespace RBXLegacyLauncher
     		label11.Text = version;
     		GlobalVars.Version = version;
     		ReadConfigValues();
+    		using (WebClient wc = new WebClient())
+			{
+				try
+  				{
+    				GlobalVars.MyIP = wc.DownloadString("http://ipv4.icanhazip.com");
+  				}
+				catch (Exception)
+  				{
+    				GlobalVars.MyIP = "localhost" + Environment.NewLine;
+  				}
+			}
 		}
 		
 		void ReadConfigValues()
@@ -868,14 +885,32 @@ namespace RBXLegacyLauncher
 			string important = SecurityFuncs.Base64Decode("cmJ4bGVnYWN5IGthbnJpc2hh");
 			if (command.Equals("rbxlegacy server"))
 			{
+				Process pmap = new Process();
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
+				pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+				pmap.StartInfo.UseShellExecute = false;
+				pmap.StartInfo.CreateNoWindow = true;
+				pmap.Start();
 				StartServer();
 			}
 			else if (command.Equals("rbxlegacy server no3d"))
 			{
+				Process pmap = new Process();
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
+				pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+				pmap.StartInfo.UseShellExecute = false;
+				pmap.StartInfo.CreateNoWindow = true;
+				pmap.Start();
 				StartServerNo3D();
 			}
 			else if (command.Equals("rbxlegacy no3d"))
 			{
+				Process pmap = new Process();
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
+				pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+				pmap.StartInfo.UseShellExecute = false;
+				pmap.StartInfo.CreateNoWindow = true;
+				pmap.Start();
 				StartServerNo3D();
 			}
 			else if (command.Equals("rbxlegacy client"))
