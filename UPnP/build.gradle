@@ -1,0 +1,92 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id "com.github.hierynomus.license" version "0.13.1"
+}
+
+repositories {
+    mavenLocal()
+    maven { url 'http://4thline.org/m2' }
+    jcenter()
+    flatDir { dirs 'lib' }
+}
+
+version = '2.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+	options.compilerArgs << '-Xlint:all'
+	options.encoding = 'UTF-8'
+}
+
+test {
+	if(logger.infoEnabled) {
+		testLogging.showStandardStreams = true
+	}
+	jvmArgs '-XX:+HeapDumpOnOutOfMemoryError', '-enableassertions'
+}
+
+processResources {
+    rename(/(\w+)_en.properties/, '$1.properties')
+}
+
+task replaceVersionTokenInTranslations {
+    doLast {
+        ant.replace(dir: 'build/resources/main', encoding: 'ISO-8859-1') {
+            include(name: '**/*.properties')
+            replacefilter(token: '@VERSION_NUMBER@', value: project.version)
+        }
+    }
+}
+
+jar.dependsOn(replaceVersionTokenInTranslations)
+
+jar {
+	from {
+		configurations.compile.collect {
+			it.isDirectory() ? it : zipTree(it)
+		}
+		configurations.runtime.collect {
+			it.isDirectory() ? it : zipTree(it)
+		}
+	}
+	manifest { attributes 'Main-Class': 'org.chris.portmapper.PortMapperStarter' }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.1.0'
+    
+    compile 'args4j:args4j:2.33'
+    compile 'org.slf4j:slf4j-api:1.7.22'
+    compile 'ch.qos.logback:logback-classic:1.1.8'
+    compile 'com.miglayout:miglayout-swing:5.0'
+    compile 'org.jdesktop.bsaf:bsaf:1.9.2'
+    compile ':sbbi-upnplib:1.0.4'
+    compile 'org.fourthline.cling:cling-support:2.1.1'
+    compile 'org.bitlet:weupnp:0.1.4'
+    
+    runtime 'commons-jxpath:commons-jxpath:1.1' // sbbi
+    compile 'org.slf4j:jul-to-slf4j:1.7.22'
+}
+
+license {
+    header = file('gradle/license-header.txt')
+    ext.year = 2015
+    ext.name = 'Christoph Pirkl'
+    ext.email = 'christoph at users.sourceforge.net'
+}
+
+eclipse {
+	classpath {
+		downloadSources = true
+	}
+	jdt.file {
+		beforeMerged  { jdt ->
+		  File defaultProperties = new File("${rootProject.projectDir}/gradle/defaultEclipseJdtPrefs.properties").absoluteFile
+		  logger.info "Load defaults from $defaultProperties for $project"
+		  jdt.load(defaultProperties)
+		}
+	  }
+}
