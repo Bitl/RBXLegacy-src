@@ -530,7 +530,10 @@ namespace RBXLegacyLauncher
 		
 		void Button19Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Note: If the health bar or scoreboard don't appear, just reset your character. If your character does not move or your character lags after the client window is loaded, just open the server window then minimize it.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			if (GlobalVars.SelectedClientVersion >= 7)
+			{
+			DialogResult result = MessageBox.Show("Note: If the health bar or scoreboard don't appear, just reset your character.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 			WriteConfigValues();
 			StartSolo();
 			

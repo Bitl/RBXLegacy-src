@@ -675,13 +675,13 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 	
 				UserSettings().GameSettings.ControlMode.Changed:connect(function()
 					if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
-						if game.CoreGui.RobloxGui.MouseLockLabel.Visible == false then
-							game.CoreGui.RobloxGui.MouseLockLabel.Visible = true
+						if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == false then
+							game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = true
 						end
 					end
 					if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
-						if game.CoreGui.RobloxGui.MouseLockLabel.Visible == true then
-							game.CoreGui.RobloxGui.MouseLockLabel.Visible = false
+						if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == true then
+							game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = false
 						end
 					end
 				end)
@@ -820,13 +820,13 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	
 			UserSettings().GameSettings.ControlMode.Changed:connect(function()
 				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
-					if game.CoreGui.RobloxGui.MouseLockLabel.Visible == false then
-						game.CoreGui.RobloxGui.MouseLockLabel.Visible = true
+					if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == false then
+						game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = true
 					end
 				end
 				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
-					if game.CoreGui.RobloxGui.MouseLockLabel.Visible == true then
-						game.CoreGui.RobloxGui.MouseLockLabel.Visible = false
+					if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == true then
+						game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = false
 					end
 				end
 			end)
