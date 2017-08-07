@@ -134,21 +134,34 @@ namespace RBXLegacyLauncher
 			textBox1.Text = GlobalVars.Custom_TShirt.ToString();
 			textBox2.Text = GlobalVars.Custom_Shirt.ToString();
 			textBox3.Text = GlobalVars.Custom_Pants.ToString();
-			if (GlobalVars.Custom_IconType.Equals("BC"))
+			if (GlobalVars.AdminMode == false)
 			{
-				radioButton1.Checked = true;
-			}
-			else if (GlobalVars.Custom_IconType.Equals("TBC"))
+				if (GlobalVars.Custom_IconType.Equals("BC"))
+				{
+					radioButton1.Checked = true;
+				}
+				else if (GlobalVars.Custom_IconType.Equals("TBC"))
+				{
+					radioButton2.Checked = true;
+				}
+				else if (GlobalVars.Custom_IconType.Equals("OBC"))
+				{
+					radioButton3.Checked = true;
+				}
+				else if (GlobalVars.Custom_IconType.Equals("NBC"))
+				{
+					radioButton4.Checked = true;
+				}
+			else
 			{
-				radioButton2.Checked = true;
-			}
-			else if (GlobalVars.Custom_IconType.Equals("OBC"))
-			{
-				radioButton3.Checked = true;
-			}
-			else if (GlobalVars.Custom_IconType.Equals("NBC"))
-			{
+				radioButton1.Checked = false;
+				radioButton1.Enabled = false;
+				radioButton2.Checked = false;
+				radioButton2.Enabled = false;
+				radioButton3.Checked = false;
+				radioButton3.Enabled = false;
 				radioButton4.Checked = true;
+				radioButton4.Enabled = false;
 			}
 			// pages
 			if (GlobalVars.SelectedClientVersion >= 6)
@@ -163,6 +176,7 @@ namespace RBXLegacyLauncher
 			LArmButton4.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftArmColor);
 			RLegButton5.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_RightLegColor);
 			LLegButton6.BackColor = ConvertStringtoColor(GlobalVars.ColorMenu_LeftLegColor);
+			
 		}
 		
 		void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -1645,6 +1659,11 @@ namespace RBXLegacyLauncher
 		}
 		
 		void Page2PanelPaint(object sender, PaintEventArgs e)
+		{
+			
+		}
+		
+		void Label8Click(object sender, EventArgs e)
 		{
 			
 		}

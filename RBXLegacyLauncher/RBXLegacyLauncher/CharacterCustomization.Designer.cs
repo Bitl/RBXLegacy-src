@@ -202,10 +202,12 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton4
 			// 
+			this.radioButton4.Checked = true;
 			this.radioButton4.Location = new System.Drawing.Point(240, 35);
 			this.radioButton4.Name = "radioButton4";
 			this.radioButton4.Size = new System.Drawing.Size(102, 16);
 			this.radioButton4.TabIndex = 37;
+			this.radioButton4.TabStop = true;
 			this.radioButton4.Text = "No Icon (NBC)";
 			this.radioButton4.UseVisualStyleBackColor = true;
 			this.radioButton4.CheckedChanged += new System.EventHandler(this.RadioButton4CheckedChanged);
