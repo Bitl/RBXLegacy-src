@@ -152,6 +152,7 @@ namespace RBXLegacyLauncher
 				{
 					radioButton4.Checked = true;
 				}
+			}
 			else
 			{
 				radioButton1.Checked = false;
@@ -1659,11 +1660,6 @@ namespace RBXLegacyLauncher
 		}
 		
 		void Page2PanelPaint(object sender, PaintEventArgs e)
-		{
-			
-		}
-		
-		void Label8Click(object sender, EventArgs e)
 		{
 			
 		}
