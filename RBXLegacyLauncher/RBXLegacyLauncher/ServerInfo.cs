@@ -54,7 +54,7 @@ namespace RBXLegacyLauncher
 			{
 				try
   				{
-    				ipAddress = wc.DownloadString("http://canihazip.com/s");
+    				ipAddress = wc.DownloadString("http://ipv4.icanhazip.com");
   				}
 				catch (Exception)
   				{
