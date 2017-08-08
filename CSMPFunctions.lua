@@ -413,6 +413,10 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	--PACKAGES
 	for i=2,5,1 do
 		local BodyMesh = Instance.new("StringValue",newCharApp)
+		local BodyMesh2 = Instance.new("StringValue",newCharApp)
+		local BodyMesh3 = Instance.new("StringValue",newCharApp)
+		local BodyMesh4 = Instance.new("StringValue",newCharApp)
+		local BodyMesh5 = Instance.new("StringValue",newCharApp)
 		if (i == 2) then
 			if (TorsoID ~= nil) then
 				BodyMesh.Value = TorsoID
@@ -423,45 +427,77 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 			end
 		elseif (i == 3) then
 			if (LArmID ~= nil) then
-				BodyMesh.Value = LArmID
-				BodyMesh.Name = LArmID
+				BodyMesh2.Value = LArmID
+				BodyMesh2.Name = LArmID
 			else
-				BodyMesh.Value = "DefaultLArm.rbxm"
-				BodyMesh.Name = "DefaultLArm.rbxm"
+				BodyMesh2.Value = "DefaultLArm.rbxm"
+				BodyMesh2.Name = "DefaultLArm.rbxm"
 			end
 		elseif (i == 4) then
 			if (RArmID ~= nil) then
-				BodyMesh.Value = RArmID
-				BodyMesh.Name = RArmID
+				BodyMesh3.Value = RArmID
+				BodyMesh3.Name = RArmID
 			else
-				BodyMesh.Value = "DefaultRArm.rbxm"
-				BodyMesh.Name = "DefaultRArm.rbxm"
+				BodyMesh3.Value = "DefaultRArm.rbxm"
+				BodyMesh3.Name = "DefaultRArm.rbxm"
 			end
 		elseif (i == 5) then
 			if (LLegID ~= nil) then
-				BodyMesh.Value = LLegID
-				BodyMesh.Name = LLegID
+				BodyMesh4.Value = LLegID
+				BodyMesh4.Name = LLegID
 			else
-				BodyMesh.Value = "DefaultLLeg.rbxm"
-				BodyMesh.Name = "DefaultLLeg.rbxm"
+				BodyMesh4.Value = "DefaultLLeg.rbxm"
+				BodyMesh4.Name = "DefaultLLeg.rbxm"
 			end
 		elseif (i == 6) then
 			if (RLegID ~= nil) then
-				BodyMesh.Value = RLegID
-				BodyMesh.Name = RLegID
+				BodyMesh5.Value = RLegID
+				BodyMesh5.Name = RLegID
 			else
-				BodyMesh.Value = "DefaultRLeg.rbxm"
-				BodyMesh.Name = "DefaultRLeg.rbxm"
+				BodyMesh5.Value = "DefaultRLeg.rbxm"
+				BodyMesh5.Name = "DefaultRLeg.rbxm"
 			end
 		end
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
 		typeValue.Parent = BodyMesh
 		typeValue.Value = 8
+		local typeValue2 = Instance.new("NumberValue")
+		typeValue2.Name = "CustomizationType"
+		typeValue2.Parent = BodyMesh2
+		typeValue2.Value = 8
+		local typeValue3 = Instance.new("NumberValue")
+		typeValue3.Name = "CustomizationType"
+		typeValue3.Parent = BodyMesh3
+		typeValue3.Value = 8
+		local typeValue4 = Instance.new("NumberValue")
+		typeValue4.Name = "CustomizationType"
+		typeValue4.Parent = BodyMesh4
+		typeValue4.Value = 8
+		local typeValue5 = Instance.new("NumberValue")
+		typeValue5.Name = "CustomizationType"
+		typeValue5.Parent = BodyMesh5
+		typeValue5.Value = 8
 		local indexValue = Instance.new("NumberValue")
 		indexValue.Name = "MeshIndex"
 		indexValue.Parent = BodyMesh
 		indexValue.Value = i
+		local indexValue2 = Instance.new("NumberValue")
+		indexValue2.Name = "MeshIndex"
+		indexValue2.Parent = BodyMesh2
+		indexValue2.Value = i
+		local indexValue3 = Instance.new("NumberValue")
+		indexValue3.Name = "MeshIndex"
+		indexValue3.Parent = BodyMesh3
+		indexValue3.Value = i
+		local indexValue4 = Instance.new("NumberValue")
+		indexValue4.Name = "MeshIndex"
+		indexValue4.Parent = BodyMesh4
+		indexValue4.Value = i
+		local indexValue5 = Instance.new("NumberValue")
+		indexValue5.Name = "MeshIndex"
+		indexValue5.Parent = BodyMesh5
+		indexValue5.Value = i
 	end
 end
 
@@ -787,9 +823,6 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()	
-	if (rbxlegacyversion > 8) then
-		plr.CanLoadCharacterAppearance = false
-	end
 	
 	if (rbxlegacyversion == 8) then
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
@@ -848,6 +881,9 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	end
 	pcall(function() plr:SetAccountAge(365) end)
 	plr.CharacterAppearance=0
+	if (rbxlegacyversion > 8) then
+		plr.CanLoadCharacterAppearance = false
+	end
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
 	game:GetService("Visit")
