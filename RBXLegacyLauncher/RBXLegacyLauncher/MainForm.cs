@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Net
 
 namespace RBXLegacyLauncher
 {
