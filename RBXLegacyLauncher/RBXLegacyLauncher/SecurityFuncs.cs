@@ -53,7 +53,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\clients\\" + client + "\\RobloxApp_client.exe";
+				rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\clients\\" + client + "\\RobloxPlayer.exe";
 			}
     		using (var md5 = MD5.Create())
     		{
