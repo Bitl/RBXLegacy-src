@@ -77,7 +77,7 @@ namespace RBXLegacyLauncher
 			if (GlobalVars.HasRocky == true)
 			{
 				Process sudp = new Process();
-				sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
+				sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\udpipe.exe";
 				sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
 				sudp.StartInfo.UseShellExecute = false;
 				sudp.StartInfo.CreateNoWindow = true;
@@ -180,7 +180,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.ScriptsDir = GlobalVars.ScriptsDir.Replace(@"\",@"\\");
 			GlobalVars.MapsDir = Path.Combine(Environment.CurrentDirectory, @"maps");
 			GlobalVars.MapsDir = GlobalVars.MapsDir.Replace(@"\",@"\\");
-			GlobalVars.CustomPlayerDir = Path.Combine(Environment.CurrentDirectory, @"charcustom");
+			GlobalVars.CustomPlayerDir = Path.Combine(Environment.CurrentDirectory, @"avatar");
 			GlobalVars.CustomPlayerDir = GlobalVars.CustomPlayerDir.Replace(@"\",@"\\");
 			label5.Text = Environment.CurrentDirectory;
 			label8.Text = Application.ProductVersion;
@@ -731,7 +731,7 @@ namespace RBXLegacyLauncher
 		
 		void ClientExited(object sender, EventArgs e)
 		{
-			Process[] sudp = Process.GetProcessesByName("sudppipe");
+			Process[] sudp = Process.GetProcessesByName("udpipe");
 			if (sudp != null)
 			{
 				foreach (var process in sudp)
@@ -911,7 +911,7 @@ namespace RBXLegacyLauncher
 				if (GlobalVars.HasRocky == true)
 				{
 					Process sudp = new Process();
-					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
+					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\udp.exe";
 					sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
 					sudp.StartInfo.UseShellExecute = false;
 					sudp.StartInfo.CreateNoWindow = true;

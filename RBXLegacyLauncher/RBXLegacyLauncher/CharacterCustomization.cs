@@ -189,7 +189,7 @@ namespace RBXLegacyLauncher
 					string partdir;
 					if (SelectedPart == "Head")
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\heads";
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\heads";
 						if (Directory.Exists(partdir))
 						{
 							listBox5.Items.Clear();
@@ -212,7 +212,7 @@ namespace RBXLegacyLauncher
 					}
 					else if (SelectedPart == "Torso")
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\2";
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
 						if (Directory.Exists(partdir))
 						{
 							listBox5.Items.Clear();
@@ -235,7 +235,7 @@ namespace RBXLegacyLauncher
 					}
 					else if (SelectedPart == "Right Arm")
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\3";
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
 						if (Directory.Exists(partdir))
 						{
 							listBox5.Items.Clear();
@@ -258,7 +258,7 @@ namespace RBXLegacyLauncher
 					}
 					else if (SelectedPart == "Left Arm")
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\4";
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
 						if (Directory.Exists(partdir))
 						{
 							listBox5.Items.Clear();
@@ -281,7 +281,7 @@ namespace RBXLegacyLauncher
 					}
 					else if (SelectedPart == "Right Leg")
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\5";
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
 						if (Directory.Exists(partdir))
 						{
 							listBox5.Items.Clear();
@@ -304,7 +304,7 @@ namespace RBXLegacyLauncher
 					}
 					else if (SelectedPart == "Left Leg")
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\6";
+						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
 						if (Directory.Exists(partdir))
 						{
 							listBox5.Items.Clear();
@@ -338,7 +338,7 @@ namespace RBXLegacyLauncher
 			}
      		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
      		{
-     			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\faces";
+     			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\faces";
         		if (Directory.Exists(facedir))
         		{
         			DirectoryInfo dinfo = new DirectoryInfo(facedir);
@@ -365,7 +365,7 @@ namespace RBXLegacyLauncher
      		}
 			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])
      		{
-				string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
+				string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\hats";
         		if (Directory.Exists(hatdir))
         		{
         			DirectoryInfo dinfo = new DirectoryInfo(hatdir);
@@ -420,7 +420,7 @@ namespace RBXLegacyLauncher
      			string partdir;
 				if (SelectedPart == "Head")
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\heads";
+					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\heads";
 					if (Directory.Exists(partdir))
         			{
 						listBox5.Items.Clear();
@@ -443,7 +443,7 @@ namespace RBXLegacyLauncher
 				}
 				else if (SelectedPart == "Torso")
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\2";
+					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
 					if (Directory.Exists(partdir))
         			{
 						listBox5.Items.Clear();
@@ -466,7 +466,7 @@ namespace RBXLegacyLauncher
 				}
 				else if (SelectedPart == "Right Arm")
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\3";
+					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
 					if (Directory.Exists(partdir))
         			{
 						listBox5.Items.Clear();
@@ -489,7 +489,7 @@ namespace RBXLegacyLauncher
 				}
 				else if (SelectedPart == "Left Arm")
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\4";
+					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
 					if (Directory.Exists(partdir))
         			{
 						listBox5.Items.Clear();
@@ -512,7 +512,7 @@ namespace RBXLegacyLauncher
 				}
 				else if (SelectedPart == "Right Leg")
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\5";
+					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
 					if (Directory.Exists(partdir))
         			{
 						listBox5.Items.Clear();
@@ -535,7 +535,7 @@ namespace RBXLegacyLauncher
 				}
 				else if (SelectedPart == "Left Leg")
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\6";
+					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
 					if (Directory.Exists(partdir))
         			{
 						listBox5.Items.Clear();
@@ -1220,7 +1220,7 @@ namespace RBXLegacyLauncher
 			PartSelectionLabel2.Text = SelectedPart;
 			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\heads";
+				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\heads";
 				if (Directory.Exists(partdir))
 				{
 					listBox5.Items.Clear();
@@ -1250,7 +1250,7 @@ namespace RBXLegacyLauncher
 			
 			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
-     			string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\2";
+     			string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
      			if (Directory.Exists(partdir))
      			{
      				listBox5.Items.Clear();
@@ -1280,7 +1280,7 @@ namespace RBXLegacyLauncher
 			
 			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\3";
+				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
 				if (Directory.Exists(partdir))
 				{
 					listBox5.Items.Clear();
@@ -1310,7 +1310,7 @@ namespace RBXLegacyLauncher
 			
 			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\4";
+				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
 				if (Directory.Exists(partdir))
 				{
 					listBox5.Items.Clear();
@@ -1340,7 +1340,7 @@ namespace RBXLegacyLauncher
 			
 			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\5";
+				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
 				if (Directory.Exists(partdir))
 				{
 					listBox5.Items.Clear();
@@ -1370,7 +1370,7 @@ namespace RBXLegacyLauncher
 			
 			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
      		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\6";
+				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
 				if (Directory.Exists(partdir))
 				{
 					listBox5.Items.Clear();
@@ -1397,7 +1397,7 @@ namespace RBXLegacyLauncher
 		
 		void ListBox1SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
+			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\hats";
         	if (Directory.Exists(hatdir))
         	{
         		GlobalVars.Custom_Hat1ID_Offline = listBox1.SelectedItem.ToString();
@@ -1408,7 +1408,7 @@ namespace RBXLegacyLauncher
 		
 		void ListBox2SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
+			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\hats";
         	if (Directory.Exists(hatdir))
         	{
         		GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedItem.ToString();
@@ -1419,7 +1419,7 @@ namespace RBXLegacyLauncher
 		
 		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
+			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\hats";
         	if (Directory.Exists(hatdir))
         	{
         		GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedItem.ToString();
@@ -1430,7 +1430,7 @@ namespace RBXLegacyLauncher
 		
 		void Button8Click(object sender, EventArgs e)
 		{
-			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
+			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\hats";
         	if (Directory.Exists(hatdir))
         	{
         		Random random = new Random();
@@ -1454,7 +1454,7 @@ namespace RBXLegacyLauncher
 		
 		void Button2Click(object sender, EventArgs e)
 		{
-			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\hats";
+			string hatdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\hats";
         	if (Directory.Exists(hatdir))
         	{
 				listBox1.SelectedItem = "NoHat.rbxm";
@@ -1474,7 +1474,7 @@ namespace RBXLegacyLauncher
 		
 		void ListBox4SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\faces";
+			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\faces";
         	if (Directory.Exists(facedir))
         	{
         		GlobalVars.FaceID = listBox4.SelectedItem.ToString();
@@ -1485,7 +1485,7 @@ namespace RBXLegacyLauncher
 		
 		void Button1Click(object sender, EventArgs e)
 		{
-			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\faces";
+			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\faces";
         	if (Directory.Exists(facedir))
         	{
         		Random random = new Random();
@@ -1499,7 +1499,7 @@ namespace RBXLegacyLauncher
 		
 		void Button3Click(object sender, EventArgs e)
 		{
-			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\faces";
+			string facedir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\faces";
         	if (Directory.Exists(facedir))
         	{
 				listBox4.SelectedItem = "DefaultFace.rbxm";
@@ -1514,7 +1514,7 @@ namespace RBXLegacyLauncher
 			string partdir;
 			if (SelectedPart == "Head")
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\heads";
+				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\heads";
 				if (Directory.Exists(partdir))
         		{
         			GlobalVars.HeadID = listBox5.SelectedItem.ToString();
@@ -1524,7 +1524,7 @@ namespace RBXLegacyLauncher
 			}
 			else if (SelectedPart == "Torso")
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\2";
+				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
 				if (Directory.Exists(partdir))
         		{
         			GlobalVars.TorsoID = listBox5.SelectedItem.ToString();
@@ -1534,7 +1534,7 @@ namespace RBXLegacyLauncher
 			}
 			else if (SelectedPart == "Right Arm")
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\3";
+				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
 				if (Directory.Exists(partdir))
         		{
         			GlobalVars.RightArmID = listBox5.SelectedItem.ToString();
@@ -1544,7 +1544,7 @@ namespace RBXLegacyLauncher
 			}
 			else if (SelectedPart == "Left Arm")
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\4";
+				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
 				if (Directory.Exists(partdir))
         		{
         			GlobalVars.LeftArmID = listBox5.SelectedItem.ToString();
@@ -1554,7 +1554,7 @@ namespace RBXLegacyLauncher
 			}
 			else if (SelectedPart == "Right Leg")
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\5";
+				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
 				if (Directory.Exists(partdir))
         		{
         			GlobalVars.RightLegID = listBox5.SelectedItem.ToString();
@@ -1564,7 +1564,7 @@ namespace RBXLegacyLauncher
 			}
 			else if (SelectedPart == "Left Leg")
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\bodies\\6";
+				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
 				if (Directory.Exists(partdir))
         		{
         			GlobalVars.LeftLegID = listBox5.SelectedItem.ToString();
@@ -1598,8 +1598,8 @@ namespace RBXLegacyLauncher
 		
 		void Start3DView()
 		{
-			string mapfile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\3DView\\content\\fonts\\3DView.rbxl";
-			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\charcustom\\3DView\\3DView.exe";
+			string mapfile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\thumbnails\\content\\fonts\\3DView.rbxl";
+			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\thumbnails\\3DView.exe";
 			string quote = "\"";
 			string args = "";
 			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
