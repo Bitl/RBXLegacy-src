@@ -18,7 +18,6 @@
 	public static int ServerPort = 53640;
 	public static int DefaultRobloxPort = 53640;
 	public static int PlayerLimit = 12;
-	public static string MyIP = "localhost";
 	// player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";

@@ -9,7 +9,6 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Net;
 
 namespace RBXLegacyLauncher
 {
@@ -110,8 +109,8 @@ namespace RBXLegacyLauncher
 		void Button2Click(object sender, EventArgs e)
 		{
 			Process pmap = new Process();
-			pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
-			pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+			pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\bin\\java.exe";
+			pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
 			pmap.StartInfo.UseShellExecute = false;
 			pmap.StartInfo.CreateNoWindow = true;
 			pmap.Start();
@@ -190,17 +189,6 @@ namespace RBXLegacyLauncher
     		label11.Text = version;
     		GlobalVars.Version = version;
     		ReadConfigValues();
-    		using (WebClient wc = new WebClient())
-			{
-				try
-  				{
-    				GlobalVars.MyIP = wc.DownloadString("http://ipv4.icanhazip.com");
-  				}
-				catch (Exception)
-  				{
-    				GlobalVars.MyIP = "localhost" + Environment.NewLine;
-  				}
-			}
 		}
 		
 		void ReadConfigValues()
@@ -890,8 +878,8 @@ namespace RBXLegacyLauncher
 			if (command.Equals("rbxlegacy server"))
 			{
 				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
-				pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\bin\\java.exe";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
 				pmap.StartInfo.UseShellExecute = false;
 				pmap.StartInfo.CreateNoWindow = true;
 				pmap.Start();
@@ -900,8 +888,8 @@ namespace RBXLegacyLauncher
 			else if (command.Equals("rbxlegacy server no3d"))
 			{
 				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
-				pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\bin\\java.exe";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
 				pmap.StartInfo.UseShellExecute = false;
 				pmap.StartInfo.CreateNoWindow = true;
 				pmap.Start();
@@ -910,8 +898,8 @@ namespace RBXLegacyLauncher
 			else if (command.Equals("rbxlegacy no3d"))
 			{
 				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\Java -jar portmapper.jar";
-				pmap.StartInfo.Arguments = "-add -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip" + GlobalVars.MyIP + " -protocol udp";
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\bin\\java.exe";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
 				pmap.StartInfo.UseShellExecute = false;
 				pmap.StartInfo.CreateNoWindow = true;
 				pmap.Start();
