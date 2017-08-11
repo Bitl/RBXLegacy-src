@@ -83,12 +83,8 @@ namespace RBXLegacyLauncher
 				sudp.StartInfo.UseShellExecute = false;
 				sudp.StartInfo.CreateNoWindow = true;
 				sudp.Start();
-				StartClient();
 			}
-			else if (GlobalVars.HasRocky == false)
-			{
-				StartClient();
-			}
+			StartClient();
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -724,7 +720,11 @@ namespace RBXLegacyLauncher
 					client.StartInfo.FileName = rbxexe;
 					client.StartInfo.Arguments = args;
 					client.EnableRaisingEvents = true;
-					client.Exited += new EventHandler(ClientExited);
+					ReadClientValues(GlobalVars.SelectedClient);
+					if (GlobalVars.HasRocky == true)
+					{
+						client.Exited += new EventHandler(ClientExited);
+					}
 					client.Start();
 				}
 			}
@@ -919,12 +919,16 @@ namespace RBXLegacyLauncher
 			}
 			else if (command.Equals("rbxlegacy client"))
 			{
-				Process sudp = new Process();
-				sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
-				sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
-				sudp.StartInfo.UseShellExecute = false;
-				sudp.StartInfo.CreateNoWindow = true;
-				sudp.Start();
+				ReadClientValues(GlobalVars.SelectedClient);
+				if (GlobalVars.HasRocky == true)
+				{
+					Process sudp = new Process();
+					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\sudppipe.exe";
+					sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
+					sudp.StartInfo.UseShellExecute = false;
+					sudp.StartInfo.CreateNoWindow = true;
+					sudp.Start();
+				}
 				StartClient();
 			}
 			else if (command.Equals("rbxlegacy client solo"))
