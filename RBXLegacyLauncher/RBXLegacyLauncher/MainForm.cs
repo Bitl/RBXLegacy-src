@@ -859,7 +859,15 @@ namespace RBXLegacyLauncher
             }
             string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ");" + quote;
+			ReadClientValues(GlobalVars.SelectedClient);
+			if (GlobalVars.SelectedClientVersion > 8)
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); game.CoreGui.RobloxGui:Remove()" + quote;
+			}
+			else
+			{
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ");" + quote;
+			}
 			try
 			{
 				ConsolePrint("Studio Loaded.", 4);
