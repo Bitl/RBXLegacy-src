@@ -700,7 +700,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 				end
 			end
 
-			delay(0, function()
 				-- wait for the objects to load. we don't want to be TOO quick
 				waitForChild(Player.PlayerGui,"UserSettingsShield")
 				waitForChild(Player.PlayerGui.UserSettingsShield,"Settings")
@@ -721,10 +720,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 						end
 					end
 				end)
-			end)
-		elseif (rbxlegacyversion == 11) then
-			game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
-		end
+			end
 		if (rbxlegacyversion > 8) then
 			Player.CanLoadCharacterAppearance = false
 		end
@@ -841,8 +837,6 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 				instance.ChildAdded:wait()
 			end
 		end
-
-		delay(0, function()
 			-- wait for the objects to load. we don't want to be TOO quick
 			waitForChild(plr.PlayerGui,"UserSettingsShield")
 			waitForChild(plr.PlayerGui.UserSettingsShield,"Settings")
@@ -863,10 +857,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 					end
 				end
 			end)
-		end)
-	elseif (rbxlegacyversion == 11) then
-		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl:Remove()
-	end
+		end
 	pcall(function() plr:SetUnder13(false) end)
 	if (rbxlegacyversion >= 8) then
 		if (IconType == "BC") then
