@@ -110,7 +110,7 @@ namespace RBXLegacyLauncher
 		{
 			Process pmap = new Process();
 			pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-			pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
+			pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
 			pmap.StartInfo.UseShellExecute = false;
 			pmap.StartInfo.CreateNoWindow = true;
 			pmap.Start();
@@ -887,7 +887,7 @@ namespace RBXLegacyLauncher
 			{
 				Process pmap = new Process();
 				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
 				pmap.StartInfo.UseShellExecute = false;
 				pmap.StartInfo.CreateNoWindow = true;
 				pmap.Start();
@@ -897,7 +897,7 @@ namespace RBXLegacyLauncher
 			{
 				Process pmap = new Process();
 				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
 				pmap.StartInfo.UseShellExecute = false;
 				pmap.StartInfo.CreateNoWindow = true;
 				pmap.Start();
@@ -907,7 +907,7 @@ namespace RBXLegacyLauncher
 			{
 				Process pmap = new Process();
 				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"\localhost\" -protocol udp";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
 				pmap.StartInfo.UseShellExecute = false;
 				pmap.StartInfo.CreateNoWindow = true;
 				pmap.Start();
