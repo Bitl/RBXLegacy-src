@@ -919,7 +919,7 @@ namespace RBXLegacyLauncher
 				if (GlobalVars.HasRocky == true)
 				{
 					Process sudp = new Process();
-					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\udp.exe";
+					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\udpipe.exe";
 					sudp.StartInfo.Arguments = "-p " + GlobalVars.IP + " " + GlobalVars.RobloxPort  + " " + GlobalVars.RobloxPort;
 					sudp.StartInfo.UseShellExecute = false;
 					sudp.StartInfo.CreateNoWindow = true;
