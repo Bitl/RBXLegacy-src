@@ -1028,21 +1028,5 @@ namespace RBXLegacyLauncher
     		base.OnFormClosing(e);
     		WriteConfigValues();
 		}
-		
-		void Button21Click(object sender, EventArgs e)
-		{
-			try
-      		{
-     			string loadstring = Environment.CurrentDirectory + Path.DirectorySeparatorChar + System.AppDomain.CurrentDomain.FriendlyName;
-        		SecurityFuncs.RegisterURLProtocol("RBXLegacy", loadstring, "RBXLegacy URI");
-        		ConsolePrint("URI Successfully Installed!", 3);
-				DialogResult result1 = MessageBox.Show("URI Successfully Installed!","RBXLegacy Launcher - Install URI", MessageBoxButtons.OK, MessageBoxIcon.Information);
-      		}
-      		catch (Exception ex)
-      		{
-        		ConsolePrint("ERROR 5 - Failed to install URI. (" + ex.Message + ")", 2);
-				DialogResult result2 = MessageBox.Show("Failed to install URI. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-      		}			
-		}
 	}
 }

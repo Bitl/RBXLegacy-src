@@ -71,6 +71,7 @@
 			this.tabPage8 = new System.Windows.Forms.TabPage();
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -79,7 +80,6 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.button21 = new System.Windows.Forms.Button();
 			this.button9 = new System.Windows.Forms.Button();
 			this.button8 = new System.Windows.Forms.Button();
 			this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -98,7 +98,6 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -734,6 +733,18 @@
 			this.tabPage4.ToolTipText = "About RBXLegacy";
 			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(7, 246);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(89, 21);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox2.TabIndex = 8;
+			this.pictureBox2.TabStop = false;
+			// 
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -807,23 +818,12 @@
 			this.label5.Text = "label5";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// button21
-			// 
-			this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-			this.button21.Location = new System.Drawing.Point(338, 89);
-			this.button21.Name = "button21";
-			this.button21.Size = new System.Drawing.Size(87, 20);
-			this.button21.TabIndex = 44;
-			this.button21.Text = "Install URI";
-			this.button21.UseVisualStyleBackColor = true;
-			this.button21.Click += new System.EventHandler(this.Button21Click);
-			// 
 			// button9
 			// 
-			this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
-			this.button9.Location = new System.Drawing.Point(248, 111);
+			this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.button9.Location = new System.Drawing.Point(339, 107);
 			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(85, 20);
+			this.button9.Size = new System.Drawing.Size(85, 23);
 			this.button9.TabIndex = 37;
 			this.button9.Text = "Reset Config";
 			this.button9.UseVisualStyleBackColor = true;
@@ -842,7 +842,7 @@
 			// 
 			// checkBox3
 			// 
-			this.checkBox3.Location = new System.Drawing.Point(248, 68);
+			this.checkBox3.Location = new System.Drawing.Point(248, 65);
 			this.checkBox3.Name = "checkBox3";
 			this.checkBox3.Size = new System.Drawing.Size(177, 18);
 			this.checkBox3.TabIndex = 22;
@@ -866,12 +866,12 @@
 			// button3
 			// 
 			this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(248, 89);
+			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button3.Location = new System.Drawing.Point(247, 84);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(87, 20);
+			this.button3.Size = new System.Drawing.Size(177, 21);
 			this.button3.TabIndex = 6;
-			this.button3.Text = "Open Studio";
+			this.button3.Text = "Launch ROBLOX Studio";
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
@@ -895,10 +895,10 @@
 			// 
 			// button5
 			// 
-			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Location = new System.Drawing.Point(338, 111);
+			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button5.Location = new System.Drawing.Point(247, 107);
 			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(87, 20);
+			this.button5.Size = new System.Drawing.Size(87, 23);
 			this.button5.TabIndex = 10;
 			this.button5.Text = "Save Config";
 			this.button5.UseVisualStyleBackColor = true;
@@ -991,18 +991,6 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(7, 246);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(89, 21);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox2.TabIndex = 8;
-			this.pictureBox2.TabStop = false;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1010,7 +998,6 @@
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(427, 459);
-			this.Controls.Add(this.button21);
 			this.Controls.Add(this.textBox5);
 			this.Controls.Add(this.label28);
 			this.Controls.Add(this.label27);
@@ -1059,7 +1046,6 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Label label45;
-		private System.Windows.Forms.Button button21;
 		private System.Windows.Forms.Label label41;
 		private System.Windows.Forms.Label label40;
 		private System.Windows.Forms.Label label42;

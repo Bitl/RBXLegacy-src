@@ -34,16 +34,6 @@ namespace RBXLegacyLauncher
     		return (s.Length % 4 == 0) && Regex.IsMatch(s, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
 		}
 		
-		public static void RegisterURLProtocol(string protocolName, string applicationPath, string description)
-    	{
-      		RegistryKey subKey = Registry.ClassesRoot.CreateSubKey(protocolName);
-      		subKey.SetValue((string) null, (object) description);
-      		subKey.SetValue("URL Protocol", (object) string.Empty);
-      		Registry.ClassesRoot.CreateSubKey(protocolName + "\\Shell");
-      		Registry.ClassesRoot.CreateSubKey(protocolName + "\\Shell\\open");
-      		Registry.ClassesRoot.CreateSubKey(protocolName + "\\Shell\\open\\command").SetValue((string) null, (object) ("\"" + applicationPath + "\" \"%1\""));
-    	}
-		
 		public static bool checkClientMD5(string client)
 		{
 			string rbxexe = "";
