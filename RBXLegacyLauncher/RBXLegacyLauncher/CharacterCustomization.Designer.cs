@@ -1168,7 +1168,7 @@ namespace RBXLegacyLauncher
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(218, 39);
 			this.button3.TabIndex = 3;
-			this.button3.Text = "Reset";
+			this.button3.Text = "Reset Face";
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
@@ -1178,7 +1178,7 @@ namespace RBXLegacyLauncher
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(217, 39);
 			this.button1.TabIndex = 2;
-			this.button1.Text = "Randomize";
+			this.button1.Text = "Random Face";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
@@ -1225,7 +1225,7 @@ namespace RBXLegacyLauncher
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(211, 42);
 			this.button2.TabIndex = 57;
-			this.button2.Text = "Reset";
+			this.button2.Text = "Reset Hats";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2Click);
 			// 
@@ -1235,7 +1235,7 @@ namespace RBXLegacyLauncher
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(218, 42);
 			this.button8.TabIndex = 56;
-			this.button8.Text = "Randomize";
+			this.button8.Text = "Randomize Hats";
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 

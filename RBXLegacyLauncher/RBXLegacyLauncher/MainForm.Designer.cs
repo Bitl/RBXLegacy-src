@@ -98,6 +98,7 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -107,6 +108,7 @@
 			this.tabPage7.SuspendLayout();
 			this.tabPage8.SuspendLayout();
 			this.tabPage4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -164,7 +166,7 @@
 			this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.tabPage1.Size = new System.Drawing.Size(405, 284);
 			this.tabPage1.TabIndex = 0;
-			this.tabPage1.Text = "JOIN";
+			this.tabPage1.Text = "PLAY";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
@@ -476,13 +478,15 @@
 			// 
 			// label30
 			// 
-			this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.label30.ForeColor = System.Drawing.Color.Red;
-			this.label30.Location = new System.Drawing.Point(12, 144);
+			this.label30.Location = new System.Drawing.Point(12, 148);
 			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(378, 51);
+			this.label30.Size = new System.Drawing.Size(378, 41);
 			this.label30.TabIndex = 3;
-			this.label30.Text = resources.GetString("label30.Text");
+			this.label30.Text = "This client loads assets directly from a server. This means that you may not be a" +
+			"ble to play it over a LAN or local connection without internet access. This may " +
+			"also mean that some things won\'t load.";
 			this.label30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.label30.Visible = false;
 			// 
@@ -525,7 +529,7 @@
 			this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage6.Size = new System.Drawing.Size(405, 284);
 			this.tabPage6.TabIndex = 6;
-			this.tabPage6.Text = "SAVED";
+			this.tabPage6.Text = "STORAGE";
 			this.tabPage6.ToolTipText = "Lists all your saved servers and ports";
 			this.tabPage6.UseVisualStyleBackColor = true;
 			// 
@@ -611,7 +615,7 @@
 			this.label39.Name = "label39";
 			this.label39.Size = new System.Drawing.Size(186, 12);
 			this.label39.TabIndex = 6;
-			this.label39.Text = "CURRENT SERVER PORT:";
+			this.label39.Text = "CURRENT SERVER PORT";
 			this.label39.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// label37
@@ -628,7 +632,7 @@
 			this.label36.Name = "label36";
 			this.label36.Size = new System.Drawing.Size(186, 12);
 			this.label36.TabIndex = 4;
-			this.label36.Text = "CURRENT SERVER IP:";
+			this.label36.Text = "CURRENT SERVER IP";
 			this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// listBox4
@@ -696,7 +700,7 @@
 			this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
 			this.tabPage8.Size = new System.Drawing.Size(405, 284);
 			this.tabPage8.TabIndex = 8;
-			this.tabPage8.Text = "CHANGES";
+			this.tabPage8.Text = "CHANGELOG";
 			this.tabPage8.UseVisualStyleBackColor = true;
 			// 
 			// richTextBox2
@@ -712,6 +716,7 @@
 			// 
 			// tabPage4
 			// 
+			this.tabPage4.Controls.Add(this.pictureBox2);
 			this.tabPage4.Controls.Add(this.label2);
 			this.tabPage4.Controls.Add(this.label11);
 			this.tabPage4.Controls.Add(this.label10);
@@ -731,11 +736,12 @@
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(43, 265);
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(48, 241);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(322, 16);
+			this.label2.Size = new System.Drawing.Size(350, 31);
 			this.label2.TabIndex = 7;
-			this.label2.Text = "RBXLegacy is: Bitl, Carrot, iago, winsupermario1234, and CPunch.";
+			this.label2.Text = "                is: Bitl, Carrot, iago, winsupermario1234, and CPunch.";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label11
@@ -758,9 +764,9 @@
 			// 
 			// label9
 			// 
-			this.label9.Location = new System.Drawing.Point(6, 96);
+			this.label9.Location = new System.Drawing.Point(6, 91);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(393, 169);
+			this.label9.Size = new System.Drawing.Size(393, 139);
 			this.label9.TabIndex = 4;
 			this.label9.Text = resources.GetString("label9.Text");
 			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -826,11 +832,11 @@
 			// button8
 			// 
 			this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.button8.Location = new System.Drawing.Point(127, 107);
+			this.button8.Location = new System.Drawing.Point(150, 107);
 			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(109, 24);
+			this.button8.Size = new System.Drawing.Size(86, 24);
 			this.button8.TabIndex = 35;
-			this.button8.Text = "Customization";
+			this.button8.Text = "Avatar";
 			this.button8.UseVisualStyleBackColor = true;
 			this.button8.Click += new System.EventHandler(this.Button8Click);
 			// 
@@ -871,19 +877,19 @@
 			// 
 			// label13
 			// 
-			this.label13.Location = new System.Drawing.Point(22, 89);
+			this.label13.Location = new System.Drawing.Point(31, 89);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(23, 13);
 			this.label13.TabIndex = 7;
-			this.label13.Text = "ID:";
+			this.label13.Text = "ID";
 			// 
 			// button4
 			// 
-			this.button4.Location = new System.Drawing.Point(12, 107);
+			this.button4.Location = new System.Drawing.Point(59, 107);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(109, 24);
+			this.button4.Size = new System.Drawing.Size(85, 24);
 			this.button4.TabIndex = 9;
-			this.button4.Text = "Generate New ID";
+			this.button4.Text = "Random ID";
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.Button4Click);
 			// 
@@ -914,7 +920,7 @@
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(41, 15);
 			this.label15.TabIndex = 12;
-			this.label15.Text = "NAME:";
+			this.label15.Text = "NAME";
 			// 
 			// label22
 			// 
@@ -985,6 +991,18 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(7, 246);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(89, 21);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox2.TabIndex = 8;
+			this.pictureBox2.TabStop = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,9 +1050,11 @@
 			this.tabPage7.ResumeLayout(false);
 			this.tabPage8.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox7;

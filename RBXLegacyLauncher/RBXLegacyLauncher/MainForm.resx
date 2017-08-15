@@ -206,8 +206,89 @@
     <value>NOTE: Make sure the server you join is in the region of the world you live in! (i.e West US, East US, Europe, etc). If you have a problem where you can't see your character, REGENERATE YOUR PLAYER ID THEN REJOIN THE SERVER. If you tried to connect to the server and you get an error, REJOIN THE SERVER.
 </value>
   </data>
-  <data name="label30.Text" xml:space="preserve">
-    <value>WARNING: This client loads assets directly from a server. This means that you may not be able to play it over a LAN or local connection without internet access. This may also mean that some things won't load (i.e the healthbar)</value>
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAh0AAABxCAMAAABGF+HdAAAABGdBTUEAALGPC/xhBQAAAwBQTFRFAAAA
+        R0dH/wAA/xER/yMj/zQ0/0dH/1dX/2lp/3p6iYmJ/4mJ/5iY/6en/7W1w8PD/8PD/9DQ/93d/+zs////
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzDU41gAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAPGUlEQVR4Xu2d
+        7YLiKhKGz7a2HyfqRp37v9Yl5IUqoKogMe3Mjjx/prvEpAceoYAk/vOr09HodnR0uh0dnW5HR6fb0dHp
+        dnR0uh0dnf8PO24H/NB5K8yO25djd4gMkdsYeKDsW3mev74G/Nx5J8yOcbKjjeP1iTe9gft+OuVv8fLT
+        WWeH43jD236aYT5f09jyRmc/gtV2uEHo9AZBHgec7euCiMF1d8dPnU14wQ7H7vTDzXHd4UzuXNWx5eoK
+        dT225DU7HPvzzzXI84iTeGpji5OjxaFOOy/b4dhffqZJRp+OEvbY4uX4+vruucd2CHbsp0nsCdNa4hsv
+        i3z/gCBIRwmzX4ilux7bIdhRnR3cz9mH2nPYdpZ7JxvPZ/xg/GUnFHF0PTZDGlnwu8X9TOki0bgM8hzH
+        yzAcDvuvKyIll3j83e3XM9ioji1Mjq7Hdqy0w3E7SYLos9zHOA7D+XBI3qXowdLR72k4CX/aTmn3RI6u
+        x2ast8NxS+YUIF0GuY83n8TgxQJRjxsZdJ4jYWw5zr9mZHJ0PbbiJTvch/wqCnIer8NwtBNZUOoxbauA
+        XXg1ji1S1xTlOGHe0vXYiBftcDwvLRLo5HqwdPSbllKMsYXkiNParsc2vG6H4/GSIKkebB574i2sji1c
+        jq7Htmxih0Oe5bbB9KBtFRpVZrSxJcqB4vH3rsfrtNlxPQ6XsbZifhcnMSWHw2kYxpGlntEDFmOjyow8
+        tuRydD22pM0OdPe7w2SJUenyLNcDJ9hy5z2fmfBtlWRUmZHGllKOrseGLLJjxq9AqKAQKJ1gMD2mnIFt
+        q2Sjykw5tjzjOJSU73psxQo77G1ylHENXr/MMNGDnWMvnyD8gXs0+jPmwplMXY+NWGNH0RoclGi7EpTp
+        wYako9amYWzBQBTkKGwlbboeL7HOjrCEKRBbuek6YaZHRN+oj2PLOP2iytH12Apmxx0VKthBq5eBg1br
+        MRVou4q80EMZVWbY2GLJ0fXYCGZHHBTwK0PYJilmnGChHbke6qgyE8cWW46uxzYss+MY69w1i7wbG+1o
+        vUEp0eMbQY04toR/1Qy567EBy+wYaDrgEBOExXakehj5ricmRzPG7PoRD9v1WMtSO35d8OOEsGS1wg5K
+        eCZqenA97XYn67oeK1lsB1/tlqq9bsdjvA7pRULxPQ51qABP+/ScrserLLeDb7ELbRk/24Udz/E2nA9I
+        GJLdEt4fVfXwt/t6am0+32Lp6XqsYoUdbAFb2FCPSyPcDmcFU8rj99vBA7GZWkuG3ZhauZH1Mg030nVK
+        1tjBB/+ihxDtQChhWtEK0Id8otLsGFukpIcTr/Rw3RE/V6cdyY6y2sOnMNjBqh6BiGhH3nFMhN2SiWy1
+        jfcrAn5sqZTh2au2NNOpIdlRftLwAnsljv74PSLawdPOSFStmKfWmt6NLZUSfPBTl3U7Ndba8USkKNxu
+        xxf7SLMUwWPPa5+7ihwP1lnVOpmOzlo7YihfMRXtKPdpJtjCaLKKMWHrURkq+Ppabf2kY7DajjxRDcRB
+        gtsRlNkdh+sYJx3svSyFnKnNay16ProVa+2Iawn5Xr5pxxyLmyV023QcqCLr9WAdVc9HX2OlHXH8SCSY
+        EO0IOSzGkrh0TmVCV0QXpq5cwHqyQSrNR/9JQLBjscoO/mCN/RyKRDv4CzGI3+PiaMwKQmT/4vI3bc0W
+        +Si0AAh2LJrsSCco/NPp8CWIKAJ/IbVjpAPEBfW4XPqgA6yYbVj5KLQACHYsmuxIGpfvwrnOO99CF+2I
+        emW34LOV+NAdXVhSuVgP/pixIuWAFgDBjsVSO9jNao5duX9BeyYIeBASCCcLuaTThZKahdNReqN04Qe0
+        AAh2LBbaQQ9dmRAv88NrbXYc4rniOdwxaeRZpAcb8aS/DFoABDsWy+xI9kv2RbkJupQHAY+00cLdcATv
+        puW12EEtmNfyfFS8ZB5aAAQ7Fsvs4AxSx8EzVoQ80lL6Ke38wxrZlGxQSzfrwS7mUHocaAEQ7FjwWgr1
+        22KHuM70HPjAg6CntCNzg1Y4/UyYrgBrnNeyXFkTCloABDsWvJZCE9btELJRx5V9fB2IerKNlt1QJo1x
+        XuMbd+GyB1s8Vy9EhhYAwY7FKjuOUgOMef+AuOdy8PdbD5dx1J70EH2YzaNzNsxrK/noDLQACHYsmuxI
+        rvuUb2R5sAYCeKUN9rAwLK+3L3vwizn0Wzi7HctpsoOtI0y3oSHKeCYlAF5rInnoNU7QuuzBroIWn+wQ
+        gBYAQRMUrYDCxH/xQsl/UCLnZ9/xL16Z+RfRQHg1j08steO7eNHBligZeLEB1nE49mHcImPk2+5m2OK5
+        PcFBLQAETVC0AgoTH2aHzZguZsQhBi/XSToOSnhprLISU5YTVfJX1AJA0ARFK6Aw0e2IPNjjnBwuYcVP
+        rXakm3p0pXmbHLROUv3yDdQCQNAERSugMNHtAOmYMC9+4ufWwzzSQ4R1kFY52MpZJXtFLQAETVC0AgoT
+        f7cd7bcGpdsuWBjHb+2SpTt73g82Damud1DiYWevqAWAoAmKVkBh4u+2I79U1KG0dNKuIZvEr0u6oFu6
+        jnbizzuuycHnvr87K9XbjMPb7x3v+HE7DkLMk/QecyH8six9SdbgGbU73jxxbNK+g8GDWgAImqAoQNAi
+        bbn8UxxeldpaKzuj29Fyjh+3Qx/Uk+9u8/Nd/CzacR+H4fAtPf1JWE5zNKyTTsQuLL/KlYNaAAiaoChA
+        0GJ5y0mxCf1Iy8/xBjv0hkouFjs/ZTvG23AK998rq1bZzHiiUQ62abfpWimKAgQtlrecFJvQj7T8HO+w
+        Q+/kk4nLPt5Dye2gxyoAsRXTJLddDtcn4R1WZopaAAiaoChA0GJ5y0mxCf1Iy8/xFjuMBDH/9kcPt6Nc
+        aRcPlt7W0i4Hy0z19VLUAkDQBEUBghbLW06KTehHWn6On7YDF4vqekgbLbYdYjMmz4haIgdbH1H/SNQC
+        QNAERQGCFstbTopN6Edafo7UjpnJBduaiTY7wnK1Mb3kTwSa4XakC6qgXFdJHkqGWCO0KFY8cAagFgCC
+        JigKELSwW05iazt0ShesXmNmmR3mPlc+KeV2hEOnFJkMk2ihHK5/i6cXRsYJ1AVA0ARFAYIWH26HqUe2
+        5sntoI5lf2QSZddxse1Wfb1W7b7oj+RnJlAXAEETFAUIWnymHWzKYe6SJ5MO3jMg5Bs9eSod35tncugz
+        j5M+usXkRt6PQ10ABE1QFCBo8Zl28KTSvMImWRtjTY/I/Knmhdjdti1yTPsv+opXPK5oEOoCIGiCogBB
+        i25HZbMr2TIJF6DGTh+tRtknrXswOdScY74tQX3Z3q5FXQAETVBUAAVytJart/W77eC02REWtWp22Hrw
+        u47CtTzRDv+bIw5VsXthcqjHD6uy6oIoHUQ4BOoCIGiCogIokPMn2zFT9iAW/P8ZHNDtCBllWYKR5qb+
+        xpewVhWfBRXtCEMAl+NLTBt4j6PqaW3XokYAgiYoKoACOZ9pRxjQh9CI1nwztcO96RmPHO0Ia1chkMiR
+        PxIE8G06VQ9juxY1AhA0QVEBFMj5TDsoI2nQI7fjaz+GI08T2mH6vriQnGCMoI/8hHjsZMAyZk7x7OyZ
+        dTOoEYCgCYoKoEDOp9tBeqgTy8IO15j4F+xikXllglYqPFLHwG+TnVD10LdrUSMAQRMUFUCBnM+2Y8oh
+        gx7qukMonCkhgrek13YIaUf6SJkJ/qjkBHW7FjUCEDRBUQEUyFlvh82fbUf44PqPek2Psu/41kSJSxdc
+        DyHtoJHpGPsZ1U5tuxY1AhA0QVGAoIXdcuHVv80OvICBoKJHYcepfN4koDOx/bci7WD3NLjRIja+uioW
+        i6f9C2oEIGiCogBBi26HI+ghD/7pMOFbu+xOZtj7KTHNpaN8dF6mjSW1zFjZrkWNAARNUBQgaPEJdpQf
+        SrwQ7LD1oGHAM4/+j/Fyzp8o97XzLwF6W6pHOBedLeqnrYrJ27WoEYCgCYoCBC0+247YbJYeiR3Zrsx4
+        Hdj3UiYfbdblcD3oHl2KxqLS7GaCJkFslw81AhA0QVGAoMVH2lEshDM9ygbidshjz30cTtNgk2zT8ykr
+        iUAHY1NoGjo0PeJ+HNuuRY0ABE1QFCBo8fvtkM7BeY8d1OEXDcTsMJ9T/hxZFyF/+xfLR5NkiPQQT8Av
+        NCHRUCMAQRMUBQharLdDKzsjvWOm5RycN9mh60H783yEqJEul85vpa9ZybuomFlUhzZ63AhqBCBogqIA
+        QYvlLae1pn6k5efgvMsO0iOd49DHXV9OFWBph8fpEU8gOBBfK/ZTkgtcD+yNqBGAoAmKAgQtlrec1pr6
+        kZafg/MDdoTPdbZOFaVhU0t+ezRCbWQr5e7ttAQi9UHx5NmLvONIH36HGgEImqAoQNBiectprakfafk5
+        OK/boZJrU6488L2yQjKLmHZc+Ud/Ru6D4sm5hcn9dNn7UCMAQRMUBQhaLG85rTX1Iy0/B+eNdlAL4Ul/
+        /PvYltkRO4onF8xTLs7NxLeQm/ymvOIZVqiRCijsQagCCk+kLaexpR0af4Id7AM86UGJwsQiO0IqO3UE
+        SQpiXMYay0EPfkfernQKNVIBhT0IVUBhotZ+r9kxo59D82LmrXYkeqRy6I+VlQhv9cufTA95wQTEcpNB
+        ScchPVEVNVIBhT0IVUBh4kPtkDY2SI/8HmkXuooZA+M5juMwDIeYy85rm7HZpXyU4KtifI9ffr4/aqQC
+        CnsQqoDCxIfaIWYAUQ+RYzkw3MfxOgynQ/HV+BOwAX9KbU5MetAii/sz5XehRiqgsAehCihMdDsYuR5Z
+        F7I7jdRFFBtxGXH+4Q+q5aME7bdFim+bCqBGKqCwB6EKKEz8nXasJdXjWjyrYwG063q18lEiy3Xkx3TP
+        oEYqoLAHoQooTHQ7EpgerkmfQ7Gy1Qxr26uVjxKpi9Jjujur2cQO0gNTjPu5MoJorGhcpiZfN+9swDZ2
+        hCZie7I3+t7hZg7SpKhKSJfkL43pvMBGdsx6pPPP55VPJGR2LlF16eptnG5yWcs8/12059dpYis7Jj3K
+        9nleylnrJkKkOAvF737ovMhmdvy6ysPCw+Wo+8Ph6IRw09qf+Xw/1Yftdl5iOzs6fx/djo5Ot6Oj0+3o
+        6HQ7Ojrdjo5Ot6Oj8evX/wCTtqnUmPiY/wAAAABJRU5ErkJggg==
+</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>ROBLOX and the ROBLOX Clients were made by the ROBLOX Corporation. The ROBLOX Corporation does not support or endorse the creation of RBXLegacy. Bitl is not affiliated with the ROBLOX Corporation or its subsidiaries. Bitl does not own any of the content included with RBXLegacy. LUA scripts were used to build a client that can connect to LAN and the Internet. The LUA scripts used were borrowed from the RBXPri client and merged into 1 single script. All credit for the LUA code included with the RBXPri client goes to the RBXPri team. All credit for the LUA code used with "non-modern" clients goes to Scripter John and EnergyCell. All credit for the LUA code used for character customization goes to RBXBanLand.
