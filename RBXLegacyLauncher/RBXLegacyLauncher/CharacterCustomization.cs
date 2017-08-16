@@ -335,6 +335,9 @@ namespace RBXLegacyLauncher
      			listBox2.Items.Clear();
      			listBox3.Items.Clear();
      			listBox4.Items.Clear();
+     			listBox6.Items.Clear();
+				listBox7.Items.Clear();
+				listBox8.Items.Clear();
 			}
      		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
      		{
@@ -362,6 +365,9 @@ namespace RBXLegacyLauncher
      			listBox2.Items.Clear();
      			listBox3.Items.Clear();
      			listBox5.Items.Clear();
+     			listBox6.Items.Clear();
+				listBox7.Items.Clear();
+				listBox8.Items.Clear();
      		}
 			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])
      		{
@@ -402,6 +408,51 @@ namespace RBXLegacyLauncher
         		
         		listBox4.Items.Clear();
         		listBox5.Items.Clear();
+        		listBox6.Items.Clear();
+				listBox7.Items.Clear();
+				listBox8.Items.Clear();
+			}
+			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage7"])
+     		{
+				string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
+        		if (Directory.Exists(geardir))
+        		{
+        			DirectoryInfo dinfo = new DirectoryInfo(geardir);
+					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
+					foreach( FileInfo file in Files )
+					{
+						if (file.Name.Equals(String.Empty))
+						{
+   							continue;
+						}
+					
+						if (file.Name.Equals("Banhammer.rbxm") && GlobalVars.AdminMode != true)
+						{
+   							continue;
+						}
+					
+						listBox8.Items.Add(file.Name);
+   						listBox7.Items.Add(file.Name);
+   						listBox6.Items.Add(file.Name);
+					}
+					listBox8.SelectedItem = GlobalVars.Custom_Gear1;
+					listBox7.SelectedItem = GlobalVars.Custom_Gear2;
+					listBox6.SelectedItem = GlobalVars.Custom_Gear3;
+					listBox8.Enabled = true;
+        			listBox7.Enabled = true;
+        			listBox6.Enabled = true;
+        			Image icon11 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
+        			pictureBox11.Image = icon11;
+        			Image icon10 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
+        			pictureBox10.Image = icon10;
+        			Image icon9 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
+        			pictureBox9.Image = icon9;
+        		}
+     			listBox1.Items.Clear();
+     			listBox2.Items.Clear();
+     			listBox3.Items.Clear();
+     			listBox4.Items.Clear();
+     			listBox5.Items.Clear();
 			}
 			else
 			{
@@ -410,6 +461,9 @@ namespace RBXLegacyLauncher
      			listBox3.Items.Clear();
 				listBox4.Items.Clear();
 				listBox5.Items.Clear();
+				listBox6.Items.Clear();
+				listBox7.Items.Clear();
+				listBox8.Items.Clear();
 			}
 		}
 		

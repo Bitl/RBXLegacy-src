@@ -52,6 +52,9 @@
 	public static string Custom_Hat1ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat2ID_Offline = "NoHat.rbxm";
 	public static string Custom_Hat3ID_Offline = "NoHat.rbxm";
+	public static string Custom_Gear1 = "NoGear.rbxm";
+	public static string Custom_Gear2 = "NoGear.rbxm";
+	public static string Custom_Gear3 = "NoGear.rbxm";
 	public static int Custom_TShirt = 0;
 	public static int Custom_Shirt = 0;
 	public static int Custom_Pants = 0;

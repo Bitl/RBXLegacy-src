@@ -235,19 +235,32 @@ function LoadCharacterNew(playerApp,newChar)
 			elseif (customtype.Value == 8) then 
 				if (rbxlegacyversion > 7) then
 					pcall(function()
-					local meshindex = newVal:FindFirstChild("MeshIndex")
-					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..meshindex.Value.."/"..newVal.Value)
-					if newPart[1] then 
-						if newPart[1].className == "SpecialMesh" then
-							newWaitForChild(newVal,"MeshIndex")
-							newPart[1].Parent = charparts[meshindex.Value]
-						else
-							newPart[1]:remove()
+						local meshindex = newVal:FindFirstChild("MeshIndex")
+						local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..meshindex.Value.."/"..newVal.Value)
+						if newPart[1] then 
+							if newPart[1].className == "SpecialMesh" then
+								newWaitForChild(newVal,"MeshIndex")
+								newPart[1].Parent = charparts[meshindex.Value]
+							else
+								newPart[1]:remove()
+							end
 						end
-					end
-				end)
+					end)
+				end
+			elseif (customtype.Value == 9) then 
+				if (rbxlegacyversion > 7) then
+					pcall(function()
+						local newPart = game.Workspace:InsertContent("rbxasset://../../../avatar/gears/"..newVal.Value)
+						if newPart[1] then 
+							if newPart[1].className == "Tool" then
+								newPart[1].Parent = Player
+							else
+								newPart[1]:remove()
+							end
+						end
+					end)
+				end
 			end
-		end
 	end
 end
 
@@ -499,6 +512,39 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		indexValue5.Parent = BodyMesh5
 		indexValue5.Value = i
 	end
+	--GEARS
+	for i=1,3,1 do
+		local newGear = Instance.new("StringValue",newCharApp)
+		if (i == 1) then
+			if (Gear1 ~= nil) then
+				newGear.Value = Gear1
+				newGear.Name = Gear1
+			else
+				newGear.Value = "NoGear.rbxm"
+				newGear.Name = "NoGear.rbxm"
+			end
+		elseif (i == 2) then
+			if (Gear2 ~= nil) then
+				newGear.Value = Gear2
+				newGear.Name = Gear2
+			else
+				newGear.Value = "NoGear.rbxm"
+				newGear.Name = "NoGear.rbxm"
+			end
+		elseif (i == 3) then
+			if (Gear3 ~= nil) then
+				newGear.Value = Gear3
+				newGear.Name = Gear3
+			else
+				newGear.Value = "NoGear.rbxm"
+				newGear.Name = "NoGear.rbxm"
+			end
+		end
+		local typeValue = Instance.new("NumberValue")
+		typeValue.Name = "CustomizationType"
+		typeValue.Parent = newGear
+		typeValue.Value = 9
+	end
 end
 
 function CSServer(Port,PlayerLimit)
@@ -581,7 +627,7 @@ function CSServer(Port,PlayerLimit)
 	end
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Gear1,Gear2,Gear3,Ticket)
 	if (rbxlegacyversion >= 8) then
 		pcall(function() game:SetPlaceID(-1, false) end)
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
@@ -700,31 +746,32 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 				end
 			end
 
-				-- wait for the objects to load. we don't want to be TOO quick
-				waitForChild(Player.PlayerGui,"UserSettingsShield")
-				waitForChild(Player.PlayerGui.UserSettingsShield,"Settings")
-				waitForChild(Player.PlayerGui.UserSettingsShield.Settings,"SettingsStyle")
-				waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle,"GameSettingsMenu")
-				waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu, "CameraField")
-				waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.CameraField, "DropDownMenuButton")
+			-- wait for the objects to load. we don't want to be TOO quick
+			waitForChild(Player,"PlayerGui")
+			waitForChild(Player.PlayerGui,"UserSettingsShield")
+			waitForChild(Player.PlayerGui.UserSettingsShield,"Settings")
+			waitForChild(Player.PlayerGui.UserSettingsShield.Settings,"SettingsStyle")
+			waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle,"GameSettingsMenu")
+			waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu, "CameraField")
+			waitForChild(Player.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.CameraField, "DropDownMenuButton")
 	
-				UserSettings().GameSettings.ControlMode.Changed:connect(function()
-					if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
-						if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == false then
-							game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = true
-						end
+			UserSettings().GameSettings.ControlMode.Changed:connect(function()
+				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
+					if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == false then
+						game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = true
 					end
-					if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
-						if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == true then
-							game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = false
-						end
+				end
+				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
+					if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == true then
+						game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = false
 					end
-				end)
-			end
+				end
+			end)
+		end
 		if (rbxlegacyversion > 8) then
 			Player.CanLoadCharacterAppearance = false
 		end
-		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
+		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 	else
 		pcall(function() game:SetPlaceID(-1, false) end)
 		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
@@ -738,7 +785,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			player.CharacterAppearance=0
 			pcall(function() player.Name=PlayerName or "" end)
 			game:GetService("Visit")
-			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
+			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 		end)
 	
 		local function dieerror(errmsg)
@@ -808,7 +855,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 	end
 end
 
-function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
+function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3,IconType)
 	if (rbxlegacyversion > 8) then
 		game:GetService("RunService"):Run()
 	else
@@ -824,11 +871,11 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game.CoreGui.RobloxGui.TopLeftControl.Help:Remove()
 	elseif (rbxlegacyversion > 8) then
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Help:Remove()
-      		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
+      	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ReportAbuse:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.RecordToggle:Remove()
-       		game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
-        	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
-       		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
+       	game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.Screenshot:Remove()
+        game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
+       	game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
 		-- set up listeners for type of mouse mode
 
@@ -837,27 +884,29 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 				instance.ChildAdded:wait()
 			end
 		end
-			-- wait for the objects to load. we don't want to be TOO quick
-			waitForChild(plr.PlayerGui,"UserSettingsShield")
-			waitForChild(plr.PlayerGui.UserSettingsShield,"Settings")
-			waitForChild(plr.PlayerGui.UserSettingsShield.Settings,"SettingsStyle")
-			waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle,"GameSettingsMenu")
-			waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu, "CameraField")
-			waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.CameraField, "DropDownMenuButton")
+		-- wait for the objects to load. we don't want to be TOO quick
+		
+		waitForChild(plr,"PlayerGui")
+		waitForChild(plr.PlayerGui,"UserSettingsShield")
+		waitForChild(plr.PlayerGui.UserSettingsShield,"Settings")
+		waitForChild(plr.PlayerGui.UserSettingsShield.Settings,"SettingsStyle")
+		waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle,"GameSettingsMenu")
+		waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu, "CameraField")
+		waitForChild(plr.PlayerGui.UserSettingsShield.Settings.SettingsStyle.GameSettingsMenu.CameraField, "DropDownMenuButton")
 	
-			UserSettings().GameSettings.ControlMode.Changed:connect(function()
-				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
-					if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == false then
-						game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = true
-					end
+		UserSettings().GameSettings.ControlMode.Changed:connect(function()
+			if UserSettings().GameSettings.ControlMode == Enum.ControlMode["MouseShiftLock"] then 
+				if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == false then
+					game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = true
 				end
-				if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
-					if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == true then
-						game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = false
-					end
+			end
+			if UserSettings().GameSettings.ControlMode == Enum.ControlMode["Classic"] then
+				if game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible == true then
+					game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.MouseLockLabel.Visible = false
 				end
-			end)
-		end
+			end
+		end)
+	end
 	pcall(function() plr:SetUnder13(false) end)
 	if (rbxlegacyversion >= 8) then
 		if (IconType == "BC") then
@@ -875,7 +924,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	if (rbxlegacyversion > 8) then
 		plr.CanLoadCharacterAppearance = false
 	end
-	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
+	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
 	game:GetService("Visit")
 	if (plr.Character ~= nil) then
