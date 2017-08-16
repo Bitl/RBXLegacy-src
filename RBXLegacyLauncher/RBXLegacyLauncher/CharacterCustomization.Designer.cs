@@ -120,6 +120,15 @@ namespace RBXLegacyLauncher
 			this.listBox3 = new System.Windows.Forms.ListBox();
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.tabPage7 = new System.Windows.Forms.TabPage();
+			this.button7 = new System.Windows.Forms.Button();
+			this.button9 = new System.Windows.Forms.Button();
+			this.pictureBox9 = new System.Windows.Forms.PictureBox();
+			this.pictureBox10 = new System.Windows.Forms.PictureBox();
+			this.pictureBox11 = new System.Windows.Forms.PictureBox();
+			this.listBox6 = new System.Windows.Forms.ListBox();
+			this.listBox7 = new System.Windows.Forms.ListBox();
+			this.listBox8 = new System.Windows.Forms.ListBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
 			this.label7 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
@@ -149,15 +158,6 @@ namespace RBXLegacyLauncher
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.button4 = new System.Windows.Forms.Button();
-			this.tabPage7 = new System.Windows.Forms.TabPage();
-			this.button7 = new System.Windows.Forms.Button();
-			this.button9 = new System.Windows.Forms.Button();
-			this.pictureBox9 = new System.Windows.Forms.PictureBox();
-			this.pictureBox10 = new System.Windows.Forms.PictureBox();
-			this.pictureBox11 = new System.Windows.Forms.PictureBox();
-			this.listBox6 = new System.Windows.Forms.ListBox();
-			this.listBox7 = new System.Windows.Forms.ListBox();
-			this.listBox8 = new System.Windows.Forms.ListBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabControl2.SuspendLayout();
@@ -172,15 +172,15 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.tabPage7.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
 			this.tabPage4.SuspendLayout();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-			this.tabPage7.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// radioButton1
@@ -1310,6 +1310,96 @@ namespace RBXLegacyLauncher
 			this.listBox1.TabIndex = 47;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1SelectedIndexChanged);
 			// 
+			// tabPage7
+			// 
+			this.tabPage7.Controls.Add(this.button7);
+			this.tabPage7.Controls.Add(this.button9);
+			this.tabPage7.Controls.Add(this.pictureBox9);
+			this.tabPage7.Controls.Add(this.pictureBox10);
+			this.tabPage7.Controls.Add(this.pictureBox11);
+			this.tabPage7.Controls.Add(this.listBox6);
+			this.tabPage7.Controls.Add(this.listBox7);
+			this.tabPage7.Controls.Add(this.listBox8);
+			this.tabPage7.Location = new System.Drawing.Point(4, 22);
+			this.tabPage7.Name = "tabPage7";
+			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage7.Size = new System.Drawing.Size(447, 250);
+			this.tabPage7.TabIndex = 6;
+			this.tabPage7.Text = "GEARS";
+			this.tabPage7.UseVisualStyleBackColor = true;
+			// 
+			// button7
+			// 
+			this.button7.Location = new System.Drawing.Point(230, 206);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(211, 42);
+			this.button7.TabIndex = 57;
+			this.button7.Text = "Reset Gears";
+			this.button7.UseVisualStyleBackColor = true;
+			// 
+			// button9
+			// 
+			this.button9.Location = new System.Drawing.Point(6, 206);
+			this.button9.Name = "button9";
+			this.button9.Size = new System.Drawing.Size(218, 42);
+			this.button9.TabIndex = 56;
+			this.button9.Text = "Randomize Gears";
+			this.button9.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox9
+			// 
+			this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+			this.pictureBox9.Location = new System.Drawing.Point(326, 3);
+			this.pictureBox9.Name = "pictureBox9";
+			this.pictureBox9.Size = new System.Drawing.Size(94, 89);
+			this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox9.TabIndex = 55;
+			this.pictureBox9.TabStop = false;
+			// 
+			// pictureBox10
+			// 
+			this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+			this.pictureBox10.Location = new System.Drawing.Point(173, 3);
+			this.pictureBox10.Name = "pictureBox10";
+			this.pictureBox10.Size = new System.Drawing.Size(94, 89);
+			this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox10.TabIndex = 54;
+			this.pictureBox10.TabStop = false;
+			// 
+			// pictureBox11
+			// 
+			this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+			this.pictureBox11.Location = new System.Drawing.Point(22, 3);
+			this.pictureBox11.Name = "pictureBox11";
+			this.pictureBox11.Size = new System.Drawing.Size(94, 89);
+			this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox11.TabIndex = 53;
+			this.pictureBox11.TabStop = false;
+			// 
+			// listBox6
+			// 
+			this.listBox6.FormattingEnabled = true;
+			this.listBox6.Location = new System.Drawing.Point(307, 94);
+			this.listBox6.Name = "listBox6";
+			this.listBox6.Size = new System.Drawing.Size(134, 108);
+			this.listBox6.TabIndex = 49;
+			// 
+			// listBox7
+			// 
+			this.listBox7.FormattingEnabled = true;
+			this.listBox7.Location = new System.Drawing.Point(153, 94);
+			this.listBox7.Name = "listBox7";
+			this.listBox7.Size = new System.Drawing.Size(134, 108);
+			this.listBox7.TabIndex = 48;
+			// 
+			// listBox8
+			// 
+			this.listBox8.FormattingEnabled = true;
+			this.listBox8.Location = new System.Drawing.Point(6, 94);
+			this.listBox8.Name = "listBox8";
+			this.listBox8.Size = new System.Drawing.Size(134, 108);
+			this.listBox8.TabIndex = 47;
+			// 
 			// tabPage4
 			// 
 			this.tabPage4.Controls.Add(this.label7);
@@ -1610,103 +1700,13 @@ namespace RBXLegacyLauncher
 			// 
 			// button4
 			// 
-			this.button4.Location = new System.Drawing.Point(391, 4);
+			this.button4.Location = new System.Drawing.Point(391, 5);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(75, 23);
 			this.button4.TabIndex = 49;
 			this.button4.Text = "3D Preview";
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.Button4Click);
-			// 
-			// tabPage7
-			// 
-			this.tabPage7.Controls.Add(this.button7);
-			this.tabPage7.Controls.Add(this.button9);
-			this.tabPage7.Controls.Add(this.pictureBox9);
-			this.tabPage7.Controls.Add(this.pictureBox10);
-			this.tabPage7.Controls.Add(this.pictureBox11);
-			this.tabPage7.Controls.Add(this.listBox6);
-			this.tabPage7.Controls.Add(this.listBox7);
-			this.tabPage7.Controls.Add(this.listBox8);
-			this.tabPage7.Location = new System.Drawing.Point(4, 22);
-			this.tabPage7.Name = "tabPage7";
-			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage7.Size = new System.Drawing.Size(447, 250);
-			this.tabPage7.TabIndex = 6;
-			this.tabPage7.Text = "GEARS";
-			this.tabPage7.UseVisualStyleBackColor = true;
-			// 
-			// button7
-			// 
-			this.button7.Location = new System.Drawing.Point(230, 206);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(211, 42);
-			this.button7.TabIndex = 57;
-			this.button7.Text = "Reset Gears";
-			this.button7.UseVisualStyleBackColor = true;
-			// 
-			// button9
-			// 
-			this.button9.Location = new System.Drawing.Point(6, 206);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(218, 42);
-			this.button9.TabIndex = 56;
-			this.button9.Text = "Randomize Gears";
-			this.button9.UseVisualStyleBackColor = true;
-			// 
-			// pictureBox9
-			// 
-			this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-			this.pictureBox9.Location = new System.Drawing.Point(326, 3);
-			this.pictureBox9.Name = "pictureBox9";
-			this.pictureBox9.Size = new System.Drawing.Size(94, 89);
-			this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox9.TabIndex = 55;
-			this.pictureBox9.TabStop = false;
-			// 
-			// pictureBox10
-			// 
-			this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-			this.pictureBox10.Location = new System.Drawing.Point(173, 3);
-			this.pictureBox10.Name = "pictureBox10";
-			this.pictureBox10.Size = new System.Drawing.Size(94, 89);
-			this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox10.TabIndex = 54;
-			this.pictureBox10.TabStop = false;
-			// 
-			// pictureBox11
-			// 
-			this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-			this.pictureBox11.Location = new System.Drawing.Point(22, 3);
-			this.pictureBox11.Name = "pictureBox11";
-			this.pictureBox11.Size = new System.Drawing.Size(94, 89);
-			this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox11.TabIndex = 53;
-			this.pictureBox11.TabStop = false;
-			// 
-			// listBox6
-			// 
-			this.listBox6.FormattingEnabled = true;
-			this.listBox6.Location = new System.Drawing.Point(307, 94);
-			this.listBox6.Name = "listBox6";
-			this.listBox6.Size = new System.Drawing.Size(134, 108);
-			this.listBox6.TabIndex = 49;
-			// 
-			// listBox7
-			// 
-			this.listBox7.FormattingEnabled = true;
-			this.listBox7.Location = new System.Drawing.Point(153, 94);
-			this.listBox7.Name = "listBox7";
-			this.listBox7.Size = new System.Drawing.Size(134, 108);
-			this.listBox7.TabIndex = 48;
-			// 
-			// listBox8
-			// 
-			this.listBox8.FormattingEnabled = true;
-			this.listBox8.Location = new System.Drawing.Point(6, 94);
-			this.listBox8.Name = "listBox8";
-			this.listBox8.Size = new System.Drawing.Size(134, 108);
-			this.listBox8.TabIndex = 47;
 			// 
 			// CharacterCustomization
 			// 
@@ -1736,16 +1736,16 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.tabPage7.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
 			this.tabPage4.ResumeLayout(false);
 			this.tabPage4.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-			this.tabPage7.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.TabPage tabPage4;

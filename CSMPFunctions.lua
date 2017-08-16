@@ -150,7 +150,7 @@ function newWaitForChild(newParent,name) -- for char
 	return returnable
 end
 
-function LoadCharacterNew(playerApp,newChar)
+function LoadCharacterNew(playerApp,newChar,newBackpack)
 	--authentic roblox style loading
 	local charparts = {[1] = newWaitForChild(newChar,"Head"),[2] = newWaitForChild(newChar,"Torso"),[3] = newWaitForChild(newChar,"Left Arm"),[4] = newWaitForChild(newChar,"Right Arm"),[5] = newWaitForChild(newChar,"Left Leg"),[6] = newWaitForChild(newChar,"Right Leg")}
 	for _,newVal in pairs(playerApp:GetChildren()) do
@@ -264,7 +264,7 @@ function LoadCharacterNew(playerApp,newChar)
 						local newPart = game.Workspace:InsertContent("rbxasset://../../../avatar/gears/"..newVal.Value)
 						if newPart[1] then 
 							if newPart[1].className == "Tool" then
-								newPart[1].Parent = Player
+								newPart[1].Parent = Player.Backpack
 							else
 								newPart[1]:remove()
 							end
@@ -554,7 +554,7 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		end
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newGear
+		typeValue.Parent = newBackpack
 		typeValue.Value = 9
 	end
 end
@@ -583,14 +583,14 @@ function CSServer(Port,PlayerLimit)
 				end
 			end
 			Player.CharacterAdded:connect(function(char)
-				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
+				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack)
 			end)
 			Player.Changed:connect(function(Property)
 				if (Property=="Character") and (Player.Character~=nil) then
 					local Character=Player.Character
 					local Humanoid=Character:FindFirstChild("Humanoid")
 					if (Humanoid~=nil) then
-						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character) end) end)
+						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack) end) end)
 					end
 				end
 			end)
@@ -620,13 +620,13 @@ function CSServer(Port,PlayerLimit)
 			else
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
 				Player:LoadCharacter()
-				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character)
+				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack)
 			end
 				if (Player.Character ~= nil) then
 					local Character=Player.Character
 					local Humanoid=Character:FindFirstChild("Humanoid")
 					if (Humanoid~=nil) then
-						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character) end) end)
+						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.CharactermPlayer.Backpack) end) end)
 					end
 				end
 			end)
@@ -921,13 +921,13 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		plr.CanLoadCharacterAppearance = false
 	end
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
-	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
+	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack)
 	game:GetService("Visit")
 	if (plr.Character ~= nil) then
 		local Character=plr.Character
 		local Humanoid=Character:FindFirstChild("Humanoid")
 		if (Humanoid~=nil) then
-			Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character) end) end)
+			Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack) end) end)
 		end
 	end
 	
@@ -967,7 +967,7 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 		plr.Character.Animate:Remove()
 	end
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
-	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character)
+	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack)
 	wait(1)
 	game:GetService("NetworkClient")
 end
