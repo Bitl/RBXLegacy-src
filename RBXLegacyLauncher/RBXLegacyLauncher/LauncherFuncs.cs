@@ -133,9 +133,9 @@ namespace RBXLegacyLauncher
 			GlobalVars.LeftLegID = Decryptline32;
 			GlobalVars.RightLegID = Decryptline33;
 			
-			GlobalVars.Gear1 = Decryptline34;
-			GlobalVars.Gear2 = Decryptline35;
-			GlobalVars.Gear3 = Decryptline36;
+			GlobalVars.Custom_Gear1 = Decryptline34;
+			GlobalVars.Custom_Gear2 = Decryptline35;
+			GlobalVars.Custom_Gear3 = Decryptline36;
 		}
 		
 		public static void WriteConfigValues(string cfgpath)
@@ -174,9 +174,9 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.RightArmID.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.LeftLegID.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.RightLegID.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Gear1.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Gear2.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Gear3.ToString())
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_Gear1.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_Gear2.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.Custom_Gear3.ToString())
 			};
 			File.WriteAllText(cfgpath, SecurityFuncs.Base64Encode(string.Join("|",lines)));
 		}

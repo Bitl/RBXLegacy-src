@@ -68,7 +68,7 @@
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(12, 38);
+			this.label2.Location = new System.Drawing.Point(28, 38);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(20, 16);
 			this.label2.TabIndex = 3;
@@ -76,19 +76,19 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(12, 64);
+			this.button1.Location = new System.Drawing.Point(54, 64);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(124, 23);
+			this.button1.Size = new System.Drawing.Size(95, 23);
 			this.button1.TabIndex = 4;
-			this.button1.Text = "Customize Character";
+			this.button1.Text = "Avatar";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(97, 93);
+			this.button2.Location = new System.Drawing.Point(54, 93);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(87, 23);
+			this.button2.Size = new System.Drawing.Size(218, 23);
 			this.button2.TabIndex = 5;
 			this.button2.Text = "Launch";
 			this.button2.UseVisualStyleBackColor = true;
@@ -96,11 +96,11 @@
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(148, 64);
+			this.button3.Location = new System.Drawing.Point(177, 64);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(124, 23);
+			this.button3.Size = new System.Drawing.Size(95, 23);
 			this.button3.TabIndex = 6;
-			this.button3.Text = "Regenerate Player ID";
+			this.button3.Text = "Random ID";
 			this.button3.UseVisualStyleBackColor = true;
 			this.button3.Click += new System.EventHandler(this.Button3Click);
 			// 
@@ -117,9 +117,10 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.textBox1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "QuickConfigure";
+			this.Text = "RBXLegacy";
 			this.Load += new System.EventHandler(this.QuickConfigureLoad);
 			this.ResumeLayout(false);
 			this.PerformLayout();
