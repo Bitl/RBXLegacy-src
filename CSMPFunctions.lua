@@ -1,5 +1,12 @@
 --coded by Bitl and Carrot
 --stuff was borrowed from RBXBanland, EnergyCell, John, and the RBXPri team
+
+function waitForChild(instance, name) -- for everything else
+	while not instance:FindFirstChild(name) do
+		instance.ChildAdded:wait()
+	end
+end
+
 rbxlegacyversion = 0
 
 function SetRBXLegacyVersion(Version)
@@ -10,21 +17,25 @@ function SetRBXLegacyVersion(Version)
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
+		settings().Network.PhysicsSend = 1 -- 1==RoundRobin
 	elseif (rbxlegacyversion == 2) then -- Ext. Pre Alpha
 		settings().Rendering.frameRateManager = 2
 		settings().Rendering.graphicsMode = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
+		settings().Network.PhysicsSend = 1 -- 1==RoundRobin
 	elseif (rbxlegacyversion == 3) then -- Alpha
 		settings().Rendering.frameRateManager = 2
 		settings().Network.MaxSendBuffer = 1000000
 		settings().Network.PhysicsReplicationUpdateRate = 1000000
 		settings().Network.SendRate = 1000000
+		settings().Network.PhysicsSend = 1 -- 1==RoundRobin
 	elseif (rbxlegacyversion == 4) then -- Beta
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.SendRate = 30
 		settings().Network.ReceiveRate = 60
+		settings().Network.PhysicsSend = 1 -- 1==RoundRobin
 	elseif (rbxlegacyversion == 5) then -- Beta Pre-Gamma
 		settings().Rendering.FrameRateManager = 2
 		settings().Network.DataSendRate = 30
@@ -94,13 +105,13 @@ function SetRBXLegacyVersion(Version)
 		wait()
 		resize()
 		end))
-		wait() -- intalizing
+		waitForChild(game.GuiRoot,"ScoreHud")
 		game.GuiRoot.ScoreHud:Remove()
 	elseif (rbxlegacyversion == 9) then -- Delta Omega
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-		wait() -- intalizing
+		waitForChild(game.GuiRoot,"ScoreHud")
 		game.GuiRoot.ScoreHud:Remove()
 	elseif (rbxlegacyversion == 10) then -- Omega
 		settings().Rendering.FrameRateManager = 2
@@ -112,7 +123,7 @@ function SetRBXLegacyVersion(Version)
 		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
 		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
 		game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
-	elseif (rbxlegacyversion == 11) then
+	elseif (rbxlegacyversion == 11) then -- Ultra
 		settings().Rendering.FrameRateManager = 2
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
@@ -129,7 +140,7 @@ end
 rbxversion = version()
 print("ROBLOX Client version '" .. rbxversion .. "' loaded.")
 
-function newWaitForChild(newParent,name)
+function newWaitForChild(newParent,name) -- for char
 	local returnable = nil
 	if newParent:FindFirstChild(name) then
 		returnable = newParent:FindFirstChild(name)
@@ -147,96 +158,96 @@ function LoadCharacterNew(playerApp,newChar)
 			local customtype = newVal:FindFirstChild("CustomizationType")
 			if (customtype.Value == 1) then 
 				pcall(function() 
-				newWaitForChild(newVal,"ColorIndex")
-				local colorindex = newVal:FindFirstChild("ColorIndex")
-				charparts[colorindex.Value].BrickColor = newVal.Value 
+					newWaitForChild(newVal,"ColorIndex")
+					local colorindex = newVal:FindFirstChild("ColorIndex")
+					charparts[colorindex.Value].BrickColor = newVal.Value 
 				end)
 			elseif (customtype.Value == 2)  then
 				if (rbxlegacyversion > 1) then
 					pcall(function()
-					local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
-					if newHat[1] then 
-						if newHat[1].className == "Hat" then
-							newHat[1].Parent = newChar
-						else
-							newHat[1]:remove()
+						local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
+						if newHat[1] then 
+							if newHat[1].className == "Hat" then
+								newHat[1].Parent = newChar
+							else
+								newHat[1]:remove()
+							end
 						end
-					end
-				end)
-			end
+					end)
+				end
 			elseif (customtype.Value == 3)  then
 				if (rbxlegacyversion > 1) then
 					pcall(function()
-					local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
-					if newTShirt[1] then 
-						if newTShirt[1].className == "ShirtGraphic" then
-							newTShirt[1].Parent = newChar
-						else
-							newTShirt[1]:remove()
+						local newTShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+						if newTShirt[1] then 
+							if newTShirt[1].className == "ShirtGraphic" then
+								newTShirt[1].Parent = newChar
+							else
+								newTShirt[1]:remove()
+							end
 						end
-					end
-				end)
-			end
+					end)
+				end
 			elseif (customtype.Value == 4)  then
 				if (rbxlegacyversion > 2) then
 					pcall(function()
-					local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
-					if newShirt[1] then 
-						if newShirt[1].className == "Shirt" then
-							newShirt[1].Parent = newChar
-						else
-							newShirt[1]:remove()
+						local newShirt = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+						if newShirt[1] then 
+							if newShirt[1].className == "Shirt" then
+								newShirt[1].Parent = newChar
+							else
+								newShirt[1]:remove()
+							end
 						end
-					end
-				end)
-			end
+					end)
+				end
 			elseif (customtype.Value == 5)  then
 				if (rbxlegacyversion > 2) then
 					pcall(function()
-					local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
-					if newPants[1] then 
-						if newPants[1].className == "Pants" then
-							newPants[1].Parent = newChar
-						else
-							newPants[1]:remove()
+						local newPants = game.Workspace:InsertContent("http://www.roblox.com/asset/?id="..newVal.Value)
+						if newPants[1] then 
+							if newPants[1].className == "Pants" then
+								newPants[1].Parent = newChar
+							else
+								newPants[1]:remove()
+							end
 						end
-					end
-				end)
-			end
+					end)
+				end
 			elseif (customtype.Value == 6)  then
 				if (rbxlegacyversion > 5) then
 					pcall(function()
-					local newFace = game.Workspace:InsertContent("rbxasset://../../../charcustom/faces/"..newVal.Value)
-					if newFace[1] then 
-						if newFace[1].className == "Decal" then
-							newWaitForChild(charparts[1],"face"):remove()
-							newFace[1].Parent = charparts[1]
-							newFace[1].Face = "Front"
-						else
-							newFace[1]:remove()
+						local newFace = game.Workspace:InsertContent("rbxasset://../../../avatar/faces/"..newVal.Value)
+						if newFace[1] then 
+							if newFace[1].className == "Decal" then
+								newWaitForChild(charparts[1],"face"):remove()
+								newFace[1].Parent = charparts[1]
+								newFace[1].Face = "Front"
+							else
+								newFace[1]:remove()
+							end
 						end
-					end
-				end)
-			end
+					end)
+				end
 			elseif (customtype.Value == 7) then 
 				if (rbxlegacyversion > 5) then
 					pcall(function()
-					local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/heads/"..newVal.Value)
-					if newPart[1] then 
-						if newPart[1].className == "SpecialMesh" or newPart[1].className == "CylinderMesh" or newPart[1].className == "BlockMesh" then
-							newWaitForChild(charparts[1],"Mesh"):remove()
-							newPart[1].Parent = charparts[1]
-						else
-							newPart[1]:remove()
+						local newPart = game.Workspace:InsertContent("rbxasset://../../../avatar/heads/"..newVal.Value)
+						if newPart[1] then 
+							if newPart[1].className == "SpecialMesh" or newPart[1].className == "CylinderMesh" or newPart[1].className == "BlockMesh" then
+								newWaitForChild(charparts[1],"Mesh"):remove()
+								newPart[1].Parent = charparts[1]
+							else
+								newPart[1]:remove()
+							end
 						end
-					end
-				end)
-			end
+					end)
+				end
 			elseif (customtype.Value == 8) then 
 				if (rbxlegacyversion > 7) then
 					pcall(function()
 						local meshindex = newVal:FindFirstChild("MeshIndex")
-						local newPart = game.Workspace:InsertContent("rbxasset://../../../charcustom/bodies/"..meshindex.Value.."/"..newVal.Value)
+						local newPart = game.Workspace:InsertContent("rbxasset://../../../avatar/bodies/"..meshindex.Value.."/"..newVal.Value)
 						if newPart[1] then 
 							if newPart[1].className == "SpecialMesh" then
 								newWaitForChild(newVal,"MeshIndex")
@@ -261,6 +272,7 @@ function LoadCharacterNew(playerApp,newChar)
 					end)
 				end
 			end
+		end
 	end
 end
 
@@ -739,14 +751,6 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 			game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
 			-- set up listeners for type of mouse mode
-
-			local function waitForChild(instance, name)
-				while not instance:FindFirstChild(name) do
-					instance.ChildAdded:wait()
-				end
-			end
-
-			-- wait for the objects to load. we don't want to be TOO quick
 			waitForChild(Player,"PlayerGui")
 			waitForChild(Player.PlayerGui,"UserSettingsShield")
 			waitForChild(Player.PlayerGui.UserSettingsShield,"Settings")
@@ -877,15 +881,7 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
         game.CoreGui.RobloxGui.ControlFrame.BottomRightControl.ToggleFullScreen:Remove()
        	game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.TogglePlayMode:Remove()
 		game.CoreGui.RobloxGui.ControlFrame.BottomLeftControl.Exit:Remove()
-		-- set up listeners for type of mouse mode
-
-		local function waitForChild(instance, name)
-			while not instance:FindFirstChild(name) do
-				instance.ChildAdded:wait()
-			end
-		end
-		-- wait for the objects to load. we don't want to be TOO quick
-		
+		-- set up listeners for type of mouse mode	
 		waitForChild(plr,"PlayerGui")
 		waitForChild(plr.PlayerGui,"UserSettingsShield")
 		waitForChild(plr.PlayerGui.UserSettingsShield,"Settings")
