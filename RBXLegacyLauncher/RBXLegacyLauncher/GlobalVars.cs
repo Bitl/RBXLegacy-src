@@ -18,6 +18,9 @@
 	public static int ServerPort = 53640;
 	public static int DefaultRobloxPort = 53640;
 	public static int PlayerLimit = 12;
+	public static int RespawnTime = 5;
+	public static bool IsPersonalServer = false;
+	public static bool upnp = true;
 	// player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";

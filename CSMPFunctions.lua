@@ -559,7 +559,7 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	end
 end
 
-function CSServer(Port,PlayerLimit)
+function CSServer(Port,PlayerLimit,IsPersonalServer)
 	if (rbxlegacyversion >= 8) then
 		assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.")
 		local NetworkServer=game:GetService("NetworkServer")
@@ -602,6 +602,11 @@ function CSServer(Port,PlayerLimit)
 		game.Workspace:InsertContent("rbxasset://fonts/libraries.rbxm")
 		pcall(function() game.Close:connect(function() NetworkServer:Stop() end) end)
 		NetworkServer.IncommingConnection:connect(IncommingConnection)
+		-- perbsosnal sebrs!
+		if IsPersonalServer == true then
+			game:GetService("PersonalServerService")
+			pcall(function() game.IsPersonalServer(true)
+		end
 	else
 		Server = game:GetService("NetworkServer")
 		RunService = game:GetService("RunService")
@@ -932,18 +937,12 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	end
 	
 	if (rbxlegacyversion > 8) then
-		local function waitForChild(instance, name)
-			while not instance:FindFirstChild(name) do
-				instance.ChildAdded:wait()
-			end
-		end
-
 		waitForChild(game.StarterGui,"Menu")
 		game.StarterGui.Menu.Workaround:remove()
 	end
 end
 
-function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType)
+function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3,IconType)
 	rbxlegacyversion = 8
 	settings().Rendering.FrameRateManager = 2
 	game:GetService("RunService"):run()
@@ -966,7 +965,7 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 	if plr.Character:FindFirstChild("Animate") then
 		plr.Character.Animate:Remove()
 	end
-	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
+	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack)
 	wait(1)
 	game:GetService("NetworkClient")

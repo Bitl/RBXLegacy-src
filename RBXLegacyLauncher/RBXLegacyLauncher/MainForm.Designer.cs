@@ -39,7 +39,6 @@
 			this.label29 = new System.Windows.Forms.Label();
 			this.label40 = new System.Windows.Forms.Label();
 			this.button20 = new System.Windows.Forms.Button();
-			this.label32 = new System.Windows.Forms.Label();
 			this.label20 = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
@@ -312,7 +311,6 @@
 			this.tabPage2.Controls.Add(this.label29);
 			this.tabPage2.Controls.Add(this.label40);
 			this.tabPage2.Controls.Add(this.button20);
-			this.tabPage2.Controls.Add(this.label32);
 			this.tabPage2.Controls.Add(this.label20);
 			this.tabPage2.Controls.Add(this.label19);
 			this.tabPage2.Controls.Add(this.button2);
@@ -379,21 +377,9 @@
 			this.button20.Name = "button20";
 			this.button20.Size = new System.Drawing.Size(97, 51);
 			this.button20.TabIndex = 21;
-			this.button20.Text = "SERVER INFORMATION";
+			this.button20.Text = "SERVER PREFERENCES";
 			this.button20.UseVisualStyleBackColor = true;
 			this.button20.Click += new System.EventHandler(this.Button20Click);
-			// 
-			// label32
-			// 
-			this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label32.ForeColor = System.Drawing.Color.Red;
-			this.label32.Location = new System.Drawing.Point(12, 177);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(378, 47);
-			this.label32.TabIndex = 19;
-			this.label32.Text = "NOTE: Be sure you have port forwarded the server\'s port before you start a public" +
-			" server. This port can be found and changed in the OPTIONS tab.";
-			this.label32.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// label20
 			// 
@@ -1080,7 +1066,6 @@
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.Label label35;
-		private System.Windows.Forms.Label label32;
 		private System.Windows.Forms.Label label30;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.Label label27;

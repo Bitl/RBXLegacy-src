@@ -80,9 +80,9 @@
       <DependentUpon>SDKForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SecurityFuncs.cs" />
-    <Compile Include="ServerInfo.cs" />
-    <Compile Include="ServerInfo.Designer.cs">
-      <DependentUpon>ServerInfo.cs</DependentUpon>
+    <Compile Include="ServerPrefs.cs" />
+    <Compile Include="ServerPrefs.Designer.cs">
+      <DependentUpon>ServerPrefs.cs</DependentUpon>
     </Compile>
     <Compile Include="TextLineRemover.cs" />
     <Compile Include="GlobalVars.cs" />
@@ -112,8 +112,8 @@
     <EmbeddedResource Include="SDKForm.resx">
       <DependentUpon>SDKForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ServerInfo.resx">
-      <DependentUpon>ServerInfo.cs</DependentUpon>
+    <EmbeddedResource Include="ServerPrefs.resx">
+      <DependentUpon>ServerPrefs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

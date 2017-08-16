@@ -530,7 +530,7 @@ namespace RBXLegacyLauncher
 		
 		void Button20Click(object sender, EventArgs e)
 		{
-			ServerInfo infopanel = new ServerInfo();
+			ServerInfo infopanel = new ServerPrefs();
 			infopanel.Show();
 		}
 		

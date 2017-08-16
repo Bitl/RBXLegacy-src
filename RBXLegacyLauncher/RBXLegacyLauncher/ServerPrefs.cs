@@ -5,14 +5,14 @@ using System.Net;
 
 namespace RBXLegacyLauncher
 {
-	public partial class ServerInfo : Form
+	public partial class ServerPrefs : Form
 	{
-		public ServerInfo()
+		public ServerPrefs()
 		{
 			InitializeComponent();
 		}
 		
-		void ServerInfoLoad(object sender, EventArgs e)
+		void ServerPrefsLoad(object sender, EventArgs e)
 		{
         	textBox1.AppendText("Client: " + GlobalVars.SelectedClient);
         	textBox1.AppendText(Environment.NewLine);
@@ -63,6 +63,32 @@ namespace RBXLegacyLauncher
 			}
 
     		return ipAddress;
+		}
+		
+		void RadioButton1CheckedChanged(object sender, EventArgs e)
+		{
+			checkBox1.Enabled = false;
+			checkBox2.Enabled = false;
+			checkBox3.Enabled = false;
+			checkBox4.Enabled = false;
+			checkBox5.Enabled = false;
+			checkBox6.Enabled = false;
+			checkBox7.Enabled = false;
+			checkBox8.Enabled = false;
+			checkBox9.Enabled = false;
+		}
+		
+		void RadioButton2CheckedChanged(object sender, EventArgs e)
+		{
+			checkBox1.Enabled = true;
+			checkBox2.Enabled = true;
+			checkBox3.Enabled = true;
+			checkBox4.Enabled = true;
+			checkBox5.Enabled = true;
+			checkBox6.Enabled = true;
+			checkBox7.Enabled = true;
+			checkBox8.Enabled = true;
+			checkBox9.Enabled = true;
 		}
 	}
 }
