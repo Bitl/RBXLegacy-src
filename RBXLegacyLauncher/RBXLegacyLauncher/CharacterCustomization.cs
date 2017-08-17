@@ -441,11 +441,11 @@ namespace RBXLegacyLauncher
 					listBox8.Enabled = true;
         			listBox7.Enabled = true;
         			listBox6.Enabled = true;
-        			Image icon11 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
+        			Image icon11 = Image.FromFile(geardir + @"\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
         			pictureBox11.Image = icon11;
-        			Image icon10 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
+        			Image icon10 = Image.FromFile(geardir + @"\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
         			pictureBox10.Image = icon10;
-        			Image icon9 = Image.FromFile(hatdir + @"\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
+        			Image icon9 = Image.FromFile(geardir + @"\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
         			pictureBox9.Image = icon9;
         		}
      			listBox1.Items.Clear();

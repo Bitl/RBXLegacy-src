@@ -276,7 +276,7 @@ function LoadCharacterNew(playerApp,newChar,newBackpack)
 	end
 end
 
-function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID)
+function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 	local newCharApp = Instance.new("IntValue",Player)
 	newCharApp.Name = "Appearance"
 	--BODY COLORS
@@ -559,17 +559,15 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 	end
 end
 
-function CSServer(Port,PlayerLimit,IsPersonalServer)
+function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,Blacklist1,Blacklist2,Blacklist3,Blacklist4,Blacklist5,Blacklist6,Blacklist7,Blacklist8,MeleeGT,PowerUpGT,RangedGT,NavigationGT,ExplosivesGT,MusicalGT,SocialGT,TransportGT,BuildingGT) -- GT is Gear Type, not Graphictoria
 	if (rbxlegacyversion >= 8) then
 		assert((type(Port)~="number" or tonumber(Port)~=nil or Port==nil),"CSRun Error: Port must be nil or a number.")
 		local NetworkServer=game:GetService("NetworkServer")
 		pcall(NetworkServer.Stop,NetworkServer)
 		NetworkServer:Start(Port)
-		if (rbxlegacyversion < 9) then
-			game:GetService("Players").MaxPlayers = PlayerLimit
-		end
-		game:GetService("Players").PlayerAdded:connect(function(Player)
+		game:GetService("Players").PlayerAdded:connect(function(Player)	
 			if (rbxlegacyversion < 9) then
+				game:GetService("Players").MaxPlayers = PlayerLimit
 				if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
 					local message = Instance.new("Message")
 					message.Text = "You were kicked. Reason: Too many players on server."
@@ -577,10 +575,18 @@ function CSServer(Port,PlayerLimit,IsPersonalServer)
 					wait(2)
 					Player:remove()
 					print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.")
-				else
-					print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
-					Player:LoadCharacter()
 				end
+			end
+			if (Player.userId == Blacklist1 or Player.userId == Blacklist2 or Player.userId == Blacklist3 or Player.userId == Blacklist4 or Player.userId == Blacklist5 or Player.userId == Blacklist6 or Player.userId == Blacklist7 or Player.userId == Blacklist8) then
+				local message = Instance.new("Message")
+				message.Text = "You have been banned from playing this server."
+				message.Parent = Player
+				wait(2)
+				Player:remove()
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Player is banned from playing this server.")
+			else
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
+				Player:LoadCharacter()
 			end
 			Player.CharacterAdded:connect(function(char)
 				LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack)
@@ -590,7 +596,7 @@ function CSServer(Port,PlayerLimit,IsPersonalServer)
 					local Character=Player.Character
 					local Humanoid=Character:FindFirstChild("Humanoid")
 					if (Humanoid~=nil) then
-						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack) end) end)
+						Humanoid.Died:connect(function() delay(RespawnTime,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack) end) end)
 					end
 				end
 			end)
@@ -607,6 +613,57 @@ function CSServer(Port,PlayerLimit,IsPersonalServer)
 			game:GetService("PersonalServerService")
 			pcall(function() game.IsPersonalServer(true)
 		end
+		-- gear types!!!!!!!
+		local AllowedGearTypes = Instance.new("StringValue")
+		AllowedGearTypes.Name = "AllowedGearTypes"
+		AllowedGearTypes.Parent = game.Lighting
+		-- ok, lets register our s e p e r a t e  g e a r s
+		local MeleeGTR = Instance.new("BoolValue")
+		MeleeGTR.Parent = AllowedGearTypes
+		MeleeGTR.Name = "Melee"
+		MeleeGTR.Value = MeleeGT
+		local PowerUpGTR = Instance.new("BoolValue")
+		PowerUpGTR.Parent = AllowedGearTypes
+		PowerUpGTR.Name = "PowerUp"
+		PowerUpGTR.Value = PowerUpGT
+		local RangedGTR = Instance.new("BoolValue")
+		RangedGTR.Parent = AllowedGearTypes
+		RangedGTR.Name = "Ranged"
+		RangedGTR.Value = RangedGT
+		local NavigationGTR = Instance.new("BoolValue")
+		NavigationGTR.Parent = AllowedGearTypes
+		NavigationGTR.Name = "Navigation"
+		NavigationGTR.Value = NavigationGT
+		local ExplosivesGTR = Instance.new("BoolValue")
+		ExplosivesGTR.Parent = AllowedGearTypes
+		ExplosivesGTR.Name = "Explosives"
+		ExplosivesGTR.Value = ExplosivesGT
+		local MusicalGTR = Instance.new("BoolValue")
+		MusicalGTR.Parent = AllowedGearTypes
+		MusicalGTR.Name = "Musical"
+		MusicalGTR.Value = MusicalGT
+		local SocialGTR = Instance.new("BoolValue")
+		SocialGTR.Parent = AllowedGearTypes
+		SocialGTR.Name = "Social"
+		SocialGTR.Value = SocialGT
+		local TransportGTR = Instance.new("BoolValue")
+		TransportGTR.Parent = AllowedGearTypes
+		TransportGTR.Name = "Transport"
+		TransportGTR.Value = TransportGT
+		local BuildingGTR = Instance.new("BoolValue")
+		BuildingGTR.Parent = AllowedGearTypes
+		BuildingGTR.Name = "Building"
+		BuildingGTR.Value = BuildingGT
+		-- chat types
+		if rbxlegacyversion >= 7 then
+			if ChatType == "Both"
+				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
+			elseif ChatType == "Classic"
+				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Classic) end)
+			elseif ChatType == "Bubble"
+				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Bubble) end)
+			end
+		end
 	else
 		Server = game:GetService("NetworkServer")
 		RunService = game:GetService("RunService")
@@ -615,13 +672,24 @@ function CSServer(Port,PlayerLimit,IsPersonalServer)
 		game.Workspace:InsertContent("rbxasset://fonts/libraries.rbxm")
 		game:GetService("Players").MaxPlayers = PlayerLimit
 		game:GetService("Players").PlayerAdded:connect(function(Player)
-			if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
+			if (rbxlegacyversion < 9) then
+				game:GetService("Players").MaxPlayers = PlayerLimit
+				if (game:GetService("Players").NumPlayers > game:GetService("Players").MaxPlayers) then
+					local message = Instance.new("Message")
+					message.Text = "You were kicked. Reason: Too many players on server."
+					message.Parent = Player
+					wait(2)
+					Player:remove()
+					print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.")
+				end
+			end
+			if (Player.userId == Blacklist1 or Player.userId == Blacklist2 or Player.userId == Blacklist3 or Player.userId == Blacklist4 or Player.userId == Blacklist5 or Player.userId == Blacklist6 or Player.userId == Blacklist7 or Player.userId == Blacklist8) then
 				local message = Instance.new("Message")
-				message.Text = "You were kicked. Reason: Too many players on server."
+				message.Text = "You have been banned from playing this server."
 				message.Parent = Player
 				wait(2)
 				Player:remove()
-				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Too many players on server.")
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Player is banned from playing this server.")
 			else
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
 				Player:LoadCharacter()
@@ -631,7 +699,7 @@ function CSServer(Port,PlayerLimit,IsPersonalServer)
 					local Character=Player.Character
 					local Humanoid=Character:FindFirstChild("Humanoid")
 					if (Humanoid~=nil) then
-						Humanoid.Died:connect(function() delay(5,function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.CharactermPlayer.Backpack) end) end)
+						Humanoid.Died:connect(function() delay(RespawnTime, function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.CharactermPlayer.Backpack) end) end)
 					end
 				end
 			end)
@@ -641,13 +709,63 @@ function CSServer(Port,PlayerLimit,IsPersonalServer)
 		game:GetService("RunService"):Run()
 		pcall(function() game.Close:connect(function() Server:Stop() end) end)
 		Server.IncommingConnection:connect(IncommingConnection)
+		-- gear types!!!!!!!
+		local AllowedGearTypes = Instance.new("StringValue")
+		AllowedGearTypes.Name = "AllowedGearTypes"
+		AllowedGearTypes.Parent = game.Lighting
+		-- ok, lets register our s e p e r a t e  g e a r s
+		local MeleeGTR = Instance.new("BoolValue")
+		MeleeGTR.Parent = AllowedGearTypes
+		MeleeGTR.Name = "Melee"
+		MeleeGTR.Value = MeleeGT
+		local PowerUpGTR = Instance.new("BoolValue")
+		PowerUpGTR.Parent = AllowedGearTypes
+		PowerUpGTR.Name = "PowerUp"
+		PowerUpGTR.Value = PowerUpGT
+		local RangedGTR = Instance.new("BoolValue")
+		RangedGTR.Parent = AllowedGearTypes
+		RangedGTR.Name = "Ranged"
+		RangedGTR.Value = RangedGT
+		local NavigationGTR = Instance.new("BoolValue")
+		NavigationGTR.Parent = AllowedGearTypes
+		NavigationGTR.Name = "Navigation"
+		NavigationGTR.Value = NavigationGT
+		local ExplosivesGTR = Instance.new("BoolValue")
+		ExplosivesGTR.Parent = AllowedGearTypes
+		ExplosivesGTR.Name = "Explosives"
+		ExplosivesGTR.Value = ExplosivesGT
+		local MusicalGTR = Instance.new("BoolValue")
+		MusicalGTR.Parent = AllowedGearTypes
+		MusicalGTR.Name = "Musical"
+		MusicalGTR.Value = MusicalGT
+		local SocialGTR = Instance.new("BoolValue")
+		SocialGTR.Parent = AllowedGearTypes
+		SocialGTR.Name = "Social"
+		SocialGTR.Value = SocialGT
+		local TransportGTR = Instance.new("BoolValue")
+		TransportGTR.Parent = AllowedGearTypes
+		TransportGTR.Name = "Transport"
+		TransportGTR.Value = TransportGT
+		local BuildingGTR = Instance.new("BoolValue")
+		BuildingGTR.Parent = AllowedGearTypes
+		BuildingGTR.Name = "Building"
+		BuildingGTR.Value = BuildingGT
+		-- chat types
+		if rbxlegacyversion >= 7 then
+			if ChatType == "Both"
+				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
+			elseif ChatType == "Classic"
+				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Classic) end)
+			elseif ChatType == "Bubble"
+				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Bubble) end)
+			end
+		end
 	end
 end
 
 function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Gear1,Gear2,Gear3,Ticket)
 	if (rbxlegacyversion >= 8) then
 		pcall(function() game:SetPlaceID(-1, false) end)
-		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
 		game:GetService("RunService"):Run()
 		assert((ServerIP~=nil and ServerPort~=nil),"CSConnect Error: ServerIP and ServerPort must be defined.")
 		local function SetMessage(Message) game:SetMessage(Message) end

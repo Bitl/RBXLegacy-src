@@ -530,8 +530,8 @@ namespace RBXLegacyLauncher
 		
 		void Button20Click(object sender, EventArgs e)
 		{
-			ServerInfo infopanel = new ServerPrefs();
-			infopanel.Show();
+			ServerPrefs prefspanel = new ServerPrefs();
+			prefspanel.Show();
 		}
 		
 		void richTextBox1_KeyDown(object sender, KeyEventArgs e)

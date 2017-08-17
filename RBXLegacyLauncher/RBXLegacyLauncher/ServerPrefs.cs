@@ -17,6 +17,7 @@ namespace RBXLegacyLauncher
         	textBox1.AppendText("Client: " + GlobalVars.SelectedClient);
         	textBox1.AppendText(Environment.NewLine);
         	textBox1.AppendText("IP: " + GetExternalIPAddress());
+        	textBox1.AppendText(Environment.NewLine);
         	textBox1.AppendText("Port: " + GlobalVars.RobloxPort.ToString());
         	textBox1.AppendText(Environment.NewLine);
 			textBox1.AppendText("Map: " + GlobalVars.Map);
@@ -33,7 +34,6 @@ namespace RBXLegacyLauncher
 			};
 			string URI = "RBXLegacy://" + SecurityFuncs.Base64Encode(string.Join("|",lines));
 			textBox1.AppendText("Online URI Link:");
-			textBox1.AppendText(Environment.NewLine);
 			textBox1.AppendText(URI);
 			textBox1.AppendText(Environment.NewLine);
 			string[] lines2 = { 
@@ -43,7 +43,6 @@ namespace RBXLegacyLauncher
 			};
 			string URI2 = "RBXLegacy://" + SecurityFuncs.Base64Encode(string.Join("|",lines2));
 			textBox1.AppendText("Local URI Link:");
-			textBox1.AppendText(Environment.NewLine);
 			textBox1.AppendText(URI2);			
 		}
 		

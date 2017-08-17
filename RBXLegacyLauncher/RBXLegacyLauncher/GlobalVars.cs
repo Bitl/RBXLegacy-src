@@ -21,6 +21,7 @@
 	public static int RespawnTime = 5;
 	public static bool IsPersonalServer = false;
 	public static bool upnp = true;
+	//public static bool 
 	// player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";
