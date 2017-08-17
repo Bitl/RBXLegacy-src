@@ -19,6 +19,9 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.checkBox12 = new System.Windows.Forms.CheckBox();
+			this.textBox11 = new System.Windows.Forms.TextBox();
+			this.textBox12 = new System.Windows.Forms.TextBox();
 			this.textBox9 = new System.Windows.Forms.TextBox();
 			this.textBox10 = new System.Windows.Forms.TextBox();
 			this.textBox5 = new System.Windows.Forms.TextBox();
@@ -52,9 +55,6 @@
 			this.radioButton2 = new System.Windows.Forms.RadioButton();
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
-			this.textBox11 = new System.Windows.Forms.TextBox();
-			this.textBox12 = new System.Windows.Forms.TextBox();
-			this.checkBox12 = new System.Windows.Forms.CheckBox();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -130,6 +130,31 @@
 			this.tabPage1.Text = "PREFERENCES";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			this.tabPage1.Click += new System.EventHandler(this.TabPage1Click);
+			// 
+			// checkBox12
+			// 
+			this.checkBox12.Location = new System.Drawing.Point(353, 6);
+			this.checkBox12.Name = "checkBox12";
+			this.checkBox12.Size = new System.Drawing.Size(129, 17);
+			this.checkBox12.TabIndex = 66;
+			this.checkBox12.Text = "Run in Console Mode";
+			this.checkBox12.UseVisualStyleBackColor = true;
+			// 
+			// textBox11
+			// 
+			this.textBox11.Location = new System.Drawing.Point(179, 198);
+			this.textBox11.Name = "textBox11";
+			this.textBox11.Size = new System.Drawing.Size(55, 20);
+			this.textBox11.TabIndex = 65;
+			this.textBox11.Text = "0";
+			// 
+			// textBox12
+			// 
+			this.textBox12.Location = new System.Drawing.Point(179, 173);
+			this.textBox12.Name = "textBox12";
+			this.textBox12.Size = new System.Drawing.Size(54, 20);
+			this.textBox12.TabIndex = 64;
+			this.textBox12.Text = "0";
 			// 
 			// textBox9
 			// 
@@ -207,6 +232,7 @@
 			this.radioButton3.TabIndex = 54;
 			this.radioButton3.Text = "None";
 			this.radioButton3.UseVisualStyleBackColor = true;
+			this.radioButton3.CheckedChanged += new System.EventHandler(this.RadioButton3CheckedChanged);
 			// 
 			// textBox2
 			// 
@@ -229,7 +255,6 @@
 			// 
 			this.checkBox11.Checked = true;
 			this.checkBox11.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox11.Enabled = false;
 			this.checkBox11.Location = new System.Drawing.Point(239, 202);
 			this.checkBox11.Name = "checkBox11";
 			this.checkBox11.Size = new System.Drawing.Size(202, 17);
@@ -239,7 +264,6 @@
 			// 
 			// checkBox10
 			// 
-			this.checkBox10.Enabled = false;
 			this.checkBox10.Location = new System.Drawing.Point(239, 184);
 			this.checkBox10.Name = "checkBox10";
 			this.checkBox10.Size = new System.Drawing.Size(175, 17);
@@ -443,32 +467,6 @@
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "INFORMATION";
 			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
-			// textBox11
-			// 
-			this.textBox11.Location = new System.Drawing.Point(179, 198);
-			this.textBox11.Name = "textBox11";
-			this.textBox11.Size = new System.Drawing.Size(55, 20);
-			this.textBox11.TabIndex = 65;
-			this.textBox11.Text = "0";
-			// 
-			// textBox12
-			// 
-			this.textBox12.Location = new System.Drawing.Point(179, 173);
-			this.textBox12.Name = "textBox12";
-			this.textBox12.Size = new System.Drawing.Size(54, 20);
-			this.textBox12.TabIndex = 64;
-			this.textBox12.Text = "0";
-			// 
-			// checkBox12
-			// 
-			this.checkBox12.Enabled = false;
-			this.checkBox12.Location = new System.Drawing.Point(353, 6);
-			this.checkBox12.Name = "checkBox12";
-			this.checkBox12.Size = new System.Drawing.Size(129, 17);
-			this.checkBox12.TabIndex = 66;
-			this.checkBox12.Text = "Run in Console Mode";
-			this.checkBox12.UseVisualStyleBackColor = true;
 			// 
 			// ServerPrefs
 			// 

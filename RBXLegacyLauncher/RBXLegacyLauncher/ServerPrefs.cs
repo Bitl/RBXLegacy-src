@@ -26,7 +26,6 @@ namespace RBXLegacyLauncher
         	textBox1.AppendText(Environment.NewLine);
 			textBox1.AppendText("Version: RBXLegacy " + GlobalVars.Version);
 			textBox1.AppendText(Environment.NewLine);
-			textBox1.AppendText(Environment.NewLine);
 			string[] lines = { 
 				SecurityFuncs.Base64Encode(GetExternalIPAddress()),
 				SecurityFuncs.Base64Encode(GlobalVars.RobloxPort.ToString()),
@@ -77,6 +76,19 @@ namespace RBXLegacyLauncher
 			checkBox9.Enabled = false;
 		}
 		
+		void RadioButton3CheckedChanged(object sender, EventArgs e)
+		{
+			checkBox1.Enabled = false;
+			checkBox2.Enabled = false;
+			checkBox3.Enabled = false;
+			checkBox4.Enabled = false;
+			checkBox5.Enabled = false;
+			checkBox6.Enabled = false;
+			checkBox7.Enabled = false;
+			checkBox8.Enabled = false;
+			checkBox9.Enabled = false;
+		}
+				
 		void RadioButton2CheckedChanged(object sender, EventArgs e)
 		{
 			checkBox1.Enabled = true;
