@@ -989,7 +989,27 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		game:GetService("RunService"):run()
 	end
 	game.Workspace:InsertContent("rbxasset://fonts//libraries.rbxm")
-	
+	if (rbxlegacyversion == 10) then
+		waitForChild(game.StarterGui,"Playerlist")
+		waitForChild(game.StarterGui,"Menu")
+		waitForChild(game.StarterGui,"Backpack")
+		waitForChild(game.StarterGui,"Dialogs")
+		waitForChild(game.StarterGui,"Health")
+		waitForChild(game.StarterGui,"Notifications")
+		game.StarterGui.Menu.Workaround:remove()
+	elseif (rbxlegacyversion == 11) then
+		waitForChild(game.StarterGui,"Playerlist")
+		waitForChild(game.StarterGui,"Menu")
+		waitForChild(game.StarterGui,"Backpack")
+		waitForChild(game.StarterGui,"Dialogs")
+		waitForChild(game.StarterGui,"Health")
+		waitForChild(game.StarterGui,"Notifications")
+		waitForChild(game.StarterGui,"Chat")
+		game.StarterGui.Menu.Workaround:remove()
+	elseif (rbxlegacyversion == 7) then
+		waitForChild(game.StarterGui,"Health")
+		game.StarterGui.Health.Workaround:remove()
+	end
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()	
@@ -1052,11 +1072,6 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		if (Humanoid~=nil) then
 			Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack) end) end)
 		end
-	end
-	
-	if (rbxlegacyversion > 8) then
-		waitForChild(game.StarterGui,"Menu")
-		game.StarterGui.Menu.Workaround:remove()
 	end
 end
 
