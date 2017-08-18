@@ -7416,8 +7416,24 @@ end
 					<bool name="Disabled">false</bool>
 					<Content name="LinkedSource"><null></null></Content>
 					<string name="Name">Workaround</string>
-					<ProtectedString name="Source">game.Players.LocalPlayer.PlayerGui.Menu.MenuScript.Disabled = true
-game.Players.LocalPlayer.PlayerGui.Menu.MenuScript.Disabled = false</ProtectedString>
+					<ProtectedString name="Source">local function waitForChild(instance, name)
+&#9;while not instance:FindFirstChild(name) do
+&#9;&#9;instance.ChildAdded:wait()
+&#9;end
+end
+
+
+waitForChild(game, &quot;NetworkClient&quot;)
+
+wait(0.1)
+game.Players.LocalPlayer.PlayerGui.Menu.MenuScript.Disabled = true
+game.Players.LocalPlayer.PlayerGui.Menu.MenuScript.Disabled = false
+
+if game.NetworkClient == nil then
+print(&quot;Playing solo, not using workaround.&quot;)
+end
+
+</ProtectedString>
 				</Properties>
 			</Item>
 		</Item>
