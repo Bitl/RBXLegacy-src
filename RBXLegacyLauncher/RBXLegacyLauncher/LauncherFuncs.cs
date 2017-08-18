@@ -145,8 +145,6 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.UserID.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.PlayerName.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.SelectedClient.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.Map.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.ServerPort.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Hat1ID_Offline.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Hat2ID_Offline.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Hat3ID_Offline.ToString()),
@@ -162,7 +160,6 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.ColorMenu_RightArmColor.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.ColorMenu_LeftLegColor.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.ColorMenu_RightLegColor.ToString()),
-				SecurityFuncs.Base64Encode(GlobalVars.PlayerLimit.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_TShirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Shirt.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Pants.ToString()),
@@ -177,6 +174,44 @@ namespace RBXLegacyLauncher
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Gear1.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Gear2.ToString()),
 				SecurityFuncs.Base64Encode(GlobalVars.Custom_Gear3.ToString())
+			};
+			File.WriteAllText(cfgpath, SecurityFuncs.Base64Encode(string.Join("|",lines)));
+		}
+		
+		public static void WriteServerPrefs(string cfgpath)
+		{
+			string[] lines = { 
+				SecurityFuncs.Base64Encode(GlobalVars.Map.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.ServerPort.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.DefaultRobloxPort.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.PlayerLimit.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.RespawnTime.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.IsPersonalServer.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.melee.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.navigation.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.social.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.powerup.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.explosives.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.transport.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.ranged.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.musical.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.building.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.navigation.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.social.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.explosives.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.transport.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.ranged.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.musical.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.building.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist1.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist2.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist3.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist4.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist5.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist6.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist7.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.blacklist8.ToString()),
+				SecurityFuncs.Base64Encode(GlobalVars.respawntime.ToString())
 			};
 			File.WriteAllText(cfgpath, SecurityFuncs.Base64Encode(string.Join("|",lines)));
 		}
@@ -200,7 +235,6 @@ namespace RBXLegacyLauncher
 			GlobalVars.UserID = 0;
 			GlobalVars.PlayerName = "Player";
     		GlobalVars.SelectedClient = Decryptline2;
-			GlobalVars.Map = "Baseplate.rbxl";
 			GlobalVars.ServerPort = 53640;
 			GlobalVars.Custom_Hat1ID_Offline = "NoHat.rbxm";
 			GlobalVars.Custom_Hat2ID_Offline = "NoHat.rbxm";
@@ -217,11 +251,39 @@ namespace RBXLegacyLauncher
 			GlobalVars.ColorMenu_RightArmColor = "Color [A=255, R=245, G=205, B=47]";
 			GlobalVars.ColorMenu_LeftLegColor = "Color [A=255, R=164, G=189, B=71]";
 			GlobalVars.ColorMenu_RightLegColor = "Color [A=255, R=164, G=189, B=71]";
-			GlobalVars.PlayerLimit = 12;
 			GlobalVars.Custom_TShirt = 0;
 			GlobalVars.Custom_Shirt = 0;
 			GlobalVars.Custom_Pants = 0;
 			GlobalVars.Custom_IconType = "NBC";
+		}
+		
+		public static void ResetServerPrefs()
+		{
+			GlobalVars.Map = "Baseplate.rbxl";
+			GlobalVars.ServerPort = 53640;
+			GlobalVars.DefaultRobloxPort = 53640;
+			GlobalVars.PlayerLimit = 12;
+			GlobalVars.RespawnTime = 5;
+			GlobalVars.IsPersonalServer = false;
+			GlobalVars.upnp = true;
+			GlobalVars.melee = false;
+			GlobalVars.navigation = false;
+			GlobalVars.social = false;
+			GlobalVars.powerup = false;
+			GlobalVars.explosives = false;
+			GlobalVars.transport = false;
+			GlobalVars.ranged = false;
+			GlobalVars.musical = false;
+			GlobalVars.building = false;
+			GlobalVars.blacklist1 = 0;
+			GlobalVars.blacklist2 = 0;
+			GlobalVars.blacklist3 = 0;
+			GlobalVars.blacklist4 = 0;
+			GlobalVars.blacklist5 = 0;
+			GlobalVars.blacklist6 = 0;
+			GlobalVars.blacklist7 = 0;
+			GlobalVars.blacklist8 = 0;
+			GlobalVars.respawntime = 5;
 		}
 		
 		public static void ReadClientValues(string clientpath)

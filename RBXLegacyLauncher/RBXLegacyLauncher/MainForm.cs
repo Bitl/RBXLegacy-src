@@ -232,14 +232,14 @@ namespace RBXLegacyLauncher
 			textBox4.Text = GlobalVars.RobloxPort.ToString();
 			label37.Text = GlobalVars.IP;
 			label38.Text = GlobalVars.RobloxPort.ToString();
-			ConsolePrint("Config loaded.", 3);
+			ConsolePrint("Your configuration has been loaded.", 3);
 			ReadClientValues(GlobalVars.SelectedClient);
 		}
 		
 		void WriteConfigValues()
 		{
 			LauncherFuncs.WriteConfigValues("config.txt");
-			ConsolePrint("Config Saved.", 3);
+			ConsolePrint("Your configuration has been saved successfully.", 3);
 		}
 		
 		void ReadClientValues(string ClientName)
@@ -335,7 +335,7 @@ namespace RBXLegacyLauncher
 		void Button5Click(object sender, EventArgs e)
 		{
 			WriteConfigValues();
-			MessageBox.Show("Config Saved!");
+			DialogResult result = MessageBox.Show("Your configuration has been saved successfully!","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		
 		void TextBox2TextChanged(object sender, EventArgs e)
@@ -364,7 +364,7 @@ namespace RBXLegacyLauncher
 		void Button7Click(object sender, EventArgs e)
 		{
 			WriteConfigValues();
-			MessageBox.Show("Config Saved!");
+			DialogResult result = MessageBox.Show("Your configuration has been saved successfully!","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		
 		void TextBox4TextChanged(object sender, EventArgs e)
@@ -418,7 +418,7 @@ namespace RBXLegacyLauncher
 		void Button9Click(object sender, EventArgs e)
 		{
 			ResetConfigValues();
-			MessageBox.Show("Config Reset!");
+			DialogResult result = MessageBox.Show("Your configuration has been reset to their default values.","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		
 		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
@@ -885,22 +885,28 @@ namespace RBXLegacyLauncher
 			string important = SecurityFuncs.Base64Decode("cmJ4bGVnYWN5IGthbnJpc2hh");
 			if (command.Equals("rbxlegacy server"))
 			{
-				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-				pmap.StartInfo.UseShellExecute = false;
-				pmap.StartInfo.CreateNoWindow = true;
-				pmap.Start();
+				if (GlobalVars.upnp == true)
+				{
+					Process pmap = new Process();
+					pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
+					pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
+					pmap.StartInfo.UseShellExecute = false;
+					pmap.StartInfo.CreateNoWindow = true;
+					pmap.Start();
+				}
 				StartServer();
 			}
 			else if (command.Equals("rbxlegacy server no3d"))
 			{
-				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-				pmap.StartInfo.UseShellExecute = false;
-				pmap.StartInfo.CreateNoWindow = true;
-				pmap.Start();
+				if (GlobalVars.upnp == true)
+				{
+					Process pmap = new Process();
+					pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
+					pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
+					pmap.StartInfo.UseShellExecute = false;
+					pmap.StartInfo.CreateNoWindow = true;
+					pmap.Start();
+				}
 				StartServerNo3D();
 			}
 			else if (command.Equals("rbxlegacy no3d"))

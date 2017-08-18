@@ -21,7 +21,24 @@
 	public static int RespawnTime = 5;
 	public static bool IsPersonalServer = false;
 	public static bool upnp = true;
-	//public static bool 
+	public static bool melee = false;
+	public static bool navigation = false;
+	public static bool social = false;
+	public static bool powerup = false;
+	public static bool explosives = false;
+	public static bool transport = false;
+	public static bool ranged = false;
+	public static bool musical = false;
+	public static bool building = false;
+	public static int blacklist1 = 0;
+	public static int blacklist2 = 0;
+	public static int blacklist3 = 0;
+	public static int blacklist4 = 0;
+	public static int blacklist5 = 0;
+	public static int blacklist6 = 0;
+	public static int blacklist7 = 0;
+	public static int blacklist8 = 0;
+	public static int respawntime = 5;
 	// player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";

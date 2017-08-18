@@ -55,6 +55,7 @@
 			this.radioButton2 = new System.Windows.Forms.RadioButton();
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.button1 = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -468,6 +469,15 @@
 			this.tabPage2.Text = "INFORMATION";
 			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(355, 11);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(144, 23);
+			this.button1.TabIndex = 2;
+			this.button1.Text = "Reset Server Preferences";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
 			// ServerPrefs
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,6 +485,7 @@
 			this.AutoScroll = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.ClientSize = new System.Drawing.Size(514, 271);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -489,6 +500,7 @@
 			this.tabPage2.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.TextBox textBox12;
 		private System.Windows.Forms.TextBox textBox11;
 		private System.Windows.Forms.CheckBox checkBox12;

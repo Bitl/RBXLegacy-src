@@ -126,61 +126,72 @@ USE NUMBERS PROVIDED AS VALUES
 - Support for "fake" 2006/2007 clients, or the real things.
 - Uses Legacy joinscript.
 - Does not support hats or any other form of customization besides body colors.
+- Has a BrickColor palette of 32 BrickColors.
 -------------------------------------------------------------
 2 - Pre-Alpha (Ext.)
 - Mid-2008 or lower.
 - Support for "fake" 2006/2007 clients, or the real things.
 - Uses Legacy joinscript.
 - Supports only hats, body colors, and T-Shirts.
+- Has a BrickColor palette of 32 BrickColors.
 -------------------------------------------------------------
 3 - Alpha
 - Mid-2008 or lower.
 - Uses Legacy joinscript.
 - Supports only hats, body colors, T-Shirts, shirts, and pants.
+- Has a BrickColor palette of 32 BrickColors.
 -------------------------------------------------------------
 4 - Beta
 - Late-2008-Early 2009.
 - Uses Legacy joinscript.
 - Supports only hats, body colors, T-Shirts, shirts, and pants.
+- Has a BrickColor palette of 32 BrickColors.
 -------------------------------------------------------------
 5 - Pre-Gamma Beta
 - Early-2009-Early 2010.
 - Uses Legacy joinscript.
 - Supports most kinds of customization except faces and body meshes.
+- Has a BrickColor palette of 32 BrickColors.
 -------------------------------------------------------------
 6 - Pre-Gamma
 - Early-2009-Early 2010.
 - Uses Legacy joinscript.
 - Supports most kinds of customization except most body meshes.
+- Has a BrickColor palette of 32 BrickColors.
 -------------------------------------------------------------
 7 - Gamma
 - Mid-2010-November 2010.
 - Uses Legacy joinscript.
 - Supports all kinds of customization.
+- Has a BrickColor palette of 64 BrickColors.
 -------------------------------------------------------------
 8 - Delta
 - December-2010-Early 2011.
 - Uses RBXPri joinscript.
 - Supports the more modern 2011 user interface.
 - Supports all kinds of customization.
+- Has a BrickColor palette of 64 BrickColors.
 -------------------------------------------------------------
 9 - Delta Omega
 - Mid-2011-Early-2012.
 - Uses RBXPri joinscript.
 - Supports the more modern 2011 user interface.
 - Supports all kinds of customization.
+- Has a BrickColor palette of 64 BrickColors.
 -------------------------------------------------------------
 10 - Omega
 - Mid-2011-Early-2012.
 - Uses RBXPri joinscript.
 - Meant for more modern clients which don't use early 2011's UI.
 - Supports all kinds of customization.
+- Has a BrickColor palette of 64 BrickColors.
 -------------------------------------------------------------
 11 - Ultra
 - Mid-2012 +.
 - Uses RBXPri joinscript.
 - Meant for more modern clients over ones supported with Ultra.
 - Supports all kinds of customization.
+- Has a BrickColor palette of 64 BrickColors.
 -------------------------------------------------------------</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
