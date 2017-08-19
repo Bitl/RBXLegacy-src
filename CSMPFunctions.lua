@@ -261,18 +261,284 @@ function LoadCharacterNew(playerApp,newChar,newBackpack)
 			elseif (customtype.Value == 9) then 
 				if (rbxlegacyversion > 7) then
 					pcall(function()
-						local newPart = game.Workspace:InsertContent("rbxasset://../../../avatar/gears/"..newVal.Value)
-						if newPart[1] then 
-							if newPart[1].className == "Tool" then
-								newPart[1].Parent = Player.Backpack
+						local newGear = game.Workspace:InsertContent("rbxasset://../../../avatar/gears/"..newVal.Value)
+						if newGear[1] then 
+							if newGear[1].className == "Tool" then
+								ReadGearInfo(newGear[1], playerApp)
 							else
-								newPart[1]:remove()
+								newGear[1]:remove()
 							end
 						end
 					end)
 				end
 			end
 		end
+	end
+end
+
+function ReadGearInfo(newTool,player)
+	if newTool.className == "Tool" then
+		for _,GearVal in pairs(newTool:GetChildren()) do
+			newWaitForChild(GearVal,"GearType")
+			local GearType = newTool:FindFirstChild("GearType")
+			--GearType must be an IntBool. This must also be placed in the root of the tool.
+			newWaitForChild(game.Lighting,"AllowedGearTypes")
+			if (GearType == 1) then
+				if (game.Lighting.AllowedGearTypes.Melee == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 2) then
+				if (game.Lighting.AllowedGearTypes.PowerUp == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 3) then
+				if (game.Lighting.AllowedGearTypes.Ranged == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 4) then
+				if (game.Lighting.AllowedGearTypes.Navigation == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 5) then
+				if (game.Lighting.AllowedGearTypes.Explosives == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 6) then
+				if (game.Lighting.AllowedGearTypes.Musical == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 7) then
+				if (game.Lighting.AllowedGearTypes.Social == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 8) then
+				if (game.Lighting.AllowedGearTypes.Transport == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif (GearType == 9) then
+				if (game.Lighting.AllowedGearTypes.Building == true) then
+					if (player.StarterGear) then
+						for _,gearCheck in pairs(player.StarterGear:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.StarterGear
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					else
+						for _,gearCheck in pairs(player.Backpack:GetChildren()) do
+							if (gearCheck ~= nil) then
+								if (gearCheck:isA("Tool")) then
+									if (gearCheck.Name ~= newTool.Name) then
+										newTool.Parent = player.Backpack
+									else
+										newTool:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	else
+		newTool:remove()
 	end
 end
 
@@ -554,7 +820,7 @@ function InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,Torso
 		end
 		local typeValue = Instance.new("NumberValue")
 		typeValue.Name = "CustomizationType"
-		typeValue.Parent = newBackpack
+		typeValue.Parent = newGear
 		typeValue.Value = 9
 	end
 end
