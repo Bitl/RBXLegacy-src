@@ -850,6 +850,10 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 				wait(2)
 				Player:remove()
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Player is banned from playing this server.")
+			elseif (Player.Name == "QuackIAttack" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and Player.isAdmin == false) then
+				wait(2)
+				Player:Remove()
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Being an impostor")
 			else
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
 				Player:LoadCharacter()
@@ -879,6 +883,10 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 			game:GetService("PersonalServerService")
 			pcall(function() game.IsPersonalServer(true)
 		end
+		local HostID = Instance.new("StringValue")
+		HostID.Parent = game.Lighting
+		HostID.Name = "HostID"
+		HostID.Value = "" .. HostID .. ""
 		-- gear types!!!!!!!
 		local AllowedGearTypes = Instance.new("StringValue")
 		AllowedGearTypes.Name = "AllowedGearTypes"
@@ -956,6 +964,10 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 				wait(2)
 				Player:remove()
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Player is banned from playing this server.")
+			elseif (Player.Name == "QuackIAttack" or Player.Name == "CPunch" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and Player.isAdmin == false) then
+				wait(2)
+				Player:Remove()
+				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Being an impostor")
 			else
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' added")
 				Player:LoadCharacter()
@@ -975,6 +987,10 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 		game:GetService("RunService"):Run()
 		pcall(function() game.Close:connect(function() Server:Stop() end) end)
 		Server.IncommingConnection:connect(IncommingConnection)
+		local HostID = Instance.new("StringValue")
+		HostID.Parent = game.Lighting
+		HostID.Name = "HostID"
+		HostID.Value = "" .. HostID .. ""
 		-- gear types!!!!!!!
 		local AllowedGearTypes = Instance.new("StringValue")
 		AllowedGearTypes.Name = "AllowedGearTypes"
@@ -1029,7 +1045,7 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 	end
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Gear1,Gear2,Gear3,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Gear1,Gear2,Gear3,IsAdminUser,Ticket)
 	if (rbxlegacyversion >= 8) then
 		pcall(function() game:SetPlaceID(-1, false) end)
 		game:GetService("RunService"):Run()
@@ -1165,9 +1181,16 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			Player.CanLoadCharacterAppearance = false
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
+		if (Player.Name == "QuackIAttack" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and IsAdminUser == false) then
+			game:SetMessage("No faking, clever boy!")
+			Player:Remove()
+		end
+		local isAdmin = Instance.new("BoolValue")
+		isAdmin.Parent = Player
+		isAdmin.Name = "isAdmin"
+		isAdmin.Value = IsAdminUser 
 	else
 		pcall(function() game:SetPlaceID(-1, false) end)
-		pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
 	
 		local suc, err = pcall(function()
 			client = game:GetService("NetworkClient")
@@ -1179,6 +1202,14 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			pcall(function() player.Name=PlayerName or "" end)
 			game:GetService("Visit")
 			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
+			if (player.Name == "QuackIAttack" or player.Name == "CPunch" or player.Name == "Carrot" or player.Name == "Bitl" or player.Name == "khanglegos" or player.Name == "Nukley" or player.Name == "OliverA" or player.Name == "coke" or player.Name == "Peridorky" or player.Name == "Raymonf" or player.Name == "romulo27" or player.Name == "TheLivingBee" or player.Name == "robloxtester" or player.Name == "winsupermario1234" and IsAdminUser == false) then
+				game:SetMessage("No faking, clever boy!")
+				player:Remove()
+			end
+			local isAdmin = Instance.new("BoolValue")
+			isAdmin.Parent = player
+			isAdmin.Name = "isAdmin"
+			isAdmin.Value = IsAdminUser 
 		end)
 	
 		local function dieerror(errmsg)
