@@ -850,7 +850,7 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 				wait(2)
 				Player:remove()
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Player is banned from playing this server.")
-			elseif (Player.Name == "QuackIAttack" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and Player.isAdmin == false) then
+			elseif (Player.Name == "QuackIAttack" or Player.Name == "connor" or Player.Name == "CPunch" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and Player.isAdmin == false) then
 				wait(2)
 				Player:Remove()
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Being an impostor")
@@ -964,7 +964,7 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 				wait(2)
 				Player:remove()
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Player is banned from playing this server.")
-			elseif (Player.Name == "QuackIAttack" or Player.Name == "CPunch" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and Player.isAdmin == false) then
+			elseif (Player.Name == "QuackIAttack" or Player.Name == "CPunch" or Player.Name == "connor" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and Player.isAdmin == false) then
 				wait(2)
 				Player:Remove()
 				print("Player '" .. Player.Name .. "' with ID '" .. Player.userId .. "' kicked. Reason: Being an impostor")
@@ -1181,7 +1181,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			Player.CanLoadCharacterAppearance = false
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
-		if (Player.Name == "QuackIAttack" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and IsAdminUser == false) then
+		if (Player.Name == "QuackIAttack" or Player.Name == "CPunch" or Player.Name == "connor" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and IsAdminUser == false) then
 			game:SetMessage("No faking, clever boy!")
 			Player:Remove()
 		end
@@ -1202,7 +1202,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			pcall(function() player.Name=PlayerName or "" end)
 			game:GetService("Visit")
 			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
-			if (player.Name == "QuackIAttack" or player.Name == "CPunch" or player.Name == "Carrot" or player.Name == "Bitl" or player.Name == "khanglegos" or player.Name == "Nukley" or player.Name == "OliverA" or player.Name == "coke" or player.Name == "Peridorky" or player.Name == "Raymonf" or player.Name == "romulo27" or player.Name == "TheLivingBee" or player.Name == "robloxtester" or player.Name == "winsupermario1234" and IsAdminUser == false) then
+			if (player.Name == "QuackIAttack" or player.Name == "CPunch" or Player.Name == "connor" or player.Name == "Carrot" or player.Name == "Bitl" or player.Name == "khanglegos" or player.Name == "Nukley" or player.Name == "OliverA" or player.Name == "coke" or player.Name == "Peridorky" or player.Name == "Raymonf" or player.Name == "romulo27" or player.Name == "TheLivingBee" or player.Name == "robloxtester" or player.Name == "winsupermario1234" and IsAdminUser == false) then
 				game:SetMessage("No faking, clever boy!")
 				player:Remove()
 			end
