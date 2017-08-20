@@ -51,10 +51,12 @@ function SetRBXLegacyVersion(Version)
 		settings().Network.DataSendRate = 30
 		settings().Network.PhysicsSendRate = 20
 		settings().Network.ReceiveRate = 60
+		settings().Diagnostics.LuaRamLimit = 0
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 	elseif (rbxlegacyversion == 8) then -- Delta
 		settings().Rendering.FrameRateManager = 2
+		settings().Diagnostics.LuaRamLimit = 0
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		coroutine.resume(coroutine.create(function()
@@ -109,30 +111,44 @@ function SetRBXLegacyVersion(Version)
 		game.GuiRoot.ScoreHud:Remove()
 	elseif (rbxlegacyversion == 9) then -- Delta Omega
 		settings().Rendering.FrameRateManager = 2
+		settings().Diagnostics.LuaRamLimit = 0
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		waitForChild(game.GuiRoot,"ScoreHud")
 		game.GuiRoot.ScoreHud:Remove()
 	elseif (rbxlegacyversion == 10) then -- Omega
 		settings().Rendering.FrameRateManager = 2
+		settings().Diagnostics.LuaRamLimit = 0
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
 		--stamper
-		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
-		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
-		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
-		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
-		game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
+		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
+		pcall(function() game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base") end)
+		pcall(function() game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d") end)
+		pcall(function() game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d") end)
+		pcall(function() game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d") end)
+		pcall(function() game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d") end)
+		pcall(function() game:GetService("SocialService"):SetGroupUrl("http://assetgame.roblox.com/Game/LuaWebService/HandleSocialRequest.ashx?method=IsInGroup&playerid=%d&groupid=%d") end)
+		pcall(function() game:GetService("BadgeService"):SetPlaceId(-1) end)
+		pcall(function() game:GetService("BadgeService"):SetIsBadgeLegalUrl("") end)
+		pcall(function() game:GetService("ScriptInformationProvider"):SetAssetUrl("http://www.roblox.com/Asset/") end)
+		pcall(function() game:GetService("ContentProvider"):SetBaseUrl("http://www.roblox.com/") end)
 	elseif (rbxlegacyversion == 11) then -- Ultra
 		settings().Rendering.FrameRateManager = 2
+		settings().Diagnostics.LuaRamLimit = 0
 		pcall(function() game:GetService("ScriptContext").ScriptsDisabled = false end)
 		pcall(function() settings().Diagnostics:LegacyScriptMode() end)
-		--stamper
-		game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base")
-		game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d")
-		game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d")
-		game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d")
-		game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d")
+		pcall(function() game:GetService("InsertService"):SetBaseSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=10&type=base") end)
+		pcall(function() game:GetService("InsertService"):SetUserSetsUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?nsets=20&type=user&userid=%d") end)
+		pcall(function() game:GetService("InsertService"):SetCollectionUrl("http://www.roblox.com/Game/Tools/InsertAsset.ashx?sid=%d") end)
+		pcall(function() game:GetService("InsertService"):SetAssetUrl("http://www.roblox.com/Asset/?id=%d") end)
+		pcall(function() game:GetService("InsertService"):SetAssetVersionUrl("http://www.roblox.com/Asset/?assetversionid=%d") end)
+		pcall(function() game:GetService("SocialService"):SetGroupUrl("http://assetgame.roblox.com/Game/LuaWebService/HandleSocialRequest.ashx?method=IsInGroup&playerid=%d&groupid=%d") end)
+		pcall(function() game:GetService("BadgeService"):SetPlaceId(-1) end)
+		pcall(function() game:GetService("BadgeService"):SetIsBadgeLegalUrl("") end)
+		pcall(function() game:GetService("ScriptInformationProvider"):SetAssetUrl("http://www.roblox.com/Asset/") end)
+		pcall(function() game:GetService("ContentProvider"):SetBaseUrl("http://www.roblox.com/") end)
 	end
 	print("RBXLegacy client version '" .. rbxlegacyversion .. "' loaded.")
 end
