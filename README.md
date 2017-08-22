@@ -1,5 +1,5 @@
 
-![Logo](https://cdn.discordapp.com/attachments/327072930066333697/327073266197856268/Logo.png)
+![Logo](https://cdn.discordapp.com/attachments/327072930066333697/349348817423958017/rbxlegacylogo2.png)
 
 ## Overview
 
