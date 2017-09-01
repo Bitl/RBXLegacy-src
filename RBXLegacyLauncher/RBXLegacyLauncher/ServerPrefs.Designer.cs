@@ -513,6 +513,7 @@
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(520, 300);
 			this.Name = "ServerPrefs";
 			this.Text = "Server Preferences";
