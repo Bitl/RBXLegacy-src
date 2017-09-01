@@ -95,9 +95,9 @@
 			// 
 			this.checkBox4.Location = new System.Drawing.Point(5, 106);
 			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(182, 20);
+			this.checkBox4.Size = new System.Drawing.Size(192, 20);
 			this.checkBox4.TabIndex = 34;
-			this.checkBox4.Text = "Client has \"rocky\" packet errors";
+			this.checkBox4.Text = "Use Sudppipe (RECCOMENDED)";
 			this.checkBox4.UseVisualStyleBackColor = true;
 			this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox4CheckedChanged);
 			// 

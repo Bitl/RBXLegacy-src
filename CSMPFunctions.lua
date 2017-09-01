@@ -1203,7 +1203,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		local isAdmin = Instance.new("BoolValue")
 		isAdmin.Parent = Player
 		isAdmin.Name = "isAdmin"
-		isAdmin.Value = "" .. IsAdminUser .. ""  
+		isAdmin.Value = IsAdminUser 
 	else
 		pcall(function() game:SetPlaceID(-1, false) end)
 	
@@ -1224,7 +1224,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			local isAdmin = Instance.new("BoolValue")
 			isAdmin.Parent = player
 			isAdmin.Name = "isAdmin"
-			isAdmin.Value = "" .. IsAdminUser .. "" 
+			isAdmin.Value = IsAdminUser
 		end)
 	
 		local function dieerror(errmsg)
