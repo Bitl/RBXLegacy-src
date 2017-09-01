@@ -290,7 +290,6 @@ function LoadCharacterNew(playerApp,newChar,newBackpack)
 			end
 		end
 	end
-end
 
 function ReadGearInfo(newTool,player)
 	if newTool.className == "Tool" then
@@ -896,13 +895,13 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 		NetworkServer.IncommingConnection:connect(IncommingConnection)
 		-- perbsosnal sebrs!
 		if IsPersonalServer == true then
-			game:GetService("PersonalServerService")
-			pcall(function() game.IsPersonalServer(true)
+			pcall(function() game:GetService("PersonalServerService") end)
+			pcall(function() game.IsPersonalServer(true) end)
 		end
-		local HostID = Instance.new("StringValue")
-		HostID.Parent = game.Lighting
-		HostID.Name = "HostID"
-		HostID.Value = "" .. HostID .. ""
+		local HostIDValue = Instance.new("StringValue")
+		HostIDValue.Parent = game.Lighting
+		HostIDValue.Name = "HostID"
+		HostIDValue.Value = "" .. HostID .. ""
 		-- gear types!!!!!!!
 		local AllowedGearTypes = Instance.new("StringValue")
 		AllowedGearTypes.Name = "AllowedGearTypes"
@@ -946,11 +945,11 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 		BuildingGTR.Value = BuildingGT
 		-- chat types
 		if rbxlegacyversion >= 7 then
-			if ChatType == "Both"
+			if ChatType == "Both" then
 				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
-			elseif ChatType == "Classic"
+			elseif ChatType == "Classic" then
 				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Classic) end)
-			elseif ChatType == "Bubble"
+			elseif ChatType == "Bubble" then
 				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Bubble) end)
 			end
 		end
@@ -1003,10 +1002,10 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 		game:GetService("RunService"):Run()
 		pcall(function() game.Close:connect(function() Server:Stop() end) end)
 		Server.IncommingConnection:connect(IncommingConnection)
-		local HostID = Instance.new("StringValue")
-		HostID.Parent = game.Lighting
-		HostID.Name = "HostID"
-		HostID.Value = "" .. HostID .. ""
+		local HostIDValue = Instance.new("StringValue")
+		HostIDValue.Parent = game.Lighting
+		HostIDValue.Name = "HostID"
+		HostIDValue.Value = "" .. HostID .. ""
 		-- gear types!!!!!!!
 		local AllowedGearTypes = Instance.new("StringValue")
 		AllowedGearTypes.Name = "AllowedGearTypes"
@@ -1050,11 +1049,11 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 		BuildingGTR.Value = BuildingGT
 		-- chat types
 		if rbxlegacyversion >= 7 then
-			if ChatType == "Both"
+			if ChatType == "Both" then
 				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.ClassicAndBubble) end)
-			elseif ChatType == "Classic"
+			elseif ChatType == "Classic" then
 				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Classic) end)
-			elseif ChatType == "Bubble"
+			elseif ChatType == "Bubble" then
 				pcall(function() game:GetService("Players"):SetChatStyle(Enum.ChatStyle.Bubble) end)
 			end
 		end
@@ -1204,7 +1203,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		local isAdmin = Instance.new("BoolValue")
 		isAdmin.Parent = Player
 		isAdmin.Name = "isAdmin"
-		isAdmin.Value = IsAdminUser 
+		isAdmin.Value = "" .. IsAdminUser .. ""  
 	else
 		pcall(function() game:SetPlaceID(-1, false) end)
 	
@@ -1218,14 +1217,14 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			pcall(function() player.Name=PlayerName or "" end)
 			game:GetService("Visit")
 			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
-			if (player.Name == "QuackIAttack" or player.Name == "CPunch" or Player.Name == "connor" or player.Name == "Carrot" or player.Name == "Bitl" or player.Name == "khanglegos" or player.Name == "Nukley" or player.Name == "OliverA" or player.Name == "coke" or player.Name == "Peridorky" or player.Name == "Raymonf" or player.Name == "romulo27" or player.Name == "TheLivingBee" or player.Name == "robloxtester" or player.Name == "winsupermario1234" and IsAdminUser == false) then
+			if (player.Name == "QuackIAttack" or player.Name == "CPunch" or player.Name == "connor" or player.Name == "Carrot" or player.Name == "Bitl" or player.Name == "khanglegos" or player.Name == "Nukley" or player.Name == "OliverA" or player.Name == "coke" or player.Name == "Peridorky" or player.Name == "Raymonf" or player.Name == "romulo27" or player.Name == "TheLivingBee" or player.Name == "robloxtester" or player.Name == "winsupermario1234" and IsAdminUser == false) then
 				game:SetMessage("Kicked for impersonating an administrator.")
 				player:Remove()
 			end
 			local isAdmin = Instance.new("BoolValue")
 			isAdmin.Parent = player
 			isAdmin.Name = "isAdmin"
-			isAdmin.Value = IsAdminUser 
+			isAdmin.Value = "" .. IsAdminUser .. "" 
 		end)
 	
 		local function dieerror(errmsg)

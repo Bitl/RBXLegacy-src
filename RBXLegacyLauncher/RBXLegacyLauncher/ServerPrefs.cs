@@ -66,6 +66,27 @@ namespace RBXLegacyLauncher
 				textBox7.Text = GlobalVars.ServerPort.ToString();
 			}
 			
+			if (GlobalVars.melee == true && GlobalVars.navigation == true 
+			    && GlobalVars.social == true && GlobalVars.powerup == true && 
+			    GlobalVars.explosives == true && GlobalVars.transport == true && 
+			    GlobalVars.ranged == true && GlobalVars.musical == true && 
+			    GlobalVars.building == true)
+			{
+				radioButton1.Checked = true;
+			}
+			else if (GlobalVars.melee == false && GlobalVars.navigation == false 
+			    && GlobalVars.social == false && GlobalVars.powerup == false && 
+			    GlobalVars.explosives == false && GlobalVars.transport == false && 
+			    GlobalVars.ranged == false && GlobalVars.musical == false && 
+			    GlobalVars.building == false)
+			{
+				radioButton3.Checked = true;
+			}
+			else
+			{
+				radioButton2.Checked = true;
+			}
+			
 			if (GlobalVars.melee == true)
 			{
 				checkBox1.Checked = true;
@@ -145,27 +166,6 @@ namespace RBXLegacyLauncher
 			else
 			{
 				checkBox7.Checked = false;
-			}
-			
-			if (GlobalVars.melee == true && GlobalVars.navigation == true 
-			    && GlobalVars.social == true && GlobalVars.powerup == true && 
-			    GlobalVars.explosives == true && GlobalVars.transport == true && 
-			    GlobalVars.ranged == true && GlobalVars.musical == true && 
-			    GlobalVars.building == true)
-			{
-				radioButton1.Checked = true;
-			}
-			else if (GlobalVars.melee == false && GlobalVars.navigation == false 
-			    && GlobalVars.social == false && GlobalVars.powerup == false && 
-			    GlobalVars.explosives == false && GlobalVars.transport == false && 
-			    GlobalVars.ranged == false && GlobalVars.musical == false && 
-			    GlobalVars.building == false)
-			{
-				radioButton3.Checked = true;
-			}
-			else
-			{
-				radioButton2.Checked = true;
 			}
 			
 			if (GlobalVars.upnp == true)
