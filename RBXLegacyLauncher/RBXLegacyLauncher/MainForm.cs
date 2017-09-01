@@ -108,12 +108,15 @@ namespace RBXLegacyLauncher
 		
 		void Button2Click(object sender, EventArgs e)
 		{
-			Process pmap = new Process();
-			pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-			pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-			pmap.StartInfo.UseShellExecute = false;
-			pmap.StartInfo.CreateNoWindow = true;
-			pmap.Start();
+			if (GlobalVars.upnp == true)
+			{
+				Process pmap = new Process();
+				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
+				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
+				pmap.StartInfo.UseShellExecute = false;
+				pmap.StartInfo.CreateNoWindow = true;
+				pmap.Start();
+			}
 			WriteConfigValues();
 			StartServer();
 			
