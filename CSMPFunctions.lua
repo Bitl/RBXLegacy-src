@@ -861,7 +861,7 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 			end
 			if (Player.userId == Blacklist1 or Player.userId == Blacklist2 or Player.userId == Blacklist3 or Player.userId == Blacklist4 or Player.userId == Blacklist5 or Player.userId == Blacklist6 or Player.userId == Blacklist7 or Player.userId == Blacklist8) then
 				local message = Instance.new("Message")
-				message.Text = "You have been banned from playing this server."
+				message.Text = "You have been blacklisted from this server."
 				message.Parent = Player
 				wait(2)
 				Player:remove()
@@ -1061,7 +1061,7 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 	end
 end
 
-function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,IconType,Gear1,Gear2,Gear3,IsAdminUser,Ticket)
+function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3,IconType,IsAdminUser,Ticket)
 	if (rbxlegacyversion >= 8) then
 		pcall(function() game:SetPlaceID(-1, false) end)
 		game:GetService("RunService"):Run()
@@ -1198,7 +1198,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 		end
 		InitalizeClientAppearance(Player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 		if (Player.Name == "QuackIAttack" or Player.Name == "CPunch" or Player.Name == "connor" or Player.Name == "Carrot" or Player.Name == "Bitl" or Player.Name == "khanglegos" or Player.Name == "Nukley" or Player.Name == "OliverA" or Player.Name == "coke" or Player.Name == "Peridorky" or Player.Name == "Raymonf" or Player.Name == "romulo27" or Player.Name == "TheLivingBee" or Player.Name == "robloxtester" or Player.Name == "winsupermario1234" and IsAdminUser == false) then
-			game:SetMessage("No faking, clever boy!")
+			game:SetMessage("Kicked for impersonating an administrator.")
 			Player:Remove()
 		end
 		local isAdmin = Instance.new("BoolValue")
@@ -1219,7 +1219,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			game:GetService("Visit")
 			InitalizeClientAppearance(player,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 			if (player.Name == "QuackIAttack" or player.Name == "CPunch" or Player.Name == "connor" or player.Name == "Carrot" or player.Name == "Bitl" or player.Name == "khanglegos" or player.Name == "Nukley" or player.Name == "OliverA" or player.Name == "coke" or player.Name == "Peridorky" or player.Name == "Raymonf" or player.Name == "romulo27" or player.Name == "TheLivingBee" or player.Name == "robloxtester" or player.Name == "winsupermario1234" and IsAdminUser == false) then
-				game:SetMessage("No faking, clever boy!")
+				game:SetMessage("Kicked for impersonating an administrator.")
 				player:Remove()
 			end
 			local isAdmin = Instance.new("BoolValue")

@@ -38,7 +38,7 @@
 	public static int blacklist6 = 0;
 	public static int blacklist7 = 0;
 	public static int blacklist8 = 0;
-	public static int respawntime = 5;
+	public static string ChatType = "Both";
 	// player settings
 	public static int UserID = 0;
 	public static string PlayerName = "Player";

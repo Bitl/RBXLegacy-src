@@ -19,7 +19,6 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.button6 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.label35 = new System.Windows.Forms.Label();
 			this.textBox4 = new System.Windows.Forms.TextBox();
@@ -65,6 +64,14 @@
 			this.tabPage8 = new System.Windows.Forms.TabPage();
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.label44 = new System.Windows.Forms.Label();
+			this.label43 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.label33 = new System.Windows.Forms.Label();
+			this.label32 = new System.Windows.Forms.Label();
+			this.label31 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label12 = new System.Windows.Forms.Label();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
@@ -91,14 +98,6 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label12 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label31 = new System.Windows.Forms.Label();
-			this.label32 = new System.Windows.Forms.Label();
-			this.label33 = new System.Windows.Forms.Label();
-			this.label34 = new System.Windows.Forms.Label();
-			this.label43 = new System.Windows.Forms.Label();
-			this.label44 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -147,7 +146,6 @@
 			// 
 			// tabPage1
 			// 
-			this.tabPage1.Controls.Add(this.button6);
 			this.tabPage1.Controls.Add(this.button11);
 			this.tabPage1.Controls.Add(this.label35);
 			this.tabPage1.Controls.Add(this.textBox4);
@@ -169,17 +167,6 @@
 			this.tabPage1.Text = "PLAY";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// button6
-			// 
-			this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.button6.Location = new System.Drawing.Point(281, 183);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(109, 24);
-			this.button6.TabIndex = 45;
-			this.button6.Text = "admin abilities";
-			this.button6.UseVisualStyleBackColor = true;
-			this.button6.Visible = false;
 			// 
 			// button11
 			// 
@@ -676,6 +663,86 @@
 			this.tabPage4.ToolTipText = "About RBXLegacy";
 			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
+			// label44
+			// 
+			this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label44.Location = new System.Drawing.Point(276, 263);
+			this.label44.Name = "label44";
+			this.label44.Size = new System.Drawing.Size(123, 18);
+			this.label44.TabIndex = 16;
+			this.label44.Text = "Nukley - Clients, Hats";
+			this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label43
+			// 
+			this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label43.Location = new System.Drawing.Point(291, 245);
+			this.label43.Name = "label43";
+			this.label43.Size = new System.Drawing.Size(108, 18);
+			this.label43.TabIndex = 15;
+			this.label43.Text = "CPunch - Security";
+			this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label34
+			// 
+			this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label34.Location = new System.Drawing.Point(6, 259);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(312, 22);
+			this.label34.TabIndex = 14;
+			this.label34.Text = "connor - Clients";
+			this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label33
+			// 
+			this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label33.Location = new System.Drawing.Point(6, 241);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(312, 18);
+			this.label33.TabIndex = 13;
+			this.label33.Text = "iagoMAO - GUIs, Hats";
+			this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label32
+			// 
+			this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label32.Location = new System.Drawing.Point(6, 223);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(312, 18);
+			this.label32.TabIndex = 12;
+			this.label32.Text = "winsupermario1234 - Clients, GUIs";
+			this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label31
+			// 
+			this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label31.Location = new System.Drawing.Point(6, 205);
+			this.label31.Name = "label31";
+			this.label31.Size = new System.Drawing.Size(300, 18);
+			this.label31.TabIndex = 11;
+			this.label31.Text = "Carrot - Programming, Security";
+			this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label2
+			// 
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(6, 187);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(244, 18);
+			this.label2.TabIndex = 10;
+			this.label2.Text = "Bitl - Lead Programmer, Project Creator";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label12
+			// 
+			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(211, 164);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(69, 18);
+			this.label12.TabIndex = 9;
+			this.label12.Text = "Developers";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// pictureBox2
 			// 
 			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -764,7 +831,7 @@
 			// button8
 			// 
 			this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.button8.Location = new System.Drawing.Point(150, 107);
+			this.button8.Location = new System.Drawing.Point(150, 106);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(86, 24);
 			this.button8.TabIndex = 35;
@@ -809,7 +876,7 @@
 			// 
 			// label13
 			// 
-			this.label13.Location = new System.Drawing.Point(31, 89);
+			this.label13.Location = new System.Drawing.Point(16, 89);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(23, 13);
 			this.label13.TabIndex = 7;
@@ -856,9 +923,9 @@
 			// 
 			// label22
 			// 
-			this.label22.Location = new System.Drawing.Point(12, 50);
+			this.label22.Location = new System.Drawing.Point(59, 48);
 			this.label22.Name = "label22";
-			this.label22.Size = new System.Drawing.Size(224, 14);
+			this.label22.Size = new System.Drawing.Size(177, 14);
 			this.label22.TabIndex = 13;
 			this.label22.Text = "PLAYER INFO:";
 			this.label22.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -923,86 +990,6 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// label12
-			// 
-			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(211, 164);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(69, 18);
-			this.label12.TabIndex = 9;
-			this.label12.Text = "Developers";
-			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label2
-			// 
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(6, 187);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(200, 18);
-			this.label2.TabIndex = 10;
-			this.label2.Text = "Bitl - Everything in the Universe";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label31
-			// 
-			this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label31.Location = new System.Drawing.Point(6, 205);
-			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(303, 18);
-			this.label31.TabIndex = 11;
-			this.label31.Text = "Carrot - Launcher, Clients, GUIs, Security, Hats, Gears";
-			this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label32
-			// 
-			this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label32.Location = new System.Drawing.Point(6, 223);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(312, 18);
-			this.label32.TabIndex = 12;
-			this.label32.Text = "winsupermario1234 - Clients, GUIs";
-			this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label33
-			// 
-			this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label33.Location = new System.Drawing.Point(6, 241);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(312, 18);
-			this.label33.TabIndex = 13;
-			this.label33.Text = "iagoMAO - GUIs, Hats";
-			this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label34
-			// 
-			this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label34.Location = new System.Drawing.Point(6, 259);
-			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(312, 22);
-			this.label34.TabIndex = 14;
-			this.label34.Text = "connor - Clients";
-			this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label43
-			// 
-			this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label43.Location = new System.Drawing.Point(291, 245);
-			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(108, 18);
-			this.label43.TabIndex = 15;
-			this.label43.Text = "CPunch - Security";
-			this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label44
-			// 
-			this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label44.Location = new System.Drawing.Point(276, 263);
-			this.label44.Name = "label44";
-			this.label44.Size = new System.Drawing.Size(123, 18);
-			this.label44.TabIndex = 16;
-			this.label44.Text = "Nukley - Clients, Hats";
-			this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1060,7 +1047,6 @@
 		private System.Windows.Forms.Label label43;
 		private System.Windows.Forms.Label label44;
 		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label41;
 		private System.Windows.Forms.Label label40;

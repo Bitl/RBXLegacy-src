@@ -65,7 +65,7 @@ namespace RBXLegacyLauncher
 		
 		public static bool checkScriptMD5()
 		{
-			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\CSMPFunctions.lua";
+			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\scripts\\CSMPFunctions.lua";
     		using (var md5 = MD5.Create())
     		{
     			using (var stream = File.OpenRead(rbxexe))

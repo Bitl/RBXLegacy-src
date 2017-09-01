@@ -148,6 +148,7 @@
 			this.textBox11.Size = new System.Drawing.Size(55, 20);
 			this.textBox11.TabIndex = 65;
 			this.textBox11.Text = "0";
+			this.textBox11.TextChanged += new System.EventHandler(this.TextBox11TextChanged);
 			// 
 			// textBox12
 			// 
@@ -156,6 +157,7 @@
 			this.textBox12.Size = new System.Drawing.Size(54, 20);
 			this.textBox12.TabIndex = 64;
 			this.textBox12.Text = "0";
+			this.textBox12.TextChanged += new System.EventHandler(this.TextBox12TextChanged);
 			// 
 			// textBox9
 			// 
@@ -164,6 +166,7 @@
 			this.textBox9.Size = new System.Drawing.Size(55, 20);
 			this.textBox9.TabIndex = 63;
 			this.textBox9.Text = "0";
+			this.textBox9.TextChanged += new System.EventHandler(this.TextBox9TextChanged);
 			// 
 			// textBox10
 			// 
@@ -172,6 +175,7 @@
 			this.textBox10.Size = new System.Drawing.Size(54, 20);
 			this.textBox10.TabIndex = 62;
 			this.textBox10.Text = "0";
+			this.textBox10.TextChanged += new System.EventHandler(this.TextBox10TextChanged);
 			// 
 			// textBox5
 			// 
@@ -180,6 +184,7 @@
 			this.textBox5.Size = new System.Drawing.Size(54, 20);
 			this.textBox5.TabIndex = 61;
 			this.textBox5.Text = "0";
+			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
 			// textBox8
 			// 
@@ -188,6 +193,7 @@
 			this.textBox8.Size = new System.Drawing.Size(54, 20);
 			this.textBox8.TabIndex = 60;
 			this.textBox8.Text = "0";
+			this.textBox8.TextChanged += new System.EventHandler(this.TextBox8TextChanged);
 			// 
 			// textBox6
 			// 
@@ -196,6 +202,7 @@
 			this.textBox6.Size = new System.Drawing.Size(54, 20);
 			this.textBox6.TabIndex = 59;
 			this.textBox6.Text = "0";
+			this.textBox6.TextChanged += new System.EventHandler(this.TextBox6TextChanged);
 			// 
 			// label6
 			// 
@@ -215,6 +222,7 @@
 			this.textBox4.Size = new System.Drawing.Size(54, 20);
 			this.textBox4.TabIndex = 56;
 			this.textBox4.Text = "0";
+			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
 			// 
 			// label5
 			// 
@@ -227,10 +235,12 @@
 			// 
 			// radioButton3
 			// 
-			this.radioButton3.Location = new System.Drawing.Point(8, 44);
+			this.radioButton3.Checked = true;
+			this.radioButton3.Location = new System.Drawing.Point(8, 24);
 			this.radioButton3.Name = "radioButton3";
 			this.radioButton3.Size = new System.Drawing.Size(104, 16);
 			this.radioButton3.TabIndex = 54;
+			this.radioButton3.TabStop = true;
 			this.radioButton3.Text = "None";
 			this.radioButton3.UseVisualStyleBackColor = true;
 			this.radioButton3.CheckedChanged += new System.EventHandler(this.RadioButton3CheckedChanged);
@@ -242,6 +252,7 @@
 			this.textBox2.Size = new System.Drawing.Size(237, 20);
 			this.textBox2.TabIndex = 53;
 			this.textBox2.Text = "5";
+			this.textBox2.TextChanged += new System.EventHandler(this.TextBox2TextChanged);
 			// 
 			// label4
 			// 
@@ -262,6 +273,7 @@
 			this.checkBox11.TabIndex = 51;
 			this.checkBox11.Text = "Enable UPnP (Universal Plug n\' Play)";
 			this.checkBox11.UseVisualStyleBackColor = true;
+			this.checkBox11.CheckedChanged += new System.EventHandler(this.CheckBox11CheckedChanged);
 			// 
 			// checkBox10
 			// 
@@ -271,6 +283,7 @@
 			this.checkBox10.TabIndex = 50;
 			this.checkBox10.Text = "Personal Building Server (PBS)";
 			this.checkBox10.UseVisualStyleBackColor = true;
+			this.checkBox10.CheckedChanged += new System.EventHandler(this.CheckBox10CheckedChanged);
 			// 
 			// label45
 			// 
@@ -288,6 +301,7 @@
 			this.textBox7.Size = new System.Drawing.Size(237, 20);
 			this.textBox7.TabIndex = 48;
 			this.textBox7.Text = "53640";
+			this.textBox7.TextChanged += new System.EventHandler(this.TextBox7TextChanged);
 			// 
 			// textBox3
 			// 
@@ -296,6 +310,7 @@
 			this.textBox3.Size = new System.Drawing.Size(237, 20);
 			this.textBox3.TabIndex = 47;
 			this.textBox3.Text = "12";
+			this.textBox3.TextChanged += new System.EventHandler(this.TextBox3TextChanged);
 			// 
 			// label29
 			// 
@@ -336,6 +351,7 @@
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(238, 21);
 			this.comboBox1.TabIndex = 12;
+			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -355,6 +371,7 @@
 			this.checkBox7.TabIndex = 10;
 			this.checkBox7.Text = "Building";
 			this.checkBox7.UseVisualStyleBackColor = true;
+			this.checkBox7.CheckedChanged += new System.EventHandler(this.CheckBox7CheckedChanged);
 			// 
 			// checkBox8
 			// 
@@ -365,6 +382,7 @@
 			this.checkBox8.TabIndex = 9;
 			this.checkBox8.Text = "Musical";
 			this.checkBox8.UseVisualStyleBackColor = true;
+			this.checkBox8.CheckedChanged += new System.EventHandler(this.CheckBox8CheckedChanged);
 			// 
 			// checkBox9
 			// 
@@ -375,6 +393,7 @@
 			this.checkBox9.TabIndex = 8;
 			this.checkBox9.Text = "Ranged";
 			this.checkBox9.UseVisualStyleBackColor = true;
+			this.checkBox9.CheckedChanged += new System.EventHandler(this.CheckBox9CheckedChanged);
 			// 
 			// checkBox4
 			// 
@@ -385,6 +404,7 @@
 			this.checkBox4.TabIndex = 7;
 			this.checkBox4.Text = "Transport";
 			this.checkBox4.UseVisualStyleBackColor = true;
+			this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckBox4CheckedChanged);
 			// 
 			// checkBox5
 			// 
@@ -395,6 +415,7 @@
 			this.checkBox5.TabIndex = 6;
 			this.checkBox5.Text = "Explosives";
 			this.checkBox5.UseVisualStyleBackColor = true;
+			this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckBox5CheckedChanged);
 			// 
 			// checkBox6
 			// 
@@ -405,6 +426,7 @@
 			this.checkBox6.TabIndex = 5;
 			this.checkBox6.Text = "Power ups";
 			this.checkBox6.UseVisualStyleBackColor = true;
+			this.checkBox6.CheckedChanged += new System.EventHandler(this.CheckBox6CheckedChanged);
 			// 
 			// checkBox3
 			// 
@@ -415,6 +437,7 @@
 			this.checkBox3.TabIndex = 4;
 			this.checkBox3.Text = "Social";
 			this.checkBox3.UseVisualStyleBackColor = true;
+			this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckBox3CheckedChanged);
 			// 
 			// checkBox2
 			// 
@@ -425,6 +448,7 @@
 			this.checkBox2.TabIndex = 3;
 			this.checkBox2.Text = "Navigation";
 			this.checkBox2.UseVisualStyleBackColor = true;
+			this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckBox2CheckedChanged);
 			// 
 			// checkBox1
 			// 
@@ -435,6 +459,7 @@
 			this.checkBox1.TabIndex = 2;
 			this.checkBox1.Text = "Melee";
 			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1CheckedChanged);
 			// 
 			// radioButton2
 			// 
@@ -448,12 +473,10 @@
 			// 
 			// radioButton1
 			// 
-			this.radioButton1.Checked = true;
-			this.radioButton1.Location = new System.Drawing.Point(8, 23);
+			this.radioButton1.Location = new System.Drawing.Point(8, 39);
 			this.radioButton1.Name = "radioButton1";
 			this.radioButton1.Size = new System.Drawing.Size(104, 24);
 			this.radioButton1.TabIndex = 0;
-			this.radioButton1.TabStop = true;
 			this.radioButton1.Text = "All";
 			this.radioButton1.UseVisualStyleBackColor = true;
 			this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1CheckedChanged);
@@ -477,6 +500,7 @@
 			this.button1.TabIndex = 2;
 			this.button1.Text = "Reset Server Preferences";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// ServerPrefs
 			// 
@@ -484,7 +508,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(514, 271);
+			this.ClientSize = new System.Drawing.Size(514, 276);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.tabControl1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

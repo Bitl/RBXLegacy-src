@@ -1630,7 +1630,7 @@ namespace RBXLegacyLauncher
 		
 		void Button4Click(object sender, EventArgs e)
 		{
-			LauncherFuncs.WriteConfigValues("config.txt");
+			LauncherFuncs.WriteConfigValues("rbxlegacy_config.txt");
 			Start3DView();
 		}
 		

@@ -18,7 +18,7 @@ namespace RBXLegacyLauncher
 		
 		void QuickConfigureLoad(object sender, EventArgs e)
 		{
-			string cfgpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.txt";
+			string cfgpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\rbxlegacy_config.txt";
 			if (!File.Exists(cfgpath))
 			{
 				LauncherFuncs.WriteConfigValues(cfgpath);
@@ -95,7 +95,7 @@ namespace RBXLegacyLauncher
 		
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
-			string cfgpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.txt";
+			string cfgpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\rbxlegacy_config.txt";
     		base.OnFormClosing(e);
     		LauncherFuncs.WriteConfigValues(cfgpath);
     		GlobalVars.ReadyToLaunch = true;

@@ -184,7 +184,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			LauncherFuncs.ReadConfigValues(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\config.txt");
+			LauncherFuncs.ReadConfigValues(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\rbxlegacy_config.txt");
 		}
 		
 		void ReadClientValues(string ClientName)

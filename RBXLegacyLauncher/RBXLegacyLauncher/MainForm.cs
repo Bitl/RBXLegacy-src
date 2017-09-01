@@ -123,12 +123,6 @@ namespace RBXLegacyLauncher
 			}
 		}
 		
-		void Button6Click(object sender, EventArgs e)
-		{
-			//bloblul
-			this.Close();
-		}
-		
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			string line1;
@@ -159,10 +153,15 @@ namespace RBXLegacyLauncher
     		{
     			ConsolePrint("ERROR 4 - changelog.txt not found.", 2);
     		}
-			if (!File.Exists("config.txt"))
+			if (!File.Exists("rbxlegacy_config.txt"))
 			{
-				ConsolePrint("WARNING 1 - config.txt not found. Creating one with default values.", 5);
+				ConsolePrint("WARNING 1 - rbxlegacy_config.txt not found. Creating one with default values.", 5);
 				WriteConfigValues();
+			}
+			if (!File.Exists("serverhost_config.txt"))
+			{
+				ConsolePrint("WARNING 1 - serverhost_config.txt not found. Creating one with default values.", 5);
+				LauncherFuncs.WriteServerPrefs("serverhost_config.txt");
 			}
 			if (!File.Exists("servers.txt"))
 			{
@@ -193,7 +192,7 @@ namespace RBXLegacyLauncher
 		
 		void ReadConfigValues()
 		{
-			LauncherFuncs.ReadConfigValues("config.txt");
+			LauncherFuncs.ReadConfigValues("rbxlegacy_config.txt");
 			
 			if (GlobalVars.CloseOnLaunch == true)
 			{
@@ -218,11 +217,6 @@ namespace RBXLegacyLauncher
 			{
 				//We need at least a limit of 12 players.
 				GlobalVars.PlayerLimit = 12;
-				textBox3.Text = GlobalVars.PlayerLimit.ToString();
-			}
-			else
-			{
-				textBox3.Text = GlobalVars.PlayerLimit.ToString();
 			}
 			
 			textBox2.Text = GlobalVars.PlayerName;
@@ -232,14 +226,21 @@ namespace RBXLegacyLauncher
 			textBox4.Text = GlobalVars.RobloxPort.ToString();
 			label37.Text = GlobalVars.IP;
 			label38.Text = GlobalVars.RobloxPort.ToString();
-			ConsolePrint("Your configuration has been loaded.", 3);
+			ConsolePrint("Configuration has been loaded.", 3);
+			ReadServerPrefs();
 			ReadClientValues(GlobalVars.SelectedClient);
 		}
 		
 		void WriteConfigValues()
 		{
-			LauncherFuncs.WriteConfigValues("config.txt");
-			ConsolePrint("Your configuration has been saved successfully.", 3);
+			LauncherFuncs.WriteConfigValues("rbxlegacy_config.txt");
+			ConsolePrint("Configuration has been saved successfully.", 3);
+		}
+		
+		void ReadServerPrefs()
+		{
+			LauncherFuncs.ReadServerPrefs("serverhost_config.txt");
+			ConsolePrint("Server configuration has been loaded.", 3);
 		}
 		
 		void ReadClientValues(string ClientName)
@@ -418,18 +419,18 @@ namespace RBXLegacyLauncher
 		void Button9Click(object sender, EventArgs e)
 		{
 			ResetConfigValues();
-			DialogResult result = MessageBox.Show("Your configuration has been reset to their default values.","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+			DialogResult result = MessageBox.Show("Your configuration has been reset to the default values.","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		
 		void ListBox3SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
 			{
-			GlobalVars.IP = listBox3.SelectedItem.ToString();
-			textBox1.Text = GlobalVars.IP;
-			checkBox3.Enabled = false;
-			GlobalVars.LocalPlayMode = false;
-			label37.Text = GlobalVars.IP;
+				GlobalVars.IP = listBox3.SelectedItem.ToString();
+				textBox1.Text = GlobalVars.IP;
+				checkBox3.Enabled = false;
+				GlobalVars.LocalPlayMode = false;
+				label37.Text = GlobalVars.IP;
 			}
 			catch (Exception)
       		{
@@ -440,9 +441,9 @@ namespace RBXLegacyLauncher
 		{
 			try
 			{
-			GlobalVars.RobloxPort = Convert.ToInt32(listBox4.SelectedItem.ToString());
-			textBox4.Text = GlobalVars.RobloxPort.ToString();
-			label38.Text = GlobalVars.RobloxPort.ToString();
+				GlobalVars.RobloxPort = Convert.ToInt32(listBox4.SelectedItem.ToString());
+				textBox4.Text = GlobalVars.RobloxPort.ToString();
+				label38.Text = GlobalVars.RobloxPort.ToString();
 			}
 			catch (Exception)
       		{
@@ -517,7 +518,7 @@ namespace RBXLegacyLauncher
 		{
 			if (GlobalVars.SelectedClientVersion >= 7)
 			{
-			DialogResult result = MessageBox.Show("Note: If the health bar or scoreboard don't appear, just reset your character.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				DialogResult result = MessageBox.Show("Note: If the health bar or scoreboard don't appear, just reset your character.","RBXLegacy Launcher - Play Solo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			WriteConfigValues();
 			StartSolo();
@@ -566,47 +567,6 @@ namespace RBXLegacyLauncher
 				}
 			}
         }
-		
-		void TextBox3TextChanged(object sender, EventArgs e)
-		{
-			int parsedValue;
-			if (int.TryParse(textBox3.Text, out parsedValue))
-			{
-				if (textBox3.Text.Equals(""))
-				{
-					GlobalVars.PlayerLimit = 12;
-				}
-				else
-				{
-					GlobalVars.PlayerLimit = Convert.ToInt32(textBox3.Text);
-				}
-			}
-			else
-			{
-				GlobalVars.PlayerLimit = 12;
-			}
-		}
-		
-		void TextBox7TextChanged(object sender, EventArgs e)
-		{
-			int parsedValue;
-			if (int.TryParse(textBox7.Text, out parsedValue))
-			{
-				if (textBox7.Text.Equals(""))
-				{
-					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
-					GlobalVars.ServerPort = GlobalVars.DefaultRobloxPort;
-				}
-				else
-				{
-					GlobalVars.ServerPort = Convert.ToInt32(textBox7.Text);
-				}
-			}
-			else
-			{
-				GlobalVars.ServerPort = GlobalVars.DefaultRobloxPort;
-			}		
-		}
 		
 		void ResetConfigValues()
 		{
@@ -805,7 +765,7 @@ namespace RBXLegacyLauncher
             }
             string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + ") " + quote;
+			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + "," + GlobalVars.RespawnTime + "," + GlobalVars.IsPersonalServer + "," + GlobalVars.UserID + "," + GlobalVars.blacklist1 + "," + GlobalVars.blacklist2 + "," + GlobalVars.blacklist3 + "," + GlobalVars.blacklist4 + "," + GlobalVars.blacklist5 + "," + GlobalVars.blacklist6 + "," + GlobalVars.blacklist7 + "," + GlobalVars.blacklist8 + "," + GlobalVars.melee + "," + GlobalVars.powerup + "," + GlobalVars.ranged + "," + GlobalVars.navigation + "," + GlobalVars.explosives + "," + GlobalVars.musical + "," + GlobalVars.social + "," + GlobalVars.transport + "," + GlobalVars.building + ") " + quote;
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
@@ -832,10 +792,10 @@ namespace RBXLegacyLauncher
             }
             string quote = "\"";
 			string args = "";
-			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + ") " + quote + " -no3d";
+			args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + "); _G.CSServer(" + GlobalVars.ServerPort + "," + GlobalVars.PlayerLimit + "," + GlobalVars.RespawnTime + "," + GlobalVars.IsPersonalServer + "," + GlobalVars.UserID + "," + GlobalVars.blacklist1 + "," + GlobalVars.blacklist2 + "," + GlobalVars.blacklist3 + "," + GlobalVars.blacklist4 + "," + GlobalVars.blacklist5 + "," + GlobalVars.blacklist6 + "," + GlobalVars.blacklist7 + "," + GlobalVars.blacklist8 + "," + GlobalVars.melee + "," + GlobalVars.powerup + "," + GlobalVars.ranged + "," + GlobalVars.navigation + "," + GlobalVars.explosives + "," + GlobalVars.musical + "," + GlobalVars.social + "," + GlobalVars.transport + "," + GlobalVars.building + ") " + quote + " -no3d";
 			try
 			{
-				ConsolePrint("Server Loaded in No3d.", 4);
+				ConsolePrint("Server Loaded in No3D mode.", 4);
 				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
