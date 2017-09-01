@@ -134,7 +134,7 @@ namespace RBXLegacyLauncher
 		
 		void ClientExited(object sender, EventArgs e)
 		{
-			Process[] sudp = Process.GetProcessesByName("udpipe");
+			Process[] sudp = Process.GetProcessesByName("udppipe");
 			if (sudp != null)
 			{
 				foreach (var process in sudp)
@@ -172,7 +172,7 @@ namespace RBXLegacyLauncher
 				if (GlobalVars.HasRocky == true)
 				{
 					Process sudp = new Process();
-					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\udpipe.exe";
+					sudp.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\udppipe.exe";
 					sudp.StartInfo.Arguments = "-p " + ip + " " + port  + " " + port;
 					sudp.StartInfo.UseShellExecute = false;
 					sudp.StartInfo.CreateNoWindow = true;
