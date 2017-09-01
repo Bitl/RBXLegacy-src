@@ -27,9 +27,9 @@
 			// 
 			this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(17, 18);
+			this.pictureBox1.Location = new System.Drawing.Point(12, 18);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(52, 51);
+			this.pictureBox1.Size = new System.Drawing.Size(57, 58);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -61,6 +61,7 @@
 			this.button1.TabIndex = 3;
 			this.button1.Text = "Cancel";
 			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
 			// LoaderForm
 			// 

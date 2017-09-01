@@ -606,6 +606,7 @@
 			// 
 			this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlText;
 			this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.richTextBox1.Font = new System.Drawing.Font("Sylfaen", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.richTextBox1.ForeColor = System.Drawing.Color.White;
 			this.richTextBox1.Location = new System.Drawing.Point(3, 3);
 			this.richTextBox1.Name = "richTextBox1";
@@ -831,7 +832,7 @@
 			// button8
 			// 
 			this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.button8.Location = new System.Drawing.Point(150, 106);
+			this.button8.Location = new System.Drawing.Point(150, 107);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(86, 24);
 			this.button8.TabIndex = 35;
