@@ -687,11 +687,11 @@
 			// label34
 			// 
 			this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label34.Location = new System.Drawing.Point(6, 259);
+			this.label34.Location = new System.Drawing.Point(7, 259);
 			this.label34.Name = "label34";
 			this.label34.Size = new System.Drawing.Size(312, 22);
 			this.label34.TabIndex = 14;
-			this.label34.Text = "connor - Clients";
+			this.label34.Text = "connor - Clients, Programing";
 			this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// label33
@@ -736,31 +736,31 @@
 			// 
 			// label12
 			// 
-			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(211, 164);
+			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(202, 160);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(69, 18);
+			this.label12.Size = new System.Drawing.Size(94, 24);
 			this.label12.TabIndex = 9;
-			this.label12.Text = "Developers";
-			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label12.Text = "Credits:";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pictureBox2
 			// 
 			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(117, 163);
+			this.pictureBox2.Location = new System.Drawing.Point(8, 149);
 			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(89, 21);
+			this.pictureBox2.Size = new System.Drawing.Size(188, 35);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox2.TabIndex = 8;
 			this.pictureBox2.TabStop = false;
 			// 
 			// label11
 			// 
-			this.label11.Location = new System.Drawing.Point(302, 47);
+			this.label11.Location = new System.Drawing.Point(234, 47);
 			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(100, 18);
+			this.label11.Size = new System.Drawing.Size(168, 17);
 			this.label11.TabIndex = 6;
 			this.label11.Text = "label11";
 			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -787,7 +787,7 @@
 			// 
 			this.label8.Location = new System.Drawing.Point(8, 46);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(61, 19);
+			this.label8.Size = new System.Drawing.Size(212, 19);
 			this.label8.TabIndex = 3;
 			this.label8.Text = "label8";
 			this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

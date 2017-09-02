@@ -37,7 +37,7 @@ Source: "RBXLegacy\info.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\clients\*"; DestDir: "{app}\clients"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\maps\*"; DestDir: "{app}\maps"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\models\*"; DestDir: "{app}\models"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "RBXLegacy\charcustom\*"; DestDir: "{app}\charcustom"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "RBXLegacy\avatar\*"; DestDir: "{app}\avatar"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\scripts\*"; DestDir: "{app}\scripts"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\sudppipe.exe"; DestDir: "{app}"; Flags: ignoreversion
 

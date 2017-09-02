@@ -181,7 +181,7 @@ function LoadCharacterNew(playerApp,newChar,newBackpack)
 			elseif (customtype.Value == 2)  then
 				if (rbxlegacyversion > 1) then
 					pcall(function()
-						local newHat = game.Workspace:InsertContent("rbxasset://../../../charcustom/hats/"..newVal.Value)
+						local newHat = game.Workspace:InsertContent("rbxasset://../../../avatar/hats/"..newVal.Value)
 						if newHat[1] then 
 							if newHat[1].className == "Hat" then
 								newHat[1].Parent = newChar
