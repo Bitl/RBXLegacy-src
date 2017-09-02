@@ -110,10 +110,7 @@ namespace RBXLegacyLauncher
 		{
 			if (GlobalVars.upnp == true)
 			{
-				NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
-				NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
-				mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
-				mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
+				//TODO: find good libary for UPNP
 			}
 			WriteConfigValues();
 			StartServer();
@@ -822,11 +819,7 @@ namespace RBXLegacyLauncher
 		
 		void ServerExited(object sender, EventArgs e)
 		{
-			NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
-			NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
-			
-			mappings.Remove(GlobalVars.ServerPort, "TCP");
-			mappings.Remove(GlobalVars.ServerPort, "UDP");
+			//TODO: find good libary for UPNP
 		}
 		
 		void StartStudio()
@@ -871,10 +864,7 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
-					NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
-					mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
-					mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
+					//TODO: find good libary for UPNP
 				}
 				StartServer();
 			}
@@ -882,10 +872,7 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
-					NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
-					mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
-					mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
+					//TODO: find good libary for UPNP
 				}
 				StartServerNo3D();
 			}
@@ -893,10 +880,7 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
-					NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
-					mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
-					mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
+					//TODO: find good libary for UPNP
 				}
 				StartServerNo3D();
 			}
