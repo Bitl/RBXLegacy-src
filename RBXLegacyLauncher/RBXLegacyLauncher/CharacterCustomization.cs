@@ -1652,8 +1652,8 @@ namespace RBXLegacyLauncher
 		
 		void Start3DView()
 		{
-			string mapfile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\thumbnails\\content\\fonts\\3DView.rbxl";
-			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\thumbnails\\3DView.exe";
+			string mapfile = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\preview\\content\\fonts\\3DView.rbxl";
+			string rbxexe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\preview\\3DView.exe";
 			string quote = "\"";
 			string args = "";
 			string HatIDOffline1 = GlobalVars.Custom_Hat1ID_Offline;
