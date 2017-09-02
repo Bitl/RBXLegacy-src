@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Net.Sockets;
 using Microsoft.Win32;
 
 namespace RBXLegacyLauncher
@@ -83,5 +85,19 @@ namespace RBXLegacyLauncher
         		}
     		}
 		}
+		
+		public static string GetLocalIPAddress()
+    	{
+      		string str = "";
+      		foreach (IPAddress address in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+      		{
+        		if (address.AddressFamily == AddressFamily.InterNetwork)
+        		{
+          			str = address.ToString();
+          			break;
+        		}
+      		}
+      		return str;
+    	}
 	}
 }

@@ -110,12 +110,10 @@ namespace RBXLegacyLauncher
 		{
 			if (GlobalVars.upnp == true)
 			{
-				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-				pmap.StartInfo.UseShellExecute = false;
-				pmap.StartInfo.CreateNoWindow = true;
-				pmap.Start();
+				NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
+				NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
+				mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
+				mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
 			}
 			WriteConfigValues();
 			StartServer();
@@ -772,7 +770,14 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
-				Process.Start(rbxexe, args);
+				Process server = new Process();
+				server.StartInfo.FileName = rbxexe;
+				server.StartInfo.Arguments = args;
+				if (GlobalVars.upnp == true)
+				{
+					server.Exited += new EventHandler(ServerExited);
+				}
+				server.Start();
 			}
 			catch (Exception ex)
 			{
@@ -799,13 +804,29 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Server Loaded in No3D mode.", 4);
-				Process.Start(rbxexe, args);
+				Process server = new Process();
+				server.StartInfo.FileName = rbxexe;
+				server.StartInfo.Arguments = args;
+				if (GlobalVars.upnp == true)
+				{
+					server.Exited += new EventHandler(ServerExited);
+				}
+				server.Start();
 			}
 			catch (Exception ex)
 			{
 				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+		
+		void ServerExited(object sender, EventArgs e)
+		{
+			NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
+			NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
+			
+			mappings.Remove(GlobalVars.ServerPort, "TCP");
+			mappings.Remove(GlobalVars.ServerPort, "UDP");
 		}
 		
 		void StartStudio()
@@ -850,12 +871,10 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					Process pmap = new Process();
-					pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-					pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-					pmap.StartInfo.UseShellExecute = false;
-					pmap.StartInfo.CreateNoWindow = true;
-					pmap.Start();
+					NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
+					NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
+					mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
+					mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
 				}
 				StartServer();
 			}
@@ -863,23 +882,22 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					Process pmap = new Process();
-					pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-					pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-					pmap.StartInfo.UseShellExecute = false;
-					pmap.StartInfo.CreateNoWindow = true;
-					pmap.Start();
+					NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
+					NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
+					mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
+					mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
 				}
 				StartServerNo3D();
 			}
 			else if (command.Equals("rbxlegacy no3d"))
 			{
-				Process pmap = new Process();
-				pmap.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\jreportable\\bin\\java.exe";
-				pmap.StartInfo.Arguments = "-jar upnp.jar -externalPort" + GlobalVars.ServerPort + " -internalPort" + GlobalVars.ServerPort + "-ip \"localhost\" -protocol udp";
-				pmap.StartInfo.UseShellExecute = false;
-				pmap.StartInfo.CreateNoWindow = true;
-				pmap.Start();
+				if (GlobalVars.upnp == true)
+				{
+					NATUPNPLib.UPnPNATClass upnpnat = new NATUPNPLib.UPnPNATClass();
+					NATUPNPLib.IStaticPortMappingCollection mappings = upnpnat.StaticPortMappingCollection;
+					mappings.Add(GlobalVars.ServerPort, "TCP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port TCP");
+					mappings.Add(GlobalVars.ServerPort, "UDP", GlobalVars.ServerPort, SecurityFuncs.GetLocalIPAddress(), true, "RBXLegacy Server Port UDP");
+				}
 				StartServerNo3D();
 			}
 			else if (command.Equals("rbxlegacy client"))
