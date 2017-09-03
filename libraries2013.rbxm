@@ -6,7 +6,7 @@
 			<bool name="Disabled">false</bool>
 			<Content name="LinkedSource"><null></null></Content>
 			<string name="Name">Sorter</string>
-			<ProtectedString name="Source">print(&quot;Special thanks to Bitl, Carrot, iago, winsupermario1234, Khangaroo, drslicendice, coke, TheLivingBee, Raymonf, and a bunch of play - testers for help making 2012 fully stable and work. 8)&quot;)
+			<ProtectedString name="Source">print(&quot;Special thanks to Bitl, Carrot, iago, winsupermario1234, Khangaroo, drslicendice, coke, TheLivingBee, Raymonf, and a bunch of play - testers for help making 2013 fully stable and work. 8)&quot;)
 script.Playerlist:clone().Parent = game.StarterGui
 script.Dialogs:clone().Parent = game.StarterGui
 script.Backpack:clone().Parent = game.StarterGui
@@ -23453,19 +23453,19 @@ t.Help =
 
 local ADMINS =
 {
-iagoMAO = &quot;http://roblox.com/asset?id=161974742&quot;,
-winsupermario1234 = &quot;http://i.imgur.com/VpiJE1i.png&quot;,
-Carrot = &quot;http://www.roblox.com/asset/?id=105897927&quot;,
-coke = 1,
-khanglegos = 1,
-QuackIAttack = 1,
-romulo27 = &quot;http://orig01.deviantart.net/a10f/f/2013/041/b/6/orange_pixel_art_by_tllc-d5ugtdx.png&quot;,
-TheLivingBee = &quot;http://i.imgur.com/SdYqM1C.png&quot;,
+iagoMAO = &quot;rbxasset://textures/ui/admins/iagoMAO.png&quot;,
+winsupermario1234 = &quot;rbxasset://textures/ui/admins/winsupermario1234.png&quot;,
+Carrot = &quot;rbxasset://textures/ui/admins/carrot.png&quot;,
+coke = &quot;rbxasset://textures/ui/admins/coke.png&quot;,
+khanglegos = &quot;rbxasset://textures/ui/admins/khanglegos.png&quot;,
+QuackIAttack = &quot;rbxasset://textures/ui/admins/QuackIAttack.png&quot;,
+romulo27 = &quot;rbxasset://textures/ui/admins/romulo27.png&quot;,
+TheLivingBee = &quot;rbxasset://textures/ui/admins/TheLivingBee.png&quot;,
 OliverA = 1,
 kinery = 1,
 Peridorky =1,
 Bitl = 1,
-Raymonf = &quot;http://nobelium.xyz/Asset/?id=1045&quot;,
+Raymonf = &quot;rbxasset://textures/ui/admins/Raymonf.png&quot;,
 }
 
 --[[
@@ -23514,10 +23514,11 @@ end
 &#9;membershipType&#9;&#9;Enum of membership status
 &#9;@Return: &#9;&#9;&#9;string of image asset
 --]]
+
 function getMembershipTypeIcon(membershipType,playerName)
 &#9;if ADMINS[playerName]~=nil then
 &#9;&#9;if ADMINS[playerName] == 1 then
-&#9;&#9;&#9;return &quot;http://www.roblox.com/asset/?id=99727663&quot;
+&#9;&#9;&#9;return &quot;rbxasset://textures/ui/admins/default.png&quot;
 &#9;&#9;else
 &#9;&#9;&#9;return ADMINS[playerName]
 &#9;&#9;end
@@ -23538,11 +23539,11 @@ local function getFriendStatusIcon(friendStatus)
 &#9;if friendStatus == Enum.FriendStatus.Unknown or friendStatus == Enum.FriendStatus.NotFriend then
 &#9;&#9;return &quot;&quot;
 &#9;elseif friendStatus == Enum.FriendStatus.Friend then
-&#9;&#9;return &quot;http://www.roblox.com/asset/?id=99749771&quot;
+&#9;&#9;return &quot;rbxasset://textures/ui/friend.png&quot;
 &#9;elseif friendStatus == Enum.FriendStatus.FriendRequestSent then
-&#9;&#9;return &quot;http://www.roblox.com/asset/?id=99776888&quot;
+&#9;&#9;return &quot;rbxasset://textures/ui/friendrequestsent.png&quot;
 &#9;elseif friendStatus == Enum.FriendStatus.FriendRequestReceived then
-&#9;&#9;return &quot;http://www.roblox.com/asset/?id=99776838&quot;
+&#9;&#9;return &quot;rbxasset://textures/ui/friendrequestreceived.png&quot;
 &#9;else
 &#9;&#9;error(&quot;Unknown FriendStatus: &quot; .. friendStatus)
 &#9;end
