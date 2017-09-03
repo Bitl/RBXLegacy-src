@@ -49,6 +49,9 @@
     <StartProgram>..\..\..\RBXLegacy\release\RBXLegacy\RBXLegacyLauncher.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Nat">
+      <HintPath>Resources\Mono.Nat.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

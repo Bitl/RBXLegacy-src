@@ -18,6 +18,45 @@ namespace RBXLegacyLauncher
 		{
 			InitializeComponent();
 		}
+		
+		public event EventHandler<evNATdoneargs> evNATdone;
+		
+		public class evNATdoneargs : EventArgs 
+		{
+			public string IP;
+			public int port;
+		}
+
+		//this class contains network connectivity stuff
+		public void StartUPNP()
+		{
+			Mono.Nat.NatUtility.DeviceFound += new EventHandler<Mono.Nat.DeviceEventArgs>(NatUtility_DeviceFound);
+			Mono.Nat.NatUtility.DeviceLost += new EventHandler<Mono.Nat.DeviceEventArgs>(NatUtility_DeviceLost);
+			Mono.Nat.NatUtility.StartDiscovery();
+		}
+
+		private void NatUtility_DeviceFound(object sender, Mono.Nat.DeviceEventArgs e)
+		{
+			//do port forwarding with UPNP
+			Mono.Nat.INatDevice natd = e.Device;
+			natd.CreatePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Tcp,GlobalVars.ServerPort,GlobalVars.ServerPort));
+			natd.CreatePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Udp,GlobalVars.ServerPort,GlobalVars.ServerPort));
+			ConsolePrint("Port " + GlobalVars.ServerPort.ToString() + " registered to device " + natd.GetExternalIP().ToString(), 3);
+			evNATdoneargs args = new evNATdoneargs();
+			args.IP = natd.GetExternalIP().ToString();
+			args.port = GlobalVars.ServerPort;
+			evNATdone(this, args);
+			//MessageBox.Show("NAT done! My public IP is " + IP);
+		}
+		
+		private void NatUtility_DeviceLost(object sender, Mono.Nat.DeviceEventArgs e)
+		{
+			//do port forwarding with UPNP
+			Mono.Nat.INatDevice natd = e.Device;
+			natd.DeletePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Tcp,GlobalVars.ServerPort,GlobalVars.ServerPort));
+			natd.DeletePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Udp,GlobalVars.ServerPort,GlobalVars.ServerPort));
+		}
+		
 		void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
      		if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
@@ -110,7 +149,7 @@ namespace RBXLegacyLauncher
 		{
 			if (GlobalVars.upnp == true)
 			{
-				//TODO: find good libary for UPNP
+				StartUPNP();
 			}
 			WriteConfigValues();
 			StartServer();
@@ -767,14 +806,7 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
-				Process server = new Process();
-				server.StartInfo.FileName = rbxexe;
-				server.StartInfo.Arguments = args;
-				if (GlobalVars.upnp == true)
-				{
-					server.Exited += new EventHandler(ServerExited);
-				}
-				server.Start();
+				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
@@ -801,25 +833,13 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Server Loaded in No3D mode.", 4);
-				Process server = new Process();
-				server.StartInfo.FileName = rbxexe;
-				server.StartInfo.Arguments = args;
-				if (GlobalVars.upnp == true)
-				{
-					server.Exited += new EventHandler(ServerExited);
-				}
-				server.Start();
+				Process.Start(rbxexe, args);
 			}
 			catch (Exception ex)
 			{
 				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-		}
-		
-		void ServerExited(object sender, EventArgs e)
-		{
-			//TODO: find good libary for UPNP
 		}
 		
 		void StartStudio()
@@ -864,7 +884,7 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					//TODO: find good libary for UPNP
+					StartUPNP();
 				}
 				StartServer();
 			}
@@ -872,7 +892,7 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					//TODO: find good libary for UPNP
+					StartUPNP();
 				}
 				StartServerNo3D();
 			}
@@ -880,7 +900,7 @@ namespace RBXLegacyLauncher
 			{
 				if (GlobalVars.upnp == true)
 				{
-					//TODO: find good libary for UPNP
+					StartUPNP();
 				}
 				StartServerNo3D();
 			}
