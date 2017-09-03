@@ -426,7 +426,7 @@ namespace RBXLegacyLauncher
    							continue;
 						}
 					
-						if (file.Name.Equals("Banhammer.rbxm") && GlobalVars.AdminMode != true)
+						if (file.Name.Equals("BanHammer.rbxm") && GlobalVars.AdminMode != true)
 						{
    							continue;
 						}
@@ -1494,12 +1494,12 @@ namespace RBXLegacyLauncher
         		Image icon1 = Image.FromFile(hatdir + "\\" + GlobalVars.Custom_Hat1ID_Offline.Replace(".rbxm", "") + ".png");
         		pictureBox1.Image = icon1;
         		int randomHat2  = random.Next(listBox2.Items.Count);
-				listBox2.SelectedItem = listBox1.Items[randomHat2];
+				listBox2.SelectedItem = listBox2.Items[randomHat2];
         		GlobalVars.Custom_Hat2ID_Offline = listBox2.SelectedItem.ToString();
         		Image icon2 = Image.FromFile(hatdir + "\\" + GlobalVars.Custom_Hat2ID_Offline.Replace(".rbxm", "") + ".png");
         		pictureBox2.Image = icon2;
         		int randomHat3  = random.Next(listBox3.Items.Count);
-				listBox3.SelectedItem = listBox1.Items[randomHat3];
+				listBox3.SelectedItem = listBox3.Items[randomHat3];
         		GlobalVars.Custom_Hat3ID_Offline = listBox3.SelectedItem.ToString();
         		Image icon3 = Image.FromFile(hatdir + "\\" + GlobalVars.Custom_Hat3ID_Offline.Replace(".rbxm", "") + ".png");
         		pictureBox3.Image = icon3;
@@ -1713,9 +1713,81 @@ namespace RBXLegacyLauncher
 			GlobalVars.AdTheme = 2012;
 		}
 		
-		void Page2PanelPaint(object sender, PaintEventArgs e)
+		void Button9Click(object sender, EventArgs e)
 		{
-			
+			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
+        	if (Directory.Exists(geardir))
+        	{
+        		Random random = new Random();
+				int randomGear1  = random.Next(listBox8.Items.Count);
+				listBox8.SelectedItem = listBox8.Items[randomGear1];
+        		GlobalVars.Custom_Gear1 = listBox8.SelectedItem.ToString();
+        		Image icon1 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
+        		pictureBox11.Image = icon1;
+        		int randomGear2  = random.Next(listBox7.Items.Count);
+				listBox7.SelectedItem = listBox7.Items[randomGear2];
+        		GlobalVars.Custom_Gear2 = listBox7.SelectedItem.ToString();
+        		Image icon2 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
+        		pictureBox10.Image = icon2;
+        		int randomGear3  = random.Next(listBox6.Items.Count);
+				listBox6.SelectedItem = listBox6.Items[randomGear3];
+        		GlobalVars.Custom_Gear3 = listBox6.SelectedItem.ToString();
+        		Image icon3 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
+        		pictureBox9.Image = icon3;
+        	}			
+		}
+		
+		void Button7Click(object sender, EventArgs e)
+		{
+			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
+        	if (Directory.Exists(geardir))
+        	{
+				listBox8.SelectedItem = "NoGear.rbxm";
+        		GlobalVars.Custom_Gear1 = listBox8.SelectedItem.ToString();
+        		Image icon1 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
+        		pictureBox11.Image = icon1;
+				listBox7.SelectedItem = "NoGear.rbxm";
+        		GlobalVars.Custom_Gear2 = listBox7.SelectedItem.ToString();
+        		Image icon2 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
+        		pictureBox10.Image = icon2;
+				listBox6.SelectedItem = "NoGear.rbxm";
+        		GlobalVars.Custom_Gear3 = listBox6.SelectedItem.ToString();
+        		Image icon3 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
+        		pictureBox9.Image = icon3;
+        	}
+		}
+		
+		void ListBox8SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
+        	if (Directory.Exists(geardir))
+        	{
+        		GlobalVars.Custom_Gear1 = listBox8.SelectedItem.ToString();
+        		Image icon1 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
+        		pictureBox11.Image = icon1;
+        	}		
+		}
+		
+		void ListBox7SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
+        	if (Directory.Exists(geardir))
+        	{
+        		GlobalVars.Custom_Gear2 = listBox7.SelectedItem.ToString();
+        		Image icon2 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
+        		pictureBox10.Image = icon2;
+        	}
+		}
+		
+		void ListBox6SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
+        	if (Directory.Exists(geardir))
+        	{
+        		GlobalVars.Custom_Gear3 = listBox6.SelectedItem.ToString();
+        		Image icon3 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
+        		pictureBox9.Image = icon3;
+        	}
 		}
 	}
 }

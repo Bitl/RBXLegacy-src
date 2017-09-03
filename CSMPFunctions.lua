@@ -1294,7 +1294,7 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 	end
 end
 
-function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3,IconType)
+function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3,IconType,MeleeGT,PowerUpGT,RangedGT,NavigationGT,ExplosivesGT,MusicalGT,SocialGT,TransportGT,BuildingGT)
 	if (rbxlegacyversion > 8) then
 		game:GetService("RunService"):Run()
 	else
@@ -1322,6 +1322,47 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 		waitForChild(game.StarterGui,"Health")
 		game.StarterGui.Health.Workaround:remove()
 	end
+	-- gear types!!!!!!!
+	local AllowedGearTypes = Instance.new("StringValue")
+	AllowedGearTypes.Name = "AllowedGearTypes"
+	AllowedGearTypes.Parent = game.Lighting
+	-- ok, lets register our s e p e r a t e  g e a r s
+	local MeleeGTR = Instance.new("BoolValue")
+	MeleeGTR.Parent = AllowedGearTypes
+	MeleeGTR.Name = "Melee"
+	MeleeGTR.Value = MeleeGT
+	local PowerUpGTR = Instance.new("BoolValue")
+	PowerUpGTR.Parent = AllowedGearTypes
+	PowerUpGTR.Name = "PowerUp"
+	PowerUpGTR.Value = PowerUpGT
+	local RangedGTR = Instance.new("BoolValue")
+	RangedGTR.Parent = AllowedGearTypes
+	RangedGTR.Name = "Ranged"
+	RangedGTR.Value = RangedGT
+	local NavigationGTR = Instance.new("BoolValue")
+	NavigationGTR.Parent = AllowedGearTypes
+	NavigationGTR.Name = "Navigation"
+	NavigationGTR.Value = NavigationGT
+	local ExplosivesGTR = Instance.new("BoolValue")
+	ExplosivesGTR.Parent = AllowedGearTypes
+	ExplosivesGTR.Name = "Explosives"
+	ExplosivesGTR.Value = ExplosivesGT
+	local MusicalGTR = Instance.new("BoolValue")
+	MusicalGTR.Parent = AllowedGearTypes
+	MusicalGTR.Name = "Musical"
+	MusicalGTR.Value = MusicalGT
+	local SocialGTR = Instance.new("BoolValue")
+	SocialGTR.Parent = AllowedGearTypes
+	SocialGTR.Name = "Social"
+	SocialGTR.Value = SocialGT
+	local TransportGTR = Instance.new("BoolValue")
+	TransportGTR.Parent = AllowedGearTypes
+	TransportGTR.Name = "Transport"
+	TransportGTR.Value = TransportGT
+	local BuildingGTR = Instance.new("BoolValue")
+	BuildingGTR.Parent = AllowedGearTypes
+	BuildingGTR.Name = "Building"
+	BuildingGTR.Value = BuildingGT
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()	
@@ -1391,6 +1432,7 @@ function CS3DView(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorI
 	rbxlegacyversion = 8
 	settings().Rendering.FrameRateManager = 2
 	game:GetService("RunService"):run()
+	
 	local plr = game.Players:CreateLocalPlayer(UserID)
 	plr.Name = PlayerName
 	plr:LoadCharacter()

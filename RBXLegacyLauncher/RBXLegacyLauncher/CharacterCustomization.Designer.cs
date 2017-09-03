@@ -704,7 +704,6 @@ namespace RBXLegacyLauncher
 			this.Page2Panel.Size = new System.Drawing.Size(282, 127);
 			this.Page2Panel.TabIndex = 121;
 			this.Page2Panel.Visible = false;
-			this.Page2Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Page2PanelPaint);
 			// 
 			// ColorButton39
 			// 
@@ -1336,6 +1335,7 @@ namespace RBXLegacyLauncher
 			this.button7.TabIndex = 57;
 			this.button7.Text = "Reset Gears";
 			this.button7.UseVisualStyleBackColor = true;
+			this.button7.Click += new System.EventHandler(this.Button7Click);
 			// 
 			// button9
 			// 
@@ -1345,6 +1345,7 @@ namespace RBXLegacyLauncher
 			this.button9.TabIndex = 56;
 			this.button9.Text = "Randomize Gears";
 			this.button9.UseVisualStyleBackColor = true;
+			this.button9.Click += new System.EventHandler(this.Button9Click);
 			// 
 			// pictureBox9
 			// 
@@ -1383,6 +1384,7 @@ namespace RBXLegacyLauncher
 			this.listBox6.Name = "listBox6";
 			this.listBox6.Size = new System.Drawing.Size(134, 108);
 			this.listBox6.TabIndex = 49;
+			this.listBox6.SelectedIndexChanged += new System.EventHandler(this.ListBox6SelectedIndexChanged);
 			// 
 			// listBox7
 			// 
@@ -1391,6 +1393,7 @@ namespace RBXLegacyLauncher
 			this.listBox7.Name = "listBox7";
 			this.listBox7.Size = new System.Drawing.Size(134, 108);
 			this.listBox7.TabIndex = 48;
+			this.listBox7.SelectedIndexChanged += new System.EventHandler(this.ListBox7SelectedIndexChanged);
 			// 
 			// listBox8
 			// 
@@ -1399,6 +1402,7 @@ namespace RBXLegacyLauncher
 			this.listBox8.Name = "listBox8";
 			this.listBox8.Size = new System.Drawing.Size(134, 108);
 			this.listBox8.TabIndex = 47;
+			this.listBox8.SelectedIndexChanged += new System.EventHandler(this.ListBox8SelectedIndexChanged);
 			// 
 			// tabPage4
 			// 
