@@ -6,7 +6,7 @@
 			<bool name="Disabled">false</bool>
 			<Content name="LinkedSource"><null></null></Content>
 			<string name="Name">Sorter</string>
-			<ProtectedString name="Source">print(&quot;Special thanks to Bitl, Carrot, iago, winsupermario1234, Khangaroo, drslicendice, coke, TheLivingBee, Raymonf, and a bunch of play - testers for help making 2013 fully stable and work. 8)&quot;)
+			<ProtectedString name="Source">print(&quot;Special thanks to Bitl, Carrot, iago, winsupermario1234, Khangaroo, drslicendice, coke, TheLivingBee, Raymonf, and a bunch of play - testers for help making 2012 fully stable and work. 8)&quot;)
 script.Playerlist:clone().Parent = game.StarterGui
 script.Dialogs:clone().Parent = game.StarterGui
 script.Backpack:clone().Parent = game.StarterGui
@@ -23464,7 +23464,7 @@ TheLivingBee = &quot;rbxasset://textures/ui/admins/TheLivingBee.png&quot;,
 OliverA = 1,
 kinery = 1,
 Peridorky =1,
-Bitl = 1,
+Bitl = &quot;rbxasset://textures/ui/admins/bitl.png&quot;,
 Raymonf = &quot;rbxasset://textures/ui/admins/Raymonf.png&quot;,
 }
 
@@ -23514,7 +23514,6 @@ end
 &#9;membershipType&#9;&#9;Enum of membership status
 &#9;@Return: &#9;&#9;&#9;string of image asset
 --]]
-
 function getMembershipTypeIcon(membershipType,playerName)
 &#9;if ADMINS[playerName]~=nil then
 &#9;&#9;if ADMINS[playerName] == 1 then
@@ -23548,7 +23547,6 @@ local function getFriendStatusIcon(friendStatus)
 &#9;&#9;error(&quot;Unknown FriendStatus: &quot; .. friendStatus)
 &#9;end
 end
-
 
 --[[
 &#9;Utility function to create buttons for the popup menus

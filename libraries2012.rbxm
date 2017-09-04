@@ -11798,7 +11798,7 @@ TheLivingBee = &quot;rbxasset://textures/ui/admins/TheLivingBee.png&quot;,
 OliverA = 1,
 kinery = 1,
 Peridorky =1,
-Bitl = 1,
+Bitl = &quot;rbxasset://textures/ui/admins/bitl.png&quot;,
 Raymonf = &quot;rbxasset://textures/ui/admins/Raymonf.png&quot;,
 }
 
