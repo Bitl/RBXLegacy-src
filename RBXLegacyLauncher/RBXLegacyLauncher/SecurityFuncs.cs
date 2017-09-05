@@ -59,7 +59,14 @@ namespace RBXLegacyLauncher
             		}
             		else
             		{
-            			return false;
+            			if (GlobalVars.AdminMode == false)
+            			{
+            				return false;
+            			}
+            			else
+            			{
+            				return true;
+            			}
             		}
         		}
     		}
@@ -80,7 +87,14 @@ namespace RBXLegacyLauncher
             		}
             		else
             		{
-            			return false;
+            			if (GlobalVars.AdminMode == false)
+            			{
+            				return false;
+            			}
+            			else
+            			{
+            				return true;
+            			}
             		}
         		}
     		}
