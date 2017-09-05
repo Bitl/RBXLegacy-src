@@ -40,7 +40,6 @@
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.label30 = new System.Windows.Forms.Label();
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.label18 = new System.Windows.Forms.Label();
 			this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -98,6 +97,7 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.label19 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -248,7 +248,7 @@
 			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.Color.Red;
 			this.label4.Location = new System.Drawing.Point(13, 70);
 			this.label4.Name = "label4";
@@ -373,8 +373,8 @@
 			// 
 			// tabPage3
 			// 
+			this.tabPage3.Controls.Add(this.label19);
 			this.tabPage3.Controls.Add(this.textBox6);
-			this.tabPage3.Controls.Add(this.label30);
 			this.tabPage3.Controls.Add(this.listBox2);
 			this.tabPage3.Controls.Add(this.label18);
 			this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -389,45 +389,31 @@
 			// textBox6
 			// 
 			this.textBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.textBox6.Location = new System.Drawing.Point(6, 213);
+			this.textBox6.Location = new System.Drawing.Point(6, 167);
 			this.textBox6.Multiline = true;
 			this.textBox6.Name = "textBox6";
 			this.textBox6.ReadOnly = true;
 			this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.textBox6.Size = new System.Drawing.Size(393, 65);
+			this.textBox6.Size = new System.Drawing.Size(393, 111);
 			this.textBox6.TabIndex = 4;
 			this.textBox6.Text = "textBox6";
-			// 
-			// label30
-			// 
-			this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.label30.ForeColor = System.Drawing.Color.Red;
-			this.label30.Location = new System.Drawing.Point(12, 148);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(378, 41);
-			this.label30.TabIndex = 3;
-			this.label30.Text = "This client loads assets directly from a server. This means that you may not be a" +
-			"ble to play it over a LAN or local connection without internet access. This may " +
-			"also mean that some things won\'t load.";
-			this.label30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.label30.Visible = false;
 			// 
 			// listBox2
 			// 
 			this.listBox2.FormattingEnabled = true;
-			this.listBox2.Location = new System.Drawing.Point(6, 7);
+			this.listBox2.Location = new System.Drawing.Point(6, 22);
 			this.listBox2.Name = "listBox2";
-			this.listBox2.Size = new System.Drawing.Size(393, 134);
+			this.listBox2.Size = new System.Drawing.Size(393, 121);
 			this.listBox2.TabIndex = 2;
 			this.listBox2.SelectedIndexChanged += new System.EventHandler(this.ListBox2SelectedIndexChanged);
 			// 
 			// label18
 			// 
-			this.label18.Location = new System.Drawing.Point(6, 195);
+			this.label18.Location = new System.Drawing.Point(5, 149);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(127, 15);
 			this.label18.TabIndex = 0;
-			this.label18.Text = "CLIENT INFORMATION:";
+			this.label18.Text = "CLIENT INFORMATION";
 			// 
 			// tabPage6
 			// 
@@ -677,7 +663,7 @@
 			// label43
 			// 
 			this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label43.Location = new System.Drawing.Point(291, 245);
+			this.label43.Location = new System.Drawing.Point(296, 245);
 			this.label43.Name = "label43";
 			this.label43.Size = new System.Drawing.Size(108, 18);
 			this.label43.TabIndex = 15;
@@ -736,12 +722,12 @@
 			// 
 			// label12
 			// 
-			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(202, 160);
+			this.label12.Font = new System.Drawing.Font("Onesize Reverse", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(182, 167);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(94, 24);
+			this.label12.Size = new System.Drawing.Size(94, 18);
 			this.label12.TabIndex = 9;
-			this.label12.Text = "Credits:";
+			this.label12.Text = "Credits";
 			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// pictureBox2
@@ -785,7 +771,7 @@
 			// 
 			// label8
 			// 
-			this.label8.Location = new System.Drawing.Point(8, 46);
+			this.label8.Location = new System.Drawing.Point(7, 46);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(212, 19);
 			this.label8.TabIndex = 3;
@@ -877,7 +863,7 @@
 			// 
 			// label13
 			// 
-			this.label13.Location = new System.Drawing.Point(16, 89);
+			this.label13.Location = new System.Drawing.Point(15, 89);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(23, 13);
 			this.label13.TabIndex = 7;
@@ -991,6 +977,14 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// label19
+			// 
+			this.label19.Location = new System.Drawing.Point(4, 5);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(127, 15);
+			this.label19.TabIndex = 5;
+			this.label19.Text = "CLIENTS";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1040,6 +1034,7 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label31;
 		private System.Windows.Forms.Label label32;
@@ -1081,7 +1076,6 @@
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.Label label35;
-		private System.Windows.Forms.Label label30;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.CheckBox checkBox3;

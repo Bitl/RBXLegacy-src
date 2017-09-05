@@ -318,16 +318,9 @@ namespace RBXLegacyLauncher
 				checkBox3.Enabled = false;
 				GlobalVars.LocalPlayMode = false;
 			}
-			
-			if (GlobalVars.LoadsAssetsOnline == false)
-			{
-				label30.Visible = false;
-			}
-			else if (GlobalVars.LoadsAssetsOnline == true)
-			{
-				label30.Visible = true;
-			}
 					
+			// use clientinfo desc rather than labels
+			
 			textBox6.Text = GlobalVars.SelectedClientDesc;
 			label26.Text = GlobalVars.SelectedClient;
 			ConsolePrint("Client '" + GlobalVars.SelectedClient + "' successfully loaded.", 3);
