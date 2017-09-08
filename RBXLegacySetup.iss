@@ -39,7 +39,8 @@ Source: "RBXLegacy\maps\*"; DestDir: "{app}\maps"; Flags: ignoreversion recurses
 Source: "RBXLegacy\models\*"; DestDir: "{app}\models"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\avatar\*"; DestDir: "{app}\avatar"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\scripts\*"; DestDir: "{app}\scripts"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "RBXLegacy\sudppipe.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy\udppipe.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy\Mono.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\RBXLegacy"; Filename: "{app}\RBXLegacyLauncher.exe"
