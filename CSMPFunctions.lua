@@ -336,31 +336,31 @@ function ReadGearInfo(newTool,player)
 				end
 			elseif (GearType == 3) then
 				if (game.Lighting.AllowedGearTypes.Ranged == true) then
-					
+					return true
 				end
 			elseif (GearType == 4) then
 				if (game.Lighting.AllowedGearTypes.Navigation == true) then
-					
+					return true
 				end
 			elseif (GearType == 5) then
 				if (game.Lighting.AllowedGearTypes.Explosives == true) then
-					
+					return true
 				end
 			elseif (GearType == 6) then
 				if (game.Lighting.AllowedGearTypes.Musical == true) then
-					
+					return true
 				end
 			elseif (GearType == 7) then
 				if (game.Lighting.AllowedGearTypes.Social == true) then
-					
+					return true
 				end
 			elseif (GearType == 8) then
 				if (game.Lighting.AllowedGearTypes.Transport == true) then
-					
+					return true
 				end
 			elseif (GearType == 9) then
 				if (game.Lighting.AllowedGearTypes.Building == true) then
-					
+					return true
 				end
 			end
 		end
