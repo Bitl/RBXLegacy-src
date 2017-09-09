@@ -7,13 +7,13 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{B84DBE54-11F6-43AB-AC95-A71164168899}
-AppName=RBXLegacy 1.18 Preview
+AppId={{DCC48BED-A985-4C5F-8C52-7E2E3F53C8EB}
+AppName=RBXLegacy-Preview
 AppVersion={#AppVer}
-AppVerName=RBXLegacy 1.18 Preview
+AppVerName=RBXLegacy-Preview
 AppPublisher=Bitl
-DefaultDirName=C:\RBXLegacy 1.18 Preview
-DefaultGroupName=RBXLegacy 1.18 Preview
+DefaultDirName=C:\RBXLegacy-Preview
+DefaultGroupName=RBXLegacy-Preview
 AllowNoIcons=yes
 OutputDir=.
 OutputBaseFilename=RBXLegacySetup_{#AppVer}
@@ -43,10 +43,10 @@ Source: "RBXLegacy-Preview\udppipe.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy-Preview\Mono.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\RBXLegacy 1.18 Preview"; Filename: "{app}\RBXLegacyLauncher.exe"
-Name: "{group}\{cm:UninstallProgram,RBXLegacy 1.18 Preview}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\RBXLegacy 1.18 Preview"; Filename: "{app}\RBXLegacyLauncher.exe"; Tasks: desktopicon
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\RBXLegacy 1.18 Preview"; Filename: "{app}\RBXLegacyLauncher.exe"; Tasks: quicklaunchicon
+Name: "{group}\RBXLegacy-Preview"; Filename: "{app}\RBXLegacyLauncher.exe"
+Name: "{group}\{cm:UninstallProgram,RBXLegacy-Preview}"; Filename: "{uninstallexe}"
+Name: "{commondesktop}\RBXLegacy-Preview"; Filename: "{app}\RBXLegacyLauncher.exe"; Tasks: desktopicon
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\RBXLegacy-Preview"; Filename: "{app}\RBXLegacyLauncher.exe"; Tasks: quicklaunchicon
 
 [Run]
 Filename: "{app}\RBXLegacyLauncher.exe"; Description: "Play RBXLegacy 1.18 Preview"; Flags: nowait postinstall skipifsilent
