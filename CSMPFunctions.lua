@@ -804,7 +804,7 @@ function CSServer(Port,PlayerLimit,RespawnTime,IsPersonalServer,ChatType,HostID,
 					local Character=Player.Character
 					local Humanoid=Character:FindFirstChild("Humanoid")
 					if (Humanoid~=nil) then
-						Humanoid.Died:connect(function() delay(RespawnTime, function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.CharactermPlayer.Backpack) end) end)
+						Humanoid.Died:connect(function() delay(RespawnTime, function() Player:LoadCharacter() LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack) end) end)
 					end
 				end
 			end)
