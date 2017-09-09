@@ -59,11 +59,11 @@ namespace RBXLegacyLauncher
 			{
 				//We need at least a limit of 12 players.
 				GlobalVars.ServerPort = GlobalVars.DefaultRobloxPort;
-				textBox7.Text = GlobalVars.ServerPort.ToString();
+				numericUpDown1.Text = GlobalVars.ServerPort.ToString();
 			}
 			else
 			{
-				textBox7.Text = GlobalVars.ServerPort.ToString();
+				numericUpDown1.Text = GlobalVars.ServerPort.ToString();
 			}
 			
 			if (GlobalVars.melee == true && GlobalVars.navigation == true 
@@ -196,11 +196,12 @@ namespace RBXLegacyLauncher
 			{
 				try
   				{
-    				ipAddress = wc.DownloadString("http://ipv4.icanhazip.com");
+					Mono.Nat.INatDevice natd = e.Device;
+    				ipAddress = natd.GetExternalIP().ToString();
   				}
 				catch (Exception)
   				{
-    				ipAddress = "localhost" + Environment.NewLine;
+    				ipAddress = "localhost";
   				}
 			}
 
@@ -306,19 +307,19 @@ namespace RBXLegacyLauncher
 			GlobalVars.building = false;
 		}
 		
-		void TextBox7TextChanged(object sender, EventArgs e)
+		void numericUpDown1TextChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
-			if (int.TryParse(textBox7.Text, out parsedValue))
+			if (int.TryParse(numericUpDown1.Text, out parsedValue))
 			{
-				if (textBox7.Text.Equals(""))
+				if (numericUpDown1.Text.Equals(""))
 				{
 					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
 					GlobalVars.ServerPort = GlobalVars.DefaultRobloxPort;
 				}
 				else
 				{
-					GlobalVars.ServerPort = Convert.ToInt32(textBox7.Text);
+					GlobalVars.ServerPort = Convert.ToInt32(numericUpDown1.Text);
 				}
 			}
 			else
@@ -620,15 +621,15 @@ namespace RBXLegacyLauncher
 		void TextBox5TextChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
-			if (int.TryParse(textBox7.Text, out parsedValue))
+			if (int.TryParse(numericUpDown1.Text, out parsedValue))
 			{
-				if (textBox7.Text.Equals(""))
+				if (numericUpDown1.Text.Equals(""))
 				{
 					GlobalVars.blacklist6 = 0;
 				}
 				else
 				{
-					GlobalVars.blacklist6 = Convert.ToInt32(textBox7.Text);
+					GlobalVars.blacklist6 = Convert.ToInt32(numericUpDown1.Text);
 				}
 			}
 			else

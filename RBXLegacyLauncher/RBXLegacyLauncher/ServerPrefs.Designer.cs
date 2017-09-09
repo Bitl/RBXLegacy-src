@@ -36,7 +36,6 @@
 			this.checkBox11 = new System.Windows.Forms.CheckBox();
 			this.checkBox10 = new System.Windows.Forms.CheckBox();
 			this.label45 = new System.Windows.Forms.Label();
-			this.textBox7 = new System.Windows.Forms.TextBox();
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.label29 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -56,9 +55,11 @@
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.button1 = new System.Windows.Forms.Button();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabPage2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBox1
@@ -88,6 +89,7 @@
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.numericUpDown1);
 			this.tabPage1.Controls.Add(this.checkBox12);
 			this.tabPage1.Controls.Add(this.textBox11);
 			this.tabPage1.Controls.Add(this.textBox12);
@@ -105,7 +107,6 @@
 			this.tabPage1.Controls.Add(this.checkBox11);
 			this.tabPage1.Controls.Add(this.checkBox10);
 			this.tabPage1.Controls.Add(this.label45);
-			this.tabPage1.Controls.Add(this.textBox7);
 			this.tabPage1.Controls.Add(this.textBox3);
 			this.tabPage1.Controls.Add(this.label29);
 			this.tabPage1.Controls.Add(this.label3);
@@ -147,7 +148,7 @@
 			this.textBox11.Name = "textBox11";
 			this.textBox11.Size = new System.Drawing.Size(55, 20);
 			this.textBox11.TabIndex = 65;
-			this.textBox11.Text = "0";
+			this.textBox11.Text = "1";
 			this.textBox11.TextChanged += new System.EventHandler(this.TextBox11TextChanged);
 			// 
 			// textBox12
@@ -156,7 +157,7 @@
 			this.textBox12.Name = "textBox12";
 			this.textBox12.Size = new System.Drawing.Size(54, 20);
 			this.textBox12.TabIndex = 64;
-			this.textBox12.Text = "0";
+			this.textBox12.Text = "1";
 			this.textBox12.TextChanged += new System.EventHandler(this.TextBox12TextChanged);
 			// 
 			// textBox9
@@ -165,7 +166,7 @@
 			this.textBox9.Name = "textBox9";
 			this.textBox9.Size = new System.Drawing.Size(55, 20);
 			this.textBox9.TabIndex = 63;
-			this.textBox9.Text = "0";
+			this.textBox9.Text = "1";
 			this.textBox9.TextChanged += new System.EventHandler(this.TextBox9TextChanged);
 			// 
 			// textBox10
@@ -174,7 +175,7 @@
 			this.textBox10.Name = "textBox10";
 			this.textBox10.Size = new System.Drawing.Size(54, 20);
 			this.textBox10.TabIndex = 62;
-			this.textBox10.Text = "0";
+			this.textBox10.Text = "1";
 			this.textBox10.TextChanged += new System.EventHandler(this.TextBox10TextChanged);
 			// 
 			// textBox5
@@ -183,7 +184,7 @@
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(54, 20);
 			this.textBox5.TabIndex = 61;
-			this.textBox5.Text = "0";
+			this.textBox5.Text = "1";
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
 			// textBox8
@@ -192,7 +193,7 @@
 			this.textBox8.Name = "textBox8";
 			this.textBox8.Size = new System.Drawing.Size(54, 20);
 			this.textBox8.TabIndex = 60;
-			this.textBox8.Text = "0";
+			this.textBox8.Text = "1";
 			this.textBox8.TextChanged += new System.EventHandler(this.TextBox8TextChanged);
 			// 
 			// textBox6
@@ -201,7 +202,7 @@
 			this.textBox6.Name = "textBox6";
 			this.textBox6.Size = new System.Drawing.Size(54, 20);
 			this.textBox6.TabIndex = 59;
-			this.textBox6.Text = "0";
+			this.textBox6.Text = "1";
 			this.textBox6.TextChanged += new System.EventHandler(this.TextBox6TextChanged);
 			// 
 			// label6
@@ -221,7 +222,7 @@
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(54, 20);
 			this.textBox4.TabIndex = 56;
-			this.textBox4.Text = "0";
+			this.textBox4.Text = "1";
 			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
 			// 
 			// label5
@@ -293,15 +294,6 @@
 			this.label45.TabIndex = 49;
 			this.label45.Text = "Port";
 			this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// textBox7
-			// 
-			this.textBox7.Location = new System.Drawing.Point(240, 82);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(237, 20);
-			this.textBox7.TabIndex = 48;
-			this.textBox7.Text = "53640";
-			this.textBox7.TextChanged += new System.EventHandler(this.TextBox7TextChanged);
 			// 
 			// textBox3
 			// 
@@ -502,6 +494,23 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(240, 80);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+									99999,
+									0,
+									0,
+									0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(237, 20);
+			this.numericUpDown1.TabIndex = 67;
+			this.numericUpDown1.Value = new decimal(new int[] {
+									53640,
+									0,
+									0,
+									0});
+			// 
 			// ServerPrefs
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,8 +532,10 @@
 			this.tabPage1.PerformLayout();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.TextBox textBox12;
 		private System.Windows.Forms.TextBox textBox11;
@@ -542,7 +553,6 @@
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox7;
 		private System.Windows.Forms.Label label45;
 		private System.Windows.Forms.CheckBox checkBox10;
 		private System.Windows.Forms.CheckBox checkBox11;

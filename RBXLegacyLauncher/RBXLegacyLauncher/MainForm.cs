@@ -260,7 +260,7 @@ namespace RBXLegacyLauncher
 			label26.Text = GlobalVars.SelectedClient;
 			label28.Text = GlobalVars.Map;
 			listBox1.SelectedItem = GlobalVars.Map;
-			textBox4.Text = GlobalVars.RobloxPort.ToString();
+			numericUpDown1.Text = GlobalVars.RobloxPort.ToString();
 			label37.Text = GlobalVars.IP;
 			label38.Text = GlobalVars.RobloxPort.ToString();
 			ConsolePrint("Configuration has been loaded.", 3);
@@ -398,19 +398,19 @@ namespace RBXLegacyLauncher
 			DialogResult result = MessageBox.Show("Your configuration has been saved successfully!","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		
-		void TextBox4TextChanged(object sender, EventArgs e)
+		void numericUpDown1TextChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
-			if (int.TryParse(textBox4.Text, out parsedValue))
+			if (int.TryParse(numericUpDown1.Text, out parsedValue))
 			{
-				if (textBox4.Text.Equals(""))
+				if (numericUpDown1.Text.Equals(""))
 				{
 					//set it to the normal port, 53640. it wouldn't make any sense if we set it to 0.
 					GlobalVars.RobloxPort = GlobalVars.DefaultRobloxPort;
 				}
 				else
 				{
-					GlobalVars.RobloxPort = Convert.ToInt32(textBox4.Text);
+					GlobalVars.RobloxPort = Convert.ToInt32(numericUpDown1.Text);
 				}
 			}
 			else
@@ -472,7 +472,7 @@ namespace RBXLegacyLauncher
 			try
 			{
 				GlobalVars.RobloxPort = Convert.ToInt32(listBox4.SelectedItem.ToString());
-				textBox4.Text = GlobalVars.RobloxPort.ToString();
+				numericUpDown1.Text = GlobalVars.RobloxPort.ToString();
 				label38.Text = GlobalVars.RobloxPort.ToString();
 			}
 			catch (Exception)
@@ -1011,6 +1011,12 @@ namespace RBXLegacyLauncher
 		{
     		base.OnFormClosing(e);
     		WriteConfigValues();
+		}
+		
+		void Button6Click(object sender, EventArgs e)
+		{
+			ClientSettings goptions = new ClientSettings();
+			goptions.Show();			
 		}
 	}
 }

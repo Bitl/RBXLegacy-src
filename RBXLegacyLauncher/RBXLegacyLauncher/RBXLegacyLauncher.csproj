@@ -68,6 +68,10 @@
     <Compile Include="DocForm.Designer.cs">
       <DependentUpon>DocForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientSettings.cs" />
+    <Compile Include="ClientSettings.Designer.cs">
+      <DependentUpon>ClientSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="LauncherFuncs.cs" />
     <Compile Include="LoaderForm.cs" />
     <Compile Include="LoaderForm.Designer.cs">
@@ -100,8 +104,14 @@
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientSettings.resx">
+      <DependentUpon>ClientSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DocForm.resx">
       <DependentUpon>DocForm.Designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>ClientSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>

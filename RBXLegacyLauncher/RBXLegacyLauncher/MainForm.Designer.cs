@@ -21,7 +21,6 @@
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.button11 = new System.Windows.Forms.Button();
 			this.label35 = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
 			this.label42 = new System.Windows.Forms.Label();
 			this.button19 = new System.Windows.Forms.Button();
 			this.button10 = new System.Windows.Forms.Button();
@@ -39,6 +38,9 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
+			this.label30 = new System.Windows.Forms.Label();
+			this.button6 = new System.Windows.Forms.Button();
+			this.label19 = new System.Windows.Forms.Label();
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.label18 = new System.Windows.Forms.Label();
@@ -97,7 +99,7 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.label19 = new System.Windows.Forms.Label();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -108,6 +110,7 @@
 			this.tabPage8.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -146,9 +149,9 @@
 			// 
 			// tabPage1
 			// 
+			this.tabPage1.Controls.Add(this.numericUpDown1);
 			this.tabPage1.Controls.Add(this.button11);
 			this.tabPage1.Controls.Add(this.label35);
-			this.tabPage1.Controls.Add(this.textBox4);
 			this.tabPage1.Controls.Add(this.label42);
 			this.tabPage1.Controls.Add(this.button19);
 			this.tabPage1.Controls.Add(this.button10);
@@ -186,16 +189,6 @@
 			this.label35.TabIndex = 40;
 			this.label35.Text = "Server Port";
 			this.label35.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// textBox4
-			// 
-			this.textBox4.Location = new System.Drawing.Point(214, 24);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(176, 20);
-			this.textBox4.TabIndex = 39;
-			this.textBox4.Text = "53640";
-			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.textBox4.TextChanged += new System.EventHandler(this.TextBox4TextChanged);
 			// 
 			// label42
 			// 
@@ -373,6 +366,8 @@
 			// 
 			// tabPage3
 			// 
+			this.tabPage3.Controls.Add(this.label30);
+			this.tabPage3.Controls.Add(this.button6);
 			this.tabPage3.Controls.Add(this.label19);
 			this.tabPage3.Controls.Add(this.textBox6);
 			this.tabPage3.Controls.Add(this.listBox2);
@@ -386,6 +381,33 @@
 			this.tabPage3.ToolTipText = "Select a ROBLOX Client to load your game";
 			this.tabPage3.UseVisualStyleBackColor = true;
 			// 
+			// label30
+			// 
+			this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.label30.Location = new System.Drawing.Point(6, 237);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(393, 2);
+			this.label30.TabIndex = 23;
+			// 
+			// button6
+			// 
+			this.button6.Location = new System.Drawing.Point(6, 240);
+			this.button6.Name = "button6";
+			this.button6.Size = new System.Drawing.Size(393, 38);
+			this.button6.TabIndex = 6;
+			this.button6.Text = "CONFIGURE CLIENT";
+			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.Button6Click);
+			// 
+			// label19
+			// 
+			this.label19.Location = new System.Drawing.Point(4, 5);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(127, 15);
+			this.label19.TabIndex = 5;
+			this.label19.Text = "CLIENTS";
+			// 
 			// textBox6
 			// 
 			this.textBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -394,7 +416,7 @@
 			this.textBox6.Name = "textBox6";
 			this.textBox6.ReadOnly = true;
 			this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.textBox6.Size = new System.Drawing.Size(393, 111);
+			this.textBox6.Size = new System.Drawing.Size(393, 67);
 			this.textBox6.TabIndex = 4;
 			this.textBox6.Text = "textBox6";
 			// 
@@ -818,7 +840,7 @@
 			// button8
 			// 
 			this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-			this.button8.Location = new System.Drawing.Point(150, 107);
+			this.button8.Location = new System.Drawing.Point(151, 106);
 			this.button8.Name = "button8";
 			this.button8.Size = new System.Drawing.Size(86, 24);
 			this.button8.TabIndex = 35;
@@ -871,7 +893,7 @@
 			// 
 			// button4
 			// 
-			this.button4.Location = new System.Drawing.Point(59, 107);
+			this.button4.Location = new System.Drawing.Point(58, 106);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(85, 24);
 			this.button4.TabIndex = 9;
@@ -977,13 +999,23 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// label19
+			// numericUpDown1
 			// 
-			this.label19.Location = new System.Drawing.Point(4, 5);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(127, 15);
-			this.label19.TabIndex = 5;
-			this.label19.Text = "CLIENTS";
+			this.numericUpDown1.Location = new System.Drawing.Point(214, 25);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+									99999,
+									0,
+									0,
+									0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(175, 20);
+			this.numericUpDown1.TabIndex = 43;
+			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.numericUpDown1.Value = new decimal(new int[] {
+									53640,
+									0,
+									0,
+									0});
 			// 
 			// MainForm
 			// 
@@ -1031,9 +1063,13 @@
 			this.tabPage8.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Label label30;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label31;
@@ -1074,7 +1110,6 @@
 		private System.Windows.Forms.TextBox textBox6;
 		private System.Windows.Forms.Button button8;
 		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.Label label35;
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.Label label27;
