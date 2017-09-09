@@ -1012,10 +1012,10 @@ function CSConnect(UserID,ServerIP,ServerPort,PlayerName,Hat1ID,Hat2ID,Hat3ID,He
 			if (rbxlegacyversion == 1) then
 				game.GuiRoot.MainMenu["Toolbox"]:Remove()
 				game.GuiRoot.MainMenu["Edit Mode"]:Remove()
-				game.GuiRoot.ChatHud:Remove()
+				game.GuiRoot.ChatMenuPanel:Remove()
 				game.GuiRoot.RightPalette.ReportAbuse:Remove()
 			elseif (rbxlegacyversion == 2) then
-				game.GuiRoot.ChatHud:Remove()
+				game.GuiRoot.ChatMenuPanel:Remove()
 				game.GuiRoot.RightPalette.ReportAbuse:Remove()
 			end
       	end)
@@ -1154,11 +1154,28 @@ function CSSolo(UserID,PlayerName,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,
 	InitalizeClientAppearance(plr,Hat1ID,Hat2ID,Hat3ID,HeadColorID,TorsoColorID,LeftArmColorID,RightArmColorID,LeftLegColorID,RightLegColorID,TShirtID,ShirtID,PantsID,FaceID,HeadID,TorsoID,RArmID,LArmID,RLegID,LLegID,Gear1,Gear2,Gear3)
 	LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack)
 	game:GetService("Visit")
-	if (plr.Character ~= nil) then
-		local Character=plr.Character
-		local Humanoid=Character:FindFirstChild("Humanoid")
-		if (Humanoid~=nil) then
-			Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack) end) end)
+	if (rbxlegacyversion >= 8) then
+		if (plr.Character ~= nil) then
+			local Character=plr.Character
+			local Humanoid=Character:FindFirstChild("Humanoid")
+			if (Humanoid~=nil) then
+				Humanoid.Died:connect(function() delay(5,function() plr:LoadCharacter() LoadCharacterNew(newWaitForChild(plr,"Appearance"),plr.Character,plr.Backpack) end) end)
+			end
+		end
+	else
+		while true do 
+			wait(0.001)
+			if (Player.Character ~= nil) then
+				if (Player.Character.Humanoid.Health == 0) then
+					wait(RespawnTime)
+					Player:LoadCharacter()
+					LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack)
+				elseif (Player.Character.Parent == nil) then 
+					wait(RespawnTime)
+					Player:LoadCharacter() -- to make sure nobody is deleted.
+					LoadCharacterNew(newWaitForChild(Player,"Appearance"),Player.Character,Player.Backpack)
+				end
+			end
 		end
 	end
 end
