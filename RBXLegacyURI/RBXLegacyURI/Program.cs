@@ -18,15 +18,18 @@ namespace RBXLegacyURI
 
 		private static void Main(string[] args)
 		{
-			Console.Title = "RBXLegacy";
-			try {
+			Console.Title = "RBXLegacy URI Installer";
+			try 
+			{
 				Program.registerURI("RBXLegacy", AppDomain.CurrentDomain.BaseDirectory + "RBXLegacyLauncher.exe", "");
 				Program.registerURI("rbxlegacy", AppDomain.CurrentDomain.BaseDirectory + "RBXLegacyLauncher.exe", ""); // chromium
-				Console.WriteLine("RBXLegacy has been installed on your computer successfully! You can now join RBXLegacy servers with URI.");
+				Console.WriteLine("RBXLegacy has been installed on your computer successfully! You can now join RBXLegacy servers with URI links and via the website!");
 				Console.WriteLine("Press any key to continue . . .");
 				Console.ReadKey();
-			} catch (Exception) {	
-				Console.Title = "RBXLegacy - ERROR";
+				Console.WriteLine("z0mgh4x0r l0gs"); // how can they see this still??? 1337 h4x0r
+			} 
+			catch (Exception) 
+			{
 				Console.WriteLine("RBXLegacy failed to install the RBXLegacy URL protocol.");
 				Console.WriteLine("Make sure you're running this application as an administrator, and that RBXLegacyLauncher.exe is in the RBXLegacy folder.");
 				Console.WriteLine("Press any key to continue . . .");

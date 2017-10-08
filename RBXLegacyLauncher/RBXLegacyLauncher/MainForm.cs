@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using Open.Nat;
 
 namespace RBXLegacyLauncher
 {
@@ -19,42 +20,61 @@ namespace RBXLegacyLauncher
 			InitializeComponent();
 		}
 		
-		public event EventHandler<evNATdoneargs> evNATdone;
-		
-		public class evNATdoneargs : EventArgs 
+		public async void StartUPNP()
 		{
-			public string IP;
-			public int port;
-		}
+			try
+			{
+    			var nat = new NatDiscoverer();
 
-		//this class contains network connectivity stuff
-		public void StartUPNP()
-		{
-			Mono.Nat.NatUtility.DeviceFound += new EventHandler<Mono.Nat.DeviceEventArgs>(NatUtility_DeviceFound);
-			Mono.Nat.NatUtility.DeviceLost += new EventHandler<Mono.Nat.DeviceEventArgs>(NatUtility_DeviceLost);
-			Mono.Nat.NatUtility.StartDiscovery();
-		}
-
-		private void NatUtility_DeviceFound(object sender, Mono.Nat.DeviceEventArgs e)
-		{
-			//do port forwarding with UPNP
-			Mono.Nat.INatDevice natd = e.Device;
-			natd.CreatePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Tcp,GlobalVars.ServerPort,GlobalVars.ServerPort));
-			natd.CreatePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Udp,GlobalVars.ServerPort,GlobalVars.ServerPort));
-			ConsolePrint("Port " + GlobalVars.ServerPort.ToString() + " registered to device " + natd.GetExternalIP().ToString(), 3);
-			evNATdoneargs args = new evNATdoneargs();
-			args.IP = natd.GetExternalIP().ToString();
-			args.port = GlobalVars.ServerPort;
-			evNATdone(this, args);
-			//MessageBox.Show("NAT done! My public IP is " + IP);
+    			var cts = new CancellationTokenSource(5000);
+    			var device = await nat.DiscoverDeviceAsync(PortMapper.Upnp, cts);
+    			await device.CreatePortMapAsync(new Mapping(Protocol.Udp, GlobalVars.ServerPort, GlobalVars.ServerPort, "RBXLegacy"));
+    			
+    			var ip = await device.GetExternalIPAsync();
+    			
+    			ConsolePrint("Port " + GlobalVars.ServerPort.ToString() + " registered to device " + ip, 3);
+			}
+			catch(NatDeviceNotFoundException e)
+			{
+				ConsolePrint("Error: " + e.ToString(), 2);
+			}
+			catch(MappingException me)
+			{
+    			switch(me.ErrorCode)
+    			{
+        		case 718:
+            		ConsolePrint("The external port is already in use.", 2);
+            		break;
+        		case 728: 
+            		ConsolePrint("The router's mapping table is full.", 2);
+            		break;
+    			}
+			}
 		}
 		
-		private void NatUtility_DeviceLost(object sender, Mono.Nat.DeviceEventArgs e)
+		public async void StopUPNP()
 		{
-			//do port forwarding with UPNP
-			Mono.Nat.INatDevice natd = e.Device;
-			natd.DeletePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Tcp,GlobalVars.ServerPort,GlobalVars.ServerPort));
-			natd.DeletePortMap(new Mono.Nat.Mapping(Mono.Nat.Protocol.Udp,GlobalVars.ServerPort,GlobalVars.ServerPort));
+			try
+			{
+    			var nat = new NatDiscoverer();
+				var cts = new CancellationTokenSource(5000);
+				var device = await nat.DiscoverDeviceAsync(PortMapper.Upnp, cts);
+
+				foreach (var mapping in await device.GetAllMappingsAsync())
+				{
+     				if(mapping.Description.Contains("RBXLegacy"))
+     				{
+        				await device.DeletePortMapAsync(mapping);
+     				}
+				}
+				
+				var ip = await device.GetExternalIPAsync();
+        		ConsolePrint("Port " + GlobalVars.ServerPort.ToString() + " removed from device " + ip, 2);
+			}
+			catch(NatDeviceNotFoundException e)
+			{
+    			ConsolePrint("Error: " + e.ToString(), 2);
+			}
 		}
 		
 		void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -398,7 +418,7 @@ namespace RBXLegacyLauncher
 			DialogResult result = MessageBox.Show("Your configuration has been saved successfully!","RBXLegacy Launcher - Configuration", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 		}
 		
-		void numericUpDown1TextChanged(object sender, EventArgs e)
+		void NumericUpDown1ValueChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
 			if (int.TryParse(numericUpDown1.Text, out parsedValue))
@@ -607,6 +627,7 @@ namespace RBXLegacyLauncher
 		
 		void ConsolePrint(string text, int type)
 		{
+			//1 = white text, 2 = red text, 3 = green text, 4 = aqua text, 5 = yellow text
 			richTextBox1.AppendText("[" + DateTime.Now.ToShortTimeString() + "]", Color.White);
 			richTextBox1.AppendText(" - ", Color.White);
 			if (type == 1)
@@ -755,19 +776,19 @@ namespace RBXLegacyLauncher
 			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
 			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + ") " + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + "," + GlobalVars.RespawnTime + ") " + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + ") " + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + "," + GlobalVars.RespawnTime + ") " + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + ") " + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + "," + GlobalVars.RespawnTime + ") " + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false )
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + ") " + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "') _G.SetRBXLegacyVersion(" + GlobalVars.SelectedClientVersion + ") _G.CSSolo(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_Gear1 + "','" + GlobalVars.Custom_Gear2 + "','" + GlobalVars.Custom_Gear3 + "','" + GlobalVars.Custom_IconType + "'," + GlobalVars.melee.ToString().ToLower() + "," + GlobalVars.powerup.ToString().ToLower() + "," + GlobalVars.ranged.ToString().ToLower() + "," + GlobalVars.navigation.ToString().ToLower() + "," + GlobalVars.explosives.ToString().ToLower() + "," + GlobalVars.musical.ToString().ToLower() + "," + GlobalVars.social.ToString().ToLower() + "," + GlobalVars.transport.ToString().ToLower() + "," + GlobalVars.building.ToString().ToLower() + "," + GlobalVars.RespawnTime + ") " + quote;
 			}
 			try
 			{
@@ -799,7 +820,16 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Server Loaded.", 4);
-				Process.Start(rbxexe, args);
+				Process server = new Process();
+				server.StartInfo.FileName = rbxexe;
+				server.StartInfo.Arguments = args;
+				server.EnableRaisingEvents = true;
+				ReadClientValues(GlobalVars.SelectedClient);
+				if (GlobalVars.upnp == true)
+				{
+					server.Exited += new EventHandler(ServerExited);
+				}
+				server.Start();
 			}
 			catch (Exception ex)
 			{
@@ -826,12 +856,31 @@ namespace RBXLegacyLauncher
 			try
 			{
 				ConsolePrint("Server Loaded in No3D mode.", 4);
-				Process.Start(rbxexe, args);
+				Process server = new Process();
+				server.StartInfo.FileName = rbxexe;
+				server.StartInfo.Arguments = args;
+				server.EnableRaisingEvents = true;
+				ReadClientValues(GlobalVars.SelectedClient);
+				if (GlobalVars.upnp == true)
+				{
+					server.Exited += new EventHandler(ServerExited);
+				}
+				server.Start();
 			}
 			catch (Exception ex)
 			{
 				ConsolePrint("ERROR 2 - Failed to launch RBXLegacy. (" + ex.Message + ")", 2);
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+		
+		void ServerExited(object sender, EventArgs e)
+		{
+			StopUPNP();
+				
+			if (this.WindowState == FormWindowState.Minimized)
+			{
+				this.WindowState = FormWindowState.Normal;
 			}
 		}
 		
@@ -872,8 +921,8 @@ namespace RBXLegacyLauncher
 		
 		void ConsoleProcessCommands(string command)
 		{
-			string important = SecurityFuncs.Base64Decode("cmJ4bGVnYWN5IGthbnJpc2hh");
-			if (command.Equals("rbxlegacy server"))
+			string important = SecurityFuncs.Base64Decode("a2FucmlzaGE=");
+			if (command.Equals("server"))
 			{
 				if (GlobalVars.upnp == true)
 				{
@@ -881,7 +930,7 @@ namespace RBXLegacyLauncher
 				}
 				StartServer();
 			}
-			else if (command.Equals("rbxlegacy server no3d"))
+			else if (command.Equals("serverno3d"))
 			{
 				if (GlobalVars.upnp == true)
 				{
@@ -889,15 +938,7 @@ namespace RBXLegacyLauncher
 				}
 				StartServerNo3D();
 			}
-			else if (command.Equals("rbxlegacy no3d"))
-			{
-				if (GlobalVars.upnp == true)
-				{
-					StartUPNP();
-				}
-				StartServerNo3D();
-			}
-			else if (command.Equals("rbxlegacy client"))
+			else if (command.Equals("client"))
 			{
 				ReadClientValues(GlobalVars.SelectedClient);
 				if (GlobalVars.HasRocky == true)
@@ -911,35 +952,25 @@ namespace RBXLegacyLauncher
 				}
 				StartClient();
 			}
-			else if (command.Equals("rbxlegacy client solo"))
+			else if (command.Equals("solo"))
 			{
 				StartSolo();
 			}
-			else if (command.Equals("rbxlegacy solo"))
-			{
-				StartSolo();
-			}
-			else if (command.Equals("rbxlegacy studio"))
+			else if (command.Equals("studio"))
 			{
 				StartStudio();
 			}
-			else if (command.Equals("rbxlegacy config save"))
+			else if (command.Equals("config save"))
 			{
 				WriteConfigValues();
 			}
-			else if (command.Equals("rbxlegacy config load"))
+			else if (command.Equals("config load"))
 			{
 				ReadConfigValues();
 			}
-			else if (command.Equals("rbxlegacy config reset"))
+			else if (command.Equals("config reset"))
 			{
 				ResetConfigValues();
-			}
-			else if (command.Equals("rbxlegacy sdk"))
-			{
-				SDKForm sdk = new SDKForm();
-				sdk.Show();
-				ConsolePrint("Launched SDK.", 4);
 			}
 			else if (command.Equals("sdk"))
 			{
@@ -947,17 +978,11 @@ namespace RBXLegacyLauncher
 				sdk.Show();
 				ConsolePrint("Launched SDK.", 4);
 			}
-			else if (command.Equals("rbxlegacy help"))
+			else if (command.Equals("uri"))
 			{
-				ConsoleRBXLegacyHelp(0);
-			}
-			else if (command.Equals("rbxlegacy"))
-			{
-				ConsoleRBXLegacyHelp(0);
-			}
-			else if (command.Equals("rbxlegacy config"))
-			{
-				ConsoleRBXLegacyHelp(1);
+				Process uri = new Process();
+				uri.StartInfo.FileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +  "\\RBXLegacyURI.exe";
+				uri.Start();
 			}
 			else if (command.Equals("config"))
 			{
@@ -975,7 +1000,7 @@ namespace RBXLegacyLauncher
 			}
 			else
 			{
-				ConsolePrint("ERROR 3 - Command is either not registered or valid", 2);
+				ConsolePrint("ERROR 3 - Command is invalid", 2);
 			}
 			
 		}
@@ -984,32 +1009,36 @@ namespace RBXLegacyLauncher
 		{
 			if (page == 1)
 			{
-				ConsolePrint("rbxlegacy config", 2);
-				ConsolePrint("-------------------------", 1);
-				ConsolePrint("= save | Saves the config file", 3);
-				ConsolePrint("= load | Reloads the config file", 3);
-				ConsolePrint("= reset | Resets the config file", 3);
+				ConsolePrint("RBXLegacy Config Command List", 2);
+				ConsolePrint("-----------------------------------------", 1);
+				ConsolePrint("config save | Saves the config file", 4);
+				ConsolePrint("config load | Reloads the config file", 4);
+				ConsolePrint("config reset | Resets the config file", 4);
 			}
 			else
 			{
-				ConsolePrint("rbxlegacy", 2);
-				ConsolePrint("---------", 1);
-				ConsolePrint("= client | Loads client with launcher settings", 3);
-				ConsolePrint("-- solo | Loads client in Play Solo mode with launcher settings", 4);
-				ConsolePrint("= server | Loads server with launcher settings", 3);
-				ConsolePrint("-- no3d | Loads server in NoGraphics mode with launcher settings", 4);
-				ConsolePrint("= studio | Loads Roblox Studio with launcher settings", 3);
-				ConsolePrint("= sdk | Loads the RBXLegacy SDK", 3);
-				ConsolePrint("= config", 3);
-				ConsolePrint("-- save | Saves the config file", 4);
-				ConsolePrint("-- load | Reloads the config file", 4);
-				ConsolePrint("-- reset | Resets the config file", 4);
+				ConsolePrint("RBXLegacy Console Command List", 2);
+				ConsolePrint("------------------------------------------", 1);
+				ConsolePrint("client | Loads client with launcher settings", 4);
+				ConsolePrint("solo | Loads client in Play Solo mode with launcher settings", 4);
+				ConsolePrint("server | Loads server with launcher settings", 4);
+				ConsolePrint("serverno3d | Loads server in No3D mode with launcher settings", 4);
+				ConsolePrint("studio | Loads Roblox Studio with launcher settings", 4);
+				ConsolePrint("sdk | Loads the RBXLegacy SDK", 4);
+				ConsolePrint("uri | Installs the RBXLegacy URI", 4);
+				ConsolePrint("config save | Saves the config file", 4);
+				ConsolePrint("config load | Reloads the config file", 4);
+				ConsolePrint("config reset | Resets the config file", 4);
 			}
 		}
 		
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
     		base.OnFormClosing(e);
+    		if (GlobalVars.upnp == true)
+			{
+    			StopUPNP();
+    		}
     		WriteConfigValues();
 		}
 		

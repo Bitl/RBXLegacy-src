@@ -31,6 +31,7 @@ Name: "quicklaunchicon"; Description: "Create a icon on your Quick Start Menu"; 
 [Files]
 Source: "RBXLegacy-Preview\RBXLegacyLauncher.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy-Preview\RBXLegacyLauncher.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy-Preview\RBXLegacyURI.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy-Preview\README.TXT"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy-Preview\changelog.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy-Preview\info.txt"; DestDir: "{app}"; Flags: ignoreversion
@@ -40,7 +41,7 @@ Source: "RBXLegacy-Preview\models\*"; DestDir: "{app}\models"; Flags: ignorevers
 Source: "RBXLegacy-Preview\avatar\*"; DestDir: "{app}\avatar"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy-Preview\scripts\*"; DestDir: "{app}\scripts"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy-Preview\udppipe.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "RBXLegacy-Preview\Mono.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy-Preview\Open.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\RBXLegacy-Preview"; Filename: "{app}\RBXLegacyLauncher.exe"
@@ -49,6 +50,7 @@ Name: "{commondesktop}\RBXLegacy-Preview"; Filename: "{app}\RBXLegacyLauncher.ex
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\RBXLegacy-Preview"; Filename: "{app}\RBXLegacyLauncher.exe"; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\RBXLegacyLauncher.exe"; Description: "Play RBXLegacy 1.18 Preview"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\RBXLegacyLauncher.exe"; Description: "Play RBXLegacy"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\RBXLegacyURI.exe"; Description: "Install the URI"; Flags: nowait postinstall skipifsilent
 Filename: "{app}\README.TXT"; Description: "View the README file"; Flags: postinstall shellexec skipifsilent unchecked
 Filename: "{app}\changelog.txt"; Description: "View the changelog"; Flags: postinstall shellexec skipifsilent unchecked

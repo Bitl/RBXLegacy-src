@@ -7,7 +7,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>RBXLegacyLauncher</RootNamespace>
     <AssemblyName>RBXLegacyLauncher</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -49,14 +49,23 @@
     <StartProgram>..\..\..\RBXLegacy\release\RBXLegacy\RBXLegacyLauncher.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mono.Nat">
-      <HintPath>Resources\Mono.Nat.dll</HintPath>
+    <Reference Include="Open.Nat">
+      <HintPath>Resources\Open.Nat.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharacterCustomization.cs" />
@@ -109,9 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DocForm.resx">
       <DependentUpon>DocForm.Designer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>ClientSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>

@@ -19,6 +19,7 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.button11 = new System.Windows.Forms.Button();
 			this.label35 = new System.Windows.Forms.Label();
 			this.label42 = new System.Windows.Forms.Label();
@@ -99,10 +100,10 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.tabPage2.SuspendLayout();
 			this.tabPage3.SuspendLayout();
 			this.tabPage6.SuspendLayout();
@@ -110,7 +111,6 @@
 			this.tabPage8.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -170,6 +170,25 @@
 			this.tabPage1.Text = "PLAY";
 			this.tabPage1.ToolTipText = "Join a server via IP Address";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(214, 25);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+									99999,
+									0,
+									0,
+									0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(175, 20);
+			this.numericUpDown1.TabIndex = 43;
+			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.numericUpDown1.Value = new decimal(new int[] {
+									53640,
+									0,
+									0,
+									0});
+			this.numericUpDown1.ValueChanged += new System.EventHandler(this.NumericUpDown1ValueChanged);
 			// 
 			// button11
 			// 
@@ -389,6 +408,7 @@
 			this.label30.Name = "label30";
 			this.label30.Size = new System.Drawing.Size(393, 2);
 			this.label30.TabIndex = 23;
+			this.label30.Visible = false;
 			// 
 			// button6
 			// 
@@ -398,6 +418,7 @@
 			this.button6.TabIndex = 6;
 			this.button6.Text = "CONFIGURE CLIENT";
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Visible = false;
 			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// label19
@@ -416,7 +437,7 @@
 			this.textBox6.Name = "textBox6";
 			this.textBox6.ReadOnly = true;
 			this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.textBox6.Size = new System.Drawing.Size(393, 67);
+			this.textBox6.Size = new System.Drawing.Size(393, 111);
 			this.textBox6.TabIndex = 4;
 			this.textBox6.Text = "textBox6";
 			// 
@@ -999,24 +1020,6 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
-			// numericUpDown1
-			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(214, 25);
-			this.numericUpDown1.Maximum = new decimal(new int[] {
-									99999,
-									0,
-									0,
-									0});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(175, 20);
-			this.numericUpDown1.TabIndex = 43;
-			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.numericUpDown1.Value = new decimal(new int[] {
-									53640,
-									0,
-									0,
-									0});
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1055,6 +1058,7 @@
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage3.ResumeLayout(false);
 			this.tabPage3.PerformLayout();
@@ -1063,7 +1067,6 @@
 			this.tabPage8.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}

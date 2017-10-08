@@ -112,16 +112,16 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAYO0lEQVR4Xu1c
+        vAAADrwBlbxySQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAYO0lEQVR4Xu1c
         CXgUVba+ne5sEPYdJAKCOiqCDqPCoIgbDjow41NHEARRH47PcUNRouI2jLKKIgIiKgg+NtFRILImQJAd
         M7INARJCEsOSAFl7q+r/nXPrVqe6Ux1ah+D3vi/n+/6vqqvOPffce89/t6pqYScQ4k7CNgjXIThcWXS0
         ICYLDlEFUU9BXQ/qWXXoXozI8jtFVmWsAb+LrtM1iRBdy2/j3u8I8cqvOEJXCOc9ZHMUnb9IOoyxpP8e
@@ -235,7 +235,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAYO0lEQVR4Xu1c
+        vQAADr0BR/uQrQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAYO0lEQVR4Xu1c
         CXgUVba+ne5sEPYdJAKCOiqCDqPCoIgbDjow41NHEARRH47PcUNRouI2jLKKIgIiKgg+NtFRILImQJAd
         M7INARJCEsOSAFl7q+r/nXPrVqe6Ux1ah+D3vi/n+/6vqqvOPffce89/t6pqYScQ4k7CNgjXIThcWXS0
         ICYLDlEFUU9BXQ/qWXXoXozI8jtFVmWsAb+LrtM1iRBdy2/j3u8I8cqvOEJXCOc9ZHMUnb9IOoyxpP8e

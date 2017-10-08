@@ -2,6 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+using Open.Nat;
 
 namespace RBXLegacyLauncher
 {
@@ -191,21 +194,16 @@ namespace RBXLegacyLauncher
 		
 		string GetExternalIPAddress()
 		{
-    		string ipAddress;
-			using (WebClient wc = new WebClient())
-			{
-				try
-  				{
-					Mono.Nat.INatDevice natd = e.Device;
-    				ipAddress = natd.GetExternalIP().ToString();
-  				}
-				catch (Exception)
-  				{
-    				ipAddress = "localhost";
-  				}
-			}
-
-    		return ipAddress;
+        	string url = "http://checkip.dyndns.org";
+        	System.Net.WebRequest req = System.Net.WebRequest.Create(url);
+        	System.Net.WebResponse resp = req.GetResponse();
+        	System.IO.StreamReader sr = new System.IO.StreamReader(resp.GetResponseStream());
+        	string response = sr.ReadToEnd().Trim();
+        	string[] a = response.Split(':');
+        	string a2 = a[1].Substring(1);
+        	string[] a3 = a2.Split('<');
+        	string a4 = a3[0];
+        	return a4;
 		}
 		
 		void RadioButton1CheckedChanged(object sender, EventArgs e)
@@ -307,7 +305,7 @@ namespace RBXLegacyLauncher
 			GlobalVars.building = false;
 		}
 		
-		void numericUpDown1TextChanged(object sender, EventArgs e)
+		void NumericUpDown1ValueChanged(object sender, EventArgs e)
 		{
 			int parsedValue;
 			if (int.TryParse(numericUpDown1.Text, out parsedValue))

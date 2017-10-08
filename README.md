@@ -20,3 +20,11 @@ If you find any problem(s) in RBXLegacy, [feel free to submit an issue here.](ht
 If you know how to solve an (existing) issue in RBXLegacy, [you can submit a pull request for it.](https://github.com/Bitl/RBXLegacy-src/pulls)
 
 And of course, we welcome everyone with new ideas. [You can post your idea in issues as well.](https://github.com/Bitl/RBXLegacy-src/issues)
+
+## Licence
+
+RBXLegacy is licenced under the GPL, but some components of it may use different licences.
+
+Open.NAT is licened under the MIT Licence. Please look in the Open.NAT folder for more information.
+
+

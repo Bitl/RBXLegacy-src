@@ -31,6 +31,7 @@ Name: "quicklaunchicon"; Description: "Create a icon on your Quick Start Menu"; 
 [Files]
 Source: "RBXLegacy\RBXLegacyLauncher.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\RBXLegacyLauncher.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy\RBXLegacyURI.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\README.TXT"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\changelog.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "RBXLegacy\info.txt"; DestDir: "{app}"; Flags: ignoreversion
@@ -40,7 +41,7 @@ Source: "RBXLegacy\models\*"; DestDir: "{app}\models"; Flags: ignoreversion recu
 Source: "RBXLegacy\avatar\*"; DestDir: "{app}\avatar"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\scripts\*"; DestDir: "{app}\scripts"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "RBXLegacy\udppipe.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "RBXLegacy\Mono.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "RBXLegacy\Open.Nat.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\RBXLegacy"; Filename: "{app}\RBXLegacyLauncher.exe"
@@ -50,5 +51,6 @@ Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\RBXLegacy"; Filena
 
 [Run]
 Filename: "{app}\RBXLegacyLauncher.exe"; Description: "Play RBXLegacy"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\RBXLegacyURI.exe"; Description: "Install the URI"; Flags: nowait postinstall skipifsilent
 Filename: "{app}\README.TXT"; Description: "View the README file"; Flags: postinstall shellexec skipifsilent unchecked
 Filename: "{app}\changelog.txt"; Description: "View the changelog"; Flags: postinstall shellexec skipifsilent unchecked

@@ -19,6 +19,7 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.checkBox12 = new System.Windows.Forms.CheckBox();
 			this.textBox11 = new System.Windows.Forms.TextBox();
 			this.textBox12 = new System.Windows.Forms.TextBox();
@@ -55,11 +56,10 @@
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.button1 = new System.Windows.Forms.Button();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
-			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+			this.tabPage2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// textBox1
@@ -132,6 +132,24 @@
 			this.tabPage1.Text = "PREFERENCES";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			this.tabPage1.Click += new System.EventHandler(this.TabPage1Click);
+			// 
+			// numericUpDown1
+			// 
+			this.numericUpDown1.Location = new System.Drawing.Point(240, 80);
+			this.numericUpDown1.Maximum = new decimal(new int[] {
+									99999,
+									0,
+									0,
+									0});
+			this.numericUpDown1.Name = "numericUpDown1";
+			this.numericUpDown1.Size = new System.Drawing.Size(237, 20);
+			this.numericUpDown1.TabIndex = 67;
+			this.numericUpDown1.Value = new decimal(new int[] {
+									53640,
+									0,
+									0,
+									0});
+			this.numericUpDown1.ValueChanged += new System.EventHandler(this.NumericUpDown1ValueChanged);
 			// 
 			// checkBox12
 			// 
@@ -494,23 +512,6 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.Button1Click);
 			// 
-			// numericUpDown1
-			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(240, 80);
-			this.numericUpDown1.Maximum = new decimal(new int[] {
-									99999,
-									0,
-									0,
-									0});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(237, 20);
-			this.numericUpDown1.TabIndex = 67;
-			this.numericUpDown1.Value = new decimal(new int[] {
-									53640,
-									0,
-									0,
-									0});
-			// 
 			// ServerPrefs
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,9 +531,9 @@
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.tabPage2.ResumeLayout(false);
 			this.tabPage2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.NumericUpDown numericUpDown1;
