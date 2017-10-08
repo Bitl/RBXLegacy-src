@@ -27,11 +27,11 @@ $portcrypt = base64_encode($_POST['port']);
 date_default_timezone_set('America/Phoenix');
 $date = date('m/d/Y h:i:s a', time());
 
-$sql="INSERT INTO games (name, map, ip, port, client, playerlimit, date)
+$sql="INSERT INTO games (name, map, ip, port, client, version, playerlimit, date)
 
 VALUES
 
-('$namefixed','$_POST[map]','$ipcrypt','$portcrypt','$clientcrypt','$_POST[playerlimit]','$date')";
+('$namefixed','$_POST[map]','$ipcrypt','$portcrypt','$clientcrypt','$_POST[version]','$_POST[playerlimit]','$date')";
 
 if (!$con->query($sql))
 {

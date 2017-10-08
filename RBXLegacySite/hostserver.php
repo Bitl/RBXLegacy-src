@@ -46,6 +46,8 @@
 							<input type="text" name="ip" value=<?php print $_SERVER['REMOTE_ADDR']; ?> /><br><br>
 							<h3>Client: *</h3>
 							<input type="text" name="client" value="2008" /><br><br>
+							<h3>RBXLegacy Version: *</h3>
+							<input type="text" name="version" value="1.17" /><br><br>
 							<h3>Port: *</h3>
 							<input type="text" name="port" value="53640"/><br><br>
 							<h3>Player Limit: *</h3>

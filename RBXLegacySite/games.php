@@ -62,6 +62,7 @@ echo "<center>";
 echo "<h3><b>".noHTML($row['name'])."</b></h3>";  
 echo "<h3><b>Map: ".noHTML($row['map'])."</b></h3>"; 
 echo "<h3><b>Client: ".noHTML(base64_decode($row['client']))."</b></h3>"; 
+echo "<h3><b>Version: ".noHTML($_POST['version'])."</b></h3>"; 
 echo "<h3><b>Player Limit: ".noHTML($row['playerlimit'])."</b></h3>";
 echo "<h3><b> Creation Time: ".noHTML($row['date'])."</b></h3>";
 $stringbuild = $row['ip']."|".$row['port']."|".$row['client'];

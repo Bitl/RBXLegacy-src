@@ -35,6 +35,7 @@ CREATE TABLE `games` (
   `ip` text,
   `port` text,
   `client` text,
+  `version` text,
   `playerlimit` int(11) NOT NULL,
   `date` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
