@@ -46,7 +46,7 @@
 
 <body>
     <div align="center">
-        <img src="images/logo.png">
+        <img src="images/Logo.png">
         <div class="content">
             <h1>
                 We are upgrading RBXLegacy!<br>
