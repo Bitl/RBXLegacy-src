@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBXLegacyLauncher", "RBXLegacyLauncher\RBXLegacyLauncher.csproj", "{33E058B1-150B-415D-805D-66DD54203383}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RBXLegacyShared", "RBXLegacyShared\RBXLegacyShared.shproj", "{E46DEF24-B993-4B7D-B864-A126FFAC58A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBXLegacyDedicatedServer", "RBXLegacyDedicatedServer\RBXLegacyDedicatedServer.csproj", "{45E41B32-1AC0-4655-B8E1-BD9A6F5B5B68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBXLegacySDK", "RBXLegacySDK\RBXLegacySDK.csproj", "{40AC9363-F6B0-4333-8B36-13941A4A691F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBXLegacyCustomizer", "RBXLegacyCustomizer\RBXLegacyCustomizer.csproj", "{C720C584-FA29-4103-8B1D-C5781FC12DDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBXLegacyURI", "RBXLegacyURI\RBXLegacyURI.csproj", "{89F4D9BA-F287-42E6-BE4B-B8D797B82590}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RBXLegacyShared\RBXLegacyShared.projitems*{40ac9363-f6b0-4333-8b36-13941a4a691f}*SharedItemsImports = 4
+		RBXLegacyShared\RBXLegacyShared.projitems*{89f4d9ba-f287-42e6-be4b-b8d797b82590}*SharedItemsImports = 4
+		RBXLegacyShared\RBXLegacyShared.projitems*{45e41b32-1ac0-4655-b8e1-bd9a6f5b5b68}*SharedItemsImports = 4
+		RBXLegacyShared\RBXLegacyShared.projitems*{c720c584-fa29-4103-8b1d-c5781fc12dda}*SharedItemsImports = 4
+		RBXLegacyShared\RBXLegacyShared.projitems*{e46def24-b993-4b7d-b864-a126ffac58a4}*SharedItemsImports = 13
+		RBXLegacyShared\RBXLegacyShared.projitems*{33e058b1-150b-415d-805d-66dd54203383}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33E058B1-150B-415D-805D-66DD54203383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E058B1-150B-415D-805D-66DD54203383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E058B1-150B-415D-805D-66DD54203383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E058B1-150B-415D-805D-66DD54203383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E41B32-1AC0-4655-B8E1-BD9A6F5B5B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E41B32-1AC0-4655-B8E1-BD9A6F5B5B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E41B32-1AC0-4655-B8E1-BD9A6F5B5B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E41B32-1AC0-4655-B8E1-BD9A6F5B5B68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40AC9363-F6B0-4333-8B36-13941A4A691F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40AC9363-F6B0-4333-8B36-13941A4A691F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40AC9363-F6B0-4333-8B36-13941A4A691F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40AC9363-F6B0-4333-8B36-13941A4A691F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C720C584-FA29-4103-8B1D-C5781FC12DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C720C584-FA29-4103-8B1D-C5781FC12DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C720C584-FA29-4103-8B1D-C5781FC12DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C720C584-FA29-4103-8B1D-C5781FC12DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F4D9BA-F287-42E6-BE4B-B8D797B82590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F4D9BA-F287-42E6-BE4B-B8D797B82590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F4D9BA-F287-42E6-BE4B-B8D797B82590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F4D9BA-F287-42E6-BE4B-B8D797B82590}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

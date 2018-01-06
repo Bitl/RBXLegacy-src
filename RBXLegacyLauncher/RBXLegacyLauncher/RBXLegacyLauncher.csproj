@@ -72,36 +72,19 @@
     <Compile Include="CharacterCustomization.Designer.cs">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </Compile>
-    <Compile Include="CryptoRandom.cs" />
     <Compile Include="DocForm.cs" />
     <Compile Include="DocForm.Designer.cs">
       <DependentUpon>DocForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientSettings.cs" />
-    <Compile Include="ClientSettings.Designer.cs">
-      <DependentUpon>ClientSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LauncherFuncs.cs" />
-    <Compile Include="LoaderForm.cs" />
-    <Compile Include="LoaderForm.Designer.cs">
-      <DependentUpon>LoaderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="QuickConfigure.cs" />
-    <Compile Include="QuickConfigure.Designer.cs">
-      <DependentUpon>QuickConfigure.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextBoxExtensions.cs" />
     <Compile Include="SDKForm.cs" />
     <Compile Include="SDKForm.Designer.cs">
       <DependentUpon>SDKForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SecurityFuncs.cs" />
+    <Compile Include="UtilityFuncs.cs" />
     <Compile Include="ServerPrefs.cs" />
     <Compile Include="ServerPrefs.Designer.cs">
       <DependentUpon>ServerPrefs.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextLineRemover.cs" />
-    <Compile Include="GlobalVars.cs" />
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -113,20 +96,11 @@
     <EmbeddedResource Include="CharacterCustomization.resx">
       <DependentUpon>CharacterCustomization.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientSettings.resx">
-      <DependentUpon>ClientSettings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DocForm.resx">
       <DependentUpon>DocForm.Designer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoaderForm.resx">
-      <DependentUpon>LoaderForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QuickConfigure.resx">
-      <DependentUpon>QuickConfigure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SDKForm.resx">
       <DependentUpon>SDKForm.cs</DependentUpon>

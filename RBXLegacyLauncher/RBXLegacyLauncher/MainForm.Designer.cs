@@ -39,8 +39,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.listBox1 = new System.Windows.Forms.ListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
-			this.label30 = new System.Windows.Forms.Label();
-			this.button6 = new System.Windows.Forms.Button();
 			this.label19 = new System.Windows.Forms.Label();
 			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.listBox2 = new System.Windows.Forms.ListBox();
@@ -67,14 +65,10 @@
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
 			this.label44 = new System.Windows.Forms.Label();
-			this.label43 = new System.Windows.Forms.Label();
-			this.label34 = new System.Windows.Forms.Label();
-			this.label33 = new System.Windows.Forms.Label();
 			this.label32 = new System.Windows.Forms.Label();
 			this.label31 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
@@ -100,6 +94,8 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.label28 = new System.Windows.Forms.Label();
 			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.label29 = new System.Windows.Forms.Label();
+			this.label30 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -110,7 +106,6 @@
 			this.tabPage7.SuspendLayout();
 			this.tabPage8.SuspendLayout();
 			this.tabPage4.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pictureBox1
@@ -385,8 +380,6 @@
 			// 
 			// tabPage3
 			// 
-			this.tabPage3.Controls.Add(this.label30);
-			this.tabPage3.Controls.Add(this.button6);
 			this.tabPage3.Controls.Add(this.label19);
 			this.tabPage3.Controls.Add(this.textBox6);
 			this.tabPage3.Controls.Add(this.listBox2);
@@ -399,27 +392,6 @@
 			this.tabPage3.Text = "CLIENTS";
 			this.tabPage3.ToolTipText = "Select a ROBLOX Client to load your game";
 			this.tabPage3.UseVisualStyleBackColor = true;
-			// 
-			// label30
-			// 
-			this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			this.label30.Location = new System.Drawing.Point(6, 237);
-			this.label30.Name = "label30";
-			this.label30.Size = new System.Drawing.Size(393, 2);
-			this.label30.TabIndex = 23;
-			this.label30.Visible = false;
-			// 
-			// button6
-			// 
-			this.button6.Location = new System.Drawing.Point(6, 240);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(393, 38);
-			this.button6.TabIndex = 6;
-			this.button6.Text = "CONFIGURE CLIENT";
-			this.button6.UseVisualStyleBackColor = true;
-			this.button6.Visible = false;
-			this.button6.Click += new System.EventHandler(this.Button6Click);
 			// 
 			// label19
 			// 
@@ -668,15 +640,13 @@
 			// 
 			// tabPage4
 			// 
+			this.tabPage4.Controls.Add(this.label30);
+			this.tabPage4.Controls.Add(this.label29);
 			this.tabPage4.Controls.Add(this.label44);
-			this.tabPage4.Controls.Add(this.label43);
-			this.tabPage4.Controls.Add(this.label34);
-			this.tabPage4.Controls.Add(this.label33);
 			this.tabPage4.Controls.Add(this.label32);
 			this.tabPage4.Controls.Add(this.label31);
 			this.tabPage4.Controls.Add(this.label2);
 			this.tabPage4.Controls.Add(this.label12);
-			this.tabPage4.Controls.Add(this.pictureBox2);
 			this.tabPage4.Controls.Add(this.label11);
 			this.tabPage4.Controls.Add(this.label10);
 			this.tabPage4.Controls.Add(this.label9);
@@ -696,94 +666,52 @@
 			// label44
 			// 
 			this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label44.Location = new System.Drawing.Point(276, 263);
+			this.label44.Location = new System.Drawing.Point(8, 236);
 			this.label44.Name = "label44";
-			this.label44.Size = new System.Drawing.Size(123, 18);
+			this.label44.Size = new System.Drawing.Size(384, 18);
 			this.label44.TabIndex = 16;
-			this.label44.Text = "Nukley - Clients, Hats";
-			this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label43
-			// 
-			this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label43.Location = new System.Drawing.Point(296, 245);
-			this.label43.Name = "label43";
-			this.label43.Size = new System.Drawing.Size(108, 18);
-			this.label43.TabIndex = 15;
-			this.label43.Text = "CPunch - Security";
-			this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label34
-			// 
-			this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label34.Location = new System.Drawing.Point(7, 259);
-			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(312, 22);
-			this.label34.TabIndex = 14;
-			this.label34.Text = "connor - Clients, Programing";
-			this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// label33
-			// 
-			this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label33.Location = new System.Drawing.Point(6, 241);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(312, 18);
-			this.label33.TabIndex = 13;
-			this.label33.Text = "iagoMAO - GUIs, Hats";
-			this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label44.Text = "Content Creation";
+			this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label32
 			// 
 			this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label32.Location = new System.Drawing.Point(6, 223);
+			this.label32.Location = new System.Drawing.Point(8, 218);
 			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(312, 18);
+			this.label32.Size = new System.Drawing.Size(384, 18);
 			this.label32.TabIndex = 12;
-			this.label32.Text = "winsupermario1234 - Clients, GUIs";
-			this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label32.Text = "winsupermario1234, Nukley, connor, Carrot, Bitl";
+			this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label31
 			// 
 			this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label31.Location = new System.Drawing.Point(6, 205);
+			this.label31.Location = new System.Drawing.Point(8, 200);
 			this.label31.Name = "label31";
-			this.label31.Size = new System.Drawing.Size(300, 18);
+			this.label31.Size = new System.Drawing.Size(384, 18);
 			this.label31.TabIndex = 11;
-			this.label31.Text = "Carrot - Programming, Security";
-			this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label31.Text = "Clients:";
+			this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(6, 187);
+			this.label2.Location = new System.Drawing.Point(8, 182);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(244, 18);
+			this.label2.Size = new System.Drawing.Size(384, 18);
 			this.label2.TabIndex = 10;
-			this.label2.Text = "Bitl - Lead Programmer, Project Creator";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label2.Text = "Bitl, Carrot, connor, iagoMAO, CPunch";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label12
 			// 
-			this.label12.Font = new System.Drawing.Font("Onesize Reverse", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(182, 167);
+			this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(145, 146);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(94, 18);
+			this.label12.Size = new System.Drawing.Size(109, 18);
 			this.label12.TabIndex = 9;
-			this.label12.Text = "Credits";
-			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// pictureBox2
-			// 
-			this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-									| System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(8, 149);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(188, 35);
-			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox2.TabIndex = 8;
-			this.pictureBox2.TabStop = false;
+			this.label12.Text = "Team Credits:";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label11
 			// 
@@ -796,7 +724,7 @@
 			// 
 			// label10
 			// 
-			this.label10.Location = new System.Drawing.Point(327, 31);
+			this.label10.Location = new System.Drawing.Point(325, 34);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(80, 16);
 			this.label10.TabIndex = 5;
@@ -810,7 +738,7 @@
 			this.label9.Size = new System.Drawing.Size(393, 82);
 			this.label9.TabIndex = 4;
 			this.label9.Text = resources.GetString("label9.Text");
-			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label8
 			// 
@@ -1020,6 +948,26 @@
 			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.textBox5.TextChanged += new System.EventHandler(this.TextBox5TextChanged);
 			// 
+			// label29
+			// 
+			this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label29.Location = new System.Drawing.Point(8, 164);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(384, 18);
+			this.label29.TabIndex = 17;
+			this.label29.Text = "Programming, Security,  Launcher, and GUIs:";
+			this.label29.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// label30
+			// 
+			this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label30.Location = new System.Drawing.Point(145, 254);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(100, 18);
+			this.label30.TabIndex = 18;
+			this.label30.Text = "Bitl, Nukley";
+			this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1054,6 +1002,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "RBXLegacy Launcher";
 			this.Load += new System.EventHandler(this.MainFormLoad);
+			this.Closing += new System.ComponentModel.CancelEventHandler(this.MainFormClose);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
@@ -1066,22 +1015,17 @@
 			this.tabPage7.ResumeLayout(false);
 			this.tabPage8.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
-		private System.Windows.Forms.Button button6;
+		private System.Windows.Forms.Label label29;
 		private System.Windows.Forms.Label label30;
+		private System.Windows.Forms.NumericUpDown numericUpDown1;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label31;
 		private System.Windows.Forms.Label label32;
-		private System.Windows.Forms.Label label33;
-		private System.Windows.Forms.Label label34;
-		private System.Windows.Forms.Label label43;
 		private System.Windows.Forms.Label label44;
-		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label41;
 		private System.Windows.Forms.Label label40;

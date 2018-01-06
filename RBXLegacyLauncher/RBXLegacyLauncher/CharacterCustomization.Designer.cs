@@ -120,36 +120,10 @@ namespace RBXLegacyLauncher
 			this.listBox3 = new System.Windows.Forms.ListBox();
 			this.listBox2 = new System.Windows.Forms.ListBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.tabPage7 = new System.Windows.Forms.TabPage();
-			this.button7 = new System.Windows.Forms.Button();
-			this.button9 = new System.Windows.Forms.Button();
-			this.pictureBox9 = new System.Windows.Forms.PictureBox();
-			this.pictureBox10 = new System.Windows.Forms.PictureBox();
-			this.pictureBox11 = new System.Windows.Forms.PictureBox();
-			this.listBox6 = new System.Windows.Forms.ListBox();
-			this.listBox7 = new System.Windows.Forms.ListBox();
-			this.listBox8 = new System.Windows.Forms.ListBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.label7 = new System.Windows.Forms.Label();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.radioButton6 = new System.Windows.Forms.RadioButton();
-			this.radioButton5 = new System.Windows.Forms.RadioButton();
-			this.radioButton7 = new System.Windows.Forms.RadioButton();
-			this.radioButton9 = new System.Windows.Forms.RadioButton();
-			this.radioButton8 = new System.Windows.Forms.RadioButton();
-			this.button1308 = new System.Windows.Forms.Button();
-			this.button1208 = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
-			this.button1108 = new System.Windows.Forms.Button();
-			this.button1008 = new System.Windows.Forms.Button();
-			this.button908 = new System.Windows.Forms.Button();
-			this.button708 = new System.Windows.Forms.Button();
-			this.button608 = new System.Windows.Forms.Button();
-			this.button508 = new System.Windows.Forms.Button();
 			this.pictureBox8 = new System.Windows.Forms.PictureBox();
 			this.pictureBox7 = new System.Windows.Forms.PictureBox();
 			this.pictureBox6 = new System.Windows.Forms.PictureBox();
-			this.label4 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
@@ -158,6 +132,7 @@ namespace RBXLegacyLauncher
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.button4 = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.tabControl2.SuspendLayout();
@@ -172,12 +147,7 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			this.tabPage7.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
 			this.tabPage4.SuspendLayout();
-			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -185,7 +155,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton1
 			// 
-			this.radioButton1.Location = new System.Drawing.Point(240, 52);
+			this.radioButton1.Location = new System.Drawing.Point(231, 91);
 			this.radioButton1.Name = "radioButton1";
 			this.radioButton1.Size = new System.Drawing.Size(111, 18);
 			this.radioButton1.TabIndex = 34;
@@ -195,7 +165,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton2
 			// 
-			this.radioButton2.Location = new System.Drawing.Point(240, 67);
+			this.radioButton2.Location = new System.Drawing.Point(231, 109);
 			this.radioButton2.Name = "radioButton2";
 			this.radioButton2.Size = new System.Drawing.Size(153, 23);
 			this.radioButton2.TabIndex = 35;
@@ -205,7 +175,7 @@ namespace RBXLegacyLauncher
 			// 
 			// radioButton3
 			// 
-			this.radioButton3.Location = new System.Drawing.Point(240, 86);
+			this.radioButton3.Location = new System.Drawing.Point(231, 130);
 			this.radioButton3.Name = "radioButton3";
 			this.radioButton3.Size = new System.Drawing.Size(180, 22);
 			this.radioButton3.TabIndex = 36;
@@ -216,7 +186,7 @@ namespace RBXLegacyLauncher
 			// radioButton4
 			// 
 			this.radioButton4.Checked = true;
-			this.radioButton4.Location = new System.Drawing.Point(240, 35);
+			this.radioButton4.Location = new System.Drawing.Point(231, 69);
 			this.radioButton4.Name = "radioButton4";
 			this.radioButton4.Size = new System.Drawing.Size(102, 16);
 			this.radioButton4.TabIndex = 37;
@@ -228,7 +198,7 @@ namespace RBXLegacyLauncher
 			// label1
 			// 
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(281, 9);
+			this.label1.Location = new System.Drawing.Point(272, 43);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(93, 16);
 			this.label1.TabIndex = 38;
@@ -240,7 +210,6 @@ namespace RBXLegacyLauncher
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
 			this.tabControl1.Controls.Add(this.tabPage3);
-			this.tabControl1.Controls.Add(this.tabPage7);
 			this.tabControl1.Controls.Add(this.tabPage4);
 			this.tabControl1.Location = new System.Drawing.Point(12, 8);
 			this.tabControl1.Name = "tabControl1";
@@ -1309,118 +1278,12 @@ namespace RBXLegacyLauncher
 			this.listBox1.TabIndex = 47;
 			this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1SelectedIndexChanged);
 			// 
-			// tabPage7
-			// 
-			this.tabPage7.Controls.Add(this.button7);
-			this.tabPage7.Controls.Add(this.button9);
-			this.tabPage7.Controls.Add(this.pictureBox9);
-			this.tabPage7.Controls.Add(this.pictureBox10);
-			this.tabPage7.Controls.Add(this.pictureBox11);
-			this.tabPage7.Controls.Add(this.listBox6);
-			this.tabPage7.Controls.Add(this.listBox7);
-			this.tabPage7.Controls.Add(this.listBox8);
-			this.tabPage7.Location = new System.Drawing.Point(4, 22);
-			this.tabPage7.Name = "tabPage7";
-			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage7.Size = new System.Drawing.Size(447, 250);
-			this.tabPage7.TabIndex = 6;
-			this.tabPage7.Text = "GEAR";
-			this.tabPage7.UseVisualStyleBackColor = true;
-			// 
-			// button7
-			// 
-			this.button7.Location = new System.Drawing.Point(230, 206);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(211, 42);
-			this.button7.TabIndex = 57;
-			this.button7.Text = "Reset Gears";
-			this.button7.UseVisualStyleBackColor = true;
-			this.button7.Click += new System.EventHandler(this.Button7Click);
-			// 
-			// button9
-			// 
-			this.button9.Location = new System.Drawing.Point(6, 206);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(218, 42);
-			this.button9.TabIndex = 56;
-			this.button9.Text = "Randomize Gears";
-			this.button9.UseVisualStyleBackColor = true;
-			this.button9.Click += new System.EventHandler(this.Button9Click);
-			// 
-			// pictureBox9
-			// 
-			this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-			this.pictureBox9.Location = new System.Drawing.Point(326, 3);
-			this.pictureBox9.Name = "pictureBox9";
-			this.pictureBox9.Size = new System.Drawing.Size(94, 89);
-			this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox9.TabIndex = 55;
-			this.pictureBox9.TabStop = false;
-			// 
-			// pictureBox10
-			// 
-			this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-			this.pictureBox10.Location = new System.Drawing.Point(173, 3);
-			this.pictureBox10.Name = "pictureBox10";
-			this.pictureBox10.Size = new System.Drawing.Size(94, 89);
-			this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox10.TabIndex = 54;
-			this.pictureBox10.TabStop = false;
-			// 
-			// pictureBox11
-			// 
-			this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-			this.pictureBox11.Location = new System.Drawing.Point(22, 3);
-			this.pictureBox11.Name = "pictureBox11";
-			this.pictureBox11.Size = new System.Drawing.Size(94, 89);
-			this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox11.TabIndex = 53;
-			this.pictureBox11.TabStop = false;
-			// 
-			// listBox6
-			// 
-			this.listBox6.FormattingEnabled = true;
-			this.listBox6.Location = new System.Drawing.Point(307, 94);
-			this.listBox6.Name = "listBox6";
-			this.listBox6.Size = new System.Drawing.Size(134, 108);
-			this.listBox6.TabIndex = 49;
-			this.listBox6.SelectedIndexChanged += new System.EventHandler(this.ListBox6SelectedIndexChanged);
-			// 
-			// listBox7
-			// 
-			this.listBox7.FormattingEnabled = true;
-			this.listBox7.Location = new System.Drawing.Point(153, 94);
-			this.listBox7.Name = "listBox7";
-			this.listBox7.Size = new System.Drawing.Size(134, 108);
-			this.listBox7.TabIndex = 48;
-			this.listBox7.SelectedIndexChanged += new System.EventHandler(this.ListBox7SelectedIndexChanged);
-			// 
-			// listBox8
-			// 
-			this.listBox8.FormattingEnabled = true;
-			this.listBox8.Location = new System.Drawing.Point(6, 94);
-			this.listBox8.Name = "listBox8";
-			this.listBox8.Size = new System.Drawing.Size(134, 108);
-			this.listBox8.TabIndex = 47;
-			this.listBox8.SelectedIndexChanged += new System.EventHandler(this.ListBox8SelectedIndexChanged);
-			// 
 			// tabPage4
 			// 
-			this.tabPage4.Controls.Add(this.label7);
-			this.tabPage4.Controls.Add(this.panel1);
-			this.tabPage4.Controls.Add(this.button1308);
-			this.tabPage4.Controls.Add(this.button1208);
-			this.tabPage4.Controls.Add(this.label6);
-			this.tabPage4.Controls.Add(this.button1108);
-			this.tabPage4.Controls.Add(this.button1008);
-			this.tabPage4.Controls.Add(this.button908);
-			this.tabPage4.Controls.Add(this.button708);
-			this.tabPage4.Controls.Add(this.button608);
-			this.tabPage4.Controls.Add(this.button508);
+			this.tabPage4.Controls.Add(this.label4);
 			this.tabPage4.Controls.Add(this.pictureBox8);
 			this.tabPage4.Controls.Add(this.pictureBox7);
 			this.tabPage4.Controls.Add(this.pictureBox6);
-			this.tabPage4.Controls.Add(this.label4);
 			this.tabPage4.Controls.Add(this.label9);
 			this.tabPage4.Controls.Add(this.label5);
 			this.tabPage4.Controls.Add(this.textBox1);
@@ -1441,171 +1304,10 @@ namespace RBXLegacyLauncher
 			this.tabPage4.Text = "OTHER";
 			this.tabPage4.UseVisualStyleBackColor = true;
 			// 
-			// label7
-			// 
-			this.label7.BackColor = System.Drawing.Color.Transparent;
-			this.label7.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
-			this.label7.ForeColor = System.Drawing.Color.Red;
-			this.label7.Location = new System.Drawing.Point(240, 108);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(204, 39);
-			this.label7.TabIndex = 76;
-			this.label7.Text = "Clothing will not work while playing offline.";
-			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// panel1
-			// 
-			this.panel1.Controls.Add(this.radioButton6);
-			this.panel1.Controls.Add(this.radioButton5);
-			this.panel1.Controls.Add(this.radioButton7);
-			this.panel1.Controls.Add(this.radioButton9);
-			this.panel1.Controls.Add(this.radioButton8);
-			this.panel1.Location = new System.Drawing.Point(182, 150);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(257, 24);
-			this.panel1.TabIndex = 75;
-			// 
-			// radioButton6
-			// 
-			this.radioButton6.Location = new System.Drawing.Point(54, 6);
-			this.radioButton6.Name = "radioButton6";
-			this.radioButton6.Size = new System.Drawing.Size(51, 22);
-			this.radioButton6.TabIndex = 69;
-			this.radioButton6.Text = "2009";
-			this.radioButton6.UseVisualStyleBackColor = true;
-			// 
-			// radioButton5
-			// 
-			this.radioButton5.Checked = true;
-			this.radioButton5.Location = new System.Drawing.Point(5, 6);
-			this.radioButton5.Name = "radioButton5";
-			this.radioButton5.Size = new System.Drawing.Size(51, 22);
-			this.radioButton5.TabIndex = 68;
-			this.radioButton5.TabStop = true;
-			this.radioButton5.Text = "2008";
-			this.radioButton5.UseVisualStyleBackColor = true;
-			// 
-			// radioButton7
-			// 
-			this.radioButton7.Location = new System.Drawing.Point(107, 6);
-			this.radioButton7.Name = "radioButton7";
-			this.radioButton7.Size = new System.Drawing.Size(51, 22);
-			this.radioButton7.TabIndex = 70;
-			this.radioButton7.Text = "2010";
-			this.radioButton7.UseVisualStyleBackColor = true;
-			// 
-			// radioButton9
-			// 
-			this.radioButton9.Location = new System.Drawing.Point(211, 5);
-			this.radioButton9.Name = "radioButton9";
-			this.radioButton9.Size = new System.Drawing.Size(51, 22);
-			this.radioButton9.TabIndex = 72;
-			this.radioButton9.Text = "2012";
-			this.radioButton9.UseVisualStyleBackColor = true;
-			// 
-			// radioButton8
-			// 
-			this.radioButton8.Location = new System.Drawing.Point(164, 5);
-			this.radioButton8.Name = "radioButton8";
-			this.radioButton8.Size = new System.Drawing.Size(51, 22);
-			this.radioButton8.TabIndex = 71;
-			this.radioButton8.Text = "2011";
-			this.radioButton8.UseVisualStyleBackColor = true;
-			// 
-			// button1308
-			// 
-			this.button1308.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1308.BackgroundImage")));
-			this.button1308.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button1308.Location = new System.Drawing.Point(400, 207);
-			this.button1308.Name = "button1308";
-			this.button1308.Size = new System.Drawing.Size(39, 34);
-			this.button1308.TabIndex = 74;
-			this.button1308.UseVisualStyleBackColor = true;
-			// 
-			// button1208
-			// 
-			this.button1208.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1208.BackgroundImage")));
-			this.button1208.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button1208.Location = new System.Drawing.Point(400, 173);
-			this.button1208.Name = "button1208";
-			this.button1208.Size = new System.Drawing.Size(39, 34);
-			this.button1208.TabIndex = 73;
-			this.button1208.UseVisualStyleBackColor = true;
-			// 
-			// label6
-			// 
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(141, 157);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(40, 15);
-			this.label6.TabIndex = 67;
-			this.label6.Text = "Theme";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// button1108
-			// 
-			this.button1108.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1108.BackgroundImage")));
-			this.button1108.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button1108.Location = new System.Drawing.Point(331, 177);
-			this.button1108.Name = "button1108";
-			this.button1108.Size = new System.Drawing.Size(63, 61);
-			this.button1108.TabIndex = 66;
-			this.button1108.UseVisualStyleBackColor = true;
-			// 
-			// button1008
-			// 
-			this.button1008.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1008.BackgroundImage")));
-			this.button1008.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button1008.Location = new System.Drawing.Point(266, 177);
-			this.button1008.Name = "button1008";
-			this.button1008.Size = new System.Drawing.Size(63, 61);
-			this.button1008.TabIndex = 65;
-			this.button1008.UseVisualStyleBackColor = true;
-			// 
-			// button908
-			// 
-			this.button908.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button908.BackgroundImage")));
-			this.button908.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button908.Location = new System.Drawing.Point(201, 177);
-			this.button908.Name = "button908";
-			this.button908.Size = new System.Drawing.Size(63, 61);
-			this.button908.TabIndex = 64;
-			this.button908.UseVisualStyleBackColor = true;
-			// 
-			// button708
-			// 
-			this.button708.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button708.BackgroundImage")));
-			this.button708.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button708.Location = new System.Drawing.Point(136, 177);
-			this.button708.Name = "button708";
-			this.button708.Size = new System.Drawing.Size(63, 61);
-			this.button708.TabIndex = 63;
-			this.button708.UseVisualStyleBackColor = true;
-			// 
-			// button608
-			// 
-			this.button608.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button608.BackgroundImage")));
-			this.button608.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button608.Location = new System.Drawing.Point(71, 177);
-			this.button608.Name = "button608";
-			this.button608.Size = new System.Drawing.Size(63, 61);
-			this.button608.TabIndex = 62;
-			this.button608.UseVisualStyleBackColor = true;
-			// 
-			// button508
-			// 
-			this.button508.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button508.BackgroundImage")));
-			this.button508.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.button508.Location = new System.Drawing.Point(6, 177);
-			this.button508.Name = "button508";
-			this.button508.Size = new System.Drawing.Size(63, 61);
-			this.button508.TabIndex = 61;
-			this.button508.UseVisualStyleBackColor = true;
-			// 
 			// pictureBox8
 			// 
 			this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-			this.pictureBox8.Location = new System.Drawing.Point(425, 89);
+			this.pictureBox8.Location = new System.Drawing.Point(416, 130);
 			this.pictureBox8.Name = "pictureBox8";
 			this.pictureBox8.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1615,7 +1317,7 @@ namespace RBXLegacyLauncher
 			// pictureBox7
 			// 
 			this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-			this.pictureBox7.Location = new System.Drawing.Point(425, 71);
+			this.pictureBox7.Location = new System.Drawing.Point(416, 109);
 			this.pictureBox7.Name = "pictureBox7";
 			this.pictureBox7.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1625,22 +1327,12 @@ namespace RBXLegacyLauncher
 			// pictureBox6
 			// 
 			this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-			this.pictureBox6.Location = new System.Drawing.Point(425, 53);
+			this.pictureBox6.Location = new System.Drawing.Point(416, 87);
 			this.pictureBox6.Name = "pictureBox6";
 			this.pictureBox6.Size = new System.Drawing.Size(16, 16);
 			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox6.TabIndex = 58;
 			this.pictureBox6.TabStop = false;
-			// 
-			// label4
-			// 
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(1, 153);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(125, 20);
-			this.label4.TabIndex = 56;
-			this.label4.Text = "Classic Clothing";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label9
 			// 
@@ -1670,7 +1362,7 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(6, 129);
+			this.textBox3.Location = new System.Drawing.Point(6, 150);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(164, 20);
 			this.textBox3.TabIndex = 49;
@@ -1679,7 +1371,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(3, 112);
+			this.label3.Location = new System.Drawing.Point(3, 132);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(49, 15);
 			this.label3.TabIndex = 52;
@@ -1687,7 +1379,7 @@ namespace RBXLegacyLauncher
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(3, 71);
+			this.label2.Location = new System.Drawing.Point(3, 80);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(42, 15);
 			this.label2.TabIndex = 51;
@@ -1695,7 +1387,7 @@ namespace RBXLegacyLauncher
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(6, 88);
+			this.textBox2.Location = new System.Drawing.Point(6, 98);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(164, 20);
 			this.textBox2.TabIndex = 48;
@@ -1711,6 +1403,17 @@ namespace RBXLegacyLauncher
 			this.button4.Text = "3D Preview";
 			this.button4.UseVisualStyleBackColor = true;
 			this.button4.Click += new System.EventHandler(this.Button4Click);
+			// 
+			// label4
+			// 
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.Color.Red;
+			this.label4.Location = new System.Drawing.Point(6, 173);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(426, 74);
+			this.label4.TabIndex = 61;
+			this.label4.Text = "Clothing does NOT work offline.";
+			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// CharacterCustomization
 			// 
@@ -1740,28 +1443,14 @@ namespace RBXLegacyLauncher
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			this.tabPage7.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
 			this.tabPage4.ResumeLayout(false);
 			this.tabPage4.PerformLayout();
-			this.panel1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.TabPage tabPage4;
-		private System.Windows.Forms.ListBox listBox8;
-		private System.Windows.Forms.ListBox listBox7;
-		private System.Windows.Forms.ListBox listBox6;
-		private System.Windows.Forms.PictureBox pictureBox11;
-		private System.Windows.Forms.PictureBox pictureBox10;
-		private System.Windows.Forms.PictureBox pictureBox9;
-		private System.Windows.Forms.Button button9;
-		private System.Windows.Forms.Button button7;
-		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Panel Page1Panel;
 		private System.Windows.Forms.Button ColorButton54;
 		private System.Windows.Forms.Button ColorButton45;
@@ -1798,21 +1487,6 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.Panel Page2Panel;
 		private System.Windows.Forms.Button button5;
 		private System.Windows.Forms.Button button6;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.RadioButton radioButton5;
-		private System.Windows.Forms.RadioButton radioButton6;
-		private System.Windows.Forms.RadioButton radioButton7;
-		private System.Windows.Forms.RadioButton radioButton8;
-		private System.Windows.Forms.RadioButton radioButton9;
-		private System.Windows.Forms.Button button508;
-		private System.Windows.Forms.Button button608;
-		private System.Windows.Forms.Button button708;
-		private System.Windows.Forms.Button button908;
-		private System.Windows.Forms.Button button1008;
-		private System.Windows.Forms.Button button1108;
-		private System.Windows.Forms.Button button1208;
-		private System.Windows.Forms.Button button1308;
 		private System.Windows.Forms.PictureBox pictureBox6;
 		private System.Windows.Forms.PictureBox pictureBox7;
 		private System.Windows.Forms.PictureBox pictureBox8;
@@ -1880,7 +1554,6 @@ namespace RBXLegacyLauncher
 		private System.Windows.Forms.Button ResetColorsButton40;
 		private System.Windows.Forms.Button RandColorsButton39;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TabPage tabPage7;
 		private System.Windows.Forms.TabPage tabPage3;
 		private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.Label label5;

@@ -14,18 +14,7 @@ namespace RBXLegacyLauncher
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			if (args.Length == 0)
-			{
-				Application.Run(new MainForm());
-			}
-			else
-			{
-				foreach (string s in args)
-      			{
-        			GlobalVars.SharedArgs = ProcessInput(s);
-      			}
-				Application.Run(new LoaderForm());
-			}
+			Application.Run(new MainForm());
 		}
 		
 	}

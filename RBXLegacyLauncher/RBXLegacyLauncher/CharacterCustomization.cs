@@ -210,120 +210,12 @@ namespace RBXLegacyLauncher
 							pictureBox5.Image = icon5;
 						}
 					}
-					else if (SelectedPart == "Torso")
+					else
 					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
-						if (Directory.Exists(partdir))
-						{
-							listBox5.Items.Clear();
-							DirectoryInfo dinfo = new DirectoryInfo(partdir);
-							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-							foreach( FileInfo file in Files )
-							{
-								if (file.Name.Equals(String.Empty))
-								{
-									continue;
-								}
-								
-								listBox5.Items.Add(file.Name);
-							}
-							listBox5.SelectedItem = GlobalVars.TorsoID;
-							listBox5.Enabled = true;
-							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.TorsoID.Replace(".rbxm", "") + ".png");
-							pictureBox5.Image = icon5;
-						}
-					}
-					else if (SelectedPart == "Right Arm")
-					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
-						if (Directory.Exists(partdir))
-						{
-							listBox5.Items.Clear();
-							DirectoryInfo dinfo = new DirectoryInfo(partdir);
-							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-							foreach( FileInfo file in Files )
-							{
-								if (file.Name.Equals(String.Empty))
-								{
-									continue;
-								}
-								
-								listBox5.Items.Add(file.Name);
-							}
-							listBox5.SelectedItem = GlobalVars.RightArmID;
-							listBox5.Enabled = true;
-							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightArmID.Replace(".rbxm", "") + ".png");
-							pictureBox5.Image = icon5;
-						}
-					}
-					else if (SelectedPart == "Left Arm")
-					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
-						if (Directory.Exists(partdir))
-						{
-							listBox5.Items.Clear();
-							DirectoryInfo dinfo = new DirectoryInfo(partdir);
-							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-							foreach( FileInfo file in Files )
-							{
-								if (file.Name.Equals(String.Empty))
-								{
-									continue;
-								}
-								
-								listBox5.Items.Add(file.Name);
-							}
-							listBox5.SelectedItem = GlobalVars.LeftArmID;
-							listBox5.Enabled = true;
-							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftArmID.Replace(".rbxm", "") + ".png");
-							pictureBox5.Image = icon5;
-						}
-					}
-					else if (SelectedPart == "Right Leg")
-					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
-						if (Directory.Exists(partdir))
-						{
-							listBox5.Items.Clear();
-							DirectoryInfo dinfo = new DirectoryInfo(partdir);
-							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-							foreach( FileInfo file in Files )
-							{
-								if (file.Name.Equals(String.Empty))
-								{
-									continue;
-								}
-								
-								listBox5.Items.Add(file.Name);
-							}
-							listBox5.SelectedItem = GlobalVars.RightLegID;
-							listBox5.Enabled = true;
-							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightLegID.Replace(".rbxm", "") + ".png");
-							pictureBox5.Image = icon5;
-						}
-					}
-					else if (SelectedPart == "Left Leg")
-					{
-						partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
-						if (Directory.Exists(partdir))
-						{
-							listBox5.Items.Clear();
-							DirectoryInfo dinfo = new DirectoryInfo(partdir);
-							FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-							foreach( FileInfo file in Files )
-							{
-								if (file.Name.Equals(String.Empty))
-								{
-									continue;
-								}
-								
-								listBox5.Items.Add(file.Name);
-							}
-							listBox5.SelectedItem = GlobalVars.LeftLegID;
-							listBox5.Enabled = true;
-							Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftLegID.Replace(".rbxm", "") + ".png");
-							pictureBox5.Image = icon5;
-						}
+						listBox5.Enabled = false;
+						listBox5.Items.Clear();
+						pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+						pictureBox5.Enabled = false;
 					}
 				}
 				else
@@ -335,9 +227,6 @@ namespace RBXLegacyLauncher
      			listBox2.Items.Clear();
      			listBox3.Items.Clear();
      			listBox4.Items.Clear();
-     			listBox6.Items.Clear();
-				listBox7.Items.Clear();
-				listBox8.Items.Clear();
 			}
      		else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage2"])
      		{
@@ -365,9 +254,6 @@ namespace RBXLegacyLauncher
      			listBox2.Items.Clear();
      			listBox3.Items.Clear();
      			listBox5.Items.Clear();
-     			listBox6.Items.Clear();
-				listBox7.Items.Clear();
-				listBox8.Items.Clear();
      		}
 			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage3"])
      		{
@@ -408,51 +294,6 @@ namespace RBXLegacyLauncher
         		
         		listBox4.Items.Clear();
         		listBox5.Items.Clear();
-        		listBox6.Items.Clear();
-				listBox7.Items.Clear();
-				listBox8.Items.Clear();
-			}
-			else if (tabControl1.SelectedTab == tabControl1.TabPages["tabPage7"])
-     		{
-				string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
-        		if (Directory.Exists(geardir))
-        		{
-        			DirectoryInfo dinfo = new DirectoryInfo(geardir);
-					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-					foreach( FileInfo file in Files )
-					{
-						if (file.Name.Equals(String.Empty))
-						{
-   							continue;
-						}
-					
-						if (file.Name.Equals("BanHammer.rbxm") && GlobalVars.AdminMode != true)
-						{
-   							continue;
-						}
-					
-						listBox8.Items.Add(file.Name);
-   						listBox7.Items.Add(file.Name);
-   						listBox6.Items.Add(file.Name);
-					}
-					listBox8.SelectedItem = GlobalVars.Custom_Gear1;
-					listBox7.SelectedItem = GlobalVars.Custom_Gear2;
-					listBox6.SelectedItem = GlobalVars.Custom_Gear3;
-					listBox8.Enabled = true;
-        			listBox7.Enabled = true;
-        			listBox6.Enabled = true;
-        			Image icon11 = Image.FromFile(geardir + @"\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
-        			pictureBox11.Image = icon11;
-        			Image icon10 = Image.FromFile(geardir + @"\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
-        			pictureBox10.Image = icon10;
-        			Image icon9 = Image.FromFile(geardir + @"\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
-        			pictureBox9.Image = icon9;
-        		}
-     			listBox1.Items.Clear();
-     			listBox2.Items.Clear();
-     			listBox3.Items.Clear();
-     			listBox4.Items.Clear();
-     			listBox5.Items.Clear();
 			}
 			else
 			{
@@ -461,9 +302,6 @@ namespace RBXLegacyLauncher
      			listBox3.Items.Clear();
 				listBox4.Items.Clear();
 				listBox5.Items.Clear();
-				listBox6.Items.Clear();
-				listBox7.Items.Clear();
-				listBox8.Items.Clear();
 			}
 		}
 		
@@ -495,120 +333,12 @@ namespace RBXLegacyLauncher
         				pictureBox5.Image = icon5;
         			}
 				}
-				else if (SelectedPart == "Torso")
+				else
 				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
-					if (Directory.Exists(partdir))
-        			{
-						listBox5.Items.Clear();
-						DirectoryInfo dinfo = new DirectoryInfo(partdir);
-						FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-						foreach( FileInfo file in Files )
-						{
-							if (file.Name.Equals(String.Empty))
-							{
-   								continue;
-							}
-					
-							listBox5.Items.Add(file.Name);
-						}
-						listBox5.SelectedItem = GlobalVars.TorsoID;
-        				listBox5.Enabled = true;
-        				Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.TorsoID.Replace(".rbxm", "") + ".png");
-        				pictureBox5.Image = icon5;
-        			}
-				}
-				else if (SelectedPart == "Right Arm")
-				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
-					if (Directory.Exists(partdir))
-        			{
-						listBox5.Items.Clear();
-						DirectoryInfo dinfo = new DirectoryInfo(partdir);
-						FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-						foreach( FileInfo file in Files )
-						{
-							if (file.Name.Equals(String.Empty))
-							{
-   								continue;
-							}
-					
-							listBox5.Items.Add(file.Name);
-						}
-						listBox5.SelectedItem = GlobalVars.RightArmID;
-        				listBox5.Enabled = true;
-        				Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightArmID.Replace(".rbxm", "") + ".png");
-        				pictureBox5.Image = icon5;
-        			}
-				}
-				else if (SelectedPart == "Left Arm")
-				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
-					if (Directory.Exists(partdir))
-        			{
-						listBox5.Items.Clear();
-						DirectoryInfo dinfo = new DirectoryInfo(partdir);
-						FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-						foreach( FileInfo file in Files )
-						{
-							if (file.Name.Equals(String.Empty))
-							{
-   								continue;
-							}
-					
-							listBox5.Items.Add(file.Name);
-						}
-						listBox5.SelectedItem = GlobalVars.LeftArmID;
-        				listBox5.Enabled = true;
-        				Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftArmID.Replace(".rbxm", "") + ".png");
-        				pictureBox5.Image = icon5;
-        			}
-				}
-				else if (SelectedPart == "Right Leg")
-				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
-					if (Directory.Exists(partdir))
-        			{
-						listBox5.Items.Clear();
-						DirectoryInfo dinfo = new DirectoryInfo(partdir);
-						FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-						foreach( FileInfo file in Files )
-						{
-							if (file.Name.Equals(String.Empty))
-							{
-   								continue;
-							}
-					
-							listBox5.Items.Add(file.Name);
-						}
-						listBox5.SelectedItem = GlobalVars.RightLegID;
-        				listBox5.Enabled = true;
-        				Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightLegID.Replace(".rbxm", "") + ".png");
-        				pictureBox5.Image = icon5;
-        			}
-				}
-				else if (SelectedPart == "Left Leg")
-				{
-					partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
-					if (Directory.Exists(partdir))
-        			{
-						listBox5.Items.Clear();
-						DirectoryInfo dinfo = new DirectoryInfo(partdir);
-						FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-						foreach( FileInfo file in Files )
-						{
-							if (file.Name.Equals(String.Empty))
-							{
-   								continue;
-							}
-					
-							listBox5.Items.Add(file.Name);
-						}
-						listBox5.SelectedItem = GlobalVars.LeftLegID;
-        				listBox5.Enabled = true;
-        				Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftLegID.Replace(".rbxm", "") + ".png");
-        				pictureBox5.Image = icon5;
-        			}
+					listBox5.Enabled = false;
+					listBox5.Items.Clear();
+					pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+					pictureBox5.Enabled = false;
 				}
      		}
      		else
@@ -1302,29 +1032,10 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Torso";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
-     		{
-     			string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
-     			if (Directory.Exists(partdir))
-     			{
-     				listBox5.Items.Clear();
-     				DirectoryInfo dinfo = new DirectoryInfo(partdir);
-     				FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-     				foreach( FileInfo file in Files )
-     				{
-     					if (file.Name.Equals(String.Empty))
-     					{
-     						continue;
-     					}
-     					
-     					listBox5.Items.Add(file.Name);
-     				}
-     				listBox5.SelectedItem = GlobalVars.TorsoID;
-     				listBox5.Enabled = true;
-     				Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.TorsoID.Replace(".rbxm", "") + ".png");
-     				pictureBox5.Image = icon5;
-     			}
-     		}
+			listBox5.Enabled = false;
+			listBox5.Items.Clear();
+			pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+			pictureBox5.Enabled = false;
 		}
 		
 		void RArmButton3Click(object sender, EventArgs e)
@@ -1332,29 +1043,10 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Right Arm";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
-     		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
-				if (Directory.Exists(partdir))
-				{
-					listBox5.Items.Clear();
-					DirectoryInfo dinfo = new DirectoryInfo(partdir);
-					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-					foreach( FileInfo file in Files )
-					{
-						if (file.Name.Equals(String.Empty))
-						{
-							continue;
-						}
-						
-						listBox5.Items.Add(file.Name);
-					}
-					listBox5.SelectedItem = GlobalVars.RightArmID;
-					listBox5.Enabled = true;
-					Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightArmID.Replace(".rbxm", "") + ".png");
-					pictureBox5.Image = icon5;
-				}
-     		}
+			listBox5.Enabled = false;
+			listBox5.Items.Clear();
+			pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+			pictureBox5.Enabled = false;
 		}
 		
 		void LArmButton4Click(object sender, EventArgs e)
@@ -1362,29 +1054,10 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Left Arm";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
-     		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
-				if (Directory.Exists(partdir))
-				{
-					listBox5.Items.Clear();
-					DirectoryInfo dinfo = new DirectoryInfo(partdir);
-					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-					foreach( FileInfo file in Files )
-					{
-						if (file.Name.Equals(String.Empty))
-						{
-							continue;
-						}
-						
-						listBox5.Items.Add(file.Name);
-					}
-					listBox5.SelectedItem = GlobalVars.LeftArmID;
-					listBox5.Enabled = true;
-					Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftArmID.Replace(".rbxm", "") + ".png");
-					pictureBox5.Image = icon5;
-				}
-			}
+			listBox5.Enabled = false;
+			listBox5.Items.Clear();
+			pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+			pictureBox5.Enabled = false;
 		}
 		
 		void RLegButton5Click(object sender, EventArgs e)
@@ -1392,29 +1065,10 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Right Leg";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
-     		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
-				if (Directory.Exists(partdir))
-				{
-					listBox5.Items.Clear();
-					DirectoryInfo dinfo = new DirectoryInfo(partdir);
-					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-					foreach( FileInfo file in Files )
-					{
-						if (file.Name.Equals(String.Empty))
-						{
-							continue;
-						}
-						
-						listBox5.Items.Add(file.Name);
-					}
-					listBox5.SelectedItem = GlobalVars.RightLegID;
-					listBox5.Enabled = true;
-					Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightLegID.Replace(".rbxm", "") + ".png");
-					pictureBox5.Image = icon5;
-				}
-			}
+			listBox5.Enabled = false;
+			listBox5.Items.Clear();
+			pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+			pictureBox5.Enabled = false;
 		}
 		
 		void LLegButton6Click(object sender, EventArgs e)
@@ -1422,29 +1076,10 @@ namespace RBXLegacyLauncher
 			SelectedPart = "Left Leg";
 			PartSelectionLabel2.Text = SelectedPart;
 			
-			if (tabControl2.SelectedTab == tabControl2.TabPages["tabPage6"])
-     		{
-				string partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
-				if (Directory.Exists(partdir))
-				{
-					listBox5.Items.Clear();
-					DirectoryInfo dinfo = new DirectoryInfo(partdir);
-					FileInfo[] Files = dinfo.GetFiles("*.rbxm");
-					foreach( FileInfo file in Files )
-					{
-						if (file.Name.Equals(String.Empty))
-						{
-							continue;
-						}
-						
-						listBox5.Items.Add(file.Name);
-					}
-					listBox5.SelectedItem = GlobalVars.LeftLegID;
-					listBox5.Enabled = true;
-					Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftLegID.Replace(".rbxm", "") + ".png");
-					pictureBox5.Image = icon5;
-				}
-			}
+			listBox5.Enabled = false;
+			listBox5.Items.Clear();
+			pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+			pictureBox5.Enabled = false;
 		}
 		
 		//hats
@@ -1576,55 +1211,12 @@ namespace RBXLegacyLauncher
         			pictureBox5.Image = icon5;
         		}
 			}
-			else if (SelectedPart == "Torso")
+			else
 			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\2";
-				if (Directory.Exists(partdir))
-        		{
-        			GlobalVars.TorsoID = listBox5.SelectedItem.ToString();
-        			Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.TorsoID.Replace(".rbxm", "") + ".png");
-        			pictureBox5.Image = icon5;
-        		}
-			}
-			else if (SelectedPart == "Right Arm")
-			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\3";
-				if (Directory.Exists(partdir))
-        		{
-        			GlobalVars.RightArmID = listBox5.SelectedItem.ToString();
-        			Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightArmID.Replace(".rbxm", "") + ".png");
-        			pictureBox5.Image = icon5;
-        		}
-			}
-			else if (SelectedPart == "Left Arm")
-			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\4";
-				if (Directory.Exists(partdir))
-        		{
-        			GlobalVars.LeftArmID = listBox5.SelectedItem.ToString();
-        			Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftArmID.Replace(".rbxm", "") + ".png");
-        			pictureBox5.Image = icon5;
-        		}
-			}
-			else if (SelectedPart == "Right Leg")
-			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\5";
-				if (Directory.Exists(partdir))
-        		{
-        			GlobalVars.RightLegID = listBox5.SelectedItem.ToString();
-        			Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.RightLegID.Replace(".rbxm", "") + ".png");
-        			pictureBox5.Image = icon5;
-        		}
-			}
-			else if (SelectedPart == "Left Leg")
-			{
-				partdir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\bodies\\6";
-				if (Directory.Exists(partdir))
-        		{
-        			GlobalVars.LeftLegID = listBox5.SelectedItem.ToString();
-        			Image icon5 = Image.FromFile(partdir + "\\" + GlobalVars.LeftLegID.Replace(".rbxm", "") + ".png");
-        			pictureBox5.Image = icon5;
-        		}
+				listBox5.Enabled = false;
+				listBox5.Items.Clear();
+				pictureBox5.Image = Image.FromFile(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\error.png");
+				pictureBox5.Enabled = false;
 			}
 		}
 		
@@ -1661,19 +1253,19 @@ namespace RBXLegacyLauncher
 			string HatIDOffline3 = GlobalVars.Custom_Hat3ID_Offline;
 			if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(" + GlobalVars.UserID + ",'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == true)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(" + GlobalVars.UserID + ",'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == true && GlobalVars.UsesID == false)
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(0,'" + GlobalVars.PlayerName + "','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			else if (GlobalVars.UsesPlayerName == false && GlobalVars.UsesID == false )
 			{
-				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + GlobalVars.TorsoID + "','" + GlobalVars.RightArmID + "','" + GlobalVars.LeftArmID + "','" + GlobalVars.RightLegID + "','" + GlobalVars.LeftLegID + "','" + GlobalVars.Custom_IconType + "');" + quote;
+				args = quote + mapfile + "\" -script \"dofile('" + GlobalVars.DefaultScript + "'); _G.CS3DView(0,'Player','" + HatIDOffline1 + "','" + HatIDOffline2 + "','" + HatIDOffline3 + "'," + GlobalVars.HeadColorID + "," + GlobalVars.TorsoColorID + "," + GlobalVars.LeftArmColorID + "," + GlobalVars.RightArmColorID + "," + GlobalVars.LeftLegColorID + "," + GlobalVars.RightLegColorID + ",'" + GlobalVars.Custom_TShirt + "','" + GlobalVars.Custom_Shirt + "','" + GlobalVars.Custom_Pants + "','" + GlobalVars.FaceID + "','" + GlobalVars.HeadID + "','" + "','" + GlobalVars.Custom_IconType + "');" + quote;
 			}
 			try
 			{
@@ -1683,111 +1275,6 @@ namespace RBXLegacyLauncher
 			{
 				DialogResult result2 = MessageBox.Show("Failed to launch RBXLegacy. (Error: " + ex.Message + ")","RBXLegacy Launcher - Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-		}
-			
-		// relevance
-		// TODO: make it make certain "clothe palletes" appear
-		
- 		void RadioButton5CheckedChanged(object sender, EventArgs e)
-		{
-			GlobalVars.AdTheme = 2008;
-		}
-		
-		void RadioButton6CheckedChanged(object sender, EventArgs e)
-		{
-			GlobalVars.AdTheme = 2009;
-		}
-		
-		void RadioButton7CheckedChanged(object sender, EventArgs e)
-		{
-			GlobalVars.AdTheme = 2010;
-		}
-		
-		void RadioButton8CheckedChanged(object sender, EventArgs e)
-		{
-			GlobalVars.AdTheme = 2011;
-		}
-		
-		void RadioButton9CheckedChanged(object sender, EventArgs e)
-		{
-			GlobalVars.AdTheme = 2012;
-		}
-		
-		void Button9Click(object sender, EventArgs e)
-		{
-			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
-        	if (Directory.Exists(geardir))
-        	{
-        		Random random = new Random();
-				int randomGear1  = random.Next(listBox8.Items.Count);
-				listBox8.SelectedItem = listBox8.Items[randomGear1];
-        		GlobalVars.Custom_Gear1 = listBox8.SelectedItem.ToString();
-        		Image icon1 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
-        		pictureBox11.Image = icon1;
-        		int randomGear2  = random.Next(listBox7.Items.Count);
-				listBox7.SelectedItem = listBox7.Items[randomGear2];
-        		GlobalVars.Custom_Gear2 = listBox7.SelectedItem.ToString();
-        		Image icon2 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
-        		pictureBox10.Image = icon2;
-        		int randomGear3  = random.Next(listBox6.Items.Count);
-				listBox6.SelectedItem = listBox6.Items[randomGear3];
-        		GlobalVars.Custom_Gear3 = listBox6.SelectedItem.ToString();
-        		Image icon3 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
-        		pictureBox9.Image = icon3;
-        	}			
-		}
-		
-		void Button7Click(object sender, EventArgs e)
-		{
-			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
-        	if (Directory.Exists(geardir))
-        	{
-				listBox8.SelectedItem = "NoGear.rbxm";
-        		GlobalVars.Custom_Gear1 = listBox8.SelectedItem.ToString();
-        		Image icon1 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
-        		pictureBox11.Image = icon1;
-				listBox7.SelectedItem = "NoGear.rbxm";
-        		GlobalVars.Custom_Gear2 = listBox7.SelectedItem.ToString();
-        		Image icon2 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
-        		pictureBox10.Image = icon2;
-				listBox6.SelectedItem = "NoGear.rbxm";
-        		GlobalVars.Custom_Gear3 = listBox6.SelectedItem.ToString();
-        		Image icon3 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
-        		pictureBox9.Image = icon3;
-        	}
-		}
-		
-		void ListBox8SelectedIndexChanged(object sender, EventArgs e)
-		{
-			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
-        	if (Directory.Exists(geardir))
-        	{
-        		GlobalVars.Custom_Gear1 = listBox8.SelectedItem.ToString();
-        		Image icon1 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear1.Replace(".rbxm", "") + ".png");
-        		pictureBox11.Image = icon1;
-        	}		
-		}
-		
-		void ListBox7SelectedIndexChanged(object sender, EventArgs e)
-		{
-			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
-        	if (Directory.Exists(geardir))
-        	{
-        		GlobalVars.Custom_Gear2 = listBox7.SelectedItem.ToString();
-        		Image icon2 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear2.Replace(".rbxm", "") + ".png");
-        		pictureBox10.Image = icon2;
-        	}
-		}
-		
-		void ListBox6SelectedIndexChanged(object sender, EventArgs e)
-		{
-			string geardir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\avatar\\gears";
-        	if (Directory.Exists(geardir))
-        	{
-        		GlobalVars.Custom_Gear3 = listBox6.SelectedItem.ToString();
-        		Image icon3 = Image.FromFile(geardir + "\\" + GlobalVars.Custom_Gear3.Replace(".rbxm", "") + ".png");
-        		pictureBox9.Image = icon3;
-        	}
 		}
 	}
 }
