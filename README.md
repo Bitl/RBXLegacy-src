@@ -1,3 +1,5 @@
-### Corescripts
+### Dedicated Server
 
-These are the corescripts for the RBXLegacy clients versions 2011 and 2012. These files are required to make these versions run.
+This is the dedicated server for RBXLegacy.
+
+Work has not started on the dedicated server yet.
