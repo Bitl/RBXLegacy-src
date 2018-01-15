@@ -4,7 +4,7 @@ RBXLegacy - version 2.0
 
 RBXLegacy is a launcher and website for ROBLOX's clients from 2007 - 2012, designed so you can play online and through a Local Area Network.
 
-This is the source code for RBXLegacy's launcher, dedicated server, and site. All of these source files are under the license specified in [LICENSE.MD](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD).
+This is the source code for RBXLegacy's launcher, dedicated server, and site.
 
 ## Installing
 
@@ -22,7 +22,7 @@ And of course, we welcome everyone with new ideas. [You can post your idea in is
 
 ## Licence
 
-RBXLegacy is licenced under the GPL, but some components of it may use different licences.
+RBXLegacy is licenced under the [GPL](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD), but some components of it may use different licences.
 
 Open.NAT is licened under the MIT Licence. Please look in the Open.NAT folder for more information.
 
