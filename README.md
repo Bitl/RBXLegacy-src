@@ -1,5 +1,4 @@
-
-![Logo](https://cdn.discordapp.com/attachments/327072930066333697/349348817423958017/rbxlegacylogo2.png =500x)<br>
+<img src="https://cdn.discordapp.com/attachments/327072930066333697/349348817423958017/rbxlegacylogo2.png" alt="RBXLegacy" style="height: 300px;"/><br>
 RBXLegacy - version 2.0
 ## Overview
 
