@@ -1,11 +1,10 @@
-
-![Logo](https://cdn.discordapp.com/attachments/327072930066333697/349348817423958017/rbxlegacylogo2.png)
-
+<img src="https://cdn.discordapp.com/attachments/327072930066333697/349348817423958017/rbxlegacylogo2.png" alt="RBXLegacy"/><br>
+RBXLegacy - version 2.0
 ## Overview
 
-RBXLegacy is a launcher and website for ROBLOX's clients from 2006 - 2013, designed so you can play offline, online and through LAN.
+RBXLegacy is a launcher and website for ROBLOX's clients from 2007 - 2012, designed so you can play online and through a Local Area Network.
 
-This is the source code for RBXLegacy's launcher, installer, server, and Discord bot. All of these source files (except for the Discord bot) are under the license specified in [LICENSE.MD](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD).
+This is the source code for RBXLegacy's launcher, dedicated server, and site. All of these source files are under the license specified in [LICENSE.MD](https://github.com/Bitl/RBXLegacy-src/blob/master/LICENSE.MD).
 
 ## Installing
 
