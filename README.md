@@ -23,7 +23,7 @@ And of course, we welcome everyone with new ideas. [You can post your idea in is
 
 ## Licence
 
-RBXLegacy is licenced under the GPL, but some components of it may use different licences.
+RBXLegacy is licenced under the MIT Licence.
 
 Open.NAT is licened under the MIT Licence. Please look in the Open.NAT folder for more information.
 
